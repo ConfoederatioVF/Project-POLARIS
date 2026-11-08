@@ -11,30 +11,30 @@ The following is a compiled list of datasets and supplementary materials made av
 
 ## Reports (Literature Reviews).
 
-**I. All Russia.**
-- Migration Period
-  - Settlement Gazetteer
+**I. All of Russia.**
+- [Migration Period](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/1.entire_country/migration_period_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/1.entire_country/migration_period_settlements.pdf)
 
 **II. European Russia**
-- Russian Core Principalities
-  - Settlement Gazetteer
+- [Russian Core Principalities](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/european_russia/russian_core_principalities_areal_masks_and_bins.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/european_russia/russian_core_principalities_settlements.pdf)
 
 **III. North Caucasus**
-- Chechnya & Ingushetia
-  - Settlement Gazetteer
-- Circassia & Ciscaucasia
-  - Settlement Gazetteer
-- Dagestan
-  - Settlement Gazetteer
+- [Chechnya & Ingushetia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/chechnya_ingushetia_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/chechnya_ingushetia_settlements.pdf)
+- [Circassia & Ciscaucasia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/circassia_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/circassia_settlements.pdf)
+- [Dagestan](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/dagestan_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/north_caucasus/dagestan_settlements.pdf)
 
 **IV. Pontic Steppe & Lower Volga.**
-- Lower Volga
-  - Settlement Gazetteer 
-- Pontic Steppe
-  - Settlement Gazetteer
+- [Lower Volga](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/pontic_steppe_and_lower_volga/lower_volga_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/pontic_steppe_and_lower_volga/lower_volga_settlements.pdf)
+- [Pontic Steppe](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/pontic_steppe_and_lower_volga/pontic_steppe_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/pontic_steppe_and_lower_volga/pontic_steppe_settlements.pdf)
 
 **V. Siberia.**
-- Western Siberia
-  - Settlement Gazetteer 
-- Eastern & Pacific Siberia
-  - Settlement Gazetteer 
+- [Western Siberia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_ob_irtysh_steppe_and_yugra_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_ob_irtysh_steppe_and_yugra_settlements.pdf)
+- [Eastern & Pacific Siberia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_settlements.pdf)
