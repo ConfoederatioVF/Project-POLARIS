@@ -8,6 +8,7 @@ Settlement gazetteers are intended for [Stadestér](https://github.com/Confoeder
 
 The following is a compiled list of datasets and supplementary materials made available digitally as part of POLARIS.
 - [IA-RAS](https://github.com/CAD-Preserves/IA-RAS). Russian archaeological sites from 2,6M BC to 1925AD. Managed by _CAD-Preservés_.
+- [Belarus & Ukraine Archaeological Substratum (`sites_belarus_ukraine`)](https://github.com/ConfoederatioVF/Project-POLARIS/tree/main/kievan_rus/sites_belarus_ukraine). 43 437 archaeological site-epoch records across 595 ADM2 raions in Belarus and mainland Ukraine (`10000BC - 1900AD`), harvested from 19 institutional, state-register, GIS, and academic databases (`e-Pamiatka`, `data.gov.ua`, `EENSR 1.0`, `RADON-B`, `p3k14c`, `CalPal`, `AADR`, `Pleiades`, Taras Shevchenko National University of Kyiv & Bilsk ArcGIS FeatureServers, Overpass, and Wikidata).
 
 ## Reports (Literature Reviews).
 
@@ -38,3 +39,13 @@ The following is a compiled list of datasets and supplementary materials made av
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_ob_irtysh_steppe_and_yugra_settlements.pdf)
 - [Eastern & Pacific Siberia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_literature_review.pdf)
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_settlements.pdf)
+
+**VI. Kievan Rus (Pre-Mongol & Devolved Principalities, 10000BC - 1300AD).**
+- [Kiev & Pereyaslavl (Middle Dnieper Core)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/kiev_and_pereyaslavl_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/kiev_and_pereyaslavl_settlements.pdf)
+- [Chernigov & Novgorod-Seversk (Left-Bank Desna, Seym & Lower Sozh)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/chernigov_and_novgorod_seversk_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/chernigov_and_novgorod_seversk_settlements.pdf)
+- [Galicia & Volhynia (South-Western Rus & Ponizia)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/galicia_and_volhynia_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/galicia_and_volhynia_settlements.pdf)
+- [Polotsk, Turov & Belarusian Principalities (North-Western Rus)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/polotsk_turov_and_belarusian_principalities_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/polotsk_turov_and_belarusian_principalities_settlements.pdf)
