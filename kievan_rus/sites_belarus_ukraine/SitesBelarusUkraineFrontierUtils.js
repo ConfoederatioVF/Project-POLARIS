@@ -14,7 +14,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
    */
   global.SitesBelarusUkraineFrontierUtils = class extends SitesIARASResidualKriging {
     /**
-     * Applies a two-stage cross-frontier dasymetric blend and kernel blur across the Belarus/Ukraine-Russia and Ukraine-Crimea borders so that the mosaic transition into sites_IA_RAS is as seamless as the internal Belarus-Ukraine frontier, while preserving Wild Fields steppe sparsity and natural river-corridor structure.
+     * Applies a two-stage cross-frontier dasymetric blend and kernel blur across the Belarus/Ukraine-Russia, Ukraine-Crimea and Ukraine-Moldova (Dniester & Budjak panhandle) borders so that transitions into sites_IA_RAS and Moldova's HYDE 3.5 popc are seamless.
      * @alias SitesBelarusUkraineFrontierUtils.applyDasymetricFrontierBlend
      *
      * @param {Object} arg0_mask_data
@@ -22,6 +22,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
      * @param {Object} arg2_bio_covs
      * @param {string} arg3_rus_raster_path
      * @param {Object} arg4_config
+     * @param {number|Object} [arg5_year_or_period]
      *
      * @returns {Float32Array}
      */
@@ -30,7 +31,8 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       arg1_valid_field,
       arg2_bio_covs,
       arg3_rus_raster_path,
-      arg4_config
+      arg4_config,
+      arg5_year_or_period
     ) {
       //Convert from parameters
       let mask_data = arg0_mask_data;
@@ -38,9 +40,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let bio_covs = arg2_bio_covs;
       let rus_raster_path = arg3_rus_raster_path;
       let config = arg4_config;
-
-      //Guard clause if adjacent Russian raster does not exist
-      if (!rus_raster_path || !fs.existsSync(rus_raster_path)) return valid_field;
+      let year_or_period = arg5_year_or_period;
 
       //Declare local instance variables
       let bfs_dirs = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
@@ -48,27 +48,88 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let bfs_queue = [];
       let blur_px = Math.max(3, (config.kriging_config.frontier_blend_blur_factor || 2)*bio_covs.catchment_px);
       let cell_area = mask_data.cell_land_area;
+      let cov_paths = (config && config.kriging_config && config.kriging_config.covariate_paths) ? config.kriging_config.covariate_paths : {};
       let dist_to_rus;
-      let f_forest = bio_covs.f_forest_smooth;
       let grid_h = mask_data.grid_height;
       let grid_w = mask_data.grid_width;
+      let has_rus = (rus_raster_path && fs.existsSync(rus_raster_path));
+      let hyde_path;
+      let hyde_year = (typeof year_or_period === "number") ? year_or_period : 1000;
       let joint_density;
       let kr_density = new Float32Array(mask_data.valid_cell_count);
       let land_area_grid = mask_data.land_area_grid;
       let macro_px = Math.max(8, (config.kriging_config.frontier_blend_macro_factor || 5)*bio_covs.catchment_px);
       let mask_grid = mask_data.mask_grid;
+      let mda_grid = null;
+      let mda_mask = (bio_covs && bio_covs.mda_mask) ? bio_covs.mda_mask : null;
+      let mda_scale = 1;
       let n_valid = mask_data.valid_cell_count;
       let nearest_rus_gidx;
+      let orig_kr_density;
       let out_field = new Float32Array(mask_data.valid_cell_count);
       let px_to_valid = mask_data.pixel_to_valid_idx;
       let rus_density_grid;
-      let rus_grid;
+      let rus_grid = null;
       let rus_mask;
       let total_pixels = mask_data.grid_width*mask_data.grid_height;
       let valid_indices = mask_data.valid_indices;
       let win_px = Math.max(8, 4*bio_covs.catchment_px);
 
-      rus_grid = this.readGlobalFloat32Raster(rus_raster_path, total_pixels);
+      if (has_rus)
+        rus_grid = this.readGlobalFloat32Raster(rus_raster_path, total_pixels);
+
+      if (mda_mask) {
+        hyde_path = path.join(
+          mask_data.project_root,
+          cov_paths.hyde_popc_folder || "histmap/2.data_cleaning/landuse_HYDE/rasters_scaled_to_global",
+          `popc_${hyde_year}.png`
+        );
+        if (fs.existsSync(hyde_path)) {
+          let local_mod_mask = new Uint8Array(this.getModernUrbanMask(mask_data, config, null));
+          let local_raw_hyde = this.readGlobalFloat32Raster(hyde_path, total_pixels);
+
+          for (let i = 0; i < total_pixels; i++)
+            if (land_area_grid[i] > 0 && local_raw_hyde[i] <= 0 && (mda_mask[i] === 1 || mask_grid[i] === 1))
+              local_mod_mask[i] = 1;
+
+          mda_grid = this.inpaintUrbanMaskGrid(
+            local_raw_hyde,
+            local_mod_mask,
+            land_area_grid,
+            null,
+            grid_w,
+            grid_h,
+            3
+          );
+          if (typeof year_or_period !== "number") {
+            let local_f_area = 0;
+            let local_f_sum = 0;
+            let local_m_area = 0;
+            let local_m_sum = 0;
+
+            for (let i = 0; i < n_valid; i++) {
+              let local_gidx = valid_indices[i];
+              let local_lat = 90 - (Math.floor(local_gidx/grid_w) + 0.5)*(180/grid_h);
+              let local_lon = -180 + ((local_gidx % grid_w) + 0.5)*(360/grid_w);
+
+              if (local_lat < 48.8 && local_lon < 31.2) {
+                local_f_sum += valid_field[i];
+                local_f_area += cell_area[i];
+              }
+            }
+            for (let i = 0; i < total_pixels; i++)
+              if (mda_mask[i] === 1 && mda_grid[i] > 0) {
+                local_m_sum += mda_grid[i];
+                local_m_area += land_area_grid[i];
+              }
+            mda_scale = (local_f_area > 0 && local_m_sum > 0) ?
+              ((local_f_sum/local_f_area)/(local_m_sum/Math.max(1, local_m_area))) : 1;
+          }
+        }
+      }
+
+      if (!has_rus && !mda_grid) return valid_field;
+
       dist_to_rus = new Int16Array(total_pixels);
       dist_to_rus.fill(32000);
       joint_density = new Float32Array(total_pixels);
@@ -77,27 +138,52 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       rus_density_grid = new Float32Array(total_pixels);
       rus_mask = new Uint8Array(total_pixels);
 
-      for (let i = 0; i < n_valid; i++)
-        kr_density[i] = valid_field[i]/Math.max(1, cell_area[i]);
+      for (let i = 0; i < n_valid; i++) {
+        let local_d = valid_field[i]/Math.max(1, cell_area[i]);
+        let local_gidx = valid_indices[i];
 
-      //Identify active Russian/Crimean frontier land pixels from sites_IA_RAS
+        if (mda_grid) {
+          let local_lat = 90 - (Math.floor(local_gidx/grid_w) + 0.5)*(180/grid_h);
+          let local_lon = -180 + ((local_gidx % grid_w) + 0.5)*(360/grid_w);
+
+          //Couple the Budjak panhandle past the Dniester and Moldova (lat < 46.65N, lon < 30.65E) with local urban-masked HYDE 3.5 density before frontier feathering
+          if (local_lat < 46.65 && local_lon < 30.65) {
+            let local_hd = (mda_grid[local_gidx]*mda_scale)/Math.max(1, cell_area[i]);
+
+            if (local_hd > 0)
+              local_d = 0.30*local_d + 0.70*local_hd;
+          }
+        }
+        kr_density[i] = local_d;
+      }
+      orig_kr_density = new Float32Array(kr_density);
+
+      //Identify active Russian/Crimean frontier land pixels (1) and Moldovan HYDE 3.5 land pixels (2)
       for (let i = 0; i < total_pixels; i++)
-        if (mask_grid[i] === 0 && rus_grid[i] > 0 && land_area_grid[i] > 0) {
-          rus_mask[i] = 1;
-          rus_density_grid[i] = rus_grid[i]/Math.max(1, land_area_grid[i]);
-          dist_to_rus[i] = 0;
-          nearest_rus_gidx[i] = i;
-          bfs_queue.push(i);
+        if (mask_grid[i] === 0 && land_area_grid[i] > 0) {
+          if (rus_grid && rus_grid[i] > 0) {
+            rus_mask[i] = 1;
+            rus_density_grid[i] = rus_grid[i]/Math.max(1, land_area_grid[i]);
+            dist_to_rus[i] = 0;
+            nearest_rus_gidx[i] = i;
+            bfs_queue.push(i);
+          } else if (mda_mask && mda_mask[i] === 1 && mda_grid && mda_grid[i] > 0) {
+            rus_mask[i] = 2;
+            rus_density_grid[i] = (mda_grid[i]*mda_scale)/Math.max(1, land_area_grid[i]);
+            dist_to_rus[i] = 0;
+            nearest_rus_gidx[i] = i;
+            bfs_queue.push(i);
+          }
         }
 
-      //Multi-source 8-connected BFS from Russian/Crimean pixels across Belarus/Ukraine land mask
+      //Multi-source 8-connected BFS from Russian/Crimean and Moldovan pixels across Belarus/Ukraine land mask
       for (let i = 0; i < bfs_queue.length; i++) {
         let local_curr = bfs_queue[bfs_head++];
         let local_cx = local_curr % grid_w;
         let local_cy = Math.floor(local_curr/grid_w);
         let local_d = dist_to_rus[local_curr];
 
-        if (local_d >= macro_px + 2) continue;
+        if (local_d >= macro_px + 4) continue;
 
         for (let x = 0; x < bfs_dirs.length; x++) {
           let local_nx = local_cx + bfs_dirs[x][1];
@@ -120,10 +206,16 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
         let local_d = dist_to_rus[valid_indices[i]];
         let local_dens = kr_density[i];
         let local_gidx = valid_indices[i];
+        let local_near_idx = nearest_rus_gidx[local_gidx];
+        let local_is_mda = (local_near_idx >= 0 && rus_mask[local_near_idx] === 2);
+        let local_lat = 90 - (Math.floor(local_gidx/grid_w) + 0.5)*(180/grid_h);
+        let local_lon = -180 + ((local_gidx % grid_w) + 0.5)*(360/grid_w);
+        let local_is_budjak = (local_lat < 46.60 && local_lon < 30.60);
+        let local_eff_macro = (local_is_mda || local_is_budjak) ? (macro_px + 3) : macro_px;
 
-        if (local_d >= 1 && local_d <= macro_px && local_dens > 0 && nearest_rus_gidx[local_gidx] >= 0) {
-          let local_fcx = nearest_rus_gidx[local_gidx] % grid_w;
-          let local_fcy = Math.floor(nearest_rus_gidx[local_gidx]/grid_w);
+        if (local_d >= 1 && local_d <= local_eff_macro && local_dens > 0 && local_near_idx >= 0) {
+          let local_fcx = local_near_idx % grid_w;
+          let local_fcy = Math.floor(local_near_idx/grid_w);
           let local_kr_area = 0;
           let local_kr_pop = 0;
           let local_rus_area = 0;
@@ -139,7 +231,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
                 if (local_nx >= 0 && local_nx < grid_w) {
                   let local_widx = local_ny*grid_w + local_nx;
 
-                  if (rus_mask[local_widx] === 1 && rus_density_grid[local_widx] > 0) {
+                  if (rus_mask[local_widx] >= 1 && rus_density_grid[local_widx] > 0) {
                     let local_a = land_area_grid[local_widx];
 
                     local_rus_area += local_a;
@@ -147,11 +239,11 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
                   } else if (mask_grid[local_widx] === 1 && dist_to_rus[local_widx] <= win_px) {
                     let local_v = px_to_valid[local_widx];
 
-                    if (local_v >= 0 && kr_density[local_v] > 0) {
+                    if (local_v >= 0 && orig_kr_density[local_v] > 0) {
                       let local_a = cell_area[local_v];
 
                       local_kr_area += local_a;
-                      local_kr_pop += local_a*kr_density[local_v];
+                      local_kr_pop += local_a*orig_kr_density[local_v];
                     }
                   }
                 }
@@ -159,10 +251,14 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
           }
 
           if (local_rus_area > 0 && local_kr_area > 0) {
-            let local_alpha = 0.5*(1 + Math.cos(Math.PI*(local_d - 1)/Math.max(1, macro_px)));
+            let local_alpha = 0.5*(1 + Math.cos(Math.PI*(local_d - 1)/Math.max(1, local_eff_macro)));
             let local_kr_mean = local_kr_pop/local_kr_area;
+            let local_max_ratio = (local_is_budjak) ? 6.00 : ((local_is_mda && local_lat < 48.6 && local_lon > 27.0) ? 2.40 : 4.80);
             let local_ratio = (local_rus_pop/local_rus_area)/Math.max(1e-6, local_kr_mean);
-            let local_clamped_ratio = Math.max(0.20, Math.min(4.50, local_ratio));
+            let local_clamped_ratio = Math.max(0.25, Math.min(local_max_ratio, local_ratio));
+
+            if (local_is_budjak)
+              local_alpha = Math.max(0.65, local_alpha);
 
             local_dens = local_dens*Math.pow(local_clamped_ratio, local_alpha);
           }
@@ -173,10 +269,10 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       }
 
       for (let i = 0; i < total_pixels; i++)
-        if (rus_mask[i] === 1)
+        if (rus_mask[i] >= 1)
           joint_density[i] = rus_density_grid[i];
 
-      //Stage 2: Cross-frontier 2D dasymetric kernel blur + immediate boundary continuity across the joint Belarus/Ukraine + Russia/Crimea grid
+      //Stage 2: Cross-frontier 2D dasymetric kernel blur + immediate boundary continuity across the joint Belarus/Ukraine + Russia/Crimea + Moldova grid
       for (let i = 0; i < n_valid; i++) {
         let local_d = dist_to_rus[valid_indices[i]];
         let local_dens = kr_density[i];
@@ -203,13 +299,13 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
                   let local_nidx = local_ny*grid_w + local_nx;
                   let local_nd = joint_density[local_nidx];
 
-                  if (local_nd > 0 && (mask_grid[local_nidx] === 1 || rus_mask[local_nidx] === 1)) {
+                  if (local_nd > 0 && (mask_grid[local_nidx] === 1 || rus_mask[local_nidx] >= 1)) {
                     let local_w = 1/(1 + 0.30*(x*x + y*y));
 
                     local_w_sum += local_w;
                     local_wd_sum += local_w*local_nd;
 
-                    if (rus_mask[local_nidx] === 1) {
+                    if (rus_mask[local_nidx] >= 1) {
                       local_rus_w_sum += local_w;
                       local_rus_wd_sum += local_w*local_nd;
                     }

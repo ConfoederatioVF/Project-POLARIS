@@ -1,0 +1,102 @@
+{
+  // Project POLARIS (population_regional/russia & kievan_rus) Settlement Gazetteer Manifest for population_Stadester
+  gazetteers: [
+    {
+      domain: [100, 1900],
+      key: "migration_period",
+      path: "histmap/1.data_raw/population_regional/russia/1.entire_country/migration_period_settlements.json",
+      priority: 1,
+      region_group: "1.entire_country"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "russian_core_principalities",
+      path: "histmap/1.data_raw/population_regional/russia/european_russia/russian_core_principalities_settlements.json",
+      priority: 2,
+      region_group: "european_russia"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "chechnya_ingushetia",
+      path: "histmap/1.data_raw/population_regional/russia/north_caucasus/chechnya_ingushetia_settlements.json",
+      priority: 2,
+      region_group: "north_caucasus"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "circassia",
+      path: "histmap/1.data_raw/population_regional/russia/north_caucasus/circassia_settlements.json",
+      priority: 2,
+      region_group: "north_caucasus"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "dagestan",
+      path: "histmap/1.data_raw/population_regional/russia/north_caucasus/dagestan_settlements.json",
+      priority: 2,
+      region_group: "north_caucasus"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "lower_volga",
+      path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/lower_volga_settlements.json",
+      priority: 2,
+      region_group: "pontic_steppe_and_lower_volga"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "pontic_steppe",
+      path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/pontic_steppe_settlements.json",
+      priority: 2,
+      region_group: "pontic_steppe_and_lower_volga"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "siberia_ob_irtysh_steppe_and_yugra",
+      path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_ob_irtysh_steppe_and_yugra_settlements.json",
+      priority: 2,
+      region_group: "siberia"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "siberia_yenisei_lena_kolyma_pacific",
+      path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_yenisei_lena_kolyma_pacific_settlements.json",
+      priority: 2,
+      region_group: "siberia"
+    },
+    {
+      domain: [-10000, 1300],
+      key: "chernigov_and_novgorod_seversk",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/chernigov_and_novgorod_seversk_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
+    },
+    {
+      domain: [-10000, 1300],
+      key: "galicia_and_volhynia",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/galicia_and_volhynia_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
+    },
+    {
+      domain: [-10000, 1300],
+      key: "kiev_and_pereyaslavl",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/kiev_and_pereyaslavl_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
+    },
+    {
+      domain: [-10000, 1300],
+      key: "polotsk_turov_and_belarusian_principalities",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/polotsk_turov_and_belarusian_principalities_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
+    }
+  ],
+  merge_options: {
+    exact_coord_match_km: 2.5,
+    haversine_name_match_km: 15.0,
+    override_legacy_up_to_year: 1900
+  }
+}
+

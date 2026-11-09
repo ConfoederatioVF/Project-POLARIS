@@ -66,9 +66,34 @@
     ],
     ukraine_geocode_rgb: [97, 150, 175],
 
-    // Chronological horizons defined by documented East Slavic / Kievan Rus period boundaries (0 to 1400 AD).
+    // Chronological horizons defined by documented East Slavic / Kievan Rus and prehistoric period boundaries (-10000 to 1400 AD).
     // Active periods at each horizon are summed directly in their empirical site-count units.
     chronological_horizons: [
+      {
+        active_periods: ["stone_age"],
+        key: "stone_age_mesolithic_neolithic_horizon",
+        year: -10000
+      },
+      {
+        active_periods: ["stone_age", "eneolithic"],
+        key: "early_eneolithic_horizon",
+        year: -5000
+      },
+      {
+        active_periods: ["stone_age", "eneolithic", "palaeometal", "early_metal_age"],
+        key: "trypillia_mega_site_eneolithic_horizon",
+        year: -3500
+      },
+      {
+        active_periods: ["palaeometal", "early_metal_age", "bronze_age"],
+        key: "bronze_age_horizon",
+        year: -2000
+      },
+      {
+        active_periods: ["iron_age", "classical_antiquity"],
+        key: "scythian_classical_horizon",
+        year: -500
+      },
       {
         active_periods: ["iron_age", "classical_antiquity"],
         key: "late_iron_classical_horizon",
@@ -96,8 +121,9 @@
       }
     ],
 
-    // 15 HYDE benchmark years spanning c. 1 AD (0) to the Mongol Conquests / 1400 AD cutoff
+    // 25 HYDE benchmark years spanning 10000 BC (-10000) to the Mongol Conquests / 1400 AD cutoff
     hyde_years: [
+      -10000, -9000, -8000, -7000, -6000, -5000, -4000, -3000, -2000, -1000,
       0, 100, 200, 300, 400, 500, 600, 700, 800, 900,
       1000, 1100, 1200, 1300, 1400
     ]

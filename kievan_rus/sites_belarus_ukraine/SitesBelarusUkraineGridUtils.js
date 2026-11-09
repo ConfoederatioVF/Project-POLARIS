@@ -450,6 +450,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       let forest_zsum = 0;
       let hyde_rur_1400;
       let maxln_grid;
+      let mda_mask = new Uint8Array(mask_data.grid_width*mask_data.grid_height);
       let mean_maxln = 0;
       let n_raions = raion_data.raion_count;
       let n_valid = mask_data.valid_cell_count;
@@ -473,6 +474,32 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       sub_iso_grid = this.readAscGrid(path.join(root, cov_paths.sub_iso_asc), total_pixels);
       maxln_grid = this.readAscGrid(path.join(root, cov_paths.maxln_asc), total_pixels);
       forest_grid = this.readAscGrid(path.join(root, cov_paths.forest_asc), total_pixels);
+
+      for (let i = 0; i < total_pixels; i++) {
+        let local_iso = Math.floor(Math.round(sub_iso_grid[i])/1000);
+        let local_lat = 90 - (Math.floor(i/mask_data.grid_width) + 0.5)*(180/mask_data.grid_height);
+        let local_lon = -180 + ((i % mask_data.grid_width) + 0.5)*(360/mask_data.grid_width);
+
+        if (
+          mask_data.mask_grid[i] === 0 &&
+          mask_data.land_area_grid[i] > 0 &&
+          local_lat >= 44.0 &&
+          local_lat <= 57.5 &&
+          local_lon >= 20.5 &&
+          local_lon <= 31.5 &&
+          (
+            (mask_data.mda_geocode_mask && mask_data.mda_geocode_mask[i] === 1) ||
+            local_iso === 498 ||
+            local_iso === 642 ||
+            local_iso === 348 ||
+            local_iso === 703 ||
+            local_iso === 616 ||
+            local_iso === 440 ||
+            local_iso === 428 ||
+            local_iso === 233
+          )
+        ) mda_mask[i] = 1;
+      }
 
       hyde_rur_1400 = this.loadUrbanMaskedHYDEPopcRaster(mask_data, 1400, null, config);
 
@@ -513,6 +540,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       for (let i = 0; i < n_valid; i++) {
         let local_f = (forest_grid[valid_indices[i]] > 0) ? 1 : 0;
         let local_gidx = valid_indices[i];
+        let local_lon = -180 + ((local_gidx % mask_data.grid_width) + 0.5)*(360/mask_data.grid_width);
         let local_p = Math.round(sub_iso_grid[local_gidx]);
         let local_pkey = `${local_p}_${local_f}`;
         let local_pid = part_map.get(local_pkey);
@@ -523,7 +551,8 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         }
         part_id[i] = local_pid;
 
-        f_raw[i] = local_f;
+        //Treat the Dniester-Moldova-Budjak Lower Danube corridor (lon < 31.0E) as settled agricultural/maritime territory rather than eastern Wild Fields steppe
+        f_raw[i] = (local_f > 0 || local_lon < 31.0) ? 1 : 0;
         mean_maxln += Math.sqrt(Math.max(0, maxln_grid[local_gidx]));
       }
       mean_maxln = Math.max(1e-4, mean_maxln/n_valid);
@@ -556,12 +585,14 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         eps_steppe: Number(eps_steppe.toFixed(4)),
         f_forest_smooth: f_forest_smooth,
         hyde_rur_1400: hyde_rur_1400,
+        mda_mask: mda_mask,
         meso_px: meso_px,
         part_id: part_id,
         partition_count: next_pid,
         raion_has_any_sites: raion_has_any_sites,
         stad_rur_1900: hyde_rur_1400,
         steppe_envelope: steppe_envelope,
+        sub_iso_grid: sub_iso_grid,
         u_eco: u_eco,
         u_nat: u_nat
       };

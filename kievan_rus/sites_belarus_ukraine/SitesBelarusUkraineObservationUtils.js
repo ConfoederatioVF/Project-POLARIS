@@ -55,6 +55,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
       let land_area_png = PNG.sync.read(fs.readFileSync(path.join(project_root, "histmap", "1.data_raw", "metadata_HYDE", "general_rasters", "land_area.png")));
       let mask_grid;
       let max_bfs_dist = config.kriging_config.coastal_bfs_max_distance_px;
+      let mda_geocode_mask;
       let mean_cell_land_area_km2;
       let pixel_to_valid_idx;
       let rus_feature;
@@ -103,6 +104,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
       dist_grid.fill(255);
       land_area_grid = new Float32Array(total_pixels);
       mask_grid = new Uint8Array(total_pixels);
+      mda_geocode_mask = new Uint8Array(total_pixels);
       pixel_to_valid_idx = new Int32Array(total_pixels);
       pixel_to_valid_idx.fill(-1);
 
@@ -143,6 +145,14 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
             class_grid[local_idx] = 2;
             dist_grid[local_idx] = 0;
             bfs_queue.push(local_idx);
+            if (
+              !(local_r === 20 && local_g === 114 && local_b === 30) &&
+              local_la > 0 &&
+              local_lat >= 44.0 &&
+              local_lat <= 57.5 &&
+              local_lon >= 20.5 &&
+              local_lon <= 31.5
+            ) mda_geocode_mask[local_idx] = 1;
           }
         }
       }
@@ -219,6 +229,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
         grid_width: grid_width,
         land_area_grid: land_area_grid,
         mask_grid: mask_grid,
+        mda_geocode_mask: mda_geocode_mask,
         mean_cell_land_area_km2: mean_cell_land_area_km2,
         pixel_to_valid_idx: pixel_to_valid_idx,
         project_root: project_root,
@@ -726,9 +737,10 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
         }
       }
 
-      //Compute oblast centroids, radii and area-weighted wooded fractions from forest_wwf_cr.asc
+      //Compute oblast centroids, radii, multi-period site amplitude and area-weighted wooded fractions from forest_wwf_cr.asc
       oblast_entries = Array.from(oblast_raions_map.entries());
       for (let i = 0; i < oblast_entries.length; i++) {
+        let local_all_s = 0;
         let local_area = 0;
         let local_fsum = 0;
         let local_obl_id = oblast_entries[i][0];
@@ -741,7 +753,11 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
           let local_a = local_raions[x].effective_area_km2;
           let local_fw = (local_raions[x].wooded_frac !== undefined) ? local_raions[x].wooded_frac : 1;
 
+          if (!local_raions[x].is_frontier_buffer && local_raions[x].lon < 31.0)
+            local_fw = Math.max(local_fw, 0.85);
+
           local_area += local_a;
+          local_all_s += (local_raions[x].total_sites_all_periods || 0);
           local_fsum += local_a*local_fw;
           local_ux += local_a*local_raions[x].ux;
           local_uy += local_a*local_raions[x].uy;
@@ -751,6 +767,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
         let local_norm = Math.sqrt(local_ux*local_ux + local_uy*local_uy + local_uz*local_uz) || 1;
 
         oblast_meta.set(local_obl_id, {
+          all_z: Math.sqrt(Math.max(0, local_all_s/Math.max(1, local_area))),
           area_km2: local_area,
           id: local_obl_id,
           radius_km: Math.sqrt(local_area/Math.PI),
@@ -844,6 +861,10 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
             if (local_r.is_frontier_buffer) continue;
 
             let local_fw = (local_r.wooded_frac !== undefined) ? local_r.wooded_frac : 1;
+
+            if (local_r.lon < 31.0)
+              local_fw = Math.max(local_fw, 0.85);
+
             let local_t = Math.max(0, Math.min(1, local_fw/0.75));
             let local_h = local_t*local_t*(3 - 2*local_t);
             let local_env = local_eps_steppe + (1 - local_eps_steppe)*local_h;
@@ -912,16 +933,23 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
 
           local_eb_mean = local_obl_priors[x] + local_omega*local_diff;
 
+          let local_all_z_obl = Math.max(1e-6, local_obl.all_z || 1);
+          let local_mean_z_obl = Math.max(1e-6, local_obl_means[x]);
+
           for (let y = 0; y < local_obl.raions.length; y++) {
             let local_r = local_obl.raions[y];
+            let local_r_all_z = Math.sqrt(Math.max(0, (local_r.total_sites_all_periods || 0)/Math.max(1, local_r.effective_area_km2)));
             let local_z_new;
             let local_z_raw = local_z[local_r._idx];
 
             if (local_eb_mean <= local_obl_means[x] && local_obl_means[x] > 1e-6) {
               local_z_new = local_z_raw*(local_eb_mean/local_obl_means[x]);
             } else {
-              //Additive/convex upward shift across all raions in the oblast so sparse active raions are never multiplied by 15x
-              local_z_new = 0.5*local_z_raw + 0.5*local_eb_mean;
+              let local_rel_shape = (local_obl_means[x] > 1e-6) ?
+                (0.55*(local_z_raw/local_mean_z_obl) + 0.45*(local_r_all_z/local_all_z_obl)) :
+                (local_r_all_z/local_all_z_obl);
+
+              local_z_new = 0.45*local_z_raw + 0.55*local_eb_mean*Math.max(0.35, local_rel_shape);
             }
 
             local_r.eb_densities[local_pkey] = local_z_new*local_z_new;

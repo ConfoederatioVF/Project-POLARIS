@@ -1,0 +1,146 @@
+{
+  // Project POLARIS (population_regional/russia & kievan_rus) Areal Mask & Dasymetric Calibration Manifest
+  // Used by histmap/3.data_transform/population_Substrata.russia/population_Substrata_russia.js
+  grid_dimensions: [4320, 2160],
+  hyde_years: [
+    -10000, -9000, -8000, -7000, -6000, -5000, -4000, -3000, -2000, -1000,
+    0, 100, 200, 300, 400, 500, 600, 700, 800, 900,
+    1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700,
+    1710, 1720, 1730, 1740, 1750, 1760, 1770, 1780, 1790,
+    1800, 1810, 1820, 1830, 1840, 1850, 1860, 1870, 1880, 1890,
+    1900
+  ],
+
+  substrata_sources: {
+    russia_ia_ras: {
+      domain: [-10000, 1900],
+      rasters_folder: "histmap/1.data_raw/population_regional/russia/1.entire_country/sites_IA_RAS/2.population_rasters"
+    },
+    belarus_ukraine: {
+      domain: [-10000, 1400],
+      post_domain_blend_years: [1400],
+      rasters_folder: "histmap/1.data_raw/population_regional/russia/kievan_rus/sites_belarus_ukraine/2.population_rasters"
+    }
+  },
+
+  smoothing: {
+    border_feather_radius_px: 3,
+    interior_multiplier_blur_radius_px: 4,
+    interior_multiplier_blur_passes: 2,
+    temporal_log_Laplacian_weight: 0.15
+  },
+
+  // Priority 1: Macro-region synthesis across the entire Russian Federation (excl. Kaliningrad) + Crimea (100AD - 1900AD).
+  // Specialist regional masks (Priority 2) override Priority 1 on their respective pixels; Priority 1 calibrates any remaining
+  // macro-zone pixels (e.g. Northern Dvina/Arkhangelsk/Komi/Perm/Middle Volga forest belt) using residual macro-zone targets.
+  macro_mask: {
+    id: "migration_period",
+    domain: [100, 1900],
+    json5_path: "histmap/1.data_raw/population_regional/russia/1.entire_country/migration_period.json5",
+    mask_path: "histmap/1.data_raw/population_regional/russia/1.entire_country/migration_period_areal_mask.png",
+    priority: 1
+  },
+
+  // Priority 2: Specialist regional masks across European Russia, North Caucasus, Pontic Steppe & Lower Volga, Siberia, and Kievan Rus
+  specialist_masks: [
+    {
+      id: "russian_core_principalities",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/european_russia/russian_core_principalities.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/european_russia/russian_core_principalities_areal_mask.png",
+      appanage_mask_path: "histmap/1.data_raw/population_regional/russia/european_russia/russian_core_appanages_areal_mask.png",
+      ecological_mask_path: "histmap/1.data_raw/population_regional/russia/european_russia/russian_core_ecological_zones_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "chechnya_ingushetia",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/chechnya_ingushetia.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/chechnya_ingushetia_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "circassia",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/circassia.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/circassia_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "dagestan",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/dagestan.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/north_caucasus/dagestan_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "lower_volga",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/lower_volga.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/lower_volga_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "pontic_steppe",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/pontic_steppe.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/pontic_steppe_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "siberia_ob_irtysh_steppe_and_yugra",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_ob_irtysh_steppe_and_yugra.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_ob_irtysh_steppe_and_yugra_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "siberia_yenisei_lena_kolyma_pacific",
+      domain: [-10000, 1900],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_yenisei_lena_kolyma_pacific.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/siberia/siberia_yenisei_lena_kolyma_pacific_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "kiev_and_pereyaslavl",
+      domain: [-10000, 1300],
+      domain_group: "belarus_ukraine",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/kiev_and_pereyaslavl.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/kiev_and_pereyaslavl_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "chernigov_and_novgorod_seversk",
+      domain: [-10000, 1300],
+      domain_group: "belarus_ukraine",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/chernigov_and_novgorod_seversk.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/chernigov_and_novgorod_seversk_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "galicia_and_volhynia",
+      domain: [-10000, 1300],
+      domain_group: "belarus_ukraine",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/galicia_and_volhynia.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/galicia_and_volhynia_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "polotsk_turov_and_belarusian_principalities",
+      domain: [-10000, 1300],
+      domain_group: "belarus_ukraine",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/polotsk_turov_and_belarusian_principalities.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/polotsk_turov_and_belarusian_principalities_areal_mask.png",
+      priority: 2
+    }
+  ]
+}
+

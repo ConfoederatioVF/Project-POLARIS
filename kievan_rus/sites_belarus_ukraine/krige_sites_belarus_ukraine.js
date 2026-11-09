@@ -550,11 +550,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           local_field[x] = local_field[x]*local_final_scale;
 
         local_field = SitesBelarusUkraineGridUtils.applyDasymetricFrontierBlend(
-          mask_data,
-          local_field,
-          bio_covs,
-          path.join(rus_kriged_dir, local_period.filename),
-          config
+          mask_data, local_field, bio_covs, path.join(rus_kriged_dir, local_period.filename), config, local_period
         );
 
         SitesBelarusUkraineGridUtils.writeMaskedFloat32GeoPNG(path.join(out_dir, local_period.filename), mask_data, local_field, config);
@@ -783,11 +779,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           pop_field[x] = pop_field[x]*local_scale;
 
         local_blended_field = SitesBelarusUkraineGridUtils.applyDasymetricFrontierBlend(
-          mask_data,
-          pop_field,
-          bio_covs,
-          path.join(rus_pop_dir, `popc_${local_year}.png`),
-          config
+          mask_data, pop_field, bio_covs, path.join(rus_pop_dir, `popc_${local_year}.png`), config, local_year
         );
 
         for (let x = 0; x < n_valid; x++)
