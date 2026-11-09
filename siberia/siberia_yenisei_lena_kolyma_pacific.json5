@@ -24,8 +24,8 @@
     3951,
     5294,
   ],
-  total_area_km2: 10102944,
-  total_pixels: 261210,
+  total_area_km2: 10102099,
+  total_pixels: 261143,
   regions: {
     II_1_altai_sayan_minusinsk_tuva: {
       name: 'Region II-1: Altai-Sayan, Minusinsk Basin & Tuva',
@@ -162,8 +162,8 @@
         180,
         233,
       ],
-      area_km2: 1956591,
-      pixel_count: 61540,
+      area_km2: 1958259,
+      pixel_count: 61597,
       population: {
         '0': 8200,
         '100': 8360,
@@ -354,8 +354,8 @@
         114,
         178,
       ],
-      area_km2: 2164554,
-      pixel_count: 67017,
+      area_km2: 2162041,
+      pixel_count: 66893,
       population: {
         '0': 9000,
         '100': 9200,

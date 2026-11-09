@@ -6,7 +6,7 @@
     1300,
   ],
   mask_file: 'chernigov_and_novgorod_seversk_areal_mask.png',
-  area_km2: 73156,
+  area_km2: 73041,
   total_population: {
     '0': 120000,
     '100': 135000,
@@ -41,8 +41,8 @@
         94,
         0,
       ],
-      area_km2: 23503,
-      pixel_count: 437,
+      area_km2: 22856,
+      pixel_count: 423,
       population: {
         '0': 50400,
         '100': 56700,
@@ -77,8 +77,8 @@
         158,
         115,
       ],
-      area_km2: 32081,
-      pixel_count: 590,
+      area_km2: 31484,
+      pixel_count: 580,
       population: {
         '0': 42000,
         '100': 47250,
@@ -113,8 +113,8 @@
         180,
         233,
       ],
-      area_km2: 17572,
-      pixel_count: 332,
+      area_km2: 18701,
+      pixel_count: 353,
       population: {
         '0': 27600,
         '100': 31050,

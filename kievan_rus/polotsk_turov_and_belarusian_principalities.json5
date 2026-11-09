@@ -6,7 +6,7 @@
     1300,
   ],
   mask_file: 'polotsk_turov_and_belarusian_principalities_areal_mask.png',
-  area_km2: 191578,
+  area_km2: 201192,
   total_population: {
     '0': 240000,
     '100': 255000,
@@ -41,8 +41,8 @@
         114,
         178,
       ],
-      area_km2: 40343,
-      pixel_count: 825,
+      area_km2: 41915,
+      pixel_count: 856,
       population: {
         '0': 65000,
         '100': 69000,
@@ -77,8 +77,8 @@
         159,
         0,
       ],
-      area_km2: 32352,
-      pixel_count: 638,
+      area_km2: 34477,
+      pixel_count: 679,
       population: {
         '0': 36000,
         '100': 38500,
@@ -113,8 +113,8 @@
         158,
         115,
       ],
-      area_km2: 54609,
-      pixel_count: 1034,
+      area_km2: 49261,
+      pixel_count: 923,
       population: {
         '0': 65000,
         '100': 69000,
@@ -149,8 +149,8 @@
         121,
         167,
       ],
-      area_km2: 27583,
-      pixel_count: 537,
+      area_km2: 29482,
+      pixel_count: 573,
       population: {
         '0': 38500,
         '100': 41000,
@@ -185,8 +185,8 @@
         228,
         66,
       ],
-      area_km2: 36691,
-      pixel_count: 705,
+      area_km2: 46057,
+      pixel_count: 886,
       population: {
         '0': 35500,
         '100': 37500,

@@ -19,8 +19,8 @@
     3962,
     3237,
   ],
-  total_area_km2: 2638416,
-  total_pixels: 64147,
+  total_area_km2: 2644071,
+  total_pixels: 64355,
   regions: {
     I_1_trans_ural_tobol_ishim_baraba_steppe: {
       name: 'Province I-1: Trans-Ural, Tobol–Ishim–Irtysh Forest-Steppe & Baraba–Kulunda Steppe',
@@ -159,8 +159,8 @@
         180,
         233,
       ],
-      area_km2: 1439136,
-      pixel_count: 39341,
+      area_km2: 1444791,
+      pixel_count: 39549,
       population: {
         '0': 18000,
         '100': 18150,
