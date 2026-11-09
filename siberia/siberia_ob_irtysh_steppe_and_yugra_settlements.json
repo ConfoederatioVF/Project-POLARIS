@@ -666,8 +666,7 @@
   "Turist-2-Russia": {
     "name": "Turist-2",
     "other_names": [
-      "Турист-2",
-      "Turist II (Novosibirsk)"
+      "Турист-2"
     ],
     "coords": [
       55.01,
@@ -817,9 +816,9 @@
     "country": "Russia",
     "key": "Pavlinovo-Russia",
     "population": {
+      "100": 220,
       "-400": 310,
-      "-200": 290,
-      "100": 220
+      "-200": 290
     }
   },
   "Inberen-IV-Russia": {
@@ -852,9 +851,9 @@
     "country": "Russia",
     "key": "Kolovoye-Russia",
     "population": {
+      "100": 240,
       "-400": 280,
-      "-200": 320,
-      "100": 240
+      "-200": 320
     }
   },
   "Maray-1-Russia": {
@@ -870,9 +869,9 @@
     "country": "Russia",
     "key": "Maray-1-Russia",
     "population": {
+      "100": 190,
       "-400": 220,
-      "-200": 260,
-      "100": 190
+      "-200": 260
     }
   },
   "Likhachevskoye-Russia": {
@@ -888,9 +887,9 @@
     "country": "Russia",
     "key": "Likhachevskoye-Russia",
     "population": {
+      "200": 210,
       "-400": 240,
-      "-100": 280,
-      "200": 210
+      "-100": 280
     }
   },
   "Barkhatovo-Russia": {
@@ -923,9 +922,9 @@
     "country": "Russia",
     "key": "Bogdanovka-Russia",
     "population": {
-      "-300": 290,
       "1": 340,
-      "200": 260
+      "200": 260,
+      "-300": 290
     }
   },
   "Batakovo-Russia": {
@@ -941,9 +940,9 @@
     "country": "Russia",
     "key": "Batakovo-Russia",
     "population": {
-      "-300": 260,
       "1": 310,
-      "200": 240
+      "200": 240,
+      "-300": 260
     }
   },
   "Staro-Lybaevo-Russia": {
@@ -959,9 +958,9 @@
     "country": "Russia",
     "key": "Staro-Lybaevo-Russia",
     "population": {
-      "-300": 230,
       "1": 280,
-      "300": 220
+      "300": 220,
+      "-300": 230
     }
   },
   "Ust-Tartas-Russia": {
@@ -977,9 +976,9 @@
     "country": "Russia",
     "key": "Ust-Tartas-Russia",
     "population": {
-      "-300": 240,
       "1": 270,
-      "300": 210
+      "300": 210,
+      "-300": 240
     }
   },
   "Ust-Polui-Russia": {
@@ -995,9 +994,40 @@
     "country": "Russia",
     "key": "Ust-Polui-Russia",
     "population": {
+      "100": 110,
       "-250": 95,
-      "-100": 140,
-      "100": 110
+      "-100": 140
+    }
+  },
+  "Barsova Gora Iron Age Site-Russia": {
+    "name": "Barsova Gora Iron Age Site",
+    "other_names": [
+      "Barsova Gora Iron Age Site"
+    ],
+    "coords": [
+      61.2747,
+      73.208
+    ],
+    "country": "Russia",
+    "key": "Barsova Gora-Russia",
+    "population": {
+      "-800": 280,
+      "-300": 420
+    }
+  },
+  "Barsova Gora Iron Age Site 2-Russia": {
+    "name": "Barsova Gora Iron Age Site 2",
+    "other_names": [
+      "Barsova Gora Iron Age Site 2"
+    ],
+    "coords": [
+      61.2707,
+      73.204
+    ],
+    "country": "Russia",
+    "key": "Barsova Gora-Russia",
+    "population": {
+      "200": 480
     }
   },
   "Barsova Gora-Russia": {
@@ -1013,11 +1043,24 @@
     "country": "Russia",
     "key": "Barsova Gora-Russia",
     "population": {
-      "-800": 280,
-      "-300": 420,
-      "200": 480,
       "800": 520,
       "1200": 450
+    }
+  },
+  "Sarom-Pugor Iron Age Site-Russia": {
+    "name": "Sarom-Pugor Iron Age Site",
+    "other_names": [
+      "Sarom-Pugor Iron Age Site"
+    ],
+    "coords": [
+      62.184,
+      65.854
+    ],
+    "country": "Russia",
+    "key": "Sarom-Pugor-Russia",
+    "population": {
+      "100": 150,
+      "-300": 120
     }
   },
   "Sarom-Pugor-Russia": {
@@ -1033,9 +1076,23 @@
     "country": "Russia",
     "key": "Sarom-Pugor-Russia",
     "population": {
-      "-300": 120,
-      "100": 150,
       "500": 170
+    }
+  },
+  "Saygatino Iron Age Site-Russia": {
+    "name": "Saygatino Iron Age Site",
+    "other_names": [
+      "Saygatino Iron Age Site"
+    ],
+    "coords": [
+      61.224,
+      73.084
+    ],
+    "country": "Russia",
+    "key": "Saygatino-Russia",
+    "population": {
+      "200": 210,
+      "-200": 160
     }
   },
   "Saygatino-Russia": {
@@ -1051,8 +1108,6 @@
     "country": "Russia",
     "key": "Saygatino-Russia",
     "population": {
-      "-200": 160,
-      "200": 210,
       "800": 240,
       "1200": 220
     }
@@ -1070,9 +1125,9 @@
     "country": "Russia",
     "key": "Bolshoy Log-Russia",
     "population": {
+      "300": 220,
       "-400": 250,
-      "-100": 290,
-      "300": 220
+      "-100": 290
     }
   },
   "Kargat-4-Russia": {
@@ -1105,9 +1160,9 @@
     "country": "Russia",
     "key": "Mayma-1-Russia",
     "population": {
-      "-300": 220,
       "100": 280,
-      "400": 310
+      "400": 310,
+      "-300": 220
     }
   },
   "Manzherok-Russia": {
@@ -1123,9 +1178,40 @@
     "country": "Russia",
     "key": "Manzherok-Russia",
     "population": {
+      "300": 260,
       "-400": 190,
-      "-100": 240,
-      "300": 260
+      "-100": 240
+    }
+  },
+  "Katanda Iron Age Site-Russia": {
+    "name": "Katanda Iron Age Site",
+    "other_names": [
+      "Katanda Iron Age Site"
+    ],
+    "coords": [
+      50.158,
+      86.188
+    ],
+    "country": "Russia",
+    "key": "Katanda-Russia",
+    "population": {
+      "-400": 160,
+      "-200": 210
+    }
+  },
+  "Katanda Iron Age Site 2-Russia": {
+    "name": "Katanda Iron Age Site 2",
+    "other_names": [
+      "Katanda Iron Age Site 2"
+    ],
+    "coords": [
+      50.154,
+      86.184
+    ],
+    "country": "Russia",
+    "key": "Katanda-Russia",
+    "population": {
+      "300": 190
     }
   },
   "Katanda-Russia": {
@@ -1141,10 +1227,23 @@
     "country": "Russia",
     "key": "Katanda-Russia",
     "population": {
-      "-400": 160,
-      "-200": 210,
-      "300": 190,
       "700": 220
+    }
+  },
+  "Berel Iron Age Site-Russia": {
+    "name": "Berel Iron Age Site",
+    "other_names": [
+      "Berel Iron Age Site"
+    ],
+    "coords": [
+      49.374,
+      86.424
+    ],
+    "country": "Russia",
+    "key": "Berel-Russia",
+    "population": {
+      "-400": 180,
+      "-200": 240
     }
   },
   "Berel-Russia": {
@@ -1160,8 +1259,6 @@
     "country": "Russia",
     "key": "Berel-Russia",
     "population": {
-      "-400": 180,
-      "-200": 240,
       "300": 200
     }
   },
@@ -1213,9 +1310,9 @@
     "country": "Russia",
     "key": "Chultukov-Log-Russia",
     "population": {
+      "200": 200,
       "-400": 175,
-      "-100": 220,
-      "200": 200
+      "-100": 220
     }
   },
   "Isker-Russia": {
@@ -1350,7 +1447,7 @@
     ],
     "coords": [
       61.01,
-      62.0
+      62
     ],
     "country": "Russia",
     "key": "Pelym-Russia",
@@ -1786,8 +1883,52 @@
     "key": "Potchevash-Russia",
     "population": {
       "600": 340,
-      "900": 450,
+      "900": 450
+    }
+  },
+  "Isker-Potchevash-Russia": {
+    "name": "Isker-Potchevash",
+    "other_names": [
+      "Isker-Potchevash"
+    ],
+    "coords": [
+      58.184,
+      68.264
+    ],
+    "country": "Russia",
+    "key": "Potchevash-Russia",
+    "population": {
       "1200": 520
+    }
+  },
+  "Suzgun Bronze Age Site-Russia": {
+    "name": "Suzgun Bronze Age Site",
+    "other_names": [
+      "Suzgun Bronze Age Site"
+    ],
+    "coords": [
+      58.148,
+      68.318
+    ],
+    "country": "Russia",
+    "key": "Suzgun-Russia",
+    "population": {
+      "-1200": 240
+    }
+  },
+  "Suzgun Medieval Gorodishche-Russia": {
+    "name": "Suzgun Medieval Gorodishche",
+    "other_names": [
+      "Suzgun Medieval Gorodishche"
+    ],
+    "coords": [
+      58.144,
+      68.314
+    ],
+    "country": "Russia",
+    "key": "Suzgun-Russia",
+    "population": {
+      "1000": 280
     }
   },
   "Suzgun-Russia": {
@@ -1804,8 +1945,6 @@
     "country": "Russia",
     "key": "Suzgun-Russia",
     "population": {
-      "-1200": 240,
-      "1000": 280,
       "1500": 360,
       "1580": 420
     }
@@ -3518,6 +3657,24 @@
       "1900": 6200
     }
   },
+  "Krivoshchekovo-Russia": {
+    "name": "Krivoshchekovo",
+    "other_names": [
+      "Krivoshchekovo"
+    ],
+    "coords": [
+      55.0229,
+      82.9376
+    ],
+    "country": "Russia",
+    "key": "Novonikolayevsk-Russia",
+    "population": {
+      "1700": 280,
+      "1750": 540,
+      "1800": 920,
+      "1850": 1650
+    }
+  },
   "Novonikolayevsk-Russia": {
     "name": "Novonikolayevsk",
     "other_names": [
@@ -3532,10 +3689,6 @@
     "country": "Russia",
     "key": "Novonikolayevsk-Russia",
     "population": {
-      "1700": 280,
-      "1750": 540,
-      "1800": 920,
-      "1850": 1650,
       "1893": 2400,
       "1897": 7832,
       "1900": 18500
@@ -3708,7 +3861,7 @@
       "Новобелокуриха"
     ],
     "coords": [
-      52.0,
+      52,
       84.99
     ],
     "country": "Russia",
@@ -3767,7 +3920,7 @@
       "Kosh-Agach Trading Post"
     ],
     "coords": [
-      50.0,
+      50,
       88.67
     ],
     "country": "Russia",

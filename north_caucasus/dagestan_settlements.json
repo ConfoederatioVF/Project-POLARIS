@@ -1,4 +1,67 @@
 {
+  "Chokh Bronze Age Site-Russia": {
+    "name": "Chokh Bronze Age Site",
+    "other_names": [
+      "Chokh Bronze Age Site"
+    ],
+    "coords": [
+      42.3346,
+      47.0479
+    ],
+    "country": "Russia",
+    "key": "Chokh-Russia",
+    "population": {
+      "-8000": 45,
+      "-6000": 140,
+      "-4000": 250,
+      "-3000": 400
+    }
+  },
+  "Chokh Bronze Age Site 2-Russia": {
+    "name": "Chokh Bronze Age Site 2",
+    "other_names": [
+      "Chokh Bronze Age Site 2"
+    ],
+    "coords": [
+      42.3306,
+      47.0439
+    ],
+    "country": "Russia",
+    "key": "Chokh-Russia",
+    "population": {
+      "-1000": 600
+    }
+  },
+  "Chokh Gorodishche-Russia": {
+    "name": "Chokh Gorodishche",
+    "other_names": [
+      "Chokh Gorodishche"
+    ],
+    "coords": [
+      42.3266,
+      47.0399
+    ],
+    "country": "Russia",
+    "key": "Chokh-Russia",
+    "population": {
+      "600": 900
+    }
+  },
+  "Chokh Medieval Gorodishche-Russia": {
+    "name": "Chokh Medieval Gorodishche",
+    "other_names": [
+      "Chokh Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3226,
+      47.0359
+    ],
+    "country": "Russia",
+    "key": "Chokh-Russia",
+    "population": {
+      "1200": 1400
+    }
+  },
   "Chokh-Russia": {
     "name": "Chokh",
     "other_names": [
@@ -12,18 +75,43 @@
     "country": "Russia",
     "key": "Chokh-Russia",
     "population": {
-      "-8000": 45,
-      "-6000": 140,
-      "-4000": 250,
-      "-3000": 400,
-      "-1000": 600,
-      "600": 900,
-      "1200": 1400,
       "1700": 2100,
       "1800": 2400,
       "1850": 2100,
       "1897": 2630,
       "1900": 2700
+    }
+  },
+  "Rugudja Bronze Age Site-Russia": {
+    "name": "Rugudja Bronze Age Site",
+    "other_names": [
+      "Rugudja Bronze Age Site"
+    ],
+    "coords": [
+      42.283,
+      46.9802
+    ],
+    "country": "Russia",
+    "key": "Rugudja-Russia",
+    "population": {
+      "-6000": 90,
+      "-4000": 180,
+      "-3000": 320
+    }
+  },
+  "Rugudja Medieval Gorodishche-Russia": {
+    "name": "Rugudja Medieval Gorodishche",
+    "other_names": [
+      "Rugudja Medieval Gorodishche"
+    ],
+    "coords": [
+      42.279,
+      46.9762
+    ],
+    "country": "Russia",
+    "key": "Rugudja-Russia",
+    "population": {
+      "1200": 950
     }
   },
   "Rugudja-Russia": {
@@ -38,14 +126,42 @@
     "country": "Russia",
     "key": "Rugudja-Russia",
     "population": {
-      "-6000": 90,
-      "-4000": 180,
-      "-3000": 320,
-      "1200": 950,
       "1700": 1450,
       "1800": 1650,
       "1897": 1820,
       "1900": 1880
+    }
+  },
+  "Mekegi Bronze Age Site-Russia": {
+    "name": "Mekegi Bronze Age Site",
+    "other_names": [
+      "Mekegi Bronze Age Site"
+    ],
+    "coords": [
+      42.3663,
+      47.5386
+    ],
+    "country": "Russia",
+    "key": "Mekegi-Russia",
+    "population": {
+      "-6000": 80,
+      "-4000": 200,
+      "-3000": 350
+    }
+  },
+  "Mekegi Medieval Gorodishche-Russia": {
+    "name": "Mekegi Medieval Gorodishche",
+    "other_names": [
+      "Mekegi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3623,
+      47.5346
+    ],
+    "country": "Russia",
+    "key": "Mekegi-Russia",
+    "population": {
+      "1200": 1100
     }
   },
   "Mekegi-Russia": {
@@ -60,10 +176,6 @@
     "country": "Russia",
     "key": "Mekegi-Russia",
     "population": {
-      "-6000": 80,
-      "-4000": 200,
-      "-3000": 350,
-      "1200": 1100,
       "1700": 2100,
       "1800": 2400,
       "1897": 2540,
@@ -103,6 +215,37 @@
       "-3000": 240
     }
   },
+  "Gapshima Bronze Age Site-Russia": {
+    "name": "Gapshima Bronze Age Site",
+    "other_names": [
+      "Gapshima Bronze Age Site"
+    ],
+    "coords": [
+      42.2024,
+      47.4274
+    ],
+    "country": "Russia",
+    "key": "Gapshima-Russia",
+    "population": {
+      "-4000": 160,
+      "-3000": 290
+    }
+  },
+  "Gapshima Medieval Gorodishche-Russia": {
+    "name": "Gapshima Medieval Gorodishche",
+    "other_names": [
+      "Gapshima Medieval Gorodishche"
+    ],
+    "coords": [
+      42.1984,
+      47.4234
+    ],
+    "country": "Russia",
+    "key": "Gapshima-Russia",
+    "population": {
+      "1200": 850
+    }
+  },
   "Gapshima-Russia": {
     "name": "Gapshima",
     "other_names": [
@@ -115,13 +258,28 @@
     "country": "Russia",
     "key": "Gapshima-Russia",
     "population": {
-      "-4000": 160,
-      "-3000": 290,
-      "1200": 850,
       "1700": 1400,
       "1800": 1550,
       "1897": 1640,
       "1900": 1690
+    }
+  },
+  "Velikent Bronze Age Site-Russia": {
+    "name": "Velikent Bronze Age Site",
+    "other_names": [
+      "Velikent Bronze Age Site"
+    ],
+    "coords": [
+      42.2012,
+      48.0401
+    ],
+    "country": "Russia",
+    "key": "Velikent-Russia",
+    "population": {
+      "-3500": 750,
+      "-3000": 1200,
+      "-2500": 1400,
+      "-2000": 1100
     }
   },
   "Velikent-Russia": {
@@ -136,10 +294,6 @@
     "country": "Russia",
     "key": "Velikent-Russia",
     "population": {
-      "-3500": 750,
-      "-3000": 1200,
-      "-2500": 1400,
-      "-2000": 1100,
       "1700": 900,
       "1800": 1050,
       "1897": 1280,
@@ -163,6 +317,22 @@
       "-2000": 450
     }
   },
+  "Torpakh-Kala Bronze Age Site-Russia": {
+    "name": "Torpakh-Kala Bronze Age Site",
+    "other_names": [
+      "Torpakh-Kala Bronze Age Site"
+    ],
+    "coords": [
+      41.8873,
+      48.3707
+    ],
+    "country": "Russia",
+    "key": "Torpakh-Kala-Russia",
+    "population": {
+      "-3000": 500,
+      "-2000": 600
+    }
+  },
   "Torpakh-Kala-Russia": {
     "name": "Torpakh-Kala",
     "other_names": [
@@ -175,8 +345,6 @@
     "country": "Russia",
     "key": "Torpakh-Kala-Russia",
     "population": {
-      "-3000": 500,
-      "-2000": 600,
       "400": 1800,
       "600": 2500
     }
@@ -197,6 +365,51 @@
       "-2000": 480
     }
   },
+  "Kayakent Bronze Age Site-Russia": {
+    "name": "Kayakent Bronze Age Site",
+    "other_names": [
+      "Kayakent Bronze Age Site"
+    ],
+    "coords": [
+      42.3953,
+      47.9953
+    ],
+    "country": "Russia",
+    "key": "Kayakent-Russia",
+    "population": {
+      "-2000": 550
+    }
+  },
+  "Kayakent Bronze Age Site 2-Russia": {
+    "name": "Kayakent Bronze Age Site 2",
+    "other_names": [
+      "Kayakent Bronze Age Site 2"
+    ],
+    "coords": [
+      42.3913,
+      47.9913
+    ],
+    "country": "Russia",
+    "key": "Kayakent-Russia",
+    "population": {
+      "-1000": 950
+    }
+  },
+  "Kayakent Gorodishche-Russia": {
+    "name": "Kayakent Gorodishche",
+    "other_names": [
+      "Kayakent Gorodishche"
+    ],
+    "coords": [
+      42.3873,
+      47.9873
+    ],
+    "country": "Russia",
+    "key": "Kayakent-Russia",
+    "population": {
+      "600": 1100
+    }
+  },
   "Kayakent-Russia": {
     "name": "Kayakent",
     "other_names": [
@@ -210,9 +423,6 @@
     "country": "Russia",
     "key": "Kayakent-Russia",
     "population": {
-      "-2000": 550,
-      "-1000": 950,
-      "600": 1100,
       "1700": 1600,
       "1800": 1850,
       "1897": 2180,
@@ -236,6 +446,51 @@
       "-1000": 600
     }
   },
+  "Utamysh Bronze Age Site-Russia": {
+    "name": "Utamysh Bronze Age Site",
+    "other_names": [
+      "Utamysh Bronze Age Site"
+    ],
+    "coords": [
+      42.3648,
+      47.8926
+    ],
+    "country": "Russia",
+    "key": "Utamysh-Russia",
+    "population": {
+      "-2000": 450
+    }
+  },
+  "Utamysh Bronze Age Site 2-Russia": {
+    "name": "Utamysh Bronze Age Site 2",
+    "other_names": [
+      "Utamysh Bronze Age Site 2"
+    ],
+    "coords": [
+      42.3608,
+      47.8886
+    ],
+    "country": "Russia",
+    "key": "Utamysh-Russia",
+    "population": {
+      "-1000": 700
+    }
+  },
+  "Utamysh Gorodishche-Russia": {
+    "name": "Utamysh Gorodishche",
+    "other_names": [
+      "Utamysh Gorodishche"
+    ],
+    "coords": [
+      42.3568,
+      47.8846
+    ],
+    "country": "Russia",
+    "key": "Utamysh-Russia",
+    "population": {
+      "800": 1400
+    }
+  },
   "Utamysh-Russia": {
     "name": "Utamysh",
     "other_names": [
@@ -248,13 +503,40 @@
     "country": "Russia",
     "key": "Utamysh-Russia",
     "population": {
-      "-2000": 450,
-      "-1000": 700,
-      "800": 1400,
       "1700": 2800,
       "1800": 2200,
       "1897": 1960,
       "1900": 2020
+    }
+  },
+  "Khorochoi Bronze Age Site-Russia": {
+    "name": "Khorochoi Bronze Age Site",
+    "other_names": [
+      "Khorochoi Bronze Age Site"
+    ],
+    "coords": [
+      42.7413,
+      46.158
+    ],
+    "country": "Russia",
+    "key": "Khorochoi-Russia",
+    "population": {
+      "-1500": 350
+    }
+  },
+  "Khorochoi Bronze Age Site 2-Russia": {
+    "name": "Khorochoi Bronze Age Site 2",
+    "other_names": [
+      "Khorochoi Bronze Age Site 2"
+    ],
+    "coords": [
+      42.7373,
+      46.154
+    ],
+    "country": "Russia",
+    "key": "Khorochoi-Russia",
+    "population": {
+      "-1000": 480
     }
   },
   "Khorochoi-Russia": {
@@ -269,11 +551,54 @@
     "country": "Russia",
     "key": "Khorochoi-Russia",
     "population": {
-      "-1500": 350,
-      "-1000": 480,
       "1700": 750,
       "1897": 890,
       "1900": 920
+    }
+  },
+  "Gagatli Bronze Age Site-Russia": {
+    "name": "Gagatli Bronze Age Site",
+    "other_names": [
+      "Gagatli Bronze Age Site"
+    ],
+    "coords": [
+      42.7287,
+      46.2453
+    ],
+    "country": "Russia",
+    "key": "Gagatli-Russia",
+    "population": {
+      "-1500": 380
+    }
+  },
+  "Gagatli Bronze Age Site 2-Russia": {
+    "name": "Gagatli Bronze Age Site 2",
+    "other_names": [
+      "Gagatli Bronze Age Site 2"
+    ],
+    "coords": [
+      42.7247,
+      46.2413
+    ],
+    "country": "Russia",
+    "key": "Gagatli-Russia",
+    "population": {
+      "-1000": 520
+    }
+  },
+  "Gagatli Medieval Gorodishche-Russia": {
+    "name": "Gagatli Medieval Gorodishche",
+    "other_names": [
+      "Gagatli Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7207,
+      46.2373
+    ],
+    "country": "Russia",
+    "key": "Gagatli-Russia",
+    "population": {
+      "1200": 900
     }
   },
   "Gagatli-Russia": {
@@ -288,13 +613,56 @@
     "country": "Russia",
     "key": "Gagatli-Russia",
     "population": {
-      "-1500": 380,
-      "-1000": 520,
-      "1200": 900,
       "1700": 1500,
       "1800": 1650,
       "1897": 1790,
       "1900": 1850
+    }
+  },
+  "Irganay Bronze Age Site-Russia": {
+    "name": "Irganay Bronze Age Site",
+    "other_names": [
+      "Irganay Bronze Age Site"
+    ],
+    "coords": [
+      42.6287,
+      46.912
+    ],
+    "country": "Russia",
+    "key": "Irganay-Russia",
+    "population": {
+      "-2500": 420,
+      "-1500": 600
+    }
+  },
+  "Irganay Bronze Age Site 2-Russia": {
+    "name": "Irganay Bronze Age Site 2",
+    "other_names": [
+      "Irganay Bronze Age Site 2"
+    ],
+    "coords": [
+      42.6247,
+      46.908
+    ],
+    "country": "Russia",
+    "key": "Irganay-Russia",
+    "population": {
+      "-1000": 700
+    }
+  },
+  "Irganay Medieval Gorodishche-Russia": {
+    "name": "Irganay Medieval Gorodishche",
+    "other_names": [
+      "Irganay Medieval Gorodishche"
+    ],
+    "coords": [
+      42.6207,
+      46.904
+    ],
+    "country": "Russia",
+    "key": "Irganay-Russia",
+    "population": {
+      "1200": 850
     }
   },
   "Irganay-Russia": {
@@ -309,14 +677,55 @@
     "country": "Russia",
     "key": "Irganay-Russia",
     "population": {
-      "-2500": 420,
-      "-1500": 600,
-      "-1000": 700,
-      "1200": 850,
       "1700": 1300,
       "1800": 1450,
       "1897": 1580,
       "1900": 1630
+    }
+  },
+  "Mogokh Bronze Age Site-Russia": {
+    "name": "Mogokh Bronze Age Site",
+    "other_names": [
+      "Mogokh Bronze Age Site"
+    ],
+    "coords": [
+      42.562,
+      46.762
+    ],
+    "country": "Russia",
+    "key": "Mogokh-Russia",
+    "population": {
+      "-2000": 320
+    }
+  },
+  "Mogokh Bronze Age Site 2-Russia": {
+    "name": "Mogokh Bronze Age Site 2",
+    "other_names": [
+      "Mogokh Bronze Age Site 2"
+    ],
+    "coords": [
+      42.558,
+      46.758
+    ],
+    "country": "Russia",
+    "key": "Mogokh-Russia",
+    "population": {
+      "-1000": 480
+    }
+  },
+  "Mogokh Medieval Gorodishche-Russia": {
+    "name": "Mogokh Medieval Gorodishche",
+    "other_names": [
+      "Mogokh Medieval Gorodishche"
+    ],
+    "coords": [
+      42.554,
+      46.754
+    ],
+    "country": "Russia",
+    "key": "Mogokh-Russia",
+    "population": {
+      "1200": 600
     }
   },
   "Mogokh-Russia": {
@@ -331,12 +740,54 @@
     "country": "Russia",
     "key": "Mogokh-Russia",
     "population": {
-      "-2000": 320,
-      "-1000": 480,
-      "1200": 600,
       "1700": 850,
       "1897": 940,
       "1900": 970
+    }
+  },
+  "Chirkey Bronze Age Site-Russia": {
+    "name": "Chirkey Bronze Age Site",
+    "other_names": [
+      "Chirkey Bronze Age Site"
+    ],
+    "coords": [
+      42.9787,
+      46.9453
+    ],
+    "country": "Russia",
+    "key": "Chirkey-Russia",
+    "population": {
+      "-2000": 400
+    }
+  },
+  "Chirkey Bronze Age Site 2-Russia": {
+    "name": "Chirkey Bronze Age Site 2",
+    "other_names": [
+      "Chirkey Bronze Age Site 2"
+    ],
+    "coords": [
+      42.9747,
+      46.9413
+    ],
+    "country": "Russia",
+    "key": "Chirkey-Russia",
+    "population": {
+      "-1000": 550
+    }
+  },
+  "Chirkey Medieval Gorodishche-Russia": {
+    "name": "Chirkey Medieval Gorodishche",
+    "other_names": [
+      "Chirkey Medieval Gorodishche"
+    ],
+    "coords": [
+      42.9707,
+      46.9373
+    ],
+    "country": "Russia",
+    "key": "Chirkey-Russia",
+    "population": {
+      "1200": 1200
     }
   },
   "Chirkey-Russia": {
@@ -351,14 +802,42 @@
     "country": "Russia",
     "key": "Chirkey-Russia",
     "population": {
-      "-2000": 400,
-      "-1000": 550,
-      "1200": 1200,
       "1700": 2600,
       "1800": 3200,
       "1850": 2400,
       "1897": 3380,
       "1900": 3480
+    }
+  },
+  "Miatli Bronze Age Site-Russia": {
+    "name": "Miatli Bronze Age Site",
+    "other_names": [
+      "Miatli Bronze Age Site"
+    ],
+    "coords": [
+      43.058,
+      46.858
+    ],
+    "country": "Russia",
+    "key": "Miatli-Russia",
+    "population": {
+      "-2500": 350,
+      "-1500": 480
+    }
+  },
+  "Miatli Bronze Age Site 2-Russia": {
+    "name": "Miatli Bronze Age Site 2",
+    "other_names": [
+      "Miatli Bronze Age Site 2"
+    ],
+    "coords": [
+      43.054,
+      46.854
+    ],
+    "country": "Russia",
+    "key": "Miatli-Russia",
+    "population": {
+      "-1000": 520
     }
   },
   "Miatli-Russia": {
@@ -373,9 +852,6 @@
     "country": "Russia",
     "key": "Miatli-Russia",
     "population": {
-      "-2500": 350,
-      "-1500": 480,
-      "-1000": 520,
       "1700": 750,
       "1800": 850,
       "1897": 980,
@@ -414,7 +890,6 @@
     "country": "Russia",
     "key": "Derbent-Russia",
     "population": {
-      "-500": 1500,
       "1": 4500,
       "400": 8000,
       "600": 20000,
@@ -430,7 +905,8 @@
       "1800": 10000,
       "1850": 12500,
       "1897": 14649,
-      "1900": 15200
+      "1900": 15200,
+      "-500": 1500
     }
   },
   "Palasa-Syrt-Russia": {
@@ -450,6 +926,36 @@
       "600": 3200
     }
   },
+  "Urtseki Iron Age Site-Russia": {
+    "name": "Urtseki Iron Age Site",
+    "other_names": [
+      "Urtseki Iron Age Site"
+    ],
+    "coords": [
+      42.6413,
+      47.6247
+    ],
+    "country": "Russia",
+    "key": "Urtseki-Russia",
+    "population": {
+      "-500": 1200
+    }
+  },
+  "Urtseki Iron Age Site 2-Russia": {
+    "name": "Urtseki Iron Age Site 2",
+    "other_names": [
+      "Urtseki Iron Age Site 2"
+    ],
+    "coords": [
+      42.6373,
+      47.6207
+    ],
+    "country": "Russia",
+    "key": "Urtseki-Russia",
+    "population": {
+      "1": 2800
+    }
+  },
   "Urtseki-Russia": {
     "name": "Urtseki",
     "other_names": [
@@ -464,12 +970,25 @@
     "country": "Russia",
     "key": "Urtseki-Russia",
     "population": {
-      "-500": 1200,
-      "1": 2800,
       "400": 4500,
       "600": 7500,
       "700": 8500,
       "800": 1800
+    }
+  },
+  "Tarki Iron Age Site-Russia": {
+    "name": "Tarki Iron Age Site",
+    "other_names": [
+      "Tarki Iron Age Site"
+    ],
+    "coords": [
+      42.9509,
+      47.4979
+    ],
+    "country": "Russia",
+    "key": "Tarki-Russia",
+    "population": {
+      "1": 2000
     }
   },
   "Tarki-Russia": {
@@ -486,7 +1005,6 @@
     "country": "Russia",
     "key": "Tarki-Russia",
     "population": {
-      "1": 2000,
       "600": 6000,
       "700": 18000,
       "800": 12000,
@@ -499,6 +1017,25 @@
       "1850": 4200,
       "1897": 2380,
       "1900": 2450
+    }
+  },
+  "Verkhniy Chir-Yurt Medieval Gorodishche-Russia": {
+    "name": "Verkhniy Chir-Yurt Medieval Gorodishche",
+    "other_names": [
+      "Verkhniy Chir-Yurt Medieval Gorodishche"
+    ],
+    "coords": [
+      43.1707,
+      46.8873
+    ],
+    "country": "Russia",
+    "key": "Verkhniy Chir-Yurt-Russia",
+    "population": {
+      "400": 4000,
+      "600": 14000,
+      "700": 22000,
+      "800": 9000,
+      "1000": 2500
     }
   },
   "Verkhniy Chir-Yurt-Russia": {
@@ -515,15 +1052,26 @@
     "country": "Russia",
     "key": "Verkhniy Chir-Yurt-Russia",
     "population": {
-      "400": 4000,
-      "600": 14000,
-      "700": 22000,
-      "800": 9000,
-      "1000": 2500,
       "1700": 1100,
       "1800": 1350,
       "1897": 1620,
       "1900": 1670
+    }
+  },
+  "Nizhniy Chir-Yurt Gorodishche-Russia": {
+    "name": "Nizhniy Chir-Yurt Gorodishche",
+    "other_names": [
+      "Nizhniy Chir-Yurt Gorodishche"
+    ],
+    "coords": [
+      43.1873,
+      46.904
+    ],
+    "country": "Russia",
+    "key": "Nizhniy Chir-Yurt-Russia",
+    "population": {
+      "600": 2500,
+      "800": 1800
     }
   },
   "Nizhniy Chir-Yurt-Russia": {
@@ -539,13 +1087,43 @@
     "country": "Russia",
     "key": "Nizhniy Chir-Yurt-Russia",
     "population": {
-      "600": 2500,
-      "800": 1800,
       "1700": 1200,
       "1800": 1500,
       "1850": 2100,
       "1897": 2450,
       "1900": 2520
+    }
+  },
+  "Andreyaul Iron Age Site-Russia": {
+    "name": "Andreyaul Iron Age Site",
+    "other_names": [
+      "Andreyaul Iron Age Site"
+    ],
+    "coords": [
+      43.2191,
+      46.6719
+    ],
+    "country": "Russia",
+    "key": "Andreyaul-Russia",
+    "population": {
+      "1": 1800
+    }
+  },
+  "Andreyaul Medieval Gorodishche-Russia": {
+    "name": "Andreyaul Medieval Gorodishche",
+    "other_names": [
+      "Andreyaul Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2151,
+      46.6679
+    ],
+    "country": "Russia",
+    "key": "Andreyaul-Russia",
+    "population": {
+      "600": 5500,
+      "800": 7000,
+      "1000": 3500
     }
   },
   "Andreyaul-Russia": {
@@ -563,10 +1141,6 @@
     "country": "Russia",
     "key": "Andreyaul-Russia",
     "population": {
-      "1": 1800,
-      "600": 5500,
-      "800": 7000,
-      "1000": 3500,
       "1600": 6000,
       "1700": 9000,
       "1750": 7500,
@@ -637,6 +1211,36 @@
       "1900": 1500
     }
   },
+  "Karabudakhkent Iron Age Site-Russia": {
+    "name": "Karabudakhkent Iron Age Site",
+    "other_names": [
+      "Karabudakhkent Iron Age Site"
+    ],
+    "coords": [
+      42.7191,
+      47.5663
+    ],
+    "country": "Russia",
+    "key": "Karabudakhkent-Russia",
+    "population": {
+      "1": 1200
+    }
+  },
+  "Karabudakhkent Gorodishche-Russia": {
+    "name": "Karabudakhkent Gorodishche",
+    "other_names": [
+      "Karabudakhkent Gorodishche"
+    ],
+    "coords": [
+      42.7151,
+      47.5623
+    ],
+    "country": "Russia",
+    "key": "Karabudakhkent-Russia",
+    "population": {
+      "800": 1800
+    }
+  },
   "Karabudakhkent-Russia": {
     "name": "Karabudakhkent",
     "other_names": [
@@ -649,14 +1253,42 @@
     "country": "Russia",
     "key": "Karabudakhkent-Russia",
     "population": {
-      "1": 1200,
-      "800": 1800,
       "1400": 2400,
       "1700": 3800,
       "1800": 4200,
       "1850": 3900,
       "1897": 4520,
       "1900": 4650
+    }
+  },
+  "Gubden Gorodishche-Russia": {
+    "name": "Gubden Gorodishche",
+    "other_names": [
+      "Gubden Gorodishche"
+    ],
+    "coords": [
+      42.5747,
+      47.5663
+    ],
+    "country": "Russia",
+    "key": "Gubden-Russia",
+    "population": {
+      "600": 1400
+    }
+  },
+  "Gubden Medieval Gorodishche-Russia": {
+    "name": "Gubden Medieval Gorodishche",
+    "other_names": [
+      "Gubden Medieval Gorodishche"
+    ],
+    "coords": [
+      42.5707,
+      47.5623
+    ],
+    "country": "Russia",
+    "key": "Gubden-Russia",
+    "population": {
+      "1200": 2200
     }
   },
   "Gubden-Russia": {
@@ -671,13 +1303,27 @@
     "country": "Russia",
     "key": "Gubden-Russia",
     "population": {
-      "600": 1400,
-      "1200": 2200,
       "1700": 4200,
       "1800": 4800,
       "1850": 4500,
       "1897": 5380,
       "1900": 5520
+    }
+  },
+  "Dzhalgan Gorodishche-Russia": {
+    "name": "Dzhalgan Gorodishche",
+    "other_names": [
+      "Dzhalgan Gorodishche"
+    ],
+    "coords": [
+      42.029,
+      48.2401
+    ],
+    "country": "Russia",
+    "key": "Dzhalgan-Russia",
+    "population": {
+      "600": 900,
+      "800": 1100
     }
   },
   "Dzhalgan-Russia": {
@@ -692,11 +1338,25 @@
     "country": "Russia",
     "key": "Dzhalgan-Russia",
     "population": {
-      "600": 900,
-      "800": 1100,
       "1700": 750,
       "1897": 820,
       "1900": 850
+    }
+  },
+  "Mitagi Gorodishche-Russia": {
+    "name": "Mitagi Gorodishche",
+    "other_names": [
+      "Mitagi Gorodishche"
+    ],
+    "coords": [
+      42.0151,
+      48.1568
+    ],
+    "country": "Russia",
+    "key": "Mitagi-Russia",
+    "population": {
+      "600": 850,
+      "800": 1000
     }
   },
   "Mitagi-Russia": {
@@ -711,11 +1371,25 @@
     "country": "Russia",
     "key": "Mitagi-Russia",
     "population": {
-      "600": 850,
-      "800": 1000,
       "1700": 700,
       "1897": 780,
       "1900": 810
+    }
+  },
+  "Kemakh Gorodishche-Russia": {
+    "name": "Kemakh Gorodishche",
+    "other_names": [
+      "Kemakh Gorodishche"
+    ],
+    "coords": [
+      42.0484,
+      48.1929
+    ],
+    "country": "Russia",
+    "key": "Kemakh-Russia",
+    "population": {
+      "600": 800,
+      "800": 950
     }
   },
   "Kemakh-Russia": {
@@ -730,11 +1404,25 @@
     "country": "Russia",
     "key": "Kemakh-Russia",
     "population": {
-      "600": 800,
-      "800": 950,
       "1700": 600,
       "1897": 640,
       "1900": 660
+    }
+  },
+  "Gedzhukh Gorodishche-Russia": {
+    "name": "Gedzhukh Gorodishche",
+    "other_names": [
+      "Gedzhukh Gorodishche"
+    ],
+    "coords": [
+      42.1234,
+      48.079
+    ],
+    "country": "Russia",
+    "key": "Gedzhukh-Russia",
+    "population": {
+      "600": 950,
+      "800": 1200
     }
   },
   "Gedzhukh-Russia": {
@@ -749,11 +1437,25 @@
     "country": "Russia",
     "key": "Gedzhukh-Russia",
     "population": {
-      "600": 950,
-      "800": 1200,
       "1700": 850,
       "1897": 960,
       "1900": 990
+    }
+  },
+  "Bilgadzhik Gorodishche-Russia": {
+    "name": "Bilgadzhik Gorodishche",
+    "other_names": [
+      "Bilgadzhik Gorodishche"
+    ],
+    "coords": [
+      41.8929,
+      48.4068
+    ],
+    "country": "Russia",
+    "key": "Bilgadzhik-Russia",
+    "population": {
+      "600": 1100,
+      "800": 1400
     }
   },
   "Bilgadzhik-Russia": {
@@ -769,8 +1471,6 @@
     "country": "Russia",
     "key": "Bilgadzhik-Russia",
     "population": {
-      "600": 1100,
-      "800": 1400,
       "1897": 1150,
       "1900": 1200
     }
@@ -851,6 +1551,22 @@
       "1900": 2350
     }
   },
+  "Urkarakh Medieval Gorodishche-Russia": {
+    "name": "Urkarakh Medieval Gorodishche",
+    "other_names": [
+      "Urkarakh Medieval Gorodishche"
+    ],
+    "coords": [
+      42.1651,
+      47.6318
+    ],
+    "country": "Russia",
+    "key": "Urkarakh-Russia",
+    "population": {
+      "800": 1100,
+      "1200": 1800
+    }
+  },
   "Urkarakh-Russia": {
     "name": "Urkarakh",
     "other_names": [
@@ -863,8 +1579,6 @@
     "country": "Russia",
     "key": "Urkarakh-Russia",
     "population": {
-      "800": 1100,
-      "1200": 1800,
       "1700": 2600,
       "1800": 2800,
       "1850": 2500,
@@ -892,6 +1606,23 @@
       "1900": 2200
     }
   },
+  "Bashly Medieval Gorodishche-Russia": {
+    "name": "Bashly Medieval Gorodishche",
+    "other_names": [
+      "Bashly Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3012,
+      47.8262
+    ],
+    "country": "Russia",
+    "key": "Bashly-Russia",
+    "population": {
+      "600": 2200,
+      "800": 3000,
+      "1200": 3500
+    }
+  },
   "Bashly-Russia": {
     "name": "Bashly",
     "other_names": [
@@ -906,9 +1637,6 @@
     "country": "Russia",
     "key": "Bashly-Russia",
     "population": {
-      "600": 2200,
-      "800": 3000,
-      "1200": 3500,
       "1700": 6500,
       "1800": 5500,
       "1850": 3200,
@@ -935,6 +1663,21 @@
       "1900": 1520
     }
   },
+  "Dzhavgat Medieval Gorodishche-Russia": {
+    "name": "Dzhavgat Medieval Gorodishche",
+    "other_names": [
+      "Dzhavgat Medieval Gorodishche"
+    ],
+    "coords": [
+      42.1873,
+      47.804
+    ],
+    "country": "Russia",
+    "key": "Dzhavgat-Russia",
+    "population": {
+      "1200": 950
+    }
+  },
   "Dzhavgat-Russia": {
     "name": "Dzhavgat",
     "other_names": [
@@ -947,7 +1690,6 @@
     "country": "Russia",
     "key": "Dzhavgat-Russia",
     "population": {
-      "1200": 950,
       "1700": 1600,
       "1800": 1500,
       "1897": 1320,
@@ -1017,6 +1759,21 @@
       "1900": 2280
     }
   },
+  "Mugi Medieval Gorodishche-Russia": {
+    "name": "Mugi Medieval Gorodishche",
+    "other_names": [
+      "Mugi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.2929,
+      47.3984
+    ],
+    "country": "Russia",
+    "key": "Mugi-Russia",
+    "population": {
+      "1200": 950
+    }
+  },
   "Mugi-Russia": {
     "name": "Mugi",
     "other_names": [
@@ -1029,7 +1786,6 @@
     "country": "Russia",
     "key": "Mugi-Russia",
     "population": {
-      "1200": 950,
       "1700": 1650,
       "1800": 1850,
       "1897": 1980,
@@ -1056,6 +1812,21 @@
       "1900": 2400
     }
   },
+  "Khunzakh Iron Age Site-Russia": {
+    "name": "Khunzakh Iron Age Site",
+    "other_names": [
+      "Khunzakh Iron Age Site"
+    ],
+    "coords": [
+      42.5526,
+      46.709
+    ],
+    "country": "Russia",
+    "key": "Khunzakh-Russia",
+    "population": {
+      "-500": 1200
+    }
+  },
   "Khunzakh-Russia": {
     "name": "Khunzakh",
     "other_names": [
@@ -1070,7 +1841,6 @@
     "country": "Russia",
     "key": "Khunzakh-Russia",
     "population": {
-      "-500": 1200,
       "600": 3800,
       "800": 4500,
       "1000": 5500,
@@ -1081,6 +1851,21 @@
       "1850": 3400,
       "1897": 3250,
       "1900": 3350
+    }
+  },
+  "Gotsatl Medieval Gorodishche-Russia": {
+    "name": "Gotsatl Medieval Gorodishche",
+    "other_names": [
+      "Gotsatl Medieval Gorodishche"
+    ],
+    "coords": [
+      42.529,
+      46.8207
+    ],
+    "country": "Russia",
+    "key": "Gotsatl-Russia",
+    "population": {
+      "1200": 950
     }
   },
   "Gotsatl-Russia": {
@@ -1095,11 +1880,25 @@
     "country": "Russia",
     "key": "Gotsatl-Russia",
     "population": {
-      "1200": 950,
       "1700": 1700,
       "1800": 1900,
       "1897": 1780,
       "1900": 1830
+    }
+  },
+  "Untsukul Medieval Gorodishche-Russia": {
+    "name": "Untsukul Medieval Gorodishche",
+    "other_names": [
+      "Untsukul Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7123,
+      46.7901
+    ],
+    "country": "Russia",
+    "key": "Untsukul-Russia",
+    "population": {
+      "1200": 1100
     }
   },
   "Untsukul-Russia": {
@@ -1114,12 +1913,41 @@
     "country": "Russia",
     "key": "Untsukul-Russia",
     "population": {
-      "1200": 1100,
       "1700": 2200,
       "1800": 2600,
       "1850": 2100,
       "1897": 2740,
       "1900": 2820
+    }
+  },
+  "Gimry Bronze Age Site-Russia": {
+    "name": "Gimry Bronze Age Site",
+    "other_names": [
+      "Gimry Bronze Age Site"
+    ],
+    "coords": [
+      42.7608,
+      46.8441
+    ],
+    "country": "Russia",
+    "key": "Gimry-Russia",
+    "population": {
+      "-1500": 350
+    }
+  },
+  "Gimry Medieval Gorodishche-Russia": {
+    "name": "Gimry Medieval Gorodishche",
+    "other_names": [
+      "Gimry Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7568,
+      46.8401
+    ],
+    "country": "Russia",
+    "key": "Gimry-Russia",
+    "population": {
+      "1200": 800
     }
   },
   "Gimry-Russia": {
@@ -1135,13 +1963,26 @@
     "country": "Russia",
     "key": "Gimry-Russia",
     "population": {
-      "-1500": 350,
-      "1200": 800,
       "1700": 1400,
       "1800": 1650,
       "1850": 1100,
       "1897": 1390,
       "1900": 1430
+    }
+  },
+  "Chirkata Medieval Gorodishche-Russia": {
+    "name": "Chirkata Medieval Gorodishche",
+    "other_names": [
+      "Chirkata Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7707,
+      46.7207
+    ],
+    "country": "Russia",
+    "key": "Chirkata-Russia",
+    "population": {
+      "1200": 900
     }
   },
   "Chirkata-Russia": {
@@ -1156,11 +1997,25 @@
     "country": "Russia",
     "key": "Chirkata-Russia",
     "population": {
-      "1200": 900,
       "1700": 1600,
       "1800": 1800,
       "1897": 1680,
       "1900": 1730
+    }
+  },
+  "Ashilta Medieval Gorodishche-Russia": {
+    "name": "Ashilta Medieval Gorodishche",
+    "other_names": [
+      "Ashilta Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7429,
+      46.7484
+    ],
+    "country": "Russia",
+    "key": "Ashilta-Russia",
+    "population": {
+      "1200": 750
     }
   },
   "Ashilta-Russia": {
@@ -1175,12 +2030,26 @@
     "country": "Russia",
     "key": "Ashilta-Russia",
     "population": {
-      "1200": 750,
       "1700": 1250,
       "1800": 1400,
       "1850": 950,
       "1897": 1120,
       "1900": 1160
+    }
+  },
+  "Igali Medieval Gorodishche-Russia": {
+    "name": "Igali Medieval Gorodishche",
+    "other_names": [
+      "Igali Medieval Gorodishche"
+    ],
+    "coords": [
+      42.6568,
+      46.6679
+    ],
+    "country": "Russia",
+    "key": "Igali-Russia",
+    "population": {
+      "1200": 850
     }
   },
   "Igali-Russia": {
@@ -1195,7 +2064,6 @@
     "country": "Russia",
     "key": "Igali-Russia",
     "population": {
-      "1200": 850,
       "1700": 1450,
       "1800": 1600,
       "1897": 1540,
@@ -1286,6 +2154,21 @@
       "1900": 1010
     }
   },
+  "Ratlub Medieval Gorodishche-Russia": {
+    "name": "Ratlub Medieval Gorodishche",
+    "other_names": [
+      "Ratlub Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3984,
+      46.4734
+    ],
+    "country": "Russia",
+    "key": "Ratlub-Russia",
+    "population": {
+      "1200": 600
+    }
+  },
   "Ratlub-Russia": {
     "name": "Ratlub",
     "other_names": [
@@ -1298,11 +2181,25 @@
     "country": "Russia",
     "key": "Ratlub-Russia",
     "population": {
-      "1200": 600,
       "1700": 950,
       "1800": 1050,
       "1897": 890,
       "1900": 920
+    }
+  },
+  "Tindi Bronze Age Site-Russia": {
+    "name": "Tindi Bronze Age Site",
+    "other_names": [
+      "Tindi Bronze Age Site"
+    ],
+    "coords": [
+      42.4373,
+      46.1373
+    ],
+    "country": "Russia",
+    "key": "Tindi-Russia",
+    "population": {
+      "-2000": 300
     }
   },
   "Tindi-Russia": {
@@ -1317,13 +2214,27 @@
     "country": "Russia",
     "key": "Tindi-Russia",
     "population": {
-      "-2000": 300,
       "1000": 900,
       "1400": 1200,
       "1700": 1650,
       "1800": 1800,
       "1897": 1690,
       "1900": 1740
+    }
+  },
+  "Kvanada Medieval Gorodishche-Russia": {
+    "name": "Kvanada Medieval Gorodishche",
+    "other_names": [
+      "Kvanada Medieval Gorodishche"
+    ],
+    "coords": [
+      42.5401,
+      46.1623
+    ],
+    "country": "Russia",
+    "key": "Kvanada-Russia",
+    "population": {
+      "1200": 650
     }
   },
   "Kvanada-Russia": {
@@ -1338,11 +2249,25 @@
     "country": "Russia",
     "key": "Kvanada-Russia",
     "population": {
-      "1200": 650,
       "1700": 1100,
       "1800": 1200,
       "1897": 1160,
       "1900": 1200
+    }
+  },
+  "Agvali Medieval Gorodishche-Russia": {
+    "name": "Agvali Medieval Gorodishche",
+    "other_names": [
+      "Agvali Medieval Gorodishche"
+    ],
+    "coords": [
+      42.5429,
+      46.1234
+    ],
+    "country": "Russia",
+    "key": "Agvali-Russia",
+    "population": {
+      "1200": 700
     }
   },
   "Agvali-Russia": {
@@ -1357,11 +2282,26 @@
     "country": "Russia",
     "key": "Agvali-Russia",
     "population": {
-      "1200": 700,
       "1700": 1150,
       "1800": 1250,
       "1897": 1240,
       "1900": 1280
+    }
+  },
+  "Botlikh Medieval Gorodishche-Russia": {
+    "name": "Botlikh Medieval Gorodishche",
+    "other_names": [
+      "Botlikh Medieval Gorodishche"
+    ],
+    "coords": [
+      42.6707,
+      46.2207
+    ],
+    "country": "Russia",
+    "key": "Botlikh-Russia",
+    "population": {
+      "800": 900,
+      "1200": 1300
     }
   },
   "Botlikh-Russia": {
@@ -1376,13 +2316,27 @@
     "country": "Russia",
     "key": "Botlikh-Russia",
     "population": {
-      "800": 900,
-      "1200": 1300,
       "1700": 1950,
       "1800": 2200,
       "1850": 1900,
       "1897": 2120,
       "1900": 2190
+    }
+  },
+  "Andi Medieval Gorodishche-Russia": {
+    "name": "Andi Medieval Gorodishche",
+    "other_names": [
+      "Andi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.7707,
+      46.2484
+    ],
+    "country": "Russia",
+    "key": "Andi-Russia",
+    "population": {
+      "800": 950,
+      "1200": 1300
     }
   },
   "Andi-Russia": {
@@ -1397,13 +2351,26 @@
     "country": "Russia",
     "key": "Andi-Russia",
     "population": {
-      "800": 950,
-      "1200": 1300,
       "1700": 2200,
       "1800": 2400,
       "1850": 1700,
       "1897": 2050,
       "1900": 2110
+    }
+  },
+  "Godoberi Medieval Gorodishche-Russia": {
+    "name": "Godoberi Medieval Gorodishche",
+    "other_names": [
+      "Godoberi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.654,
+      46.154
+    ],
+    "country": "Russia",
+    "key": "Godoberi-Russia",
+    "population": {
+      "1200": 600
     }
   },
   "Godoberi-Russia": {
@@ -1418,7 +2385,6 @@
     "country": "Russia",
     "key": "Godoberi-Russia",
     "population": {
-      "1200": 600,
       "1700": 1050,
       "1800": 1150,
       "1897": 1120,
@@ -1445,6 +2411,21 @@
       "1900": 1690
     }
   },
+  "Akhvakh Medieval Gorodishche-Russia": {
+    "name": "Akhvakh Medieval Gorodishche",
+    "other_names": [
+      "Akhvakh Medieval Gorodishche"
+    ],
+    "coords": [
+      42.5484,
+      46.3818
+    ],
+    "country": "Russia",
+    "key": "Akhvakh-Russia",
+    "population": {
+      "1200": 700
+    }
+  },
   "Akhvakh-Russia": {
     "name": "Akhvakh",
     "other_names": [
@@ -1458,11 +2439,25 @@
     "country": "Russia",
     "key": "Akhvakh-Russia",
     "population": {
-      "1200": 700,
       "1700": 1200,
       "1800": 1350,
       "1897": 1310,
       "1900": 1350
+    }
+  },
+  "Kidero Medieval Gorodishche-Russia": {
+    "name": "Kidero Medieval Gorodishche",
+    "other_names": [
+      "Kidero Medieval Gorodishche"
+    ],
+    "coords": [
+      42.1984,
+      45.9623
+    ],
+    "country": "Russia",
+    "key": "Kidero-Russia",
+    "population": {
+      "1200": 550
     }
   },
   "Kidero-Russia": {
@@ -1478,7 +2473,6 @@
     "country": "Russia",
     "key": "Kidero-Russia",
     "population": {
-      "1200": 550,
       "1700": 850,
       "1800": 950,
       "1897": 880,
@@ -1506,6 +2500,21 @@
       "1900": 1900
     }
   },
+  "Gunzib Medieval Gorodishche-Russia": {
+    "name": "Gunzib Medieval Gorodishche",
+    "other_names": [
+      "Gunzib Medieval Gorodishche"
+    ],
+    "coords": [
+      42.1262,
+      46.1873
+    ],
+    "country": "Russia",
+    "key": "Gunzib-Russia",
+    "population": {
+      "1200": 500
+    }
+  },
   "Gunzib-Russia": {
     "name": "Gunzib",
     "other_names": [
@@ -1518,11 +2527,25 @@
     "country": "Russia",
     "key": "Gunzib-Russia",
     "population": {
-      "1200": 500,
       "1700": 800,
       "1800": 850,
       "1897": 790,
       "1900": 810
+    }
+  },
+  "Khvarshi Medieval Gorodishche-Russia": {
+    "name": "Khvarshi Medieval Gorodishche",
+    "other_names": [
+      "Khvarshi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3512,
+      46.0957
+    ],
+    "country": "Russia",
+    "key": "Khvarshi-Russia",
+    "population": {
+      "1200": 550
     }
   },
   "Khvarshi-Russia": {
@@ -1537,7 +2560,6 @@
     "country": "Russia",
     "key": "Khvarshi-Russia",
     "population": {
-      "1200": 550,
       "1700": 850,
       "1800": 900,
       "1897": 840,
@@ -1564,6 +2586,21 @@
       "1900": 940
     }
   },
+  "Vitskhi Medieval Gorodishche-Russia": {
+    "name": "Vitskhi Medieval Gorodishche",
+    "other_names": [
+      "Vitskhi Medieval Gorodishche"
+    ],
+    "coords": [
+      42.2707,
+      47.1207
+    ],
+    "country": "Russia",
+    "key": "Vitskhi-Russia",
+    "population": {
+      "1200": 650
+    }
+  },
   "Vitskhi-Russia": {
     "name": "Vitskhi",
     "other_names": [
@@ -1576,7 +2613,6 @@
     "country": "Russia",
     "key": "Vitskhi-Russia",
     "population": {
-      "1200": 650,
       "1700": 1050,
       "1800": 1100,
       "1897": 980,
@@ -1603,6 +2639,21 @@
       "1900": 1920
     }
   },
+  "Khosrekh Medieval Gorodishche-Russia": {
+    "name": "Khosrekh Medieval Gorodishche",
+    "other_names": [
+      "Khosrekh Medieval Gorodishche"
+    ],
+    "coords": [
+      41.9984,
+      47.2762
+    ],
+    "country": "Russia",
+    "key": "Khosrekh-Russia",
+    "population": {
+      "1200": 800
+    }
+  },
   "Khosrekh-Russia": {
     "name": "Khosrekh",
     "other_names": [
@@ -1615,11 +2666,26 @@
     "country": "Russia",
     "key": "Khosrekh-Russia",
     "population": {
-      "1200": 800,
       "1700": 1450,
       "1800": 1600,
       "1897": 1590,
       "1900": 1640
+    }
+  },
+  "Khuchni Gorodishche-Russia": {
+    "name": "Khuchni Gorodishche",
+    "other_names": [
+      "Khuchni Gorodishche"
+    ],
+    "coords": [
+      41.9568,
+      47.9512
+    ],
+    "country": "Russia",
+    "key": "Khuchni-Russia",
+    "population": {
+      "600": 950,
+      "800": 1200
     }
   },
   "Khuchni-Russia": {
@@ -1634,13 +2700,26 @@
     "country": "Russia",
     "key": "Khuchni-Russia",
     "population": {
-      "600": 950,
-      "800": 1200,
       "1400": 1400,
       "1700": 1800,
       "1800": 1600,
       "1897": 1150,
       "1900": 1190
+    }
+  },
+  "Tinit Medieval Gorodishche-Russia": {
+    "name": "Tinit Medieval Gorodishche",
+    "other_names": [
+      "Tinit Medieval Gorodishche"
+    ],
+    "coords": [
+      41.8873,
+      48.0373
+    ],
+    "country": "Russia",
+    "key": "Tinit-Russia",
+    "population": {
+      "1200": 700
     }
   },
   "Tinit-Russia": {
@@ -1655,11 +2734,25 @@
     "country": "Russia",
     "key": "Tinit-Russia",
     "population": {
-      "1200": 700,
       "1700": 1150,
       "1800": 1250,
       "1897": 1180,
       "1900": 1220
+    }
+  },
+  "Arkit Medieval Gorodishche-Russia": {
+    "name": "Arkit Medieval Gorodishche",
+    "other_names": [
+      "Arkit Medieval Gorodishche"
+    ],
+    "coords": [
+      41.9262,
+      47.9873
+    ],
+    "country": "Russia",
+    "key": "Arkit-Russia",
+    "population": {
+      "1200": 600
     }
   },
   "Arkit-Russia": {
@@ -1674,7 +2767,6 @@
     "country": "Russia",
     "key": "Arkit-Russia",
     "population": {
-      "1200": 600,
       "1700": 950,
       "1800": 1050,
       "1897": 960,
@@ -1747,6 +2839,22 @@
       "1900": 1200
     }
   },
+  "Shinaz Medieval Gorodishche-Russia": {
+    "name": "Shinaz Medieval Gorodishche",
+    "other_names": [
+      "Shinaz Medieval Gorodishche"
+    ],
+    "coords": [
+      41.5734,
+      47.3679
+    ],
+    "country": "Russia",
+    "key": "Shinaz-Russia",
+    "population": {
+      "1000": 950,
+      "1200": 1450
+    }
+  },
   "Shinaz-Russia": {
     "name": "Shinaz",
     "other_names": [
@@ -1759,12 +2867,25 @@
     "country": "Russia",
     "key": "Shinaz-Russia",
     "population": {
-      "1000": 950,
-      "1200": 1450,
       "1700": 1850,
       "1800": 1950,
       "1897": 1680,
       "1900": 1730
+    }
+  },
+  "Luchek Medieval Gorodishche-Russia": {
+    "name": "Luchek Medieval Gorodishche",
+    "other_names": [
+      "Luchek Medieval Gorodishche"
+    ],
+    "coords": [
+      41.5929,
+      47.3068
+    ],
+    "country": "Russia",
+    "key": "Luchek-Russia",
+    "population": {
+      "1200": 750
     }
   },
   "Luchek-Russia": {
@@ -1779,11 +2900,25 @@
     "country": "Russia",
     "key": "Luchek-Russia",
     "population": {
-      "1200": 750,
       "1700": 1200,
       "1800": 1300,
       "1897": 1120,
       "1900": 1160
+    }
+  },
+  "Ikhrek Medieval Gorodishche-Russia": {
+    "name": "Ikhrek Medieval Gorodishche",
+    "other_names": [
+      "Ikhrek Medieval Gorodishche"
+    ],
+    "coords": [
+      41.6568,
+      47.2762
+    ],
+    "country": "Russia",
+    "key": "Ikhrek-Russia",
+    "population": {
+      "1200": 850
     }
   },
   "Ikhrek-Russia": {
@@ -1798,7 +2933,6 @@
     "country": "Russia",
     "key": "Ikhrek-Russia",
     "population": {
-      "1200": 850,
       "1700": 1400,
       "1800": 1550,
       "1897": 1490,
@@ -1869,6 +3003,22 @@
       "1900": 1010
     }
   },
+  "Chirag Medieval Gorodishche-Russia": {
+    "name": "Chirag Medieval Gorodishche",
+    "other_names": [
+      "Chirag Medieval Gorodishche"
+    ],
+    "coords": [
+      41.8207,
+      47.4373
+    ],
+    "country": "Russia",
+    "key": "Chirag-Russia",
+    "population": {
+      "1000": 750,
+      "1200": 1100
+    }
+  },
   "Chirag-Russia": {
     "name": "Chirag",
     "other_names": [
@@ -1881,12 +3031,25 @@
     "country": "Russia",
     "key": "Chirag-Russia",
     "population": {
-      "1000": 750,
-      "1200": 1100,
       "1700": 1350,
       "1800": 1300,
       "1897": 1080,
       "1900": 1110
+    }
+  },
+  "Tpug Medieval Gorodishche-Russia": {
+    "name": "Tpug Medieval Gorodishche",
+    "other_names": [
+      "Tpug Medieval Gorodishche"
+    ],
+    "coords": [
+      41.7707,
+      47.5873
+    ],
+    "country": "Russia",
+    "key": "Tpug-Russia",
+    "population": {
+      "1200": 700
     }
   },
   "Tpug-Russia": {
@@ -1901,7 +3064,6 @@
     "country": "Russia",
     "key": "Tpug-Russia",
     "population": {
-      "1200": 700,
       "1700": 1150,
       "1800": 1250,
       "1897": 1190,
@@ -1928,6 +3090,21 @@
       "1900": 2010
     }
   },
+  "Khiv Medieval Gorodishche-Russia": {
+    "name": "Khiv Medieval Gorodishche",
+    "other_names": [
+      "Khiv Medieval Gorodishche"
+    ],
+    "coords": [
+      41.7596,
+      47.9373
+    ],
+    "country": "Russia",
+    "key": "Khiv-Russia",
+    "population": {
+      "1200": 800
+    }
+  },
   "Khiv-Russia": {
     "name": "Khiv",
     "other_names": [
@@ -1940,7 +3117,6 @@
     "country": "Russia",
     "key": "Khiv-Russia",
     "population": {
-      "1200": 800,
       "1700": 1350,
       "1800": 1500,
       "1897": 1460,
@@ -1986,6 +3162,21 @@
       "1900": 1820
     }
   },
+  "Khnov Medieval Gorodishche-Russia": {
+    "name": "Khnov Medieval Gorodishche",
+    "other_names": [
+      "Khnov Medieval Gorodishche"
+    ],
+    "coords": [
+      41.3929,
+      47.4651
+    ],
+    "country": "Russia",
+    "key": "Khnov-Russia",
+    "population": {
+      "1200": 900
+    }
+  },
   "Khnov-Russia": {
     "name": "Khnov",
     "other_names": [
@@ -1998,11 +3189,25 @@
     "country": "Russia",
     "key": "Khnov-Russia",
     "population": {
-      "1200": 900,
       "1700": 1550,
       "1800": 1750,
       "1897": 1680,
       "1900": 1730
+    }
+  },
+  "Borch Medieval Gorodishche-Russia": {
+    "name": "Borch Medieval Gorodishche",
+    "other_names": [
+      "Borch Medieval Gorodishche"
+    ],
+    "coords": [
+      41.4457,
+      47.3484
+    ],
+    "country": "Russia",
+    "key": "Borch-Russia",
+    "population": {
+      "1200": 850
     }
   },
   "Borch-Russia": {
@@ -2017,7 +3222,6 @@
     "country": "Russia",
     "key": "Borch-Russia",
     "population": {
-      "1200": 850,
       "1700": 1450,
       "1800": 1650,
       "1897": 1540,
@@ -2106,6 +3310,22 @@
       "1900": 9600
     }
   },
+  "Petrovsk-Port Gorodishche-Russia": {
+    "name": "Petrovsk-Port Gorodishche",
+    "other_names": [
+      "Petrovsk-Port Gorodishche"
+    ],
+    "coords": [
+      42.9873,
+      47.504
+    ],
+    "country": "Russia",
+    "key": "Petrovsk-Port-Russia",
+    "population": {
+      "600": 900,
+      "800": 1200
+    }
+  },
   "Petrovsk-Port-Russia": {
     "name": "Petrovsk-Port",
     "other_names": [
@@ -2120,8 +3340,6 @@
     "country": "Russia",
     "key": "Petrovsk-Port-Russia",
     "population": {
-      "600": 900,
-      "800": 1200,
       "1850": 1800,
       "1897": 9753,
       "1900": 10500
@@ -2523,6 +3741,21 @@
       "1900": 1980
     }
   },
+  "Murego Medieval Gorodishche-Russia": {
+    "name": "Murego Medieval Gorodishche",
+    "other_names": [
+      "Murego Medieval Gorodishche"
+    ],
+    "coords": [
+      42.3984,
+      47.6984
+    ],
+    "country": "Russia",
+    "key": "Murego-Russia",
+    "population": {
+      "1200": 850
+    }
+  },
   "Murego-Russia": {
     "name": "Murego",
     "other_names": [
@@ -2535,7 +3768,6 @@
     "country": "Russia",
     "key": "Murego-Russia",
     "population": {
-      "1200": 850,
       "1700": 1550,
       "1800": 1750,
       "1897": 1890,

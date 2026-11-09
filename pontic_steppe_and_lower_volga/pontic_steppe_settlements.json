@@ -487,13 +487,13 @@
     "country": "Russia",
     "key": "Tanais-Russia",
     "population": {
-      "-275": 1800,
-      "-200": 3200,
-      "-50": 2600,
       "1": 2800,
       "150": 4200,
       "240": 3800,
-      "400": 950
+      "400": 950,
+      "-275": 1800,
+      "-200": 3200,
+      "-50": 2600
     }
   },
   "Kobyakovo Gorodishche-Russia": {
@@ -509,7 +509,21 @@
     "key": "Kobyakovo Gorodishche-Russia",
     "population": {
       "-1150": 480,
-      "-950": 320,
+      "-950": 320
+    }
+  },
+  "Kobyakovo Gorodishche Iron Age Site-Russia": {
+    "name": "Kobyakovo Gorodishche Iron Age Site",
+    "other_names": [
+      "Kobyakovo Gorodishche Iron Age Site"
+    ],
+    "coords": [
+      47.2568,
+      39.8437
+    ],
+    "country": "Russia",
+    "key": "Kobyakovo Gorodishche-Russia",
+    "population": {
       "1": 1100,
       "150": 1650,
       "240": 1350
@@ -527,10 +541,10 @@
     "country": "Russia",
     "key": "Nizhne-Gnilovskoye-Russia",
     "population": {
-      "-50": 750,
       "1": 980,
       "150": 1350,
-      "240": 1100
+      "240": 1100,
+      "-50": 750
     }
   },
   "Podazovskoye-Russia": {
@@ -545,10 +559,10 @@
     "country": "Russia",
     "key": "Podazovskoye-Russia",
     "population": {
-      "-50": 550,
       "1": 720,
       "150": 920,
-      "240": 760
+      "240": 760,
+      "-50": 550
     }
   },
   "Krepkoye-Russia": {
@@ -631,10 +645,10 @@
     "country": "Russia",
     "key": "Khapry-Russia",
     "population": {
-      "-400": 380,
       "1": 520,
       "150": 710,
-      "240": 560
+      "240": 560,
+      "-400": 380
     }
   },
   "Mokry Chaltyr-Russia": {
@@ -649,9 +663,9 @@
     "country": "Russia",
     "key": "Mokry Chaltyr-Russia",
     "population": {
-      "-350": 420,
       "1": 540,
-      "150": 690
+      "150": 690,
+      "-350": 420
     }
   },
   "Temernitskoye Gorodishche-Russia": {
@@ -702,14 +716,14 @@
     "country": "Russia",
     "key": "Phanagoria-Russia",
     "population": {
-      "-500": 3200,
-      "-350": 9500,
-      "-100": 8200,
       "1": 7500,
       "150": 7800,
       "400": 4200,
       "750": 3500,
-      "900": 2800
+      "900": 2800,
+      "-500": 3200,
+      "-350": 9500,
+      "-100": 8200
     }
   },
   "Hermonassa-Russia": {
@@ -726,8 +740,6 @@
     "country": "Russia",
     "key": "Hermonassa-Russia",
     "population": {
-      "-550": 1800,
-      "-350": 5000,
       "1": 4000,
       "150": 4200,
       "500": 3100,
@@ -735,7 +747,29 @@
       "900": 7500,
       "1000": 8200,
       "1200": 5200,
-      "1340": 4500
+      "1340": 4500,
+      "-550": 1800,
+      "-350": 5000
+    }
+  },
+  "Gorgippia Iron Age Site-Russia": {
+    "name": "Gorgippia Iron Age Site",
+    "other_names": [
+      "Gorgippia Iron Age Site"
+    ],
+    "coords": [
+      44.8984,
+      37.3207
+    ],
+    "country": "Russia",
+    "key": "Gorgippia-Russia",
+    "population": {
+      "1": 5000,
+      "150": 5500,
+      "235": 4800,
+      "-500": 2100,
+      "-350": 6000,
+      "-100": 5200
     }
   },
   "Gorgippia-Russia": {
@@ -751,12 +785,6 @@
     "country": "Russia",
     "key": "Gorgippia-Russia",
     "population": {
-      "-500": 2100,
-      "-350": 6000,
-      "-100": 5200,
-      "1": 5000,
-      "150": 5500,
-      "235": 4800,
       "1340": 2200
     }
   },
@@ -773,12 +801,12 @@
     "country": "Russia",
     "key": "Kepoi-Russia",
     "population": {
-      "-550": 1100,
-      "-350": 3000,
-      "-100": 2600,
       "1": 2300,
       "150": 2400,
-      "350": 950
+      "350": 950,
+      "-550": 1100,
+      "-350": 3000,
+      "-100": 2600
     }
   },
   "Patraeus-Russia": {
@@ -794,12 +822,12 @@
     "country": "Russia",
     "key": "Patraeus-Russia",
     "population": {
-      "-500": 900,
-      "-350": 2100,
       "1": 1500,
       "150": 1600,
       "400": 850,
-      "800": 1100
+      "800": 1100,
+      "-500": 900,
+      "-350": 2100
     }
   },
   "Korokondama-Russia": {
@@ -815,10 +843,10 @@
     "country": "Russia",
     "key": "Korokondama-Russia",
     "population": {
-      "-500": 550,
-      "-350": 1100,
       "1": 850,
-      "150": 920
+      "150": 920,
+      "-500": 550,
+      "-350": 1100
     }
   },
   "Achilleion-Russia": {
@@ -834,12 +862,12 @@
     "country": "Russia",
     "key": "Achilleion-Russia",
     "population": {
-      "-450": 480,
-      "-350": 850,
       "1": 780,
       "150": 900,
       "500": 1100,
-      "800": 950
+      "800": 950,
+      "-450": 480,
+      "-350": 850
     }
   },
   "Tyramba-Russia": {
@@ -855,10 +883,10 @@
     "country": "Russia",
     "key": "Tyramba-Russia",
     "population": {
-      "-480": 620,
-      "-350": 1100,
       "1": 850,
-      "150": 920
+      "150": 920,
+      "-480": 620,
+      "-350": 1100
     }
   },
   "Cimmeris-Russia": {
@@ -874,10 +902,10 @@
     "country": "Russia",
     "key": "Cimmeris-Russia",
     "population": {
-      "-480": 450,
-      "-350": 750,
       "1": 580,
-      "150": 620
+      "150": 620,
+      "-480": 450,
+      "-350": 750
     }
   },
   "Kimmerikon-Russia": {
@@ -893,11 +921,11 @@
     "country": "Russia",
     "key": "Kimmerikon-Russia",
     "population": {
-      "-450": 650,
-      "-300": 1100,
       "1": 950,
       "150": 1050,
-      "270": 600
+      "270": 600,
+      "-450": 650,
+      "-300": 1100
     }
   },
   "Artezian-Russia": {
@@ -912,11 +940,11 @@
     "country": "Russia",
     "key": "Artezian-Russia",
     "population": {
-      "-300": 520,
-      "-100": 680,
       "1": 750,
       "45": 850,
-      "150": 640
+      "150": 640,
+      "-300": 520,
+      "-100": 680
     }
   },
   "Labrys-Russia": {
@@ -951,10 +979,10 @@
     "country": "Russia",
     "key": "Bata-Russia",
     "population": {
-      "-400": 750,
-      "-250": 950,
       "1": 820,
-      "150": 880
+      "150": 880,
+      "-400": 750,
+      "-250": 950
     }
   },
   "Raevskoye Gorodishche-Russia": {
@@ -969,10 +997,10 @@
     "country": "Russia",
     "key": "Raevskoye Gorodishche-Russia",
     "population": {
-      "-300": 680,
-      "-100": 920,
       "1": 850,
-      "150": 780
+      "150": 780,
+      "-300": 680,
+      "-100": 920
     }
   },
   "Elizavetinskoye-Kuban-Russia": {
@@ -987,10 +1015,10 @@
     "country": "Russia",
     "key": "Elizavetinskoye-Kuban-Russia",
     "population": {
+      "1": 1600,
       "-400": 1800,
       "-300": 2400,
-      "-100": 1950,
-      "1": 1600
+      "-100": 1950
     }
   },
   "Starokorsunskoye-2-Russia": {
@@ -1005,10 +1033,10 @@
     "country": "Russia",
     "key": "Starokorsunskoye-2-Russia",
     "population": {
-      "-400": 1200,
-      "-200": 1650,
       "1": 1450,
-      "150": 1550
+      "150": 1550,
+      "-400": 1200,
+      "-200": 1650
     }
   },
   "Pashkovskoye Gorodishche-Russia": {
@@ -1023,10 +1051,10 @@
     "country": "Russia",
     "key": "Pashkovskoye Gorodishche-Russia",
     "population": {
-      "-350": 950,
-      "-100": 1300,
       "1": 1200,
-      "150": 1350
+      "150": 1350,
+      "-350": 950,
+      "-100": 1300
     }
   },
   "Ust-Labinskoye-Maeotian-Russia": {
@@ -1041,10 +1069,10 @@
     "country": "Russia",
     "key": "Ust-Labinskoye-Maeotian-Russia",
     "population": {
-      "-350": 1100,
-      "-100": 1450,
       "1": 1550,
-      "150": 1700
+      "150": 1700,
+      "-350": 1100,
+      "-100": 1450
     }
   },
   "Ladozhskoye-Maeotian-Russia": {
@@ -1059,9 +1087,9 @@
     "country": "Russia",
     "key": "Ladozhskoye-Maeotian-Russia",
     "population": {
-      "-300": 850,
       "1": 1150,
-      "150": 1300
+      "150": 1300,
+      "-300": 850
     }
   },
   "Kazanskoye-Maeotian-Russia": {
@@ -1076,9 +1104,9 @@
     "country": "Russia",
     "key": "Kazanskoye-Maeotian-Russia",
     "population": {
-      "-250": 780,
       "1": 1050,
-      "150": 1200
+      "150": 1200,
+      "-250": 780
     }
   },
   "Sarkel-Russia": {
@@ -2353,7 +2381,7 @@
     ],
     "coords": [
       50.8,
-      42.0
+      42
     ],
     "country": "Russia",
     "key": "Uryupinskaya-Russia",
@@ -3275,7 +3303,7 @@
     ],
     "coords": [
       45.8,
-      39.0
+      39
     ],
     "country": "Russia",
     "key": "Bryukhovetskaya-Russia",

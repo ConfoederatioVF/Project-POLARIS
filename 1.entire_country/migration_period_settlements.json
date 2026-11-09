@@ -23,6 +23,40 @@
       "1200": 1500
     }
   },
+  "Kursk Romny Gorodishche-Russia": {
+    "name": "Kursk Romny Gorodishche",
+    "other_names": [
+      "Kursk Romny Gorodishche"
+    ],
+    "coords": [
+      51.7384,
+      36.2006
+    ],
+    "country": "Russia",
+    "key": "Kursk-Russia",
+    "population": {
+      "450": 90,
+      "600": 160,
+      "750": 350
+    }
+  },
+  "Old Kursk Gorodishche-Russia": {
+    "name": "Old Kursk Gorodishche",
+    "other_names": [
+      "Old Kursk Gorodishche"
+    ],
+    "coords": [
+      51.7344,
+      36.1966
+    ],
+    "country": "Russia",
+    "key": "Kursk-Russia",
+    "population": {
+      "900": 900,
+      "1000": 2200,
+      "1200": 4500
+    }
+  },
   "Kursk-Russia": {
     "name": "Kursk",
     "other_names": [
@@ -36,12 +70,6 @@
     "country": "Russia",
     "key": "Kursk-Russia",
     "population": {
-      "450": 90,
-      "600": 160,
-      "750": 350,
-      "900": 900,
-      "1000": 2200,
-      "1200": 4500,
       "1500": 3200,
       "1700": 9500,
       "1897": 75721,
@@ -200,7 +228,21 @@
       "750": 190,
       "900": 420,
       "1000": 600,
-      "1200": 850,
+      "1200": 850
+    }
+  },
+  "Sudzha (1700–1900)-Russia": {
+    "name": "Sudzha (1700–1900)",
+    "other_names": [
+      "Sudzha (1700–1900)"
+    ],
+    "coords": [
+      51.1944,
+      35.2748
+    ],
+    "country": "Russia",
+    "key": "Sudzha-Russia",
+    "population": {
       "1700": 3800,
       "1897": 7433,
       "1900": 7600
@@ -340,7 +382,21 @@
       "600": 110,
       "750": 260,
       "900": 680,
-      "1000": 820,
+      "1000": 820
+    }
+  },
+  "Borshevo (1700–1900)-Russia": {
+    "name": "Borshevo (1700–1900)",
+    "other_names": [
+      "Borshevo (1700–1900)"
+    ],
+    "coords": [
+      51.284,
+      39.054
+    ],
+    "country": "Russia",
+    "key": "Borshevo-Russia",
+    "population": {
       "1700": 650,
       "1897": 1420,
       "1900": 1480
@@ -518,6 +574,26 @@
       "1000": 350
     }
   },
+  "Belgorod Medieval Gorodishche-Russia": {
+    "name": "Belgorod Medieval Gorodishche",
+    "other_names": [
+      "Belgorod Medieval Gorodishche"
+    ],
+    "coords": [
+      50.5993,
+      36.5913
+    ],
+    "country": "Russia",
+    "key": "Belgorod-Russia",
+    "population": {
+      "350": 140,
+      "450": 65,
+      "600": 110,
+      "750": 280,
+      "900": 680,
+      "1000": 950
+    }
+  },
   "Belgorod-Russia": {
     "name": "Belgorod",
     "other_names": [
@@ -532,12 +608,6 @@
     "country": "Russia",
     "key": "Belgorod-Russia",
     "population": {
-      "350": 140,
-      "450": 65,
-      "600": 110,
-      "750": 280,
-      "900": 680,
-      "1000": 950,
       "1700": 4800,
       "1897": 26564,
       "1900": 27200
@@ -776,7 +846,21 @@
       "600": 130,
       "750": 110,
       "900": 190,
-      "1200": 320,
+      "1200": 320
+    }
+  },
+  "Dyakovo (1700–1900)-Russia": {
+    "name": "Dyakovo (1700–1900)",
+    "other_names": [
+      "Dyakovo (1700–1900)"
+    ],
+    "coords": [
+      55.662,
+      37.673
+    ],
+    "country": "Russia",
+    "key": "Dyakovo-Russia",
+    "population": {
       "1700": 480,
       "1897": 820,
       "1900": 850
@@ -1141,6 +1225,26 @@
       "1200": 1800
     }
   },
+  "Meshchovsk Medieval Gorodishche-Russia": {
+    "name": "Meshchovsk Medieval Gorodishche",
+    "other_names": [
+      "Meshchovsk Medieval Gorodishche"
+    ],
+    "coords": [
+      54.325,
+      35.287
+    ],
+    "country": "Russia",
+    "key": "Meshchovsk-Russia",
+    "population": {
+      "350": 80,
+      "450": 110,
+      "600": 135,
+      "750": 175,
+      "900": 320,
+      "1200": 950
+    }
+  },
   "Meshchovsk-Russia": {
     "name": "Meshchovsk",
     "other_names": [
@@ -1154,12 +1258,6 @@
     "country": "Russia",
     "key": "Meshchovsk-Russia",
     "population": {
-      "350": 80,
-      "450": 110,
-      "600": 135,
-      "750": 175,
-      "900": 320,
-      "1200": 950,
       "1700": 2400,
       "1897": 3655,
       "1900": 3750
@@ -1186,7 +1284,21 @@
       "750": 420,
       "900": 950,
       "1000": 2800,
-      "1200": 8000,
+      "1200": 8000
+    }
+  },
+  "Staraya Ryazan (1897–1900)-Russia": {
+    "name": "Staraya Ryazan (1897–1900)",
+    "other_names": [
+      "Staraya Ryazan (1897–1900)"
+    ],
+    "coords": [
+      54.4,
+      40.432
+    ],
+    "country": "Russia",
+    "key": "Staraya Ryazan-Russia",
+    "population": {
       "1897": 680,
       "1900": 710
     }
@@ -1211,6 +1323,41 @@
       "750": 180
     }
   },
+  "Borki-Ryazan Gorodishche-Russia": {
+    "name": "Borki-Ryazan Gorodishche",
+    "other_names": [
+      "Borki-Ryazan Gorodishche"
+    ],
+    "coords": [
+      54.6349,
+      39.6996
+    ],
+    "country": "Russia",
+    "key": "Ryazan-Russia",
+    "population": {
+      "250": 140,
+      "350": 210,
+      "450": 260,
+      "600": 290,
+      "750": 380
+    }
+  },
+  "Pereyaslavl-Ryazansky Gorodishche-Russia": {
+    "name": "Pereyaslavl-Ryazansky Gorodishche",
+    "other_names": [
+      "Pereyaslavl-Ryazansky Gorodishche"
+    ],
+    "coords": [
+      54.6309,
+      39.6956
+    ],
+    "country": "Russia",
+    "key": "Ryazan-Russia",
+    "population": {
+      "900": 750,
+      "1100": 2400
+    }
+  },
   "Ryazan-Russia": {
     "name": "Ryazan",
     "other_names": [
@@ -1225,13 +1372,6 @@
     "country": "Russia",
     "key": "Ryazan-Russia",
     "population": {
-      "250": 140,
-      "350": 210,
-      "450": 260,
-      "600": 290,
-      "750": 380,
-      "900": 750,
-      "1100": 2400,
       "1500": 6500,
       "1700": 9800,
       "1897": 46122,
@@ -1320,7 +1460,21 @@
       "450": 190,
       "600": 220,
       "750": 260,
-      "900": 340,
+      "900": 340
+    }
+  },
+  "Shilovo (1700–1900)-Russia": {
+    "name": "Shilovo (1700–1900)",
+    "other_names": [
+      "Shilovo (1700–1900)"
+    ],
+    "coords": [
+      54.329,
+      40.879
+    ],
+    "country": "Russia",
+    "key": "Shilovo-Russia",
+    "population": {
       "1700": 950,
       "1897": 2350,
       "1900": 2450
@@ -1346,6 +1500,23 @@
       "750": 270
     }
   },
+  "Murom Oksky Gorodishche-Russia": {
+    "name": "Murom Oksky Gorodishche",
+    "other_names": [
+      "Murom Oksky Gorodishche"
+    ],
+    "coords": [
+      55.579,
+      42.0466
+    ],
+    "country": "Russia",
+    "key": "Murom-Russia",
+    "population": {
+      "450": 130,
+      "600": 240,
+      "750": 450
+    }
+  },
   "Murom-Russia": {
     "name": "Murom",
     "other_names": [
@@ -1360,9 +1531,6 @@
     "country": "Russia",
     "key": "Murom-Russia",
     "population": {
-      "450": 130,
-      "600": 240,
-      "750": 450,
       "900": 1100,
       "1000": 2400,
       "1200": 4200,
@@ -1408,10 +1576,43 @@
       "450": 75,
       "600": 115,
       "750": 160,
-      "900": 240,
+      "900": 240
+    }
+  },
+  "Kholui (1700–1900)-Russia": {
+    "name": "Kholui (1700–1900)",
+    "other_names": [
+      "Kholui (1700–1900)"
+    ],
+    "coords": [
+      56.579,
+      41.872
+    ],
+    "country": "Russia",
+    "key": "Kholui-Russia",
+    "population": {
       "1700": 1100,
       "1897": 2150,
       "1900": 2250
+    }
+  },
+  "Suzdal Merya Gorodishche-Russia": {
+    "name": "Suzdal Merya Gorodishche",
+    "other_names": [
+      "Suzdal Merya Gorodishche"
+    ],
+    "coords": [
+      56.4292,
+      40.4525
+    ],
+    "country": "Russia",
+    "key": "Suzdal-Russia",
+    "population": {
+      "250": 85,
+      "350": 120,
+      "450": 160,
+      "600": 220,
+      "750": 380
     }
   },
   "Suzdal-Russia": {
@@ -1428,11 +1629,6 @@
     "country": "Russia",
     "key": "Suzdal-Russia",
     "population": {
-      "250": 85,
-      "350": 120,
-      "450": 160,
-      "600": 220,
-      "750": 380,
       "900": 1150,
       "1000": 2600,
       "1200": 6500,
@@ -1662,6 +1858,24 @@
       "1000": 380
     }
   },
+  "Kamno-Pskov Gorodishche-Russia": {
+    "name": "Kamno-Pskov Gorodishche",
+    "other_names": [
+      "Kamno-Pskov Gorodishche"
+    ],
+    "coords": [
+      57.8234,
+      28.3358
+    ],
+    "country": "Russia",
+    "key": "Pskov-Russia",
+    "population": {
+      "350": 95,
+      "450": 160,
+      "600": 290,
+      "750": 520
+    }
+  },
   "Pskov-Russia": {
     "name": "Pskov",
     "other_names": [
@@ -1676,10 +1890,6 @@
     "country": "Russia",
     "key": "Pskov-Russia",
     "population": {
-      "350": 95,
-      "450": 160,
-      "600": 290,
-      "750": 520,
       "900": 1600,
       "1000": 3800,
       "1200": 9500,
@@ -1733,6 +1943,25 @@
       "1000": 420
     }
   },
+  "Velye Medieval Gorodishche-Russia": {
+    "name": "Velye Medieval Gorodishche",
+    "other_names": [
+      "Velye Medieval Gorodishche"
+    ],
+    "coords": [
+      56.984,
+      28.924
+    ],
+    "country": "Russia",
+    "key": "Velye-Russia",
+    "population": {
+      "450": 70,
+      "600": 110,
+      "750": 185,
+      "900": 360,
+      "1200": 750
+    }
+  },
   "Velye-Russia": {
     "name": "Velye",
     "other_names": [
@@ -1746,11 +1975,6 @@
     "country": "Russia",
     "key": "Velye-Russia",
     "population": {
-      "450": 70,
-      "600": 110,
-      "750": 185,
-      "900": 360,
-      "1200": 750,
       "1897": 1150,
       "1900": 1200
     }
@@ -1907,7 +2131,21 @@
       "750": 220,
       "900": 580,
       "1000": 1100,
-      "1200": 2200,
+      "1200": 2200
+    }
+  },
+  "Toropets (1700–1900)-Russia": {
+    "name": "Toropets (1700–1900)",
+    "other_names": [
+      "Toropets (1700–1900)"
+    ],
+    "coords": [
+      56.5018,
+      31.6393
+    ],
+    "country": "Russia",
+    "key": "Toropets-Russia",
+    "population": {
       "1700": 4500,
       "1897": 7368,
       "1900": 7600
@@ -2033,7 +2271,21 @@
       "450": 320,
       "600": 390,
       "750": 240,
-      "900": 480,
+      "900": 480
+    }
+  },
+  "Tetyushskoye II (1700–1900)-Russia": {
+    "name": "Tetyushskoye II (1700–1900)",
+    "other_names": [
+      "Tetyushskoye II (1700–1900)"
+    ],
+    "coords": [
+      54.942,
+      48.843
+    ],
+    "country": "Russia",
+    "key": "Tetyushskoye II-Russia",
+    "population": {
       "1700": 1600,
       "1897": 4754,
       "1900": 4900
@@ -2116,7 +2368,21 @@
       "450": 250,
       "600": 340,
       "750": 190,
-      "900": 320,
+      "900": 320
+    }
+  },
+  "Imenkovo (1897–1900)-Russia": {
+    "name": "Imenkovo (1897–1900)",
+    "other_names": [
+      "Imenkovo (1897–1900)"
+    ],
+    "coords": [
+      55.414,
+      49.684
+    ],
+    "country": "Russia",
+    "key": "Imenkovo-Russia",
+    "population": {
       "1897": 840,
       "1900": 870
     }
@@ -2324,6 +2590,24 @@
       "1000": 1100
     }
   },
+  "Yelabuga Medieval Gorodishche-Russia": {
+    "name": "Yelabuga Medieval Gorodishche",
+    "other_names": [
+      "Yelabuga Medieval Gorodishche"
+    ],
+    "coords": [
+      55.7609,
+      52.0521
+    ],
+    "country": "Russia",
+    "key": "Yelabuga-Russia",
+    "population": {
+      "600": 180,
+      "750": 260,
+      "900": 550,
+      "1000": 950
+    }
+  },
   "Yelabuga-Russia": {
     "name": "Yelabuga",
     "other_names": [
@@ -2337,10 +2621,6 @@
     "country": "Russia",
     "key": "Yelabuga-Russia",
     "population": {
-      "600": 180,
-      "750": 260,
-      "900": 550,
-      "1000": 950,
       "1500": 1200,
       "1700": 2800,
       "1897": 9764,
@@ -2472,8 +2752,7 @@
     "name": "Saygatskoye",
     "other_names": [
       "Сайгатское",
-      "Сайгатка",
-      "Чайковский"
+      "Сайгатка"
     ],
     "coords": [
       56.76,
@@ -2507,7 +2786,21 @@
       "450": 195,
       "600": 230,
       "750": 260,
-      "900": 310,
+      "900": 310
+    }
+  },
+  "Osinskoye (1700–1900)-Russia": {
+    "name": "Osinskoye (1700–1900)",
+    "other_names": [
+      "Osinskoye (1700–1900)"
+    ],
+    "coords": [
+      57.287,
+      55.454
+    ],
+    "country": "Russia",
+    "key": "Osinskoye-Russia",
+    "population": {
       "1700": 1400,
       "1897": 5067,
       "1900": 5250
@@ -2531,7 +2824,21 @@
       "450": 190,
       "600": 240,
       "750": 280,
-      "900": 320,
+      "900": 320
+    }
+  },
+  "Bardymskoye (1897–1900)-Russia": {
+    "name": "Bardymskoye (1897–1900)",
+    "other_names": [
+      "Bardymskoye (1897–1900)"
+    ],
+    "coords": [
+      56.924,
+      55.584
+    ],
+    "country": "Russia",
+    "key": "Bardymskoye-Russia",
+    "population": {
       "1897": 1650,
       "1900": 1720
     }
@@ -2600,6 +2907,24 @@
       "1200": 1800
     }
   },
+  "Ufa Gorodishche-Russia": {
+    "name": "Ufa Gorodishche",
+    "other_names": [
+      "Ufa Gorodishche"
+    ],
+    "coords": [
+      54.7428,
+      55.9761
+    ],
+    "country": "Russia",
+    "key": "Ufa-Russia",
+    "population": {
+      "450": 180,
+      "600": 340,
+      "750": 480,
+      "900": 650
+    }
+  },
   "Ufa-Russia": {
     "name": "Ufa",
     "other_names": [
@@ -2614,10 +2939,6 @@
     "country": "Russia",
     "key": "Ufa-Russia",
     "population": {
-      "450": 180,
-      "600": 340,
-      "750": 480,
-      "900": 650,
       "1600": 1800,
       "1700": 4200,
       "1897": 49275,
@@ -2698,9 +3019,44 @@
       "450": 140,
       "600": 290,
       "750": 360,
-      "900": 410,
+      "900": 410
+    }
+  },
+  "Kushnarenkovo (1897–1900)-Russia": {
+    "name": "Kushnarenkovo (1897–1900)",
+    "other_names": [
+      "Kushnarenkovo (1897–1900)"
+    ],
+    "coords": [
+      55.104,
+      55.354
+    ],
+    "country": "Russia",
+    "key": "Kushnarenkovo-Russia",
+    "population": {
       "1897": 2450,
       "1900": 2550
+    }
+  },
+  "Birsk Gorodishche-Russia": {
+    "name": "Birsk Gorodishche",
+    "other_names": [
+      "Birsk Gorodishche"
+    ],
+    "coords": [
+      55.422,
+      55.54
+    ],
+    "country": "Russia",
+    "key": "Birsk-Russia",
+    "population": {
+      "100": 160,
+      "250": 240,
+      "350": 320,
+      "450": 390,
+      "600": 450,
+      "750": 410,
+      "900": 480
     }
   },
   "Birsk-Russia": {
@@ -2716,13 +3072,6 @@
     "country": "Russia",
     "key": "Birsk-Russia",
     "population": {
-      "100": 160,
-      "250": 240,
-      "350": 320,
-      "450": 390,
-      "600": 450,
-      "750": 410,
-      "900": 480,
       "1700": 1900,
       "1897": 8589,
       "1900": 8800
@@ -2766,7 +3115,21 @@
       "750": 680,
       "900": 1500,
       "1000": 2200,
-      "1200": 2600,
+      "1200": 2600
+    }
+  },
+  "Rozhdestvenskoye (1897–1900)-Russia": {
+    "name": "Rozhdestvenskoye (1897–1900)",
+    "other_names": [
+      "Rozhdestvenskoye (1897–1900)"
+    ],
+    "coords": [
+      58.624,
+      55.354
+    ],
+    "country": "Russia",
+    "key": "Rozhdestvenskoye-Russia",
+    "population": {
       "1897": 980,
       "1900": 1020
     }
@@ -2789,7 +3152,21 @@
       "600": 210,
       "750": 340,
       "900": 520,
-      "1200": 680,
+      "1200": 680
+    }
+  },
+  "Kudymkarskoye (1700–1900)-Russia": {
+    "name": "Kudymkarskoye (1700–1900)",
+    "other_names": [
+      "Kudymkarskoye (1700–1900)"
+    ],
+    "coords": [
+      59.0207,
+      54.654
+    ],
+    "country": "Russia",
+    "key": "Kudymkarskoye-Russia",
+    "population": {
       "1700": 850,
       "1897": 1192,
       "1900": 1250
@@ -2914,7 +3291,21 @@
       "450": 260,
       "600": 160,
       "750": 190,
-      "900": 240,
+      "900": 240
+    }
+  },
+  "Nedvigovka-Steppe (1897–1900)-Russia": {
+    "name": "Nedvigovka-Steppe (1897–1900)",
+    "other_names": [
+      "Nedvigovka-Steppe (1897–1900)"
+    ],
+    "coords": [
+      47.279,
+      39.346
+    ],
+    "country": "Russia",
+    "key": "Nedvigovka-Steppe-Russia",
+    "population": {
       "1897": 2150,
       "1900": 2250
     }
@@ -2980,7 +3371,21 @@
       "450": 150,
       "600": 110,
       "750": 130,
-      "900": 180,
+      "900": 180
+    }
+  },
+  "Rovnoye (1897–1900)-Russia": {
+    "name": "Rovnoye (1897–1900)",
+    "other_names": [
+      "Rovnoye (1897–1900)"
+    ],
+    "coords": [
+      50.784,
+      46.054
+    ],
+    "country": "Russia",
+    "key": "Rovnoye-Russia",
+    "population": {
       "1897": 6850,
       "1900": 7100
     }
@@ -3025,7 +3430,21 @@
       "450": 140,
       "600": 120,
       "750": 150,
-      "900": 210,
+      "900": 210
+    }
+  },
+  "Leninsk-Steppe (1897–1900)-Russia": {
+    "name": "Leninsk-Steppe (1897–1900)",
+    "other_names": [
+      "Leninsk-Steppe (1897–1900)"
+    ],
+    "coords": [
+      48.704,
+      45.204
+    ],
+    "country": "Russia",
+    "key": "Leninsk-Steppe-Russia",
+    "population": {
       "1897": 4920,
       "1900": 5100
     }
@@ -3104,7 +3523,21 @@
       "600": 140,
       "750": 580,
       "900": 1600,
-      "1000": 950,
+      "1000": 950
+    }
+  },
+  "Semikarakorskoye (1897–1900)-Russia": {
+    "name": "Semikarakorskoye (1897–1900)",
+    "other_names": [
+      "Semikarakorskoye (1897–1900)"
+    ],
+    "coords": [
+      47.534,
+      40.824
+    ],
+    "country": "Russia",
+    "key": "Semikarakorskoye-Russia",
+    "population": {
       "1897": 6580,
       "1900": 6800
     }
@@ -3301,6 +3734,27 @@
       "900": 3200
     }
   },
+  "Tarki Medieval Gorodishche-Russia": {
+    "name": "Tarki Medieval Gorodishche",
+    "other_names": [
+      "Tarki Medieval Gorodishche"
+    ],
+    "coords": [
+      42.95,
+      47.498
+    ],
+    "country": "Russia",
+    "key": "Tarki-Russia",
+    "population": {
+      "250": 450,
+      "350": 850,
+      "450": 1400,
+      "600": 3200,
+      "750": 6500,
+      "900": 8500,
+      "1200": 4500
+    }
+  },
   "Tarki-Russia": {
     "name": "Tarki",
     "other_names": [
@@ -3315,13 +3769,6 @@
     "country": "Russia",
     "key": "Tarki-Russia",
     "population": {
-      "250": 450,
-      "350": 850,
-      "450": 1400,
-      "600": 3200,
-      "750": 6500,
-      "900": 8500,
-      "1200": 4500,
       "1700": 6000,
       "1897": 2380,
       "1900": 2450
@@ -3346,7 +3793,21 @@
       "450": 1100,
       "600": 1800,
       "750": 2400,
-      "900": 2900,
+      "900": 2900
+    }
+  },
+  "Andreyaul (1700–1900)-Russia": {
+    "name": "Andreyaul (1700–1900)",
+    "other_names": [
+      "Andreyaul (1700–1900)"
+    ],
+    "coords": [
+      43.184,
+      46.664
+    ],
+    "country": "Russia",
+    "key": "Andreyaul-Russia",
+    "population": {
       "1700": 4500,
       "1897": 4250,
       "1900": 4400
@@ -3419,6 +3880,27 @@
       "1200": 6500
     }
   },
+  "Zmeyskaya Medieval Gorodishche-Russia": {
+    "name": "Zmeyskaya Medieval Gorodishche",
+    "other_names": [
+      "Zmeyskaya Medieval Gorodishche"
+    ],
+    "coords": [
+      43.329,
+      44.149
+    ],
+    "country": "Russia",
+    "key": "Zmeyskaya-Russia",
+    "population": {
+      "250": 320,
+      "350": 480,
+      "450": 640,
+      "600": 880,
+      "750": 1200,
+      "900": 2100,
+      "1200": 4200
+    }
+  },
   "Zmeyskaya-Russia": {
     "name": "Zmeyskaya",
     "other_names": [
@@ -3433,13 +3915,6 @@
     "country": "Russia",
     "key": "Zmeyskaya-Russia",
     "population": {
-      "250": 320,
-      "350": 480,
-      "450": 640,
-      "600": 880,
-      "750": 1200,
-      "900": 2100,
-      "1200": 4200,
       "1897": 1850,
       "1900": 1920
     }
@@ -3570,7 +4045,21 @@
       "600": 850,
       "750": 2200,
       "900": 3500,
-      "1000": 2800,
+      "1000": 2800
+    }
+  },
+  "Khumara (1897–1900)-Russia": {
+    "name": "Khumara (1897–1900)",
+    "other_names": [
+      "Khumara (1897–1900)"
+    ],
+    "coords": [
+      43.864,
+      41.914
+    ],
+    "country": "Russia",
+    "key": "Khumara-Russia",
+    "population": {
       "1897": 1420,
       "1900": 1480
     }
@@ -3621,8 +4110,7 @@
     "name": "Tsemdolina",
     "other_names": [
       "Цемдолина",
-      "Борисовский комплекс",
-      "Новороссийск-Цемес"
+      "Борисовский комплекс"
     ],
     "coords": [
       44.75,
@@ -3636,7 +4124,21 @@
       "450": 390,
       "600": 480,
       "750": 420,
-      "900": 380,
+      "900": 380
+    }
+  },
+  "Tsemdolina (1897–1900)-Russia": {
+    "name": "Tsemdolina (1897–1900)",
+    "other_names": [
+      "Tsemdolina (1897–1900)"
+    ],
+    "coords": [
+      44.754,
+      37.714
+    ],
+    "country": "Russia",
+    "key": "Tsemdolina-Russia",
+    "population": {
       "1897": 16897,
       "1900": 17500
     }
@@ -3706,7 +4208,21 @@
       "750": 4200,
       "900": 6500,
       "1000": 8500,
-      "1200": 4500,
+      "1200": 4500
+    }
+  },
+  "Tamatarkha (1700–1900)-Russia": {
+    "name": "Tamatarkha (1700–1900)",
+    "other_names": [
+      "Tamatarkha (1700–1900)"
+    ],
+    "coords": [
+      45.222,
+      36.72
+    ],
+    "country": "Russia",
+    "key": "Tamatarkha-Russia",
+    "population": {
       "1700": 2200,
       "1897": 4291,
       "1900": 4450
@@ -3769,9 +4285,43 @@
       "450": 310,
       "600": 360,
       "750": 410,
-      "900": 480,
+      "900": 480
+    }
+  },
+  "Isker-Potchevash-Russia": {
+    "name": "Isker-Potchevash",
+    "other_names": [
+      "Isker-Potchevash"
+    ],
+    "coords": [
+      58.159,
+      68.279
+    ],
+    "country": "Russia",
+    "key": "Potchevash-Russia",
+    "population": {
       "1200": 850,
       "1500": 2400
+    }
+  },
+  "Qashliq-Isker-Russia": {
+    "name": "Qashliq-Isker",
+    "other_names": [
+      "Qashliq-Isker"
+    ],
+    "coords": [
+      58.2021,
+      68.2582
+    ],
+    "country": "Russia",
+    "key": "Tobolsk-Russia",
+    "population": {
+      "450": 180,
+      "600": 260,
+      "750": 340,
+      "900": 450,
+      "1200": 950,
+      "1500": 3200
     }
   },
   "Tobolsk-Russia": {
@@ -3788,12 +4338,6 @@
     "country": "Russia",
     "key": "Tobolsk-Russia",
     "population": {
-      "450": 180,
-      "600": 260,
-      "750": 340,
-      "900": 450,
-      "1200": 950,
-      "1500": 3200,
       "1700": 11500,
       "1897": 20425,
       "1900": 21000
@@ -3883,7 +4427,21 @@
       "350": 85,
       "600": 95,
       "750": 115,
-      "900": 140,
+      "900": 140
+    }
+  },
+  "Ust-Poluy (1700–1900)-Russia": {
+    "name": "Ust-Poluy (1700–1900)",
+    "other_names": [
+      "Ust-Poluy (1700–1900)"
+    ],
+    "coords": [
+      66.534,
+      66.604
+    ],
+    "country": "Russia",
+    "key": "Ust-Poluy-Russia",
+    "population": {
       "1700": 450,
       "1897": 880,
       "1900": 920
@@ -3910,6 +4468,40 @@
       "900": 420
     }
   },
+  "Timiryazevo-Tomsk Gorodishche-Russia": {
+    "name": "Timiryazevo-Tomsk Gorodishche",
+    "other_names": [
+      "Timiryazevo-Tomsk Gorodishche"
+    ],
+    "coords": [
+      56.4964,
+      84.956
+    ],
+    "country": "Russia",
+    "key": "Tomsk-Russia",
+    "population": {
+      "350": 110,
+      "450": 150,
+      "600": 240,
+      "750": 310,
+      "900": 380
+    }
+  },
+  "Toyanov Gorodok-Russia": {
+    "name": "Toyanov Gorodok",
+    "other_names": [
+      "Toyanov Gorodok"
+    ],
+    "coords": [
+      56.4924,
+      84.952
+    ],
+    "country": "Russia",
+    "key": "Tomsk-Russia",
+    "population": {
+      "1500": 650
+    }
+  },
   "Tomsk-Russia": {
     "name": "Tomsk",
     "other_names": [
@@ -3924,12 +4516,6 @@
     "country": "Russia",
     "key": "Tomsk-Russia",
     "population": {
-      "350": 110,
-      "450": 150,
-      "600": 240,
-      "750": 310,
-      "900": 380,
-      "1500": 650,
       "1700": 4200,
       "1897": 52210,
       "1900": 55000
@@ -4077,7 +4663,21 @@
       "600": 210,
       "750": 360,
       "900": 520,
-      "1000": 450,
+      "1000": 450
+    }
+  },
+  "Srostki-1 (1897–1900)-Russia": {
+    "name": "Srostki-1 (1897–1900)",
+    "other_names": [
+      "Srostki-1 (1897–1900)"
+    ],
+    "coords": [
+      52.419,
+      85.709
+    ],
+    "country": "Russia",
+    "key": "Srostki-1-Russia",
+    "population": {
       "1897": 2150,
       "1900": 2250
     }
@@ -4143,7 +4743,21 @@
       "450": 290,
       "600": 380,
       "750": 420,
-      "900": 390,
+      "900": 390
+    }
+  },
+  "Katanda (1897–1900)-Russia": {
+    "name": "Katanda (1897–1900)",
+    "other_names": [
+      "Katanda (1897–1900)"
+    ],
+    "coords": [
+      50.149,
+      86.189
+    ],
+    "country": "Russia",
+    "key": "Katanda-Russia",
+    "population": {
       "1897": 620,
       "1900": 650
     }

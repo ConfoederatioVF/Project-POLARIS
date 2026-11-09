@@ -378,6 +378,8 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
           let local_ratio = m_cell[i]/m_macro[i];
 
           weights[i] = local_ratio*local_ratio;
+        } else if (m_macro[i] > 0) {
+          weights[i] = 1.0;
         }
 
       //If raw kriged potential is provided, evaluate full additive-on-amplitude Residual Kriging prediction

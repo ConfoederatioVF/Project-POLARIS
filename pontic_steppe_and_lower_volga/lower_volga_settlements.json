@@ -375,8 +375,38 @@
     "population": {
       "-2800": 115,
       "-2000": 140,
-      "-1500": 230,
+      "-1500": 230
+    }
+  },
+  "Bykovo-Kurgans Iron Age Site-Russia": {
+    "name": "Bykovo-Kurgans Iron Age Site",
+    "other_names": [
+      "Bykovo-Kurgans Iron Age Site"
+    ],
+    "coords": [
+      49.764,
+      45.394
+    ],
+    "country": "Russia",
+    "key": "Bykovo-Kurgans-Russia",
+    "population": {
       "100": 320
+    }
+  },
+  "Kalinovka-Bronze Bronze Age Site-Russia": {
+    "name": "Kalinovka-Bronze Bronze Age Site",
+    "other_names": [
+      "Kalinovka-Bronze Bronze Age Site"
+    ],
+    "coords": [
+      49.024,
+      44.784
+    ],
+    "country": "Russia",
+    "key": "Kalinovka-Bronze-Russia",
+    "population": {
+      "-2500": 120,
+      "-1500": 210
     }
   },
   "Kalinovka-Bronze-Russia": {
@@ -391,8 +421,6 @@
     "country": "Russia",
     "key": "Kalinovka-Bronze-Russia",
     "population": {
-      "-2500": 120,
-      "-1500": 210,
       "100": 290
     }
   },
@@ -408,9 +436,9 @@
     "country": "Russia",
     "key": "Suslovskiy-Russia",
     "population": {
-      "-100": 350,
       "50": 480,
-      "150": 520
+      "150": 520,
+      "-100": 350
     }
   },
   "Kosika-Sarmatian-Russia": {
@@ -425,9 +453,9 @@
     "country": "Russia",
     "key": "Kosika-Sarmatian-Russia",
     "population": {
-      "-50": 650,
       "50": 950,
-      "150": 1100
+      "150": 1100,
+      "-50": 650
     }
   },
   "Verkhneye Pogromnoye-Russia": {
@@ -442,9 +470,9 @@
     "country": "Russia",
     "key": "Verkhneye Pogromnoye-Russia",
     "population": {
-      "-100": 520,
       "50": 750,
-      "150": 850
+      "150": 850,
+      "-100": 520
     }
   },
   "Prokhorovka-Sarmatian-Russia": {
@@ -476,9 +504,9 @@
     "country": "Russia",
     "key": "Nikolskoye-Sarmatian-Russia",
     "population": {
-      "-100": 480,
       "50": 680,
-      "150": 740
+      "150": 740,
+      "-100": 480
     }
   },
   "Baranovka-Sarmatian-Russia": {
@@ -493,9 +521,9 @@
     "country": "Russia",
     "key": "Baranovka-Sarmatian-Russia",
     "population": {
-      "-100": 420,
       "50": 580,
-      "150": 640
+      "150": 640,
+      "-100": 420
     }
   },
   "Krivaya Luka-Russia": {
@@ -510,9 +538,9 @@
     "country": "Russia",
     "key": "Krivaya Luka-Russia",
     "population": {
+      "100": 650,
       "-500": 380,
-      "-300": 520,
-      "100": 650
+      "-300": 520
     }
   },
   "Uspenka-Sarmatian-Russia": {

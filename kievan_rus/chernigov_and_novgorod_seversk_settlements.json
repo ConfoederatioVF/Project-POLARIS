@@ -15,13 +15,83 @@
     "country": "Ukraine",
     "key": "Mezin-Ukraine",
     "population": {
-      "-10000": 120,
+      "-10000": 120
+    }
+  },
+  "Mezin Stone Age Site-Ukraine": {
+    "name": "Mezin Stone Age Site",
+    "other_names": [
+      "Mezin Stone Age Site"
+    ],
+    "coords": [
+      51.834,
+      33.084
+    ],
+    "country": "Ukraine",
+    "key": "Mezin-Ukraine",
+    "population": {
       "-6000": 85,
-      "-4000": 130,
-      "-1500": 210,
-      "-500": 250,
+      "-4000": 130
+    }
+  },
+  "Mezin Bronze Age Site-Ukraine": {
+    "name": "Mezin Bronze Age Site",
+    "other_names": [
+      "Mezin Bronze Age Site"
+    ],
+    "coords": [
+      51.838,
+      33.088
+    ],
+    "country": "Ukraine",
+    "key": "Mezin-Ukraine",
+    "population": {
+      "-1500": 210
+    }
+  },
+  "Mezin Iron Age Site-Ukraine": {
+    "name": "Mezin Iron Age Site",
+    "other_names": [
+      "Mezin Iron Age Site"
+    ],
+    "coords": [
+      51.842,
+      33.092
+    ],
+    "country": "Ukraine",
+    "key": "Mezin-Ukraine",
+    "population": {
+      "-500": 250
+    }
+  },
+  "Mezin Iron Age Site 2-Ukraine": {
+    "name": "Mezin Iron Age Site 2",
+    "other_names": [
+      "Mezin Iron Age Site 2"
+    ],
+    "coords": [
+      51.846,
+      33.096
+    ],
+    "country": "Ukraine",
+    "key": "Mezin-Ukraine",
+    "population": {
       "0": 280,
-      "300": 320,
+      "300": 320
+    }
+  },
+  "Mezin Medieval Settlement-Ukraine": {
+    "name": "Mezin Medieval Settlement",
+    "other_names": [
+      "Mezin Medieval Settlement"
+    ],
+    "coords": [
+      51.85,
+      33.1
+    ],
+    "country": "Ukraine",
+    "key": "Mezin-Ukraine",
+    "population": {
       "500": 260,
       "700": 310,
       "800": 350,
@@ -50,13 +120,83 @@
     "country": "Ukraine",
     "key": "Pushkari I-Ukraine",
     "population": {
-      "-10000": 110,
+      "-10000": 110
+    }
+  },
+  "Pushkari I Stone Age Site-Ukraine": {
+    "name": "Pushkari I Stone Age Site",
+    "other_names": [
+      "Pushkari I Stone Age Site"
+    ],
+    "coords": [
+      52.224,
+      33.294
+    ],
+    "country": "Ukraine",
+    "key": "Pushkari I-Ukraine",
+    "population": {
       "-6000": 80,
-      "-4000": 120,
-      "-1500": 180,
-      "-500": 220,
+      "-4000": 120
+    }
+  },
+  "Pushkari I Bronze Age Site-Ukraine": {
+    "name": "Pushkari I Bronze Age Site",
+    "other_names": [
+      "Pushkari I Bronze Age Site"
+    ],
+    "coords": [
+      52.228,
+      33.298
+    ],
+    "country": "Ukraine",
+    "key": "Pushkari I-Ukraine",
+    "population": {
+      "-1500": 180
+    }
+  },
+  "Pushkari I Iron Age Site-Ukraine": {
+    "name": "Pushkari I Iron Age Site",
+    "other_names": [
+      "Pushkari I Iron Age Site"
+    ],
+    "coords": [
+      52.232,
+      33.302
+    ],
+    "country": "Ukraine",
+    "key": "Pushkari I-Ukraine",
+    "population": {
+      "-500": 220
+    }
+  },
+  "Pushkari I Iron Age Site 2-Ukraine": {
+    "name": "Pushkari I Iron Age Site 2",
+    "other_names": [
+      "Pushkari I Iron Age Site 2"
+    ],
+    "coords": [
+      52.236,
+      33.306
+    ],
+    "country": "Ukraine",
+    "key": "Pushkari I-Ukraine",
+    "population": {
       "0": 240,
-      "300": 290,
+      "300": 290
+    }
+  },
+  "Pushkari I Medieval Settlement-Ukraine": {
+    "name": "Pushkari I Medieval Settlement",
+    "other_names": [
+      "Pushkari I Medieval Settlement"
+    ],
+    "coords": [
+      52.24,
+      33.31
+    ],
+    "country": "Ukraine",
+    "key": "Pushkari I-Ukraine",
+    "population": {
       "500": 230,
       "700": 280,
       "800": 310,
@@ -85,13 +225,83 @@
     "country": "Ukraine",
     "key": "Chulatovo I-II-Ukraine",
     "population": {
-      "-10000": 95,
+      "-10000": 95
+    }
+  },
+  "Chulatovo I-II Stone Age Site-Ukraine": {
+    "name": "Chulatovo I-II Stone Age Site",
+    "other_names": [
+      "Chulatovo I-II Stone Age Site"
+    ],
+    "coords": [
+      51.954,
+      33.324
+    ],
+    "country": "Ukraine",
+    "key": "Chulatovo I-II-Ukraine",
+    "population": {
       "-6000": 70,
-      "-4000": 110,
-      "-1500": 160,
-      "-500": 190,
+      "-4000": 110
+    }
+  },
+  "Chulatovo I-II Bronze Age Site-Ukraine": {
+    "name": "Chulatovo I-II Bronze Age Site",
+    "other_names": [
+      "Chulatovo I-II Bronze Age Site"
+    ],
+    "coords": [
+      51.958,
+      33.328
+    ],
+    "country": "Ukraine",
+    "key": "Chulatovo I-II-Ukraine",
+    "population": {
+      "-1500": 160
+    }
+  },
+  "Chulatovo I-II Iron Age Site-Ukraine": {
+    "name": "Chulatovo I-II Iron Age Site",
+    "other_names": [
+      "Chulatovo I-II Iron Age Site"
+    ],
+    "coords": [
+      51.962,
+      33.332
+    ],
+    "country": "Ukraine",
+    "key": "Chulatovo I-II-Ukraine",
+    "population": {
+      "-500": 190
+    }
+  },
+  "Chulatovo I-II Iron Age Site 2-Ukraine": {
+    "name": "Chulatovo I-II Iron Age Site 2",
+    "other_names": [
+      "Chulatovo I-II Iron Age Site 2"
+    ],
+    "coords": [
+      51.966,
+      33.336
+    ],
+    "country": "Ukraine",
+    "key": "Chulatovo I-II-Ukraine",
+    "population": {
       "0": 220,
-      "300": 270,
+      "300": 270
+    }
+  },
+  "Chulatovo I-II Medieval Settlement-Ukraine": {
+    "name": "Chulatovo I-II Medieval Settlement",
+    "other_names": [
+      "Chulatovo I-II Medieval Settlement"
+    ],
+    "coords": [
+      51.97,
+      33.34
+    ],
+    "country": "Ukraine",
+    "key": "Chulatovo I-II-Ukraine",
+    "population": {
       "500": 240,
       "700": 310,
       "800": 350,
@@ -117,13 +327,83 @@
     "country": "Ukraine",
     "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
     "population": {
-      "-10000": 85,
+      "-10000": 85
+    }
+  },
+  "Novgorod-Seversky Stone Age Site-Ukraine": {
+    "name": "Novgorod-Seversky Stone Age Site",
+    "other_names": [
+      "Novgorod-Seversky Stone Age Site"
+    ],
+    "coords": [
+      52.014,
+      33.264
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
+    "population": {
       "-6000": 65,
-      "-4000": 140,
-      "-1500": 220,
-      "-500": 320,
+      "-4000": 140
+    }
+  },
+  "Novgorod-Seversky Bronze Age Site-Ukraine": {
+    "name": "Novgorod-Seversky Bronze Age Site",
+    "other_names": [
+      "Novgorod-Seversky Bronze Age Site"
+    ],
+    "coords": [
+      52.018,
+      33.268
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
+    "population": {
+      "-1500": 220
+    }
+  },
+  "Novgorod-Seversky Iron Age Site-Ukraine": {
+    "name": "Novgorod-Seversky Iron Age Site",
+    "other_names": [
+      "Novgorod-Seversky Iron Age Site"
+    ],
+    "coords": [
+      52.022,
+      33.272
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
+    "population": {
+      "-500": 320
+    }
+  },
+  "Novgorod-Seversky Iron Age Site 2-Ukraine": {
+    "name": "Novgorod-Seversky Iron Age Site 2",
+    "other_names": [
+      "Novgorod-Seversky Iron Age Site 2"
+    ],
+    "coords": [
+      52.026,
+      33.276
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
+    "population": {
       "0": 360,
-      "300": 420,
+      "300": 420
+    }
+  },
+  "Novgorod-Seversky Medieval Settlement-Ukraine": {
+    "name": "Novgorod-Seversky Medieval Settlement",
+    "other_names": [
+      "Novgorod-Seversky Medieval Settlement"
+    ],
+    "coords": [
+      52.03,
+      33.28
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversky Palaeolithic Cliff Shelter-Ukraine",
+    "population": {
       "500": 450,
       "700": 520
     }
@@ -142,13 +422,83 @@
     "country": "Ukraine",
     "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
     "population": {
-      "-10000": 75,
+      "-10000": 75
+    }
+  },
+  "Buzhany Stone Age Site-Ukraine": {
+    "name": "Buzhany Stone Age Site",
+    "other_names": [
+      "Buzhany Stone Age Site"
+    ],
+    "coords": [
+      51.694,
+      32.974
+    ],
+    "country": "Ukraine",
+    "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
+    "population": {
       "-6000": 60,
-      "-4000": 115,
-      "-1500": 190,
-      "-500": 260,
+      "-4000": 115
+    }
+  },
+  "Buzhany Bronze Age Site-Ukraine": {
+    "name": "Buzhany Bronze Age Site",
+    "other_names": [
+      "Buzhany Bronze Age Site"
+    ],
+    "coords": [
+      51.698,
+      32.978
+    ],
+    "country": "Ukraine",
+    "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
+    "population": {
+      "-1500": 190
+    }
+  },
+  "Buzhany Iron Age Site-Ukraine": {
+    "name": "Buzhany Iron Age Site",
+    "other_names": [
+      "Buzhany Iron Age Site"
+    ],
+    "coords": [
+      51.702,
+      32.982
+    ],
+    "country": "Ukraine",
+    "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
+    "population": {
+      "-500": 260
+    }
+  },
+  "Buzhany Iron Age Site 2-Ukraine": {
+    "name": "Buzhany Iron Age Site 2",
+    "other_names": [
+      "Buzhany Iron Age Site 2"
+    ],
+    "coords": [
+      51.706,
+      32.986
+    ],
+    "country": "Ukraine",
+    "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
+    "population": {
       "0": 290,
-      "300": 340,
+      "300": 340
+    }
+  },
+  "Buzhany Medieval Settlement-Ukraine": {
+    "name": "Buzhany Medieval Settlement",
+    "other_names": [
+      "Buzhany Medieval Settlement"
+    ],
+    "coords": [
+      51.71,
+      32.99
+    ],
+    "country": "Ukraine",
+    "key": "Buzhany / Desna Terrace Palaeolithic Camp-Ukraine",
+    "population": {
       "500": 280,
       "700": 330,
       "900": 410,
@@ -173,10 +523,52 @@
     "country": "Ukraine",
     "key": "Yukhnovo / Kurove Desna Iron Age Type-Hillfort-Ukraine",
     "population": {
-      "-1500": 280,
-      "-500": 650,
+      "-1500": 280
+    }
+  },
+  "Yukhnovo Iron Age Site-Ukraine": {
+    "name": "Yukhnovo Iron Age Site",
+    "other_names": [
+      "Yukhnovo Iron Age Site"
+    ],
+    "coords": [
+      52.074,
+      33.294
+    ],
+    "country": "Ukraine",
+    "key": "Yukhnovo / Kurove Desna Iron Age Type-Hillfort-Ukraine",
+    "population": {
+      "-500": 650
+    }
+  },
+  "Yukhnovo Iron Age Site 2-Ukraine": {
+    "name": "Yukhnovo Iron Age Site 2",
+    "other_names": [
+      "Yukhnovo Iron Age Site 2"
+    ],
+    "coords": [
+      52.078,
+      33.298
+    ],
+    "country": "Ukraine",
+    "key": "Yukhnovo / Kurove Desna Iron Age Type-Hillfort-Ukraine",
+    "population": {
       "0": 580,
-      "300": 520,
+      "300": 520
+    }
+  },
+  "Yukhnovo Medieval Settlement-Ukraine": {
+    "name": "Yukhnovo Medieval Settlement",
+    "other_names": [
+      "Yukhnovo Medieval Settlement"
+    ],
+    "coords": [
+      52.082,
+      33.302
+    ],
+    "country": "Ukraine",
+    "key": "Yukhnovo / Kurove Desna Iron Age Type-Hillfort-Ukraine",
+    "population": {
       "500": 420,
       "700": 460,
       "800": 490,
@@ -203,11 +595,67 @@
     "country": "Ukraine",
     "key": "Sosnytsia Bronze Age Type-Site-Ukraine",
     "population": {
-      "-4000": 180,
-      "-1500": 520,
-      "-500": 480,
+      "-4000": 180
+    }
+  },
+  "Sosnytsia Bronze Age Site-Ukraine": {
+    "name": "Sosnytsia Bronze Age Site",
+    "other_names": [
+      "Sosnytsia Bronze Age Site"
+    ],
+    "coords": [
+      51.514,
+      32.534
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia Bronze Age Type-Site-Ukraine",
+    "population": {
+      "-1500": 520
+    }
+  },
+  "Sosnytsia Iron Age Site-Ukraine": {
+    "name": "Sosnytsia Iron Age Site",
+    "other_names": [
+      "Sosnytsia Iron Age Site"
+    ],
+    "coords": [
+      51.518,
+      32.538
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia Bronze Age Type-Site-Ukraine",
+    "population": {
+      "-500": 480
+    }
+  },
+  "Sosnytsia Iron Age Site 2-Ukraine": {
+    "name": "Sosnytsia Iron Age Site 2",
+    "other_names": [
+      "Sosnytsia Iron Age Site 2"
+    ],
+    "coords": [
+      51.522,
+      32.542
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia Bronze Age Type-Site-Ukraine",
+    "population": {
       "0": 440,
-      "300": 510,
+      "300": 510
+    }
+  },
+  "Sosnytsia Medieval Settlement-Ukraine": {
+    "name": "Sosnytsia Medieval Settlement",
+    "other_names": [
+      "Sosnytsia Medieval Settlement"
+    ],
+    "coords": [
+      51.526,
+      32.546
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia Bronze Age Type-Site-Ukraine",
+    "population": {
       "500": 390,
       "700": 450,
       "900": 540,
@@ -233,11 +681,67 @@
     "key": "Marianivka Neolithic & Bronze Age Type-Site-Ukraine",
     "population": {
       "-6000": 95,
-      "-4000": 210,
-      "-1500": 490,
-      "-500": 430,
+      "-4000": 210
+    }
+  },
+  "Marianivka Bronze Age Site-Ukraine": {
+    "name": "Marianivka Bronze Age Site",
+    "other_names": [
+      "Marianivka Bronze Age Site"
+    ],
+    "coords": [
+      51.364,
+      33.524
+    ],
+    "country": "Ukraine",
+    "key": "Marianivka Neolithic & Bronze Age Type-Site-Ukraine",
+    "population": {
+      "-1500": 490
+    }
+  },
+  "Marianivka Iron Age Site-Ukraine": {
+    "name": "Marianivka Iron Age Site",
+    "other_names": [
+      "Marianivka Iron Age Site"
+    ],
+    "coords": [
+      51.368,
+      33.528
+    ],
+    "country": "Ukraine",
+    "key": "Marianivka Neolithic & Bronze Age Type-Site-Ukraine",
+    "population": {
+      "-500": 430
+    }
+  },
+  "Marianivka Iron Age Site 2-Ukraine": {
+    "name": "Marianivka Iron Age Site 2",
+    "other_names": [
+      "Marianivka Iron Age Site 2"
+    ],
+    "coords": [
+      51.372,
+      33.532
+    ],
+    "country": "Ukraine",
+    "key": "Marianivka Neolithic & Bronze Age Type-Site-Ukraine",
+    "population": {
       "0": 460,
-      "300": 540,
+      "300": 540
+    }
+  },
+  "Marianivka Medieval Settlement-Ukraine": {
+    "name": "Marianivka Medieval Settlement",
+    "other_names": [
+      "Marianivka Medieval Settlement"
+    ],
+    "coords": [
+      51.376,
+      33.536
+    ],
+    "country": "Ukraine",
+    "key": "Marianivka Neolithic & Bronze Age Type-Site-Ukraine",
+    "population": {
       "500": 410,
       "700": 470,
       "900": 530,
@@ -261,9 +765,37 @@
     "country": "Ukraine",
     "key": "Harivka-Desna Late Zarubintsy & Kiev Culture Type-Site-Ukraine",
     "population": {
-      "-500": 310,
+      "-500": 310
+    }
+  },
+  "Harivka-Desna Iron Age Site-Ukraine": {
+    "name": "Harivka-Desna Iron Age Site",
+    "other_names": [
+      "Harivka-Desna Iron Age Site"
+    ],
+    "coords": [
+      51.454,
+      31.254
+    ],
+    "country": "Ukraine",
+    "key": "Harivka-Desna Late Zarubintsy & Kiev Culture Type-Site-Ukraine",
+    "population": {
       "0": 580,
-      "300": 790,
+      "300": 790
+    }
+  },
+  "Harivka-Desna Medieval Settlement-Ukraine": {
+    "name": "Harivka-Desna Medieval Settlement",
+    "other_names": [
+      "Harivka-Desna Medieval Settlement"
+    ],
+    "coords": [
+      51.458,
+      31.258
+    ],
+    "country": "Ukraine",
+    "key": "Harivka-Desna Late Zarubintsy & Kiev Culture Type-Site-Ukraine",
+    "population": {
       "500": 620,
       "700": 680,
       "800": 740,
@@ -293,7 +825,21 @@
       "300": 850,
       "500": 580,
       "700": 650,
-      "800": 720,
+      "800": 720
+    }
+  },
+  "Roishche Medieval Settlement-Ukraine": {
+    "name": "Roishche Medieval Settlement",
+    "other_names": [
+      "Roishche Medieval Settlement"
+    ],
+    "coords": [
+      51.654,
+      31.264
+    ],
+    "country": "Ukraine",
+    "key": "Roishche-Ukraine",
+    "population": {
       "900": 790,
       "1000": 880,
       "1100": 1020,
@@ -321,7 +867,21 @@
       "300": 420,
       "500": 540,
       "700": 980,
-      "800": 1180,
+      "800": 1180
+    }
+  },
+  "Volyntsevo Medieval Settlement-Ukraine": {
+    "name": "Volyntsevo Medieval Settlement",
+    "other_names": [
+      "Volyntsevo Medieval Settlement"
+    ],
+    "coords": [
+      51.404,
+      33.944
+    ],
+    "country": "Ukraine",
+    "key": "Volyntsevo-Ukraine",
+    "population": {
       "900": 1150,
       "1000": 920,
       "1100": 950,
@@ -373,9 +933,37 @@
     "country": "Ukraine",
     "key": "Gornal-Ukraine",
     "population": {
-      "-500": 420,
+      "-500": 420
+    }
+  },
+  "Gornal Iron Age Site-Ukraine": {
+    "name": "Gornal Iron Age Site",
+    "other_names": [
+      "Gornal Iron Age Site"
+    ],
+    "coords": [
+      51.064,
+      35.224
+    ],
+    "country": "Ukraine",
+    "key": "Gornal-Ukraine",
+    "population": {
       "0": 480,
-      "300": 620,
+      "300": 620
+    }
+  },
+  "Gornal Medieval Settlement-Ukraine": {
+    "name": "Gornal Medieval Settlement",
+    "other_names": [
+      "Gornal Medieval Settlement"
+    ],
+    "coords": [
+      51.068,
+      35.228
+    ],
+    "country": "Ukraine",
+    "key": "Gornal-Ukraine",
+    "population": {
       "500": 680,
       "700": 1250,
       "800": 1580,
@@ -515,9 +1103,37 @@
     "country": "Belarus",
     "key": "Kolochin I-Belarus",
     "population": {
-      "-500": 380,
+      "-500": 380
+    }
+  },
+  "Kolochin I Iron Age Site-Belarus": {
+    "name": "Kolochin I Iron Age Site",
+    "other_names": [
+      "Kolochin I Iron Age Site"
+    ],
+    "coords": [
+      52.274,
+      30.524
+    ],
+    "country": "Belarus",
+    "key": "Kolochin I-Belarus",
+    "population": {
       "0": 490,
-      "300": 640,
+      "300": 640
+    }
+  },
+  "Kolochin I Medieval Settlement-Belarus": {
+    "name": "Kolochin I Medieval Settlement",
+    "other_names": [
+      "Kolochin I Medieval Settlement"
+    ],
+    "coords": [
+      52.278,
+      30.528
+    ],
+    "country": "Belarus",
+    "key": "Kolochin I-Belarus",
+    "population": {
       "500": 850,
       "700": 790,
       "800": 760,
@@ -545,10 +1161,52 @@
     "country": "Belarus",
     "key": "Milograd-Belarus",
     "population": {
-      "-1500": 320,
-      "-500": 780,
+      "-1500": 320
+    }
+  },
+  "Milograd Iron Age Site-Belarus": {
+    "name": "Milograd Iron Age Site",
+    "other_names": [
+      "Milograd Iron Age Site"
+    ],
+    "coords": [
+      52.244,
+      30.564
+    ],
+    "country": "Belarus",
+    "key": "Milograd-Belarus",
+    "population": {
+      "-500": 780
+    }
+  },
+  "Milograd Iron Age Site 2-Belarus": {
+    "name": "Milograd Iron Age Site 2",
+    "other_names": [
+      "Milograd Iron Age Site 2"
+    ],
+    "coords": [
+      52.248,
+      30.568
+    ],
+    "country": "Belarus",
+    "key": "Milograd-Belarus",
+    "population": {
       "0": 690,
-      "300": 610,
+      "300": 610
+    }
+  },
+  "Milograd Medieval Settlement-Belarus": {
+    "name": "Milograd Medieval Settlement",
+    "other_names": [
+      "Milograd Medieval Settlement"
+    ],
+    "coords": [
+      52.252,
+      30.572
+    ],
+    "country": "Belarus",
+    "key": "Milograd-Belarus",
+    "population": {
       "500": 520,
       "700": 580,
       "800": 640,
@@ -605,11 +1263,67 @@
     "key": "Sozh Terrace Neolithic & Radimichi Settlement-Ukraine",
     "population": {
       "-6000": 140,
-      "-4000": 320,
-      "-1500": 480,
-      "-500": 590,
+      "-4000": 320
+    }
+  },
+  "Sozh Terrace Bronze Age Site-Ukraine": {
+    "name": "Sozh Terrace Bronze Age Site",
+    "other_names": [
+      "Sozh Terrace Bronze Age Site"
+    ],
+    "coords": [
+      52.564,
+      31.184
+    ],
+    "country": "Ukraine",
+    "key": "Sozh Terrace Neolithic & Radimichi Settlement-Ukraine",
+    "population": {
+      "-1500": 480
+    }
+  },
+  "Sozh Terrace Iron Age Site-Ukraine": {
+    "name": "Sozh Terrace Iron Age Site",
+    "other_names": [
+      "Sozh Terrace Iron Age Site"
+    ],
+    "coords": [
+      52.568,
+      31.188
+    ],
+    "country": "Ukraine",
+    "key": "Sozh Terrace Neolithic & Radimichi Settlement-Ukraine",
+    "population": {
+      "-500": 590
+    }
+  },
+  "Sozh Terrace Iron Age Site 2-Ukraine": {
+    "name": "Sozh Terrace Iron Age Site 2",
+    "other_names": [
+      "Sozh Terrace Iron Age Site 2"
+    ],
+    "coords": [
+      52.572,
+      31.192
+    ],
+    "country": "Ukraine",
+    "key": "Sozh Terrace Neolithic & Radimichi Settlement-Ukraine",
+    "population": {
       "0": 540,
-      "300": 610,
+      "300": 610
+    }
+  },
+  "Sozh Terrace Medieval Settlement-Ukraine": {
+    "name": "Sozh Terrace Medieval Settlement",
+    "other_names": [
+      "Sozh Terrace Medieval Settlement"
+    ],
+    "coords": [
+      52.576,
+      31.196
+    ],
+    "country": "Ukraine",
+    "key": "Sozh Terrace Neolithic & Radimichi Settlement-Ukraine",
+    "population": {
       "500": 530,
       "700": 620,
       "800": 690,
@@ -649,6 +1363,52 @@
       "1300": 520
     }
   },
+  "Chernigov Bronze Age Site-Ukraine": {
+    "name": "Chernigov Bronze Age Site",
+    "other_names": [
+      "Chernigov Bronze Age Site"
+    ],
+    "coords": [
+      51.512,
+      31.302
+    ],
+    "country": "Ukraine",
+    "key": "Chernigov-Ukraine",
+    "population": {
+      "-1500": 650
+    }
+  },
+  "Chernigov Iron Age Site-Ukraine": {
+    "name": "Chernigov Iron Age Site",
+    "other_names": [
+      "Chernigov Iron Age Site"
+    ],
+    "coords": [
+      51.508,
+      31.298
+    ],
+    "country": "Ukraine",
+    "key": "Chernigov-Ukraine",
+    "population": {
+      "-500": 1200
+    }
+  },
+  "Chernigov Iron Age Site 2-Ukraine": {
+    "name": "Chernigov Iron Age Site 2",
+    "other_names": [
+      "Chernigov Iron Age Site 2"
+    ],
+    "coords": [
+      51.504,
+      31.294
+    ],
+    "country": "Ukraine",
+    "key": "Chernigov-Ukraine",
+    "population": {
+      "0": 1500,
+      "300": 2100
+    }
+  },
   "Chernigov-Ukraine": {
     "name": "Chernigov",
     "other_names": [
@@ -665,10 +1425,6 @@
     "country": "Ukraine",
     "key": "Chernigov-Ukraine",
     "population": {
-      "-1500": 650,
-      "-500": 1200,
-      "0": 1500,
-      "300": 2100,
       "500": 2400,
       "700": 4500,
       "800": 6800,
@@ -681,6 +1437,37 @@
       "1239": 36050,
       "1250": 5000,
       "1300": 6000
+    }
+  },
+  "Lyubech Iron Age Site-Ukraine": {
+    "name": "Lyubech Iron Age Site",
+    "other_names": [
+      "Lyubech Iron Age Site"
+    ],
+    "coords": [
+      51.708,
+      30.668
+    ],
+    "country": "Ukraine",
+    "key": "Lyubech-Ukraine",
+    "population": {
+      "-500": 620
+    }
+  },
+  "Lyubech Iron Age Site 2-Ukraine": {
+    "name": "Lyubech Iron Age Site 2",
+    "other_names": [
+      "Lyubech Iron Age Site 2"
+    ],
+    "coords": [
+      51.704,
+      30.664
+    ],
+    "country": "Ukraine",
+    "key": "Lyubech-Ukraine",
+    "population": {
+      "0": 750,
+      "300": 950
     }
   },
   "Lyubech-Ukraine": {
@@ -698,9 +1485,6 @@
     "country": "Ukraine",
     "key": "Lyubech-Ukraine",
     "population": {
-      "-500": 620,
-      "0": 750,
-      "300": 950,
       "500": 1100,
       "700": 1600,
       "800": 2200,
@@ -713,6 +1497,36 @@
       "1239": 4635,
       "1250": 2100,
       "1300": 2500
+    }
+  },
+  "Snovsk Iron Age Site-Ukraine": {
+    "name": "Snovsk Iron Age Site",
+    "other_names": [
+      "Snovsk Iron Age Site"
+    ],
+    "coords": [
+      51.648,
+      31.578
+    ],
+    "country": "Ukraine",
+    "key": "Snovsk-Ukraine",
+    "population": {
+      "-500": 540
+    }
+  },
+  "Snovsk Iron Age Site 2-Ukraine": {
+    "name": "Snovsk Iron Age Site 2",
+    "other_names": [
+      "Snovsk Iron Age Site 2"
+    ],
+    "coords": [
+      51.644,
+      31.574
+    ],
+    "country": "Ukraine",
+    "key": "Snovsk-Ukraine",
+    "population": {
+      "300": 780
     }
   },
   "Snovsk-Ukraine": {
@@ -731,8 +1545,6 @@
     "country": "Ukraine",
     "key": "Snovsk-Ukraine",
     "population": {
-      "-500": 540,
-      "300": 780,
       "500": 920,
       "700": 1500,
       "800": 1950,
@@ -865,6 +1677,36 @@
       "1300": 1450
     }
   },
+  "Sosnytsia Bronze Age Site 2-Ukraine": {
+    "name": "Sosnytsia Bronze Age Site 2",
+    "other_names": [
+      "Sosnytsia Bronze Age Site 2"
+    ],
+    "coords": [
+      51.538,
+      32.508
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia-Ukraine",
+    "population": {
+      "-1500": 450
+    }
+  },
+  "Sosnytsia Iron Age Site 3-Ukraine": {
+    "name": "Sosnytsia Iron Age Site 3",
+    "other_names": [
+      "Sosnytsia Iron Age Site 3"
+    ],
+    "coords": [
+      51.534,
+      32.504
+    ],
+    "country": "Ukraine",
+    "key": "Sosnytsia-Ukraine",
+    "population": {
+      "-500": 620
+    }
+  },
   "Sosnytsia-Ukraine": {
     "name": "Sosnytsia",
     "other_names": [
@@ -881,8 +1723,6 @@
     "country": "Ukraine",
     "key": "Sosnytsia-Ukraine",
     "population": {
-      "-1500": 450,
-      "-500": 620,
       "500": 750,
       "700": 1050,
       "800": 1350,
@@ -895,6 +1735,21 @@
       "1239": 2884,
       "1250": 1150,
       "1300": 1500
+    }
+  },
+  "Khorobor Iron Age Site-Ukraine": {
+    "name": "Khorobor Iron Age Site",
+    "other_names": [
+      "Khorobor Iron Age Site"
+    ],
+    "coords": [
+      51.474,
+      32.334
+    ],
+    "country": "Ukraine",
+    "key": "Khorobor-Ukraine",
+    "population": {
+      "-500": 480
     }
   },
   "Khorobor-Ukraine": {
@@ -913,7 +1768,6 @@
     "country": "Ukraine",
     "key": "Khorobor-Ukraine",
     "population": {
-      "-500": 480,
       "700": 820,
       "800": 1080,
       "900": 1350,
@@ -1129,6 +1983,21 @@
       "1300": 920
     }
   },
+  "Mena Iron Age Site-Ukraine": {
+    "name": "Mena Iron Age Site",
+    "other_names": [
+      "Mena Iron Age Site"
+    ],
+    "coords": [
+      51.524,
+      32.224
+    ],
+    "country": "Ukraine",
+    "key": "Mena-Ukraine",
+    "population": {
+      "-500": 420
+    }
+  },
   "Mena-Ukraine": {
     "name": "Mena",
     "other_names": [
@@ -1143,7 +2012,6 @@
     "country": "Ukraine",
     "key": "Mena-Ukraine",
     "population": {
-      "-500": 420,
       "500": 520,
       "700": 680,
       "800": 840,
@@ -1272,6 +2140,21 @@
       "1300": 820
     }
   },
+  "Korop Iron Age Site-Ukraine": {
+    "name": "Korop Iron Age Site",
+    "other_names": [
+      "Korop Iron Age Site"
+    ],
+    "coords": [
+      51.564,
+      32.954
+    ],
+    "country": "Ukraine",
+    "key": "Korop-Ukraine",
+    "population": {
+      "-500": 380
+    }
+  },
   "Korop-Ukraine": {
     "name": "Korop",
     "other_names": [
@@ -1286,7 +2169,6 @@
     "country": "Ukraine",
     "key": "Korop-Ukraine",
     "population": {
-      "-500": 380,
       "700": 540,
       "800": 680,
       "900": 820,
@@ -1633,6 +2515,21 @@
       "1300": 610
     }
   },
+  "Ponornytsia Iron Age Site-Ukraine": {
+    "name": "Ponornytsia Iron Age Site",
+    "other_names": [
+      "Ponornytsia Iron Age Site"
+    ],
+    "coords": [
+      51.724,
+      32.854
+    ],
+    "country": "Ukraine",
+    "key": "Ponornytsia-Ukraine",
+    "population": {
+      "-500": 340
+    }
+  },
   "Ponornytsia-Ukraine": {
     "name": "Ponornytsia",
     "other_names": [
@@ -1648,7 +2545,6 @@
     "country": "Ukraine",
     "key": "Ponornytsia-Ukraine",
     "population": {
-      "-500": 340,
       "700": 310,
       "800": 390,
       "900": 470,
@@ -1962,6 +2858,21 @@
       "1300": 510
     }
   },
+  "Horbove Iron Age Site-Ukraine": {
+    "name": "Horbove Iron Age Site",
+    "other_names": [
+      "Horbove Iron Age Site"
+    ],
+    "coords": [
+      51.464,
+      31.594
+    ],
+    "country": "Ukraine",
+    "key": "Horbove-Ukraine",
+    "population": {
+      "-500": 390
+    }
+  },
   "Horbove-Ukraine": {
     "name": "Horbove",
     "other_names": [
@@ -1977,7 +2888,6 @@
     "country": "Ukraine",
     "key": "Horbove-Ukraine",
     "population": {
-      "-500": 390,
       "700": 380,
       "800": 460,
       "900": 550,
@@ -2099,6 +3009,21 @@
       "1300": 540
     }
   },
+  "Revna-Snov Northern Forest Hillfort Iron Age Site-Ukraine": {
+    "name": "Revna-Snov Northern Forest Hillfort Iron Age Site",
+    "other_names": [
+      "Revna-Snov Northern Forest Hillfort Iron Age Site"
+    ],
+    "coords": [
+      52.184,
+      32.584
+    ],
+    "country": "Ukraine",
+    "key": "Revna-Snov Northern Forest Hillfort-Ukraine",
+    "population": {
+      "-500": 310
+    }
+  },
   "Revna-Snov Northern Forest Hillfort-Ukraine": {
     "name": "Revna-Snov Northern Forest Hillfort",
     "other_names": [
@@ -2113,7 +3038,6 @@
     "country": "Ukraine",
     "key": "Revna-Snov Northern Forest Hillfort-Ukraine",
     "population": {
-      "-500": 310,
       "700": 260,
       "800": 320,
       "900": 380,
@@ -2125,6 +3049,37 @@
       "1239": 762,
       "1250": 410,
       "1300": 560
+    }
+  },
+  "Novgorod-Seversk Iron Age Site-Ukraine": {
+    "name": "Novgorod-Seversk Iron Age Site",
+    "other_names": [
+      "Novgorod-Seversk Iron Age Site"
+    ],
+    "coords": [
+      51.998,
+      33.278
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversk-Ukraine",
+    "population": {
+      "-500": 850
+    }
+  },
+  "Novgorod-Seversk Iron Age Site 2-Ukraine": {
+    "name": "Novgorod-Seversk Iron Age Site 2",
+    "other_names": [
+      "Novgorod-Seversk Iron Age Site 2"
+    ],
+    "coords": [
+      51.994,
+      33.274
+    ],
+    "country": "Ukraine",
+    "key": "Novgorod-Seversk-Ukraine",
+    "population": {
+      "0": 950,
+      "300": 1300
     }
   },
   "Novgorod-Seversk-Ukraine": {
@@ -2143,9 +3098,6 @@
     "country": "Ukraine",
     "key": "Novgorod-Seversk-Ukraine",
     "population": {
-      "-500": 850,
-      "0": 950,
-      "300": 1300,
       "500": 1500,
       "700": 2800,
       "800": 4200,
@@ -2158,6 +3110,37 @@
       "1239": 12360,
       "1250": 3800,
       "1300": 4500
+    }
+  },
+  "Putivl Iron Age Site-Ukraine": {
+    "name": "Putivl Iron Age Site",
+    "other_names": [
+      "Putivl Iron Age Site"
+    ],
+    "coords": [
+      51.328,
+      33.868
+    ],
+    "country": "Ukraine",
+    "key": "Putivl-Ukraine",
+    "population": {
+      "-500": 580
+    }
+  },
+  "Putivl Iron Age Site 2-Ukraine": {
+    "name": "Putivl Iron Age Site 2",
+    "other_names": [
+      "Putivl Iron Age Site 2"
+    ],
+    "coords": [
+      51.324,
+      33.864
+    ],
+    "country": "Ukraine",
+    "key": "Putivl-Ukraine",
+    "population": {
+      "0": 680,
+      "300": 920
     }
   },
   "Putivl-Ukraine": {
@@ -2175,9 +3158,6 @@
     "country": "Ukraine",
     "key": "Putivl-Ukraine",
     "population": {
-      "-500": 580,
-      "0": 680,
-      "300": 920,
       "500": 1100,
       "700": 1950,
       "800": 2700,
@@ -2251,6 +3231,36 @@
       "1300": 1050
     }
   },
+  "Romny Iron Age Site-Ukraine": {
+    "name": "Romny Iron Age Site",
+    "other_names": [
+      "Romny Iron Age Site"
+    ],
+    "coords": [
+      50.758,
+      33.478
+    ],
+    "country": "Ukraine",
+    "key": "Romny-Ukraine",
+    "population": {
+      "-500": 520
+    }
+  },
+  "Romny Iron Age Site 2-Ukraine": {
+    "name": "Romny Iron Age Site 2",
+    "other_names": [
+      "Romny Iron Age Site 2"
+    ],
+    "coords": [
+      50.754,
+      33.474
+    ],
+    "country": "Ukraine",
+    "key": "Romny-Ukraine",
+    "population": {
+      "300": 750
+    }
+  },
   "Romny-Ukraine": {
     "name": "Romny",
     "other_names": [
@@ -2267,8 +3277,6 @@
     "country": "Ukraine",
     "key": "Romny-Ukraine",
     "population": {
-      "-500": 520,
-      "300": 750,
       "500": 950,
       "700": 1850,
       "800": 2400,
@@ -2341,6 +3349,21 @@
       "1300": 920
     }
   },
+  "Vorskla / Okhtyrka Hillfort Iron Age Site-Ukraine": {
+    "name": "Vorskla / Okhtyrka Hillfort Iron Age Site",
+    "other_names": [
+      "Vorskla / Okhtyrka Hillfort Iron Age Site"
+    ],
+    "coords": [
+      50.314,
+      34.904
+    ],
+    "country": "Ukraine",
+    "key": "Vorskla / Okhtyrka Hillfort-Ukraine",
+    "population": {
+      "-500": 650
+    }
+  },
   "Vorskla / Okhtyrka Hillfort-Ukraine": {
     "name": "Vorskla / Okhtyrka Hillfort",
     "other_names": [
@@ -2356,7 +3379,6 @@
     "country": "Ukraine",
     "key": "Vorskla / Okhtyrka Hillfort-Ukraine",
     "population": {
-      "-500": 650,
       "500": 540,
       "700": 980,
       "800": 1300,
@@ -2649,6 +3671,21 @@
       "1300": 560
     }
   },
+  "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort Iron Age Site-Ukraine": {
+    "name": "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort Iron Age Site",
+    "other_names": [
+      "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort Iron Age Site"
+    ],
+    "coords": [
+      50.484,
+      34.964
+    ],
+    "country": "Ukraine",
+    "key": "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort-Ukraine",
+    "population": {
+      "-500": 450
+    }
+  },
   "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort-Ukraine": {
     "name": "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort",
     "other_names": [
@@ -2663,7 +3700,6 @@
     "country": "Ukraine",
     "key": "Zarichne-Bogodukhov / Trostyanets Vorskla Hillfort-Ukraine",
     "population": {
-      "-500": 450,
       "700": 390,
       "800": 480,
       "900": 580,
@@ -2705,6 +3741,21 @@
       "1300": 560
     }
   },
+  "Vovkivtsi Iron Age Site-Ukraine": {
+    "name": "Vovkivtsi Iron Age Site",
+    "other_names": [
+      "Vovkivtsi Iron Age Site"
+    ],
+    "coords": [
+      50.814,
+      33.584
+    ],
+    "country": "Ukraine",
+    "key": "Vovkivtsi-Ukraine",
+    "population": {
+      "-500": 620
+    }
+  },
   "Vovkivtsi-Ukraine": {
     "name": "Vovkivtsi",
     "other_names": [
@@ -2720,7 +3771,6 @@
     "country": "Ukraine",
     "key": "Vovkivtsi-Ukraine",
     "population": {
-      "-500": 620,
       "700": 520,
       "800": 620,
       "900": 720,
@@ -2761,6 +3811,21 @@
       "1300": 640
     }
   },
+  "Znob Iron Age Site-Ukraine": {
+    "name": "Znob Iron Age Site",
+    "other_names": [
+      "Znob Iron Age Site"
+    ],
+    "coords": [
+      52.264,
+      33.594
+    ],
+    "country": "Ukraine",
+    "key": "Znob-Ukraine",
+    "population": {
+      "-500": 340
+    }
+  },
   "Znob-Ukraine": {
     "name": "Znob",
     "other_names": [
@@ -2775,7 +3840,6 @@
     "country": "Ukraine",
     "key": "Znob-Ukraine",
     "population": {
-      "-500": 340,
       "700": 320,
       "800": 400,
       "900": 480,
@@ -2871,6 +3935,21 @@
       "1300": 460
     }
   },
+  "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex Iron Age Site-Ukraine": {
+    "name": "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex Iron Age Site",
+    "other_names": [
+      "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex Iron Age Site"
+    ],
+    "coords": [
+      50.794,
+      33.584
+    ],
+    "country": "Ukraine",
+    "key": "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex-Ukraine",
+    "population": {
+      "-500": 720
+    }
+  },
   "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex-Ukraine": {
     "name": "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex",
     "other_names": [
@@ -2885,7 +3964,6 @@
     "country": "Ukraine",
     "key": "Pustoviitivka / Aksyntsi Sula Scythian & Rus Complex-Ukraine",
     "population": {
-      "-500": 720,
       "700": 410,
       "800": 490,
       "900": 570,
@@ -2897,6 +3975,21 @@
       "1239": 1009,
       "1250": 410,
       "1300": 520
+    }
+  },
+  "Kuzemyn / Vorskla Northern Rampart Complex Iron Age Site-Ukraine": {
+    "name": "Kuzemyn / Vorskla Northern Rampart Complex Iron Age Site",
+    "other_names": [
+      "Kuzemyn / Vorskla Northern Rampart Complex Iron Age Site"
+    ],
+    "coords": [
+      50.144,
+      34.684
+    ],
+    "country": "Ukraine",
+    "key": "Kuzemyn / Vorskla Northern Rampart Complex-Ukraine",
+    "population": {
+      "-500": 680
     }
   },
   "Kuzemyn / Vorskla Northern Rampart Complex-Ukraine": {
@@ -2912,7 +4005,6 @@
     "country": "Ukraine",
     "key": "Kuzemyn / Vorskla Northern Rampart Complex-Ukraine",
     "population": {
-      "-500": 680,
       "700": 380,
       "800": 450,
       "900": 520,
@@ -3365,6 +4457,37 @@
       "1300": 410
     }
   },
+  "Gomel Iron Age Site-Belarus": {
+    "name": "Gomel Iron Age Site",
+    "other_names": [
+      "Gomel Iron Age Site"
+    ],
+    "coords": [
+      52.438,
+      30.988
+    ],
+    "country": "Belarus",
+    "key": "Gomel-Belarus",
+    "population": {
+      "-500": 650
+    }
+  },
+  "Gomel Iron Age Site 2-Belarus": {
+    "name": "Gomel Iron Age Site 2",
+    "other_names": [
+      "Gomel Iron Age Site 2"
+    ],
+    "coords": [
+      52.434,
+      30.984
+    ],
+    "country": "Belarus",
+    "key": "Gomel-Belarus",
+    "population": {
+      "0": 750,
+      "300": 950
+    }
+  },
   "Gomel-Belarus": {
     "name": "Gomel",
     "other_names": [
@@ -3381,9 +4504,6 @@
     "country": "Belarus",
     "key": "Gomel-Belarus",
     "population": {
-      "-500": 650,
-      "0": 750,
-      "300": 950,
       "500": 1150,
       "700": 1850,
       "800": 2400,
@@ -3428,6 +4548,36 @@
       "1300": 1750
     }
   },
+  "Rechitsa Iron Age Site-Belarus": {
+    "name": "Rechitsa Iron Age Site",
+    "other_names": [
+      "Rechitsa Iron Age Site"
+    ],
+    "coords": [
+      52.368,
+      30.398
+    ],
+    "country": "Belarus",
+    "key": "Rechitsa-Belarus",
+    "population": {
+      "-500": 520
+    }
+  },
+  "Rechitsa Iron Age Site 2-Belarus": {
+    "name": "Rechitsa Iron Age Site 2",
+    "other_names": [
+      "Rechitsa Iron Age Site 2"
+    ],
+    "coords": [
+      52.364,
+      30.394
+    ],
+    "country": "Belarus",
+    "key": "Rechitsa-Belarus",
+    "population": {
+      "300": 680
+    }
+  },
   "Rechitsa-Belarus": {
     "name": "Rechitsa",
     "other_names": [
@@ -3444,8 +4594,6 @@
     "country": "Belarus",
     "key": "Rechitsa-Belarus",
     "population": {
-      "-500": 520,
-      "300": 680,
       "500": 750,
       "700": 980,
       "800": 1250,
@@ -3490,6 +4638,21 @@
       "1300": 1650
     }
   },
+  "Loyev Iron Age Site-Ukraine": {
+    "name": "Loyev Iron Age Site",
+    "other_names": [
+      "Loyev Iron Age Site"
+    ],
+    "coords": [
+      51.944,
+      30.804
+    ],
+    "country": "Ukraine",
+    "key": "Loyev-Ukraine",
+    "population": {
+      "-500": 480
+    }
+  },
   "Loyev-Ukraine": {
     "name": "Loyev",
     "other_names": [
@@ -3506,7 +4669,6 @@
     "country": "Ukraine",
     "key": "Loyev-Ukraine",
     "population": {
-      "-500": 480,
       "500": 540,
       "700": 820,
       "800": 1080,
@@ -3519,6 +4681,37 @@
       "1239": 2266,
       "1250": 1150,
       "1300": 1450
+    }
+  },
+  "Khalch Iron Age Site-Belarus": {
+    "name": "Khalch Iron Age Site",
+    "other_names": [
+      "Khalch Iron Age Site"
+    ],
+    "coords": [
+      52.578,
+      31.148
+    ],
+    "country": "Belarus",
+    "key": "Khalch-Belarus",
+    "population": {
+      "-500": 590
+    }
+  },
+  "Khalch Iron Age Site 2-Belarus": {
+    "name": "Khalch Iron Age Site 2",
+    "other_names": [
+      "Khalch Iron Age Site 2"
+    ],
+    "coords": [
+      52.574,
+      31.144
+    ],
+    "country": "Belarus",
+    "key": "Khalch-Belarus",
+    "population": {
+      "0": 540,
+      "300": 620
     }
   },
   "Khalch-Belarus": {
@@ -3535,9 +4728,6 @@
     "country": "Belarus",
     "key": "Khalch-Belarus",
     "population": {
-      "-500": 590,
-      "0": 540,
-      "300": 620,
       "500": 580,
       "700": 720,
       "800": 860,
@@ -3580,6 +4770,21 @@
       "1300": 980
     }
   },
+  "Gorval Iron Age Site-Belarus": {
+    "name": "Gorval Iron Age Site",
+    "other_names": [
+      "Gorval Iron Age Site"
+    ],
+    "coords": [
+      52.574,
+      30.204
+    ],
+    "country": "Belarus",
+    "key": "Gorval-Belarus",
+    "population": {
+      "-500": 420
+    }
+  },
   "Gorval-Belarus": {
     "name": "Gorval",
     "other_names": [
@@ -3594,7 +4799,6 @@
     "country": "Belarus",
     "key": "Gorval-Belarus",
     "population": {
-      "-500": 420,
       "500": 410,
       "700": 480,
       "800": 540,
@@ -3663,6 +4867,21 @@
       "1300": 560
     }
   },
+  "Sharpylovka Iron Age Site-Belarus": {
+    "name": "Sharpylovka Iron Age Site",
+    "other_names": [
+      "Sharpylovka Iron Age Site"
+    ],
+    "coords": [
+      52.104,
+      30.914
+    ],
+    "country": "Belarus",
+    "key": "Sharpylovka-Belarus",
+    "population": {
+      "-500": 360
+    }
+  },
   "Sharpylovka-Belarus": {
     "name": "Sharpylovka",
     "other_names": [
@@ -3677,7 +4896,6 @@
     "country": "Belarus",
     "key": "Sharpylovka-Belarus",
     "population": {
-      "-500": 360,
       "700": 310,
       "800": 380,
       "900": 450,
@@ -3718,6 +4936,21 @@
       "1300": 540
     }
   },
+  "Raduga Iron Age Site-Belarus": {
+    "name": "Raduga Iron Age Site",
+    "other_names": [
+      "Raduga Iron Age Site"
+    ],
+    "coords": [
+      52.644,
+      31.084
+    ],
+    "country": "Belarus",
+    "key": "Raduga-Belarus",
+    "population": {
+      "-500": 390
+    }
+  },
   "Raduga-Belarus": {
     "name": "Raduga",
     "other_names": [
@@ -3732,7 +4965,6 @@
     "country": "Belarus",
     "key": "Raduga-Belarus",
     "population": {
-      "-500": 390,
       "700": 280,
       "800": 340,
       "900": 400,
@@ -3827,6 +5059,21 @@
       "1300": 590
     }
   },
+  "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex Stone Age Site-Ukraine": {
+    "name": "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex Stone Age Site",
+    "other_names": [
+      "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex Stone Age Site"
+    ],
+    "coords": [
+      52.784,
+      31.304
+    ],
+    "country": "Ukraine",
+    "key": "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex-Ukraine",
+    "population": {
+      "-10000": 70
+    }
+  },
   "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex-Ukraine": {
     "name": "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex",
     "other_names": [
@@ -3841,7 +5088,6 @@
     "country": "Ukraine",
     "key": "Svetilovichi-Besed Radimichi Barrow & Hillfort Complex-Ukraine",
     "population": {
-      "-10000": 70,
       "700": 320,
       "800": 380,
       "900": 450,
@@ -3947,7 +5193,21 @@
     "country": "Belarus",
     "key": "Vedrich Basin Milograd & Dregovichi-Rus Hillfort-Belarus",
     "population": {
-      "-500": 380,
+      "-500": 380
+    }
+  },
+  "Vedrich Basin Milograd & Dregovichi-Rus Hillfort Medieval Settlement-Belarus": {
+    "name": "Vedrich Basin Milograd & Dregovichi-Rus Hillfort Medieval Settlement",
+    "other_names": [
+      "Vedrich Basin Milograd & Dregovichi-Rus Hillfort Medieval Settlement"
+    ],
+    "coords": [
+      52.254,
+      29.834
+    ],
+    "country": "Belarus",
+    "key": "Vedrich Basin Milograd & Dregovichi-Rus Hillfort-Belarus",
+    "population": {
       "700": 280,
       "800": 330,
       "900": 390,

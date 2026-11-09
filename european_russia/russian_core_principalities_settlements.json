@@ -289,11 +289,11 @@
     "country": "Russia",
     "key": "Dyakovo Gorodishche-Russia",
     "population": {
-      "-500": 80,
-      "-200": 110,
       "1": 125,
       "300": 140,
-      "500": 110
+      "500": 110,
+      "-500": 80,
+      "-200": 110
     }
   },
   "Troitskoye Gorodishche-Russia": {
@@ -309,10 +309,10 @@
     "country": "Russia",
     "key": "Troitskoye Gorodishche-Russia",
     "population": {
-      "-400": 90,
       "1": 140,
       "250": 165,
-      "500": 120
+      "500": 120,
+      "-400": 90
     }
   },
   "Shcherbinskoye Gorodishche-Russia": {
@@ -328,7 +328,21 @@
     "country": "Russia",
     "key": "Shcherbinskoye Gorodishche-Russia",
     "population": {
-      "-500": 75,
+      "-500": 75
+    }
+  },
+  "Shcherbinskoye Gorodishche Iron Age Site-Russia": {
+    "name": "Shcherbinskoye Gorodishche Iron Age Site",
+    "other_names": [
+      "Shcherbinskoye Gorodishche Iron Age Site"
+    ],
+    "coords": [
+      55.489,
+      37.599
+    ],
+    "country": "Russia",
+    "key": "Shcherbinskoye Gorodishche-Russia",
+    "population": {
       "1": 115,
       "300": 130,
       "500": 95
@@ -347,10 +361,10 @@
     "country": "Russia",
     "key": "Borsheva Gorodishche-Russia",
     "population": {
-      "-300": 70,
       "1": 110,
       "350": 135,
-      "600": 150
+      "600": 150,
+      "-300": 70
     }
   },
   "Staraya Ladoga-Russia": {
@@ -442,6 +456,21 @@
       "1900": 26900
     }
   },
+  "Kamno-Pskov Gorodishche-Russia": {
+    "name": "Kamno-Pskov Gorodishche",
+    "other_names": [
+      "Kamno-Pskov Gorodishche"
+    ],
+    "coords": [
+      57.8234,
+      28.3359
+    ],
+    "country": "Russia",
+    "key": "Pskov-Russia",
+    "population": {
+      "600": 350
+    }
+  },
   "Pskov-Russia": {
     "name": "Pskov",
     "other_names": [
@@ -454,7 +483,6 @@
     "country": "Russia",
     "key": "Pskov-Russia",
     "population": {
-      "600": 350,
       "850": 1000,
       "1000": 3500,
       "1200": 10000,
@@ -847,6 +875,21 @@
       "1900": 5300
     }
   },
+  "Olonets Medieval Gorodishche-Russia": {
+    "name": "Olonets Medieval Gorodishche",
+    "other_names": [
+      "Olonets Medieval Gorodishche"
+    ],
+    "coords": [
+      60.9887,
+      32.9737
+    ],
+    "country": "Russia",
+    "key": "Olonets-Russia",
+    "population": {
+      "1137": 500
+    }
+  },
   "Olonets-Russia": {
     "name": "Olonets",
     "other_names": [
@@ -859,7 +902,6 @@
     "country": "Russia",
     "key": "Olonets-Russia",
     "population": {
-      "1137": 500,
       "1500": 1200,
       "1650": 3500,
       "1700": 2800,
@@ -1242,6 +1284,24 @@
       "1900": 2250
     }
   },
+  "Kideksha (1152–1500)-Russia": {
+    "name": "Kideksha (1152–1500)",
+    "other_names": [
+      "Kideksha (1152–1500)"
+    ],
+    "coords": [
+      56.4296,
+      40.5329
+    ],
+    "country": "Russia",
+    "key": "Kideksha-Russia",
+    "population": {
+      "1152": 1400,
+      "1200": 2000,
+      "1300": 700,
+      "1500": 500
+    }
+  },
   "Kideksha-Russia": {
     "name": "Kideksha",
     "other_names": [
@@ -1254,10 +1314,6 @@
     "country": "Russia",
     "key": "Kideksha-Russia",
     "population": {
-      "1152": 1400,
-      "1200": 2000,
-      "1300": 700,
-      "1500": 500,
       "1897": 650,
       "1900": 680
     }
@@ -1685,6 +1741,22 @@
       "1900": 61500
     }
   },
+  "Viazniki Medieval Gorodishche-Russia": {
+    "name": "Viazniki Medieval Gorodishche",
+    "other_names": [
+      "Viazniki Medieval Gorodishche"
+    ],
+    "coords": [
+      56.2482,
+      42.1637
+    ],
+    "country": "Russia",
+    "key": "Viazniki-Russia",
+    "population": {
+      "1136": 1200,
+      "1200": 2200
+    }
+  },
   "Viazniki-Russia": {
     "name": "Viazniki",
     "other_names": [
@@ -1697,13 +1769,27 @@
     "country": "Russia",
     "key": "Viazniki-Russia",
     "population": {
-      "1136": 1200,
-      "1200": 2200,
       "1600": 1800,
       "1700": 2900,
       "1800": 4100,
       "1897": 8862,
       "1900": 9300
+    }
+  },
+  "Gorokhovets Medieval Gorodishche-Russia": {
+    "name": "Gorokhovets Medieval Gorodishche",
+    "other_names": [
+      "Gorokhovets Medieval Gorodishche"
+    ],
+    "coords": [
+      56.2054,
+      42.6968
+    ],
+    "country": "Russia",
+    "key": "Gorokhovets-Russia",
+    "population": {
+      "1168": 1100,
+      "1238": 1800
     }
   },
   "Gorokhovets-Russia": {
@@ -1718,8 +1804,6 @@
     "country": "Russia",
     "key": "Gorokhovets-Russia",
     "population": {
-      "1168": 1100,
-      "1238": 1800,
       "1600": 2200,
       "1700": 3100,
       "1800": 2800,
@@ -2568,6 +2652,22 @@
       "1900": 850
     }
   },
+  "Pereyaslavl-Ryazansky Gorodishche-Russia": {
+    "name": "Pereyaslavl-Ryazansky Gorodishche",
+    "other_names": [
+      "Pereyaslavl-Ryazansky Gorodishche"
+    ],
+    "coords": [
+      54.6309,
+      39.6956
+    ],
+    "country": "Russia",
+    "key": "Ryazan-Russia",
+    "population": {
+      "1095": 1500,
+      "1200": 4500
+    }
+  },
   "Ryazan-Russia": {
     "name": "Ryazan",
     "other_names": [
@@ -2580,8 +2680,6 @@
     "country": "Russia",
     "key": "Ryazan-Russia",
     "population": {
-      "1095": 1500,
-      "1200": 4500,
       "1300": 8500,
       "1400": 14000,
       "1500": 12000,
@@ -2704,6 +2802,21 @@
       "1900": 8300
     }
   },
+  "Mikhailov Medieval Gorodishche-Russia": {
+    "name": "Mikhailov Medieval Gorodishche",
+    "other_names": [
+      "Mikhailov Medieval Gorodishche"
+    ],
+    "coords": [
+      54.2332,
+      39.0307
+    ],
+    "country": "Russia",
+    "key": "Mikhailov-Russia",
+    "population": {
+      "1137": 900
+    }
+  },
   "Mikhailov-Russia": {
     "name": "Mikhailov",
     "other_names": [
@@ -2716,7 +2829,6 @@
     "country": "Russia",
     "key": "Mikhailov-Russia",
     "population": {
-      "1137": 900,
       "1551": 3500,
       "1700": 4200,
       "1800": 5400,
@@ -3421,7 +3533,21 @@
     "country": "Russia",
     "key": "Supruty Gorodishche-Russia",
     "population": {
-      "1": 110,
+      "1": 110
+    }
+  },
+  "Supruty Gorodishche Medieval Settlement-Russia": {
+    "name": "Supruty Gorodishche Medieval Settlement",
+    "other_names": [
+      "Supruty Gorodishche Medieval Settlement"
+    ],
+    "coords": [
+      54.0207,
+      37.1373
+    ],
+    "country": "Russia",
+    "key": "Supruty Gorodishche-Russia",
+    "population": {
       "800": 350,
       "900": 550
     }
@@ -3631,6 +3757,21 @@
       "1900": 16000
     }
   },
+  "Sevsk Medieval Gorodishche-Russia": {
+    "name": "Sevsk Medieval Gorodishche",
+    "other_names": [
+      "Sevsk Medieval Gorodishche"
+    ],
+    "coords": [
+      52.1529,
+      34.4959
+    ],
+    "country": "Russia",
+    "key": "Sevsk-Russia",
+    "population": {
+      "1146": 1200
+    }
+  },
   "Sevsk-Russia": {
     "name": "Sevsk",
     "other_names": [
@@ -3643,7 +3784,6 @@
     "country": "Russia",
     "key": "Sevsk-Russia",
     "population": {
-      "1146": 1200,
       "1600": 3200,
       "1700": 5400,
       "1800": 6200,
@@ -3672,6 +3812,24 @@
       "1900": 11900
     }
   },
+  "Old Kursk Gorodishche-Russia": {
+    "name": "Old Kursk Gorodishche",
+    "other_names": [
+      "Old Kursk Gorodishche"
+    ],
+    "coords": [
+      51.7413,
+      36.1913
+    ],
+    "country": "Russia",
+    "key": "Kursk-Russia",
+    "population": {
+      "980": 1500,
+      "1100": 4500,
+      "1200": 8500,
+      "1238": 7500
+    }
+  },
   "Kursk-Russia": {
     "name": "Kursk",
     "other_names": [
@@ -3684,10 +3842,6 @@
     "country": "Russia",
     "key": "Kursk-Russia",
     "population": {
-      "980": 1500,
-      "1100": 4500,
-      "1200": 8500,
-      "1238": 7500,
       "1600": 5500,
       "1700": 11000,
       "1800": 18500,
@@ -3715,6 +3869,21 @@
       "1900": 7700
     }
   },
+  "Lgov Medieval Gorodishche-Russia": {
+    "name": "Lgov Medieval Gorodishche",
+    "other_names": [
+      "Lgov Medieval Gorodishche"
+    ],
+    "coords": [
+      51.6757,
+      35.2679
+    ],
+    "country": "Russia",
+    "key": "Lgov-Russia",
+    "population": {
+      "1152": 1100
+    }
+  },
   "Lgov-Russia": {
     "name": "Lgov",
     "other_names": [
@@ -3727,7 +3896,6 @@
     "country": "Russia",
     "key": "Lgov-Russia",
     "population": {
-      "1152": 1100,
       "1779": 1800,
       "1850": 3400,
       "1897": 4321,
@@ -3753,6 +3921,21 @@
       "1900": 12200
     }
   },
+  "Belgorod Medieval Gorodishche-Russia": {
+    "name": "Belgorod Medieval Gorodishche",
+    "other_names": [
+      "Belgorod Medieval Gorodishche"
+    ],
+    "coords": [
+      50.5993,
+      36.5912
+    ],
+    "country": "Russia",
+    "key": "Belgorod-Russia",
+    "population": {
+      "990": 900
+    }
+  },
   "Belgorod-Russia": {
     "name": "Belgorod",
     "other_names": [
@@ -3766,7 +3949,6 @@
     "country": "Russia",
     "key": "Belgorod-Russia",
     "population": {
-      "990": 900,
       "1596": 3200,
       "1700": 7500,
       "1800": 10200,
@@ -4624,7 +4806,21 @@
       "1200": 25000,
       "1300": 45000,
       "1350": 50000,
-      "1400": 6000,
+      "1400": 6000
+    }
+  },
+  "Bolgary Village-Russia": {
+    "name": "Bolgary Village",
+    "other_names": [
+      "Bolgary Village"
+    ],
+    "coords": [
+      54.9893,
+      49.0601
+    ],
+    "country": "Russia",
+    "key": "Bolgar-Russia",
+    "population": {
       "1700": 1500,
       "1897": 2770,
       "1900": 2850
@@ -4647,7 +4843,21 @@
       "1100": 28000,
       "1200": 55000,
       "1236": 60000,
-      "1300": 4000,
+      "1300": 4000
+    }
+  },
+  "Bilyarsk Village-Russia": {
+    "name": "Bilyarsk Village",
+    "other_names": [
+      "Bilyarsk Village"
+    ],
+    "coords": [
+      54.9957,
+      50.3957
+    ],
+    "country": "Russia",
+    "key": "Bilyar-Russia",
+    "population": {
       "1700": 1800,
       "1897": 2450,
       "1900": 2550
@@ -4755,6 +4965,22 @@
       "1900": 21200
     }
   },
+  "Yelabuga Medieval Gorodishche-Russia": {
+    "name": "Yelabuga Medieval Gorodishche",
+    "other_names": [
+      "Yelabuga Medieval Gorodishche"
+    ],
+    "coords": [
+      55.7615,
+      52.0521
+    ],
+    "country": "Russia",
+    "key": "Yelabuga-Russia",
+    "population": {
+      "1000": 1200,
+      "1200": 2500
+    }
+  },
   "Yelabuga-Russia": {
     "name": "Yelabuga",
     "other_names": [
@@ -4768,8 +4994,6 @@
     "country": "Russia",
     "key": "Yelabuga-Russia",
     "population": {
-      "1000": 1200,
-      "1200": 2500,
       "1600": 1500,
       "1700": 2400,
       "1800": 3800,
@@ -4817,6 +5041,21 @@
       "1900": 4350
     }
   },
+  "Tetyushi Medieval Gorodishche-Russia": {
+    "name": "Tetyushi Medieval Gorodishche",
+    "other_names": [
+      "Tetyushi Medieval Gorodishche"
+    ],
+    "coords": [
+      54.9429,
+      48.8429
+    ],
+    "country": "Russia",
+    "key": "Tetyushi-Russia",
+    "population": {
+      "1150": 1200
+    }
+  },
   "Tetyushi-Russia": {
     "name": "Tetyushi",
     "other_names": [
@@ -4829,7 +5068,6 @@
     "country": "Russia",
     "key": "Tetyushi-Russia",
     "population": {
-      "1150": 1200,
       "1555": 1800,
       "1700": 2200,
       "1800": 3100,
@@ -5210,6 +5448,23 @@
       "1900": 7800
     }
   },
+  "Ufa Medieval Gorodishche-Russia": {
+    "name": "Ufa Medieval Gorodishche",
+    "other_names": [
+      "Ufa Medieval Gorodishche"
+    ],
+    "coords": [
+      54.7428,
+      55.9761
+    ],
+    "country": "Russia",
+    "key": "Ufa-Russia",
+    "population": {
+      "400": 800,
+      "700": 1500,
+      "1000": 1200
+    }
+  },
   "Ufa-Russia": {
     "name": "Ufa",
     "other_names": [
@@ -5223,9 +5478,6 @@
     "country": "Russia",
     "key": "Ufa-Russia",
     "population": {
-      "400": 800,
-      "700": 1500,
-      "1000": 1200,
       "1574": 1500,
       "1700": 4500,
       "1800": 9200,

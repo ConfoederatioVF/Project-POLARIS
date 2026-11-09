@@ -408,6 +408,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
      * @param {number} arg4_grid_width
      * @param {number} arg5_grid_height
      * @param {number} arg6_inpaint_radius
+     * @param {Int32Array} [arg7_target_indices]
      *
      * @returns {Float32Array}
      */
@@ -418,7 +419,8 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       arg3_fallback_grid,
       arg4_grid_width,
       arg5_grid_height,
-      arg6_inpaint_radius
+      arg6_inpaint_radius,
+      arg7_target_indices
     ) {
       //Convert from parameters
       let popc_grid = arg0_popc_grid;
@@ -428,37 +430,61 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let grid_w = arg4_grid_width;
       let grid_h = arg5_grid_height;
       let radius = (arg6_inpaint_radius !== undefined) ? arg6_inpaint_radius : 3;
+      let target_indices = arg7_target_indices;
 
       //Declare local instance variables
       let max_radius = radius*4;
+      let n_targets = (target_indices) ? target_indices.length : grid_w*grid_h;
       let out_grid = new Float32Array(popc_grid);
       let wide_radius = radius*2;
 
-      for (let i = 0; i < grid_h; i++)
-        for (let x = 0; x < grid_w; x++) {
-          let local_idx = i*grid_w + x;
+      for (let i = 0; i < n_targets; i++) {
+        let local_idx = (target_indices) ? target_indices[i] : i;
 
-          if (urban_mask[local_idx] === 1) {
-            if (land_area_grid[local_idx] <= 0) {
-              out_grid[local_idx] = 0;
-              continue;
-            }
+        if (urban_mask[local_idx] === 1) {
+          let local_cy = Math.floor(local_idx/grid_w);
+          let local_cx = local_idx % grid_w;
 
-            let local_val_sum = 0;
-            let local_w_sum = 0;
+          if (land_area_grid[local_idx] <= 0) {
+            out_grid[local_idx] = 0;
+            continue;
+          }
 
-            for (let y = -radius; y <= radius; y++) {
-              let local_ny = i + y;
+          let local_val_sum = 0;
+          let local_w_sum = 0;
+
+          for (let x = -radius; x <= radius; x++) {
+            let local_ny = local_cy + x;
+
+            if (local_ny >= 0 && local_ny < grid_h)
+              for (let y = -radius; y <= radius; y++) {
+                if (x === 0 && y === 0) continue;
+
+                let local_nx = (local_cx + y + grid_w) % grid_w;
+                let local_nidx = local_ny*grid_w + local_nx;
+
+                if (urban_mask[local_nidx] === 0 && land_area_grid[local_nidx] > 0 && popc_grid[local_nidx] > 0) {
+                  let local_w = 1/Math.max(1, x*x + y*y);
+
+                  local_val_sum += popc_grid[local_nidx]*local_w;
+                  local_w_sum += local_w;
+                }
+              }
+          }
+
+          if (local_w_sum > 0) {
+            out_grid[local_idx] = local_val_sum/local_w_sum;
+          } else {
+            for (let x = -wide_radius; x <= wide_radius; x++) {
+              let local_ny = local_cy + x;
 
               if (local_ny >= 0 && local_ny < grid_h)
-                for (let z = -radius; z <= radius; z++) {
-                  if (y === 0 && z === 0) continue;
-
-                  let local_nx = (x + z + grid_w) % grid_w;
+                for (let y = -wide_radius; y <= wide_radius; y++) {
+                  let local_nx = (local_cx + y + grid_w) % grid_w;
                   let local_nidx = local_ny*grid_w + local_nx;
 
                   if (urban_mask[local_nidx] === 0 && land_area_grid[local_nidx] > 0 && popc_grid[local_nidx] > 0) {
-                    let local_w = 1/Math.max(1, y*y + z*z);
+                    let local_w = 1/Math.max(1, x*x + y*y);
 
                     local_val_sum += popc_grid[local_nidx]*local_w;
                     local_w_sum += local_w;
@@ -469,16 +495,16 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
             if (local_w_sum > 0) {
               out_grid[local_idx] = local_val_sum/local_w_sum;
             } else {
-              for (let y = -wide_radius; y <= wide_radius; y++) {
-                let local_ny = i + y;
+              for (let x = -max_radius; x <= max_radius; x++) {
+                let local_ny = local_cy + x;
 
                 if (local_ny >= 0 && local_ny < grid_h)
-                  for (let z = -wide_radius; z <= wide_radius; z++) {
-                    let local_nx = (x + z + grid_w) % grid_w;
+                  for (let y = -max_radius; y <= max_radius; y++) {
+                    let local_nx = (local_cx + y + grid_w) % grid_w;
                     let local_nidx = local_ny*grid_w + local_nx;
 
                     if (urban_mask[local_nidx] === 0 && land_area_grid[local_nidx] > 0 && popc_grid[local_nidx] > 0) {
-                      let local_w = 1/Math.max(1, y*y + z*z);
+                      let local_w = 1/Math.max(1, x*x + y*y);
 
                       local_val_sum += popc_grid[local_nidx]*local_w;
                       local_w_sum += local_w;
@@ -488,33 +514,13 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
 
               if (local_w_sum > 0) {
                 out_grid[local_idx] = local_val_sum/local_w_sum;
-              } else {
-                for (let y = -max_radius; y <= max_radius; y++) {
-                  let local_ny = i + y;
-
-                  if (local_ny >= 0 && local_ny < grid_h)
-                    for (let z = -max_radius; z <= max_radius; z++) {
-                      let local_nx = (x + z + grid_w) % grid_w;
-                      let local_nidx = local_ny*grid_w + local_nx;
-
-                      if (urban_mask[local_nidx] === 0 && land_area_grid[local_nidx] > 0 && popc_grid[local_nidx] > 0) {
-                        let local_w = 1/Math.max(1, y*y + z*z);
-
-                        local_val_sum += popc_grid[local_nidx]*local_w;
-                        local_w_sum += local_w;
-                      }
-                    }
-                }
-
-                if (local_w_sum > 0) {
-                  out_grid[local_idx] = local_val_sum/local_w_sum;
-                } else if (fallback_grid && fallback_grid[local_idx] > 0) {
-                  out_grid[local_idx] = fallback_grid[local_idx];
-                }
+              } else if (fallback_grid && fallback_grid[local_idx] > 0) {
+                out_grid[local_idx] = fallback_grid[local_idx];
               }
             }
           }
         }
+      }
 
       //Return statement
       return out_grid;
@@ -675,7 +681,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
 
 
     /**
-     * Loads HYDE 3.5's popc raster for a given year (0 to 1400 AD) and masks + inpaints modern and historical urban settlements using the exact population_c14bazAAR methodology (uopp_2023AD > 10,0 km2 buffered by 1px + urbc > 0 + stadester_urban > 0 + 8x isolated spike removal + IDW boundary inpainting).
+     * Loads HYDE 3.5's popc raster for a given year (0 to 1400 AD) and masks + inpaints modern and historical urban settlements using the exact population_c14bazAAR methodology (uopp_2023AD > 10,0 km2 buffered by 1px + urbc > 0 + 8x isolated spike removal + IDW boundary inpainting).
      * @alias SitesBelarusUkraineFrontierUtils.loadUrbanMaskedHYDEPopcRaster
      *
      * @param {Object} arg0_mask_data
@@ -709,8 +715,6 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let popc_path;
       let root = mask_data.project_root;
       let spike_ratio = 8.0;
-      let stad_urb_grid;
-      let stad_urb_path;
       let total_pixels = mask_data.grid_width*mask_data.grid_height;
       let urbc_grid;
       let urbc_path;
@@ -767,20 +771,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
             year_urban_mask[i] = 1;
       }
 
-      //2. Union Stadester historical urban settlements stadester_urban_<year>.png > 0
-      stad_urb_path = path.join(
-        root,
-        cov_paths.stadester_urban_folder || "histmap/2.data_cleaning/population_Stadester/stadester_urban_rasters",
-        `stadester_urban_${year}.png`
-      );
-      if (fs.existsSync(stad_urb_path)) {
-        stad_urb_grid = this.readGlobalFloat32Raster(stad_urb_path, total_pixels);
-        for (let i = 0; i < total_pixels; i++)
-          if (stad_urb_grid[i] > 0)
-            year_urban_mask[i] = 1;
-      }
-
-      //3. Union modern artificial reservoir / exclusion-zone zero-holes (Kremenchuk/Kakhovka/Kaniv/Kyiv reservoirs & 1986 Chernobyl exclusion zone) and isolated single-pixel modern/urban outlier spikes (> 8x positive 3x3 Moore rural neighbourhood mean)
+      //2. Union modern artificial reservoir / exclusion-zone zero-holes (Kremenchuk/Kakhovka/Kaniv/Kyiv reservoirs & 1986 Chernobyl exclusion zone) and isolated single-pixel modern/urban outlier spikes (> 8x positive 3x3 Moore rural neighbourhood mean)
       for (let i = 0; i < n_valid; i++) {
         let local_gidx = valid_indices[i];
 
@@ -832,7 +823,8 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
         kk10_grid,
         grid_w,
         grid_h,
-        inpaint_radius
+        inpaint_radius,
+        valid_indices
       );
 
       out_arr = new Float32Array(n_valid);

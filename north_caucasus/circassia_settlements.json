@@ -81,6 +81,22 @@
       "-3500": 260
     }
   },
+  "Skala Bronze Age Site-Russia": {
+    "name": "Skala Bronze Age Site",
+    "other_names": [
+      "Skala Bronze Age Site"
+    ],
+    "coords": [
+      44.2984,
+      40.179
+    ],
+    "country": "Russia",
+    "key": "Skala-Russia",
+    "population": {
+      "-4000": 190,
+      "-3500": 230
+    }
+  },
   "Skala-Russia": {
     "name": "Skala",
     "other_names": [
@@ -94,11 +110,25 @@
     "country": "Russia",
     "key": "Skala-Russia",
     "population": {
-      "-4000": 190,
-      "-3500": 230,
       "1800": 650,
       "1897": 1620,
       "1900": 1680
+    }
+  },
+  "Novosvobodnaya Bronze Age Site-Russia": {
+    "name": "Novosvobodnaya Bronze Age Site",
+    "other_names": [
+      "Novosvobodnaya Bronze Age Site"
+    ],
+    "coords": [
+      44.3707,
+      40.3873
+    ],
+    "country": "Russia",
+    "key": "Novosvobodnaya-Russia",
+    "population": {
+      "-3500": 500,
+      "-3000": 700
     }
   },
   "Novosvobodnaya-Russia": {
@@ -115,8 +145,6 @@
     "country": "Russia",
     "key": "Novosvobodnaya-Russia",
     "population": {
-      "-3500": 500,
-      "-3000": 700,
       "1897": 2340,
       "1900": 2420
     }
@@ -171,6 +199,23 @@
       "-1500": 320
     }
   },
+  "Pshada Bronze Age Site-Russia": {
+    "name": "Pshada Bronze Age Site",
+    "other_names": [
+      "Pshada Bronze Age Site"
+    ],
+    "coords": [
+      44.4873,
+      38.3873
+    ],
+    "country": "Russia",
+    "key": "Pshada-Russia",
+    "population": {
+      "-2500": 320,
+      "-2000": 450,
+      "-1500": 280
+    }
+  },
   "Pshada-Russia": {
     "name": "Pshada",
     "other_names": [
@@ -184,9 +229,6 @@
     "country": "Russia",
     "key": "Pshada-Russia",
     "population": {
-      "-2500": 320,
-      "-2000": 450,
-      "-1500": 280,
       "1800": 850,
       "1897": 980,
       "1900": 1020
@@ -209,6 +251,22 @@
       "-1500": 850
     }
   },
+  "Shepsi Bronze Age Site-Russia": {
+    "name": "Shepsi Bronze Age Site",
+    "other_names": [
+      "Shepsi Bronze Age Site"
+    ],
+    "coords": [
+      44.0401,
+      39.1512
+    ],
+    "country": "Russia",
+    "key": "Shepsi-Russia",
+    "population": {
+      "-2500": 280,
+      "-2000": 380
+    }
+  },
   "Shepsi-Russia": {
     "name": "Shepsi",
     "other_names": [
@@ -221,8 +279,6 @@
     "country": "Russia",
     "key": "Shepsi-Russia",
     "population": {
-      "-2500": 280,
-      "-2000": 380,
       "1800": 650,
       "1897": 420,
       "1900": 450
@@ -245,6 +301,37 @@
       "-1000": 180
     }
   },
+  "Klin-Yar Iron Age Site-Russia": {
+    "name": "Klin-Yar Iron Age Site",
+    "other_names": [
+      "Klin-Yar Iron Age Site"
+    ],
+    "coords": [
+      43.9247,
+      42.6747
+    ],
+    "country": "Russia",
+    "key": "Klin-Yar-Russia",
+    "population": {
+      "-1000": 350,
+      "-500": 420
+    }
+  },
+  "Klin-Yar Iron Age Site 2-Russia": {
+    "name": "Klin-Yar Iron Age Site 2",
+    "other_names": [
+      "Klin-Yar Iron Age Site 2"
+    ],
+    "coords": [
+      43.9207,
+      42.6707
+    ],
+    "country": "Russia",
+    "key": "Klin-Yar-Russia",
+    "population": {
+      "1": 480
+    }
+  },
   "Klin-Yar-Russia": {
     "name": "Klin-Yar",
     "other_names": [
@@ -257,11 +344,24 @@
     "country": "Russia",
     "key": "Klin-Yar-Russia",
     "population": {
-      "-1000": 350,
-      "-500": 420,
-      "1": 480,
       "400": 600,
       "600": 750
+    }
+  },
+  "Verkhniy Koban Iron Age Site-Russia": {
+    "name": "Verkhniy Koban Iron Age Site",
+    "other_names": [
+      "Verkhniy Koban Iron Age Site"
+    ],
+    "coords": [
+      42.9262,
+      44.4818
+    ],
+    "country": "Russia",
+    "key": "Verkhniy Koban-Russia",
+    "population": {
+      "-1000": 650,
+      "-500": 550
     }
   },
   "Verkhniy Koban-Russia": {
@@ -277,13 +377,41 @@
     "country": "Russia",
     "key": "Verkhniy Koban-Russia",
     "population": {
-      "-1000": 650,
-      "-500": 550,
       "1400": 420,
       "1700": 500,
       "1800": 620,
       "1897": 780,
       "1900": 810
+    }
+  },
+  "Zayukovo Bronze Age Site-Russia": {
+    "name": "Zayukovo Bronze Age Site",
+    "other_names": [
+      "Zayukovo Bronze Age Site"
+    ],
+    "coords": [
+      43.6247,
+      43.3413
+    ],
+    "country": "Russia",
+    "key": "Zayukovo-Russia",
+    "population": {
+      "-1000": 500
+    }
+  },
+  "Zayukovo Gorodishche-Russia": {
+    "name": "Zayukovo Gorodishche",
+    "other_names": [
+      "Zayukovo Gorodishche"
+    ],
+    "coords": [
+      43.6207,
+      43.3373
+    ],
+    "country": "Russia",
+    "key": "Zayukovo-Russia",
+    "population": {
+      "600": 950
     }
   },
   "Zayukovo-Russia": {
@@ -299,8 +427,6 @@
     "country": "Russia",
     "key": "Zayukovo-Russia",
     "population": {
-      "-1000": 500,
-      "600": 950,
       "1700": 1400,
       "1800": 1950,
       "1850": 2100,
@@ -322,12 +448,45 @@
     "country": "Russia",
     "key": "Phanagoria-Russia",
     "population": {
-      "-500": 5500,
-      "-300": 12500,
       "1": 9000,
       "400": 4500,
       "600": 3800,
-      "800": 6000
+      "800": 6000,
+      "-500": 5500,
+      "-300": 12500
+    }
+  },
+  "Gorgippia-Anapa-Russia": {
+    "name": "Gorgippia-Anapa",
+    "other_names": [
+      "Gorgippia-Anapa"
+    ],
+    "coords": [
+      44.9024,
+      37.3247
+    ],
+    "country": "Russia",
+    "key": "Anapa-Russia",
+    "population": {
+      "1": 7500,
+      "200": 6000,
+      "-500": 3000,
+      "-300": 8000
+    }
+  },
+  "Mapa Genoese Colony-Russia": {
+    "name": "Mapa Genoese Colony",
+    "other_names": [
+      "Mapa Genoese Colony"
+    ],
+    "coords": [
+      44.8984,
+      37.3207
+    ],
+    "country": "Russia",
+    "key": "Anapa-Russia",
+    "population": {
+      "1400": 2200
     }
   },
   "Anapa-Russia": {
@@ -345,11 +504,6 @@
     "country": "Russia",
     "key": "Anapa-Russia",
     "population": {
-      "-500": 3000,
-      "-300": 8000,
-      "1": 7500,
-      "200": 6000,
-      "1400": 2200,
       "1700": 2500,
       "1800": 6500,
       "1850": 2800,
@@ -373,8 +527,6 @@
     "country": "Russia",
     "key": "Taman-Russia",
     "population": {
-      "-500": 3500,
-      "-300": 7000,
       "1": 5500,
       "400": 4000,
       "600": 5500,
@@ -386,7 +538,9 @@
       "1800": 2100,
       "1850": 2900,
       "1897": 4291,
-      "1900": 4450
+      "1900": 4450,
+      "-500": 3500,
+      "-300": 7000
     }
   },
   "Kepoi-Russia": {
@@ -402,10 +556,10 @@
     "country": "Russia",
     "key": "Kepoi-Russia",
     "population": {
-      "-500": 1600,
-      "-300": 3500,
       "1": 2600,
-      "300": 1200
+      "300": 1200,
+      "-500": 1600,
+      "-300": 3500
     }
   },
   "Patraeus-Russia": {
@@ -421,10 +575,10 @@
     "country": "Russia",
     "key": "Patraeus-Russia",
     "population": {
-      "-500": 900,
-      "-300": 1800,
       "1": 1300,
-      "300": 700
+      "300": 700,
+      "-500": 900,
+      "-300": 1800
     }
   },
   "Korokondama-Russia": {
@@ -439,9 +593,9 @@
     "country": "Russia",
     "key": "Korokondama-Russia",
     "population": {
+      "1": 1100,
       "-500": 750,
-      "-300": 1500,
-      "1": 1100
+      "-300": 1500
     }
   },
   "Achilleion-Russia": {
@@ -456,9 +610,9 @@
     "country": "Russia",
     "key": "Achilleion-Russia",
     "population": {
+      "1": 950,
       "-500": 600,
-      "-300": 1200,
-      "1": 950
+      "-300": 1200
     }
   },
   "Tyramba-Russia": {
@@ -473,9 +627,42 @@
     "country": "Russia",
     "key": "Tyramba-Russia",
     "population": {
+      "1": 1200,
       "-500": 800,
-      "-300": 1600,
-      "1": 1200
+      "-300": 1600
+    }
+  },
+  "Torikos-Russia": {
+    "name": "Torikos",
+    "other_names": [
+      "Torikos"
+    ],
+    "coords": [
+      44.5702,
+      38.0927
+    ],
+    "country": "Russia",
+    "key": "Gelendzhik-Russia",
+    "population": {
+      "-500": 900,
+      "-300": 1400
+    }
+  },
+  "Kheltsikhe Circassian Aul-Russia": {
+    "name": "Kheltsikhe Circassian Aul",
+    "other_names": [
+      "Kheltsikhe Circassian Aul"
+    ],
+    "coords": [
+      44.5662,
+      38.0887
+    ],
+    "country": "Russia",
+    "key": "Gelendzhik-Russia",
+    "population": {
+      "1400": 1600,
+      "1700": 1900,
+      "1800": 2400
     }
   },
   "Gelendzhik-Russia": {
@@ -492,11 +679,6 @@
     "country": "Russia",
     "key": "Gelendzhik-Russia",
     "population": {
-      "-500": 900,
-      "-300": 1400,
-      "1400": 1600,
-      "1700": 1900,
-      "1800": 2400,
       "1850": 800,
       "1897": 1782,
       "1900": 1950
@@ -521,6 +703,22 @@
       "-100": 1400
     }
   },
+  "Raevskoye Iron Age Site-Russia": {
+    "name": "Raevskoye Iron Age Site",
+    "other_names": [
+      "Raevskoye Iron Age Site"
+    ],
+    "coords": [
+      44.8373,
+      37.554
+    ],
+    "country": "Russia",
+    "key": "Raevskoye-Russia",
+    "population": {
+      "1": 1200,
+      "-300": 1500
+    }
+  },
   "Raevskoye-Russia": {
     "name": "Raevskoye",
     "other_names": [
@@ -534,10 +732,25 @@
     "country": "Russia",
     "key": "Raevskoye-Russia",
     "population": {
-      "-300": 1500,
-      "1": 1200,
       "1897": 2840,
       "1900": 2950
+    }
+  },
+  "Elizavetinskoye Iron Age Site-Russia": {
+    "name": "Elizavetinskoye Iron Age Site",
+    "other_names": [
+      "Elizavetinskoye Iron Age Site"
+    ],
+    "coords": [
+      45.0457,
+      38.7957
+    ],
+    "country": "Russia",
+    "key": "Elizavetinskoye-Russia",
+    "population": {
+      "1": 1900,
+      "-500": 1600,
+      "-300": 2800
     }
   },
   "Elizavetinskoye-Russia": {
@@ -553,13 +766,27 @@
     "country": "Russia",
     "key": "Elizavetinskoye-Russia",
     "population": {
-      "-500": 1600,
-      "-300": 2800,
-      "1": 1900,
       "1800": 1100,
       "1850": 2600,
       "1897": 5980,
       "1900": 6200
+    }
+  },
+  "Starokorsunskoye Iron Age Site-Russia": {
+    "name": "Starokorsunskoye Iron Age Site",
+    "other_names": [
+      "Starokorsunskoye Iron Age Site"
+    ],
+    "coords": [
+      45.054,
+      39.3207
+    ],
+    "country": "Russia",
+    "key": "Starokorsunskoye-Russia",
+    "population": {
+      "1": 2000,
+      "-500": 1200,
+      "-300": 2200
     }
   },
   "Starokorsunskoye-Russia": {
@@ -575,13 +802,27 @@
     "country": "Russia",
     "key": "Starokorsunskoye-Russia",
     "population": {
-      "-500": 1200,
-      "-300": 2200,
-      "1": 2000,
       "1800": 1200,
       "1850": 2800,
       "1897": 6420,
       "1900": 6650
+    }
+  },
+  "Pashkovskoye Iron Age Site-Russia": {
+    "name": "Pashkovskoye Iron Age Site",
+    "other_names": [
+      "Pashkovskoye Iron Age Site"
+    ],
+    "coords": [
+      45.0207,
+      39.0873
+    ],
+    "country": "Russia",
+    "key": "Pashkovskoye-Russia",
+    "population": {
+      "1": 1400,
+      "-500": 950,
+      "-300": 1600
     }
   },
   "Pashkovskoye-Russia": {
@@ -597,13 +838,26 @@
     "country": "Russia",
     "key": "Pashkovskoye-Russia",
     "population": {
-      "-500": 950,
-      "-300": 1600,
-      "1": 1400,
       "1800": 1450,
       "1850": 3400,
       "1897": 8920,
       "1900": 9300
+    }
+  },
+  "Ust-Labinskaya Iron Age Site-Russia": {
+    "name": "Ust-Labinskaya Iron Age Site",
+    "other_names": [
+      "Ust-Labinskaya Iron Age Site"
+    ],
+    "coords": [
+      45.2207,
+      39.6873
+    ],
+    "country": "Russia",
+    "key": "Ust-Labinskaya-Russia",
+    "population": {
+      "1": 1600,
+      "-300": 1400
     }
   },
   "Ust-Labinskaya-Russia": {
@@ -619,12 +873,26 @@
     "country": "Russia",
     "key": "Ust-Labinskaya-Russia",
     "population": {
-      "-300": 1400,
-      "1": 1600,
       "1800": 1300,
       "1850": 3100,
       "1897": 6850,
       "1900": 7100
+    }
+  },
+  "Ladozhskaya Iron Age Site-Russia": {
+    "name": "Ladozhskaya Iron Age Site",
+    "other_names": [
+      "Ladozhskaya Iron Age Site"
+    ],
+    "coords": [
+      45.3123,
+      39.9373
+    ],
+    "country": "Russia",
+    "key": "Ladozhskaya-Russia",
+    "population": {
+      "1": 1300,
+      "-300": 1100
     }
   },
   "Ladozhskaya-Russia": {
@@ -640,11 +908,25 @@
     "country": "Russia",
     "key": "Ladozhskaya-Russia",
     "population": {
-      "-300": 1100,
-      "1": 1300,
       "1850": 2700,
       "1897": 6140,
       "1900": 6350
+    }
+  },
+  "Tbilisskaya Iron Age Site-Russia": {
+    "name": "Tbilisskaya Iron Age Site",
+    "other_names": [
+      "Tbilisskaya Iron Age Site"
+    ],
+    "coords": [
+      45.3707,
+      40.1873
+    ],
+    "country": "Russia",
+    "key": "Tbilisskaya-Russia",
+    "population": {
+      "1": 1150,
+      "-300": 950
     }
   },
   "Tbilisskaya-Russia": {
@@ -660,11 +942,25 @@
     "country": "Russia",
     "key": "Tbilisskaya-Russia",
     "population": {
-      "-300": 950,
-      "1": 1150,
       "1850": 2500,
       "1897": 5890,
       "1900": 6100
+    }
+  },
+  "Kazanskaya Iron Age Site-Russia": {
+    "name": "Kazanskaya Iron Age Site",
+    "other_names": [
+      "Kazanskaya Iron Age Site"
+    ],
+    "coords": [
+      45.4207,
+      40.4373
+    ],
+    "country": "Russia",
+    "key": "Kazanskaya-Russia",
+    "population": {
+      "1": 1250,
+      "-300": 1050
     }
   },
   "Kazanskaya-Russia": {
@@ -680,11 +976,24 @@
     "country": "Russia",
     "key": "Kazanskaya-Russia",
     "population": {
-      "-300": 1050,
-      "1": 1250,
       "1850": 2800,
       "1897": 6320,
       "1900": 6550
+    }
+  },
+  "Kavkazskaya Iron Age Site-Russia": {
+    "name": "Kavkazskaya Iron Age Site",
+    "other_names": [
+      "Kavkazskaya Iron Age Site"
+    ],
+    "coords": [
+      45.4373,
+      40.5873
+    ],
+    "country": "Russia",
+    "key": "Kavkazskaya-Russia",
+    "population": {
+      "-300": 1000
     }
   },
   "Kavkazskaya-Russia": {
@@ -701,11 +1010,25 @@
     "country": "Russia",
     "key": "Kavkazskaya-Russia",
     "population": {
-      "-300": 1000,
       "1800": 1200,
       "1850": 3200,
       "1897": 11420,
       "1900": 12200
+    }
+  },
+  "Temizhbekskaya Iron Age Site-Russia": {
+    "name": "Temizhbekskaya Iron Age Site",
+    "other_names": [
+      "Temizhbekskaya Iron Age Site"
+    ],
+    "coords": [
+      45.454,
+      40.8707
+    ],
+    "country": "Russia",
+    "key": "Temizhbekskaya-Russia",
+    "population": {
+      "-300": 900
     }
   },
   "Temizhbekskaya-Russia": {
@@ -720,11 +1043,25 @@
     "country": "Russia",
     "key": "Temizhbekskaya-Russia",
     "population": {
-      "-300": 900,
       "1800": 1100,
       "1850": 2600,
       "1897": 5640,
       "1900": 5850
+    }
+  },
+  "Prochnookopskaya Iron Age Site-Russia": {
+    "name": "Prochnookopskaya Iron Age Site",
+    "other_names": [
+      "Prochnookopskaya Iron Age Site"
+    ],
+    "coords": [
+      45.054,
+      41.1373
+    ],
+    "country": "Russia",
+    "key": "Prochnookopskaya-Russia",
+    "population": {
+      "-300": 850
     }
   },
   "Prochnookopskaya-Russia": {
@@ -739,11 +1076,26 @@
     "country": "Russia",
     "key": "Prochnookopskaya-Russia",
     "population": {
-      "-300": 850,
       "1800": 1250,
       "1850": 2900,
       "1897": 5820,
       "1900": 6050
+    }
+  },
+  "Ulyap Iron Age Site-Russia": {
+    "name": "Ulyap Iron Age Site",
+    "other_names": [
+      "Ulyap Iron Age Site"
+    ],
+    "coords": [
+      45.054,
+      39.8873
+    ],
+    "country": "Russia",
+    "key": "Ulyap-Russia",
+    "population": {
+      "-500": 1500,
+      "-300": 1800
     }
   },
   "Ulyap-Russia": {
@@ -760,8 +1112,6 @@
     "country": "Russia",
     "key": "Ulyap-Russia",
     "population": {
-      "-500": 1500,
-      "-300": 1800,
       "1897": 2180,
       "1900": 2260
     }
@@ -785,6 +1135,23 @@
       "1400": 400
     }
   },
+  "Khumara Medieval Gorodishche-Russia": {
+    "name": "Khumara Medieval Gorodishche",
+    "other_names": [
+      "Khumara Medieval Gorodishche"
+    ],
+    "coords": [
+      43.8734,
+      41.9151
+    ],
+    "country": "Russia",
+    "key": "Khumara-Russia",
+    "population": {
+      "800": 4500,
+      "1000": 3800,
+      "1200": 2500
+    }
+  },
   "Khumara-Russia": {
     "name": "Khumara",
     "other_names": [
@@ -798,12 +1165,26 @@
     "country": "Russia",
     "key": "Khumara-Russia",
     "population": {
-      "800": 4500,
-      "1000": 3800,
-      "1200": 2500,
       "1850": 750,
       "1897": 1120,
       "1900": 1170
+    }
+  },
+  "Shoana Medieval Gorodishche-Russia": {
+    "name": "Shoana Medieval Gorodishche",
+    "other_names": [
+      "Shoana Medieval Gorodishche"
+    ],
+    "coords": [
+      43.8068,
+      41.8984
+    ],
+    "country": "Russia",
+    "key": "Shoana-Russia",
+    "population": {
+      "800": 950,
+      "1000": 1800,
+      "1200": 1500
     }
   },
   "Shoana-Russia": {
@@ -820,11 +1201,25 @@
     "country": "Russia",
     "key": "Shoana-Russia",
     "population": {
-      "800": 950,
-      "1000": 1800,
-      "1200": 1500,
       "1897": 1450,
       "1900": 1510
+    }
+  },
+  "Sentinsky Medieval Gorodishche-Russia": {
+    "name": "Sentinsky Medieval Gorodishche",
+    "other_names": [
+      "Sentinsky Medieval Gorodishche"
+    ],
+    "coords": [
+      43.6373,
+      41.8707
+    ],
+    "country": "Russia",
+    "key": "Sentinsky-Russia",
+    "population": {
+      "800": 900,
+      "1000": 1700,
+      "1200": 1400
     }
   },
   "Sentinsky-Russia": {
@@ -840,9 +1235,6 @@
     "country": "Russia",
     "key": "Sentinsky-Russia",
     "population": {
-      "800": 900,
-      "1000": 1700,
-      "1200": 1400,
       "1897": 1280,
       "1900": 1330
     }
@@ -881,6 +1273,21 @@
       "1200": 2800
     }
   },
+  "Rim-Gora Iron Age Site-Russia": {
+    "name": "Rim-Gora Iron Age Site",
+    "other_names": [
+      "Rim-Gora Iron Age Site"
+    ],
+    "coords": [
+      43.9429,
+      42.5401
+    ],
+    "country": "Russia",
+    "key": "Rim-Gora-Russia",
+    "population": {
+      "-500": 500
+    }
+  },
   "Rim-Gora-Russia": {
     "name": "Rim-Gora",
     "other_names": [
@@ -894,7 +1301,6 @@
     "country": "Russia",
     "key": "Rim-Gora-Russia",
     "population": {
-      "-500": 500,
       "600": 2200,
       "1000": 4200,
       "1200": 3800
@@ -957,6 +1363,22 @@
       "1400": 1500
     }
   },
+  "Zmeyskaya Medieval Gorodishche-Russia": {
+    "name": "Zmeyskaya Medieval Gorodishche",
+    "other_names": [
+      "Zmeyskaya Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3373,
+      44.154
+    ],
+    "country": "Russia",
+    "key": "Zmeyskaya-Russia",
+    "population": {
+      "1000": 2800,
+      "1200": 3100
+    }
+  },
   "Zmeyskaya-Russia": {
     "name": "Zmeyskaya",
     "other_names": [
@@ -969,8 +1391,6 @@
     "country": "Russia",
     "key": "Zmeyskaya-Russia",
     "population": {
-      "1000": 2800,
-      "1200": 3100,
       "1850": 1600,
       "1897": 3890,
       "1900": 4050
@@ -1078,6 +1498,22 @@
       "1900": 450
     }
   },
+  "Nuzal Medieval Gorodishche-Russia": {
+    "name": "Nuzal Medieval Gorodishche",
+    "other_names": [
+      "Nuzal Medieval Gorodishche"
+    ],
+    "coords": [
+      42.8207,
+      44.0207
+    ],
+    "country": "Russia",
+    "key": "Nuzal-Russia",
+    "population": {
+      "1000": 500,
+      "1300": 850
+    }
+  },
   "Nuzal-Russia": {
     "name": "Nuzal",
     "other_names": [
@@ -1090,8 +1526,6 @@
     "country": "Russia",
     "key": "Nuzal-Russia",
     "population": {
-      "1000": 500,
-      "1300": 850,
       "1700": 950,
       "1800": 750,
       "1897": 490,
@@ -1530,6 +1964,21 @@
       "1900": 1970
     }
   },
+  "Bylym Bronze Age Site-Russia": {
+    "name": "Bylym Bronze Age Site",
+    "other_names": [
+      "Bylym Bronze Age Site"
+    ],
+    "coords": [
+      43.454,
+      43.0373
+    ],
+    "country": "Russia",
+    "key": "Bylym-Russia",
+    "population": {
+      "-1500": 320
+    }
+  },
   "Bylym-Russia": {
     "name": "Bylym",
     "other_names": [
@@ -1542,12 +1991,26 @@
     "country": "Russia",
     "key": "Bylym-Russia",
     "population": {
-      "-1500": 320,
       "1400": 550,
       "1700": 850,
       "1800": 1050,
       "1897": 1340,
       "1900": 1400
+    }
+  },
+  "Verkhniy Baksan Medieval Gorodishche-Russia": {
+    "name": "Verkhniy Baksan Medieval Gorodishche",
+    "other_names": [
+      "Verkhniy Baksan Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3151,
+      42.779
+    ],
+    "country": "Russia",
+    "key": "Verkhniy Baksan-Russia",
+    "population": {
+      "1200": 650
     }
   },
   "Verkhniy Baksan-Russia": {
@@ -1563,12 +2026,26 @@
     "country": "Russia",
     "key": "Verkhniy Baksan-Russia",
     "population": {
-      "1200": 650,
       "1700": 1200,
       "1800": 1500,
       "1850": 1850,
       "1897": 2420,
       "1900": 2520
+    }
+  },
+  "Verkhniy Chegem Medieval Gorodishche-Russia": {
+    "name": "Verkhniy Chegem Medieval Gorodishche",
+    "other_names": [
+      "Verkhniy Chegem Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2457,
+      43.1457
+    ],
+    "country": "Russia",
+    "key": "Verkhniy Chegem-Russia",
+    "population": {
+      "1200": 750
     }
   },
   "Verkhniy Chegem-Russia": {
@@ -1584,12 +2061,26 @@
     "country": "Russia",
     "key": "Verkhniy Chegem-Russia",
     "population": {
-      "1200": 750,
       "1700": 1400,
       "1800": 1750,
       "1850": 2200,
       "1897": 3060,
       "1900": 3180
+    }
+  },
+  "Kyondelen Bronze Age Site-Russia": {
+    "name": "Kyondelen Bronze Age Site",
+    "other_names": [
+      "Kyondelen Bronze Age Site"
+    ],
+    "coords": [
+      43.604,
+      43.1707
+    ],
+    "country": "Russia",
+    "key": "Kyondelen-Russia",
+    "population": {
+      "-1000": 400
     }
   },
   "Kyondelen-Russia": {
@@ -1605,7 +2096,6 @@
     "country": "Russia",
     "key": "Kyondelen-Russia",
     "population": {
-      "-1000": 400,
       "1700": 1100,
       "1800": 1550,
       "1850": 2100,
@@ -1897,6 +2387,21 @@
       "1900": 2730
     }
   },
+  "Kamennomostskoye Bronze Age Site-Russia": {
+    "name": "Kamennomostskoye Bronze Age Site",
+    "other_names": [
+      "Kamennomostskoye Bronze Age Site"
+    ],
+    "coords": [
+      43.7373,
+      43.254
+    ],
+    "country": "Russia",
+    "key": "Kamennomostskoye-Russia",
+    "population": {
+      "-1000": 450
+    }
+  },
   "Kamennomostskoye-Russia": {
     "name": "Kamennomostskoye",
     "other_names": [
@@ -1910,7 +2415,6 @@
     "country": "Russia",
     "key": "Kamennomostskoye-Russia",
     "population": {
-      "-1000": 450,
       "1700": 1150,
       "1800": 1550,
       "1850": 1800,
@@ -2053,6 +2557,21 @@
       "1900": 2280
     }
   },
+  "Khodz Iron Age Site-Russia": {
+    "name": "Khodz Iron Age Site",
+    "other_names": [
+      "Khodz Iron Age Site"
+    ],
+    "coords": [
+      44.5207,
+      40.7207
+    ],
+    "country": "Russia",
+    "key": "Khodz-Russia",
+    "population": {
+      "-500": 1100
+    }
+  },
   "Khodz-Russia": {
     "name": "Khodz",
     "other_names": [
@@ -2065,7 +2584,6 @@
     "country": "Russia",
     "key": "Khodz-Russia",
     "population": {
-      "-500": 1100,
       "1700": 1400,
       "1800": 1850,
       "1850": 2000,
@@ -2114,6 +2632,22 @@
       "1900": 7200
     }
   },
+  "Maykop Bronze Age Site-Russia": {
+    "name": "Maykop Bronze Age Site",
+    "other_names": [
+      "Maykop Bronze Age Site"
+    ],
+    "coords": [
+      44.6118,
+      40.1098
+    ],
+    "country": "Russia",
+    "key": "Maykop-Russia",
+    "population": {
+      "-3500": 850,
+      "-3000": 950
+    }
+  },
   "Maykop-Russia": {
     "name": "Maykop",
     "other_names": [
@@ -2128,12 +2662,42 @@
     "country": "Russia",
     "key": "Maykop-Russia",
     "population": {
-      "-3500": 850,
-      "-3000": 950,
       "1800": 1800,
       "1850": 2200,
       "1897": 34327,
       "1900": 36500
+    }
+  },
+  "Tuapse Dolmen Site-Russia": {
+    "name": "Tuapse Dolmen Site",
+    "other_names": [
+      "Tuapse Dolmen Site"
+    ],
+    "coords": [
+      44.108,
+      39.0913
+    ],
+    "country": "Russia",
+    "key": "Tuapse-Russia",
+    "population": {
+      "-2000": 550
+    }
+  },
+  "Tuapse Circassian Aul-Russia": {
+    "name": "Tuapse Circassian Aul",
+    "other_names": [
+      "Tuapse Circassian Aul"
+    ],
+    "coords": [
+      44.104,
+      39.0873
+    ],
+    "country": "Russia",
+    "key": "Tuapse-Russia",
+    "population": {
+      "1400": 1600,
+      "1700": 3200,
+      "1800": 4200
     }
   },
   "Tuapse-Russia": {
@@ -2150,13 +2714,41 @@
     "country": "Russia",
     "key": "Tuapse-Russia",
     "population": {
-      "-2000": 550,
-      "1400": 1600,
-      "1700": 3200,
-      "1800": 4200,
       "1850": 3800,
       "1897": 1392,
       "1900": 1650
+    }
+  },
+  "Sochi Dolmen Site-Russia": {
+    "name": "Sochi Dolmen Site",
+    "other_names": [
+      "Sochi Dolmen Site"
+    ],
+    "coords": [
+      43.5933,
+      39.7283
+    ],
+    "country": "Russia",
+    "key": "Sochi-Russia",
+    "population": {
+      "-2000": 550
+    }
+  },
+  "Sochipsu Ubykh Aul-Russia": {
+    "name": "Sochipsu Ubykh Aul",
+    "other_names": [
+      "Sochipsu Ubykh Aul"
+    ],
+    "coords": [
+      43.5893,
+      39.7243
+    ],
+    "country": "Russia",
+    "key": "Sochi-Russia",
+    "population": {
+      "1400": 1600,
+      "1700": 3300,
+      "1800": 4300
     }
   },
   "Sochi-Russia": {
@@ -2174,10 +2766,6 @@
     "country": "Russia",
     "key": "Sochi-Russia",
     "population": {
-      "-2000": 550,
-      "1400": 1600,
-      "1700": 3300,
-      "1800": 4300,
       "1850": 4000,
       "1897": 1352,
       "1900": 1600
@@ -2205,6 +2793,37 @@
       "1900": 1020
     }
   },
+  "Bata Classical Site-Russia": {
+    "name": "Bata Classical Site",
+    "other_names": [
+      "Bata Classical Site"
+    ],
+    "coords": [
+      44.7319,
+      37.7766
+    ],
+    "country": "Russia",
+    "key": "Novorossiysk-Russia",
+    "population": {
+      "-300": 1800
+    }
+  },
+  "Tsemes Medieval Settlement-Russia": {
+    "name": "Tsemes Medieval Settlement",
+    "other_names": [
+      "Tsemes Medieval Settlement"
+    ],
+    "coords": [
+      44.7279,
+      37.7726
+    ],
+    "country": "Russia",
+    "key": "Novorossiysk-Russia",
+    "population": {
+      "600": 1400,
+      "1400": 1900
+    }
+  },
   "Novorossiysk-Russia": {
     "name": "Novorossiysk",
     "other_names": [
@@ -2220,9 +2839,6 @@
     "country": "Russia",
     "key": "Novorossiysk-Russia",
     "population": {
-      "-300": 1800,
-      "600": 1400,
-      "1400": 1900,
       "1800": 4200,
       "1850": 2100,
       "1897": 16897,
@@ -2273,6 +2889,22 @@
       "1900": 37200
     }
   },
+  "Yekaterinodar Iron Age Site-Russia": {
+    "name": "Yekaterinodar Iron Age Site",
+    "other_names": [
+      "Yekaterinodar Iron Age Site"
+    ],
+    "coords": [
+      45.0395,
+      38.9793
+    ],
+    "country": "Russia",
+    "key": "Yekaterinodar-Russia",
+    "population": {
+      "1": 2000,
+      "-300": 2400
+    }
+  },
   "Yekaterinodar-Russia": {
     "name": "Yekaterinodar",
     "other_names": [
@@ -2286,8 +2918,6 @@
     "country": "Russia",
     "key": "Yekaterinodar-Russia",
     "population": {
-      "-300": 2400,
-      "1": 2000,
       "1800": 3200,
       "1850": 8900,
       "1897": 65606,
@@ -2468,7 +3098,7 @@
     ],
     "coords": [
       44.9333,
-      38.0
+      38
     ],
     "country": "Russia",
     "key": "Krymskaya-Russia",
@@ -2643,6 +3273,21 @@
       "1900": 12700
     }
   },
+  "Pyatigorsk Bronze Age Site-Russia": {
+    "name": "Pyatigorsk Bronze Age Site",
+    "other_names": [
+      "Pyatigorsk Bronze Age Site"
+    ],
+    "coords": [
+      44.0437,
+      43.0634
+    ],
+    "country": "Russia",
+    "key": "Pyatigorsk-Russia",
+    "population": {
+      "-3000": 450
+    }
+  },
   "Pyatigorsk-Russia": {
     "name": "Pyatigorsk",
     "other_names": [
@@ -2657,11 +3302,25 @@
     "country": "Russia",
     "key": "Pyatigorsk-Russia",
     "population": {
-      "-3000": 450,
       "1800": 1400,
       "1850": 5200,
       "1897": 18440,
       "1900": 19800
+    }
+  },
+  "Kislovodsk Alanic Fort-Russia": {
+    "name": "Kislovodsk Alanic Fort",
+    "other_names": [
+      "Kislovodsk Alanic Fort"
+    ],
+    "coords": [
+      43.9096,
+      42.7207
+    ],
+    "country": "Russia",
+    "key": "Kislovodsk-Russia",
+    "population": {
+      "1000": 1800
     }
   },
   "Kislovodsk-Russia": {
@@ -2677,7 +3336,6 @@
     "country": "Russia",
     "key": "Kislovodsk-Russia",
     "population": {
-      "1000": 1800,
       "1803": 600,
       "1850": 1600,
       "1897": 4078,
@@ -2816,6 +3474,22 @@
       "1900": 3250
     }
   },
+  "Nalchik Bronze Age Site-Russia": {
+    "name": "Nalchik Bronze Age Site",
+    "other_names": [
+      "Nalchik Bronze Age Site"
+    ],
+    "coords": [
+      43.4887,
+      43.6112
+    ],
+    "country": "Russia",
+    "key": "Nalchik-Russia",
+    "population": {
+      "-4000": 250,
+      "-3500": 350
+    }
+  },
   "Nalchik-Russia": {
     "name": "Nalchik",
     "other_names": [
@@ -2829,13 +3503,41 @@
     "country": "Russia",
     "key": "Nalchik-Russia",
     "population": {
-      "-4000": 250,
-      "-3500": 350,
       "1700": 1400,
       "1800": 1600,
       "1850": 2300,
       "1897": 4809,
       "1900": 5150
+    }
+  },
+  "Vladikavkaz Koban Site-Russia": {
+    "name": "Vladikavkaz Koban Site",
+    "other_names": [
+      "Vladikavkaz Koban Site"
+    ],
+    "coords": [
+      43.0286,
+      44.6899
+    ],
+    "country": "Russia",
+    "key": "Vladikavkaz-Russia",
+    "population": {
+      "-500": 600
+    }
+  },
+  "Dzaudzhikau Alanic Settlement-Russia": {
+    "name": "Dzaudzhikau Alanic Settlement",
+    "other_names": [
+      "Dzaudzhikau Alanic Settlement"
+    ],
+    "coords": [
+      43.0246,
+      44.6859
+    ],
+    "country": "Russia",
+    "key": "Vladikavkaz-Russia",
+    "population": {
+      "1000": 1800
     }
   },
   "Vladikavkaz-Russia": {
@@ -2852,8 +3554,6 @@
     "country": "Russia",
     "key": "Vladikavkaz-Russia",
     "population": {
-      "-500": 600,
-      "1000": 1800,
       "1750": 600,
       "1800": 2500,
       "1850": 5200,
@@ -2879,6 +3579,21 @@
       "1900": 4120
     }
   },
+  "Ardon Medieval Gorodishche-Russia": {
+    "name": "Ardon Medieval Gorodishche",
+    "other_names": [
+      "Ardon Medieval Gorodishche"
+    ],
+    "coords": [
+      43.179,
+      44.3012
+    ],
+    "country": "Russia",
+    "key": "Ardon-Russia",
+    "population": {
+      "1000": 1400
+    }
+  },
   "Ardon-Russia": {
     "name": "Ardon",
     "other_names": [
@@ -2892,7 +3607,6 @@
     "country": "Russia",
     "key": "Ardon-Russia",
     "population": {
-      "1000": 1400,
       "1850": 1600,
       "1897": 3930,
       "1900": 4150

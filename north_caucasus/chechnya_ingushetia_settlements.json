@@ -18,6 +18,38 @@
       "-4000": 110
     }
   },
+  "Bamut Bronze Age Site-Russia": {
+    "name": "Bamut Bronze Age Site",
+    "other_names": [
+      "Bamut Bronze Age Site"
+    ],
+    "coords": [
+      43.1636,
+      45.1997
+    ],
+    "country": "Russia",
+    "key": "Bamut-Russia",
+    "population": {
+      "-3500": 250,
+      "-3000": 320,
+      "-2000": 280
+    }
+  },
+  "Bamut Bronze Age Site 2-Russia": {
+    "name": "Bamut Bronze Age Site 2",
+    "other_names": [
+      "Bamut Bronze Age Site 2"
+    ],
+    "coords": [
+      43.1596,
+      45.1957
+    ],
+    "country": "Russia",
+    "key": "Bamut-Russia",
+    "population": {
+      "-1000": 450
+    }
+  },
   "Bamut-Russia": {
     "name": "Bamut",
     "other_names": [
@@ -30,15 +62,43 @@
     "country": "Russia",
     "key": "Bamut-Russia",
     "population": {
-      "-3500": 250,
-      "-3000": 320,
-      "-2000": 280,
-      "-1000": 450,
       "1700": 650,
       "1800": 950,
       "1850": 750,
       "1897": 1120,
       "1900": 1160
+    }
+  },
+  "Lugovoye Bronze Age Site-Russia": {
+    "name": "Lugovoye Bronze Age Site",
+    "other_names": [
+      "Lugovoye Bronze Age Site"
+    ],
+    "coords": [
+      43.108,
+      45.0247
+    ],
+    "country": "Russia",
+    "key": "Lugovoye-Russia",
+    "population": {
+      "-3500": 200,
+      "-3000": 380
+    }
+  },
+  "Lugovoye Iron Age Site-Russia": {
+    "name": "Lugovoye Iron Age Site",
+    "other_names": [
+      "Lugovoye Iron Age Site"
+    ],
+    "coords": [
+      43.104,
+      45.0207
+    ],
+    "country": "Russia",
+    "key": "Lugovoye-Russia",
+    "population": {
+      "-1000": 550,
+      "-500": 600
     }
   },
   "Lugovoye-Russia": {
@@ -55,14 +115,42 @@
     "country": "Russia",
     "key": "Lugovoye-Russia",
     "population": {
-      "-3500": 200,
-      "-3000": 380,
-      "-1000": 550,
-      "-500": 600,
       "1700": 500,
       "1800": 750,
       "1897": 980,
       "1900": 1020
+    }
+  },
+  "Serzhen-Yurt Bronze Age Site-Russia": {
+    "name": "Serzhen-Yurt Bronze Age Site",
+    "other_names": [
+      "Serzhen-Yurt Bronze Age Site"
+    ],
+    "coords": [
+      43.1247,
+      46.0247
+    ],
+    "country": "Russia",
+    "key": "Serzhen-Yurt-Russia",
+    "population": {
+      "-3000": 450,
+      "-2000": 380
+    }
+  },
+  "Serzhen-Yurt Iron Age Site-Russia": {
+    "name": "Serzhen-Yurt Iron Age Site",
+    "other_names": [
+      "Serzhen-Yurt Iron Age Site"
+    ],
+    "coords": [
+      43.1207,
+      46.0207
+    ],
+    "country": "Russia",
+    "key": "Serzhen-Yurt-Russia",
+    "population": {
+      "-1000": 900,
+      "-500": 750
     }
   },
   "Serzhen-Yurt-Russia": {
@@ -78,15 +166,27 @@
     "country": "Russia",
     "key": "Serzhen-Yurt-Russia",
     "population": {
-      "-3000": 450,
-      "-2000": 380,
-      "-1000": 900,
-      "-500": 750,
       "1700": 950,
       "1800": 1350,
       "1850": 1100,
       "1897": 1620,
       "1900": 1680
+    }
+  },
+  "Zandak Iron Age Site-Russia": {
+    "name": "Zandak Iron Age Site",
+    "other_names": [
+      "Zandak Iron Age Site"
+    ],
+    "coords": [
+      43.0012,
+      46.3734
+    ],
+    "country": "Russia",
+    "key": "Zandak-Russia",
+    "population": {
+      "-1000": 700,
+      "-500": 650
     }
   },
   "Zandak-Russia": {
@@ -102,8 +202,6 @@
     "country": "Russia",
     "key": "Zandak-Russia",
     "population": {
-      "-1000": 700,
-      "-500": 650,
       "1000": 850,
       "1400": 950,
       "1700": 1400,
@@ -111,6 +209,37 @@
       "1850": 1500,
       "1897": 1950,
       "1900": 2020
+    }
+  },
+  "Nesterovskaya Iron Age Site-Russia": {
+    "name": "Nesterovskaya Iron Age Site",
+    "other_names": [
+      "Nesterovskaya Iron Age Site"
+    ],
+    "coords": [
+      43.2413,
+      45.058
+    ],
+    "country": "Russia",
+    "key": "Nesterovskaya-Russia",
+    "population": {
+      "-1000": 600,
+      "-500": 550
+    }
+  },
+  "Nesterovskaya Medieval Gorodishche-Russia": {
+    "name": "Nesterovskaya Medieval Gorodishche",
+    "other_names": [
+      "Nesterovskaya Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2373,
+      45.054
+    ],
+    "country": "Russia",
+    "key": "Nesterovskaya-Russia",
+    "population": {
+      "1000": 1100
     }
   },
   "Nesterovskaya-Russia": {
@@ -126,13 +255,41 @@
     "country": "Russia",
     "key": "Nesterovskaya-Russia",
     "population": {
-      "-1000": 600,
-      "-500": 550,
-      "1000": 1100,
       "1800": 950,
       "1850": 1850,
       "1897": 3420,
       "1900": 3550
+    }
+  },
+  "Alkhan-Yurt Iron Age Site-Russia": {
+    "name": "Alkhan-Yurt Iron Age Site",
+    "other_names": [
+      "Alkhan-Yurt Iron Age Site"
+    ],
+    "coords": [
+      43.2386,
+      45.5497
+    ],
+    "country": "Russia",
+    "key": "Alkhan-Yurt-Russia",
+    "population": {
+      "-500": 650
+    }
+  },
+  "Alkhan-Yurt Medieval Gorodishche-Russia": {
+    "name": "Alkhan-Yurt Medieval Gorodishche",
+    "other_names": [
+      "Alkhan-Yurt Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2346,
+      45.5457
+    ],
+    "country": "Russia",
+    "key": "Alkhan-Yurt-Russia",
+    "population": {
+      "800": 1400,
+      "1200": 2100
     }
   },
   "Alkhan-Yurt-Russia": {
@@ -148,14 +305,41 @@
     "country": "Russia",
     "key": "Alkhan-Yurt-Russia",
     "population": {
-      "-500": 650,
-      "800": 1400,
-      "1200": 2100,
       "1700": 1500,
       "1800": 2800,
       "1850": 2200,
       "1897": 2740,
       "1900": 2840
+    }
+  },
+  "Belgatoy Bronze Age Site-Russia": {
+    "name": "Belgatoy Bronze Age Site",
+    "other_names": [
+      "Belgatoy Bronze Age Site"
+    ],
+    "coords": [
+      43.058,
+      45.958
+    ],
+    "country": "Russia",
+    "key": "Belgatoy-Russia",
+    "population": {
+      "-1000": 450
+    }
+  },
+  "Belgatoy Medieval Gorodishche-Russia": {
+    "name": "Belgatoy Medieval Gorodishche",
+    "other_names": [
+      "Belgatoy Medieval Gorodishche"
+    ],
+    "coords": [
+      43.054,
+      45.954
+    ],
+    "country": "Russia",
+    "key": "Belgatoy-Russia",
+    "population": {
+      "1200": 750
     }
   },
   "Belgatoy-Russia": {
@@ -170,12 +354,40 @@
     "country": "Russia",
     "key": "Belgatoy-Russia",
     "population": {
-      "-1000": 450,
-      "1200": 750,
       "1700": 1100,
       "1800": 1450,
       "1897": 1680,
       "1900": 1740
+    }
+  },
+  "Kharachoy Bronze Age Site-Russia": {
+    "name": "Kharachoy Bronze Age Site",
+    "other_names": [
+      "Kharachoy Bronze Age Site"
+    ],
+    "coords": [
+      42.9136,
+      46.1469
+    ],
+    "country": "Russia",
+    "key": "Kharachoy-Russia",
+    "population": {
+      "-1500": 350
+    }
+  },
+  "Kharachoy Bronze Age Site 2-Russia": {
+    "name": "Kharachoy Bronze Age Site 2",
+    "other_names": [
+      "Kharachoy Bronze Age Site 2"
+    ],
+    "coords": [
+      42.9096,
+      46.1429
+    ],
+    "country": "Russia",
+    "key": "Kharachoy-Russia",
+    "population": {
+      "-1000": 480
     }
   },
   "Kharachoy-Russia": {
@@ -190,14 +402,46 @@
     "country": "Russia",
     "key": "Kharachoy-Russia",
     "population": {
-      "-1500": 350,
-      "-1000": 480,
       "1400": 650,
       "1700": 1050,
       "1800": 1350,
       "1850": 1100,
       "1897": 1290,
       "1900": 1340
+    }
+  },
+  "Alkhan-Kala Iron Age Site-Russia": {
+    "name": "Alkhan-Kala Iron Age Site",
+    "other_names": [
+      "Alkhan-Kala Iron Age Site"
+    ],
+    "coords": [
+      43.2663,
+      45.5191
+    ],
+    "country": "Russia",
+    "key": "Alkhan-Kala-Russia",
+    "population": {
+      "1": 1500,
+      "-300": 900
+    }
+  },
+  "Alkhan-Kala Medieval Gorodishche-Russia": {
+    "name": "Alkhan-Kala Medieval Gorodishche",
+    "other_names": [
+      "Alkhan-Kala Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2623,
+      45.5151
+    ],
+    "country": "Russia",
+    "key": "Alkhan-Kala-Russia",
+    "population": {
+      "400": 3500,
+      "800": 7500,
+      "1000": 11000,
+      "1200": 13500
     }
   },
   "Alkhan-Kala-Russia": {
@@ -213,15 +457,27 @@
     "country": "Russia",
     "key": "Alkhan-Kala-Russia",
     "population": {
-      "-300": 900,
-      "1": 1500,
-      "400": 3500,
-      "800": 7500,
-      "1000": 11000,
-      "1200": 13500,
       "1850": 1600,
       "1897": 2890,
       "1900": 3000
+    }
+  },
+  "Yandare Medieval Gorodishche-Russia": {
+    "name": "Yandare Medieval Gorodishche",
+    "other_names": [
+      "Yandare Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2457,
+      44.9207
+    ],
+    "country": "Russia",
+    "key": "Yandare-Russia",
+    "population": {
+      "400": 900,
+      "800": 2200,
+      "1000": 3400,
+      "1200": 4200
     }
   },
   "Yandare-Russia": {
@@ -237,15 +493,29 @@
     "country": "Russia",
     "key": "Yandare-Russia",
     "population": {
-      "400": 900,
-      "800": 2200,
-      "1000": 3400,
-      "1200": 4200,
       "1750": 850,
       "1800": 1250,
       "1850": 1550,
       "1897": 2140,
       "1900": 2220
+    }
+  },
+  "Gazi-Yurt Medieval Gorodishche-Russia": {
+    "name": "Gazi-Yurt Medieval Gorodishche",
+    "other_names": [
+      "Gazi-Yurt Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2207,
+      44.8873
+    ],
+    "country": "Russia",
+    "key": "Gazi-Yurt-Russia",
+    "population": {
+      "400": 1100,
+      "800": 2800,
+      "1000": 4500,
+      "1200": 5500
     }
   },
   "Gazi-Yurt-Russia": {
@@ -261,13 +531,26 @@
     "country": "Russia",
     "key": "Gazi-Yurt-Russia",
     "population": {
-      "400": 1100,
-      "800": 2800,
-      "1000": 4500,
-      "1200": 5500,
       "1800": 750,
       "1897": 1080,
       "1900": 1120
+    }
+  },
+  "Ekazhevo Medieval Gorodishche-Russia": {
+    "name": "Ekazhevo Medieval Gorodishche",
+    "other_names": [
+      "Ekazhevo Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2151,
+      44.8234
+    ],
+    "country": "Russia",
+    "key": "Ekazhevo-Russia",
+    "population": {
+      "600": 1200,
+      "1000": 2800,
+      "1200": 3500
     }
   },
   "Ekazhevo-Russia": {
@@ -283,14 +566,28 @@
     "country": "Russia",
     "key": "Ekazhevo-Russia",
     "population": {
-      "600": 1200,
-      "1000": 2800,
-      "1200": 3500,
       "1750": 1400,
       "1800": 2400,
       "1850": 3200,
       "1897": 4120,
       "1900": 4280
+    }
+  },
+  "Ali-Yurt Medieval Gorodishche-Russia": {
+    "name": "Ali-Yurt Medieval Gorodishche",
+    "other_names": [
+      "Ali-Yurt Medieval Gorodishche"
+    ],
+    "coords": [
+      43.179,
+      44.8568
+    ],
+    "country": "Russia",
+    "key": "Ali-Yurt-Russia",
+    "population": {
+      "600": 850,
+      "1000": 1800,
+      "1200": 2200
     }
   },
   "Ali-Yurt-Russia": {
@@ -305,13 +602,27 @@
     "country": "Russia",
     "key": "Ali-Yurt-Russia",
     "population": {
-      "600": 850,
-      "1000": 1800,
-      "1200": 2200,
       "1800": 850,
       "1850": 1150,
       "1897": 1540,
       "1900": 1600
+    }
+  },
+  "Surkhakhi Medieval Gorodishche-Russia": {
+    "name": "Surkhakhi Medieval Gorodishche",
+    "other_names": [
+      "Surkhakhi Medieval Gorodishche"
+    ],
+    "coords": [
+      43.1957,
+      44.9068
+    ],
+    "country": "Russia",
+    "key": "Surkhakhi-Russia",
+    "population": {
+      "600": 950,
+      "1000": 2100,
+      "1200": 2600
     }
   },
   "Surkhakhi-Russia": {
@@ -326,14 +637,28 @@
     "country": "Russia",
     "key": "Surkhakhi-Russia",
     "population": {
-      "600": 950,
-      "1000": 2100,
-      "1200": 2600,
       "1750": 1100,
       "1800": 1750,
       "1850": 2300,
       "1897": 2980,
       "1900": 3100
+    }
+  },
+  "Plievo Medieval Gorodishche-Russia": {
+    "name": "Plievo Medieval Gorodishche",
+    "other_names": [
+      "Plievo Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2568,
+      44.8179
+    ],
+    "country": "Russia",
+    "key": "Plievo-Russia",
+    "population": {
+      "800": 1100,
+      "1000": 1900,
+      "1200": 2400
     }
   },
   "Plievo-Russia": {
@@ -348,14 +673,27 @@
     "country": "Russia",
     "key": "Plievo-Russia",
     "population": {
-      "800": 1100,
-      "1000": 1900,
-      "1200": 2400,
       "1750": 900,
       "1800": 1600,
       "1850": 2100,
       "1897": 2780,
       "1900": 2880
+    }
+  },
+  "Barsuki Medieval Gorodishche-Russia": {
+    "name": "Barsuki Medieval Gorodishche",
+    "other_names": [
+      "Barsuki Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2623,
+      44.7873
+    ],
+    "country": "Russia",
+    "key": "Barsuki-Russia",
+    "population": {
+      "800": 900,
+      "1200": 1800
     }
   },
   "Barsuki-Russia": {
@@ -370,13 +708,27 @@
     "country": "Russia",
     "key": "Barsuki-Russia",
     "population": {
-      "800": 900,
-      "1200": 1800,
       "1750": 850,
       "1800": 1400,
       "1850": 1850,
       "1897": 2420,
       "1900": 2510
+    }
+  },
+  "Nasyr-Kort Medieval Gorodishche-Russia": {
+    "name": "Nasyr-Kort Medieval Gorodishche",
+    "other_names": [
+      "Nasyr-Kort Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2234,
+      44.7957
+    ],
+    "country": "Russia",
+    "key": "Nasyr-Kort-Russia",
+    "population": {
+      "800": 950,
+      "1200": 1950
     }
   },
   "Nasyr-Kort-Russia": {
@@ -391,13 +743,27 @@
     "country": "Russia",
     "key": "Nasyr-Kort-Russia",
     "population": {
-      "800": 950,
-      "1200": 1950,
       "1750": 950,
       "1800": 1550,
       "1850": 2050,
       "1897": 2690,
       "1900": 2790
+    }
+  },
+  "Troitskaya Medieval Gorodishche-Russia": {
+    "name": "Troitskaya Medieval Gorodishche",
+    "other_names": [
+      "Troitskaya Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3123,
+      44.9873
+    ],
+    "country": "Russia",
+    "key": "Troitskaya-Russia",
+    "population": {
+      "800": 1200,
+      "1200": 2300
     }
   },
   "Troitskaya-Russia": {
@@ -413,12 +779,26 @@
     "country": "Russia",
     "key": "Troitskaya-Russia",
     "population": {
-      "800": 1200,
-      "1200": 2300,
       "1800": 1350,
       "1850": 2400,
       "1897": 4580,
       "1900": 4750
+    }
+  },
+  "Karabulak Medieval Gorodishche-Russia": {
+    "name": "Karabulak Medieval Gorodishche",
+    "other_names": [
+      "Karabulak Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3096,
+      44.904
+    ],
+    "country": "Russia",
+    "key": "Karabulak-Russia",
+    "population": {
+      "800": 1100,
+      "1200": 2100
     }
   },
   "Karabulak-Russia": {
@@ -433,13 +813,27 @@
     "country": "Russia",
     "key": "Karabulak-Russia",
     "population": {
-      "800": 1100,
-      "1200": 2100,
       "1750": 1200,
       "1800": 1850,
       "1850": 1900,
       "1897": 3360,
       "1900": 3480
+    }
+  },
+  "Sleptsovskaya Medieval Gorodishche-Russia": {
+    "name": "Sleptsovskaya Medieval Gorodishche",
+    "other_names": [
+      "Sleptsovskaya Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3207,
+      45.054
+    ],
+    "country": "Russia",
+    "key": "Sleptsovskaya-Russia",
+    "population": {
+      "800": 1300,
+      "1200": 2500
     }
   },
   "Sleptsovskaya-Russia": {
@@ -456,8 +850,6 @@
     "country": "Russia",
     "key": "Sleptsovskaya-Russia",
     "population": {
-      "800": 1300,
-      "1200": 2500,
       "1800": 1800,
       "1850": 2600,
       "1897": 5120,
@@ -1351,6 +1743,21 @@
       "1900": 1920
     }
   },
+  "Dargo Bronze Age Site-Russia": {
+    "name": "Dargo Bronze Age Site",
+    "other_names": [
+      "Dargo Bronze Age Site"
+    ],
+    "coords": [
+      42.9568,
+      46.2429
+    ],
+    "country": "Russia",
+    "key": "Dargo-Russia",
+    "population": {
+      "-1500": 320
+    }
+  },
   "Dargo-Russia": {
     "name": "Dargo",
     "other_names": [
@@ -1364,7 +1771,6 @@
     "country": "Russia",
     "key": "Dargo-Russia",
     "population": {
-      "-1500": 320,
       "1400": 650,
       "1700": 1300,
       "1800": 1800,
@@ -1460,7 +1866,7 @@
       "Энгеной"
     ],
     "coords": [
-      43.0,
+      43,
       46.2833
     ],
     "country": "Russia",
@@ -1626,6 +2032,21 @@
       "1900": 2260
     }
   },
+  "Staryy Yurt Medieval Gorodishche-Russia": {
+    "name": "Staryy Yurt Medieval Gorodishche",
+    "other_names": [
+      "Staryy Yurt Medieval Gorodishche"
+    ],
+    "coords": [
+      43.454,
+      45.7873
+    ],
+    "country": "Russia",
+    "key": "Staryy Yurt-Russia",
+    "population": {
+      "1200": 1800
+    }
+  },
   "Staryy Yurt-Russia": {
     "name": "Staryy Yurt",
     "other_names": [
@@ -1639,7 +2060,6 @@
     "country": "Russia",
     "key": "Staryy Yurt-Russia",
     "population": {
-      "1200": 1800,
       "1600": 1400,
       "1700": 2200,
       "1800": 3100,
@@ -1687,6 +2107,21 @@
       "1900": 2580
     }
   },
+  "Braguny Medieval Gorodishche-Russia": {
+    "name": "Braguny Medieval Gorodishche",
+    "other_names": [
+      "Braguny Medieval Gorodishche"
+    ],
+    "coords": [
+      43.4373,
+      46.0207
+    ],
+    "country": "Russia",
+    "key": "Braguny-Russia",
+    "population": {
+      "1200": 1400
+    }
+  },
   "Braguny-Russia": {
     "name": "Braguny",
     "other_names": [
@@ -1700,7 +2135,6 @@
     "country": "Russia",
     "key": "Braguny-Russia",
     "population": {
-      "1200": 1400,
       "1600": 1200,
       "1700": 1800,
       "1800": 2200,
@@ -1730,6 +2164,21 @@
       "1900": 2200
     }
   },
+  "Gudermes Medieval Gorodishche-Russia": {
+    "name": "Gudermes Medieval Gorodishche",
+    "other_names": [
+      "Gudermes Medieval Gorodishche"
+    ],
+    "coords": [
+      43.354,
+      46.104
+    ],
+    "country": "Russia",
+    "key": "Gudermes-Russia",
+    "population": {
+      "1200": 1300
+    }
+  },
   "Gudermes-Russia": {
     "name": "Gudermes",
     "other_names": [
@@ -1743,12 +2192,26 @@
     "country": "Russia",
     "key": "Gudermes-Russia",
     "population": {
-      "1200": 1300,
       "1700": 1100,
       "1800": 1900,
       "1850": 1600,
       "1897": 3580,
       "1900": 3800
+    }
+  },
+  "Kurchaloy Bronze Age Site-Russia": {
+    "name": "Kurchaloy Bronze Age Site",
+    "other_names": [
+      "Kurchaloy Bronze Age Site"
+    ],
+    "coords": [
+      43.2096,
+      46.0901
+    ],
+    "country": "Russia",
+    "key": "Kurchaloy-Russia",
+    "population": {
+      "-1000": 450
     }
   },
   "Kurchaloy-Russia": {
@@ -1763,7 +2226,6 @@
     "country": "Russia",
     "key": "Kurchaloy-Russia",
     "population": {
-      "-1000": 450,
       "1700": 1650,
       "1800": 2900,
       "1850": 2500,
@@ -1835,7 +2297,7 @@
     ],
     "coords": [
       43.1667,
-      46.0
+      46
     ],
     "country": "Russia",
     "key": "Avtury-Russia",
@@ -1845,6 +2307,21 @@
       "1850": 2100,
       "1897": 2950,
       "1900": 3060
+    }
+  },
+  "Shali Medieval Gorodishche-Russia": {
+    "name": "Shali Medieval Gorodishche",
+    "other_names": [
+      "Shali Medieval Gorodishche"
+    ],
+    "coords": [
+      43.1521,
+      45.9059
+    ],
+    "country": "Russia",
+    "key": "Shali-Russia",
+    "population": {
+      "1200": 2000
     }
   },
   "Shali-Russia": {
@@ -1860,13 +2337,27 @@
     "country": "Russia",
     "key": "Shali-Russia",
     "population": {
-      "1200": 2000,
       "1700": 2800,
       "1750": 3800,
       "1800": 5200,
       "1850": 4600,
       "1897": 7850,
       "1900": 8100
+    }
+  },
+  "Germenchuk Medieval Gorodishche-Russia": {
+    "name": "Germenchuk Medieval Gorodishche",
+    "other_names": [
+      "Germenchuk Medieval Gorodishche"
+    ],
+    "coords": [
+      43.1901,
+      45.9318
+    ],
+    "country": "Russia",
+    "key": "Germenchuk-Russia",
+    "population": {
+      "1200": 1800
     }
   },
   "Germenchuk-Russia": {
@@ -1881,12 +2372,26 @@
     "country": "Russia",
     "key": "Germenchuk-Russia",
     "population": {
-      "1200": 1800,
       "1700": 2400,
       "1800": 4200,
       "1850": 2500,
       "1897": 3480,
       "1900": 3600
+    }
+  },
+  "Chechen-Aul Medieval Gorodishche-Russia": {
+    "name": "Chechen-Aul Medieval Gorodishche",
+    "other_names": [
+      "Chechen-Aul Medieval Gorodishche"
+    ],
+    "coords": [
+      43.204,
+      45.7929
+    ],
+    "country": "Russia",
+    "key": "Chechen-Aul-Russia",
+    "population": {
+      "1200": 2200
     }
   },
   "Chechen-Aul-Russia": {
@@ -1902,13 +2407,27 @@
     "country": "Russia",
     "key": "Chechen-Aul-Russia",
     "population": {
-      "1200": 2200,
       "1700": 3200,
       "1750": 4000,
       "1800": 4600,
       "1850": 2200,
       "1897": 2890,
       "1900": 3000
+    }
+  },
+  "Aldy Medieval Gorodishche-Russia": {
+    "name": "Aldy Medieval Gorodishche",
+    "other_names": [
+      "Aldy Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2818,
+      45.6596
+    ],
+    "country": "Russia",
+    "key": "Aldy-Russia",
+    "population": {
+      "1200": 2000
     }
   },
   "Aldy-Russia": {
@@ -1924,13 +2443,27 @@
     "country": "Russia",
     "key": "Aldy-Russia",
     "population": {
-      "1200": 2000,
       "1700": 2200,
       "1750": 3200,
       "1800": 3800,
       "1850": 1900,
       "1897": 2650,
       "1900": 2750
+    }
+  },
+  "Staryye Atagi Medieval Gorodishche-Russia": {
+    "name": "Staryye Atagi Medieval Gorodishche",
+    "other_names": [
+      "Staryye Atagi Medieval Gorodishche"
+    ],
+    "coords": [
+      43.1318,
+      45.7457
+    ],
+    "country": "Russia",
+    "key": "Staryye Atagi-Russia",
+    "population": {
+      "1200": 1800
     }
   },
   "Staryye Atagi-Russia": {
@@ -1946,7 +2479,6 @@
     "country": "Russia",
     "key": "Staryye Atagi-Russia",
     "population": {
-      "1200": 1800,
       "1700": 2100,
       "1800": 3900,
       "1850": 2800,
@@ -2011,6 +2543,21 @@
       "1900": 1820
     }
   },
+  "Urus-Martan Medieval Gorodishche-Russia": {
+    "name": "Urus-Martan Medieval Gorodishche",
+    "other_names": [
+      "Urus-Martan Medieval Gorodishche"
+    ],
+    "coords": [
+      43.134,
+      45.5418
+    ],
+    "country": "Russia",
+    "key": "Urus-Martan-Russia",
+    "population": {
+      "1200": 2400
+    }
+  },
   "Urus-Martan-Russia": {
     "name": "Urus-Martan",
     "other_names": [
@@ -2024,13 +2571,27 @@
     "country": "Russia",
     "key": "Urus-Martan-Russia",
     "population": {
-      "1200": 2400,
       "1700": 2300,
       "1750": 3400,
       "1800": 4800,
       "1850": 3900,
       "1897": 6654,
       "1900": 6900
+    }
+  },
+  "Goyty Medieval Gorodishche-Russia": {
+    "name": "Goyty Medieval Gorodishche",
+    "other_names": [
+      "Goyty Medieval Gorodishche"
+    ],
+    "coords": [
+      43.2234,
+      45.6623
+    ],
+    "country": "Russia",
+    "key": "Goyty-Russia",
+    "population": {
+      "1200": 1500
     }
   },
   "Goyty-Russia": {
@@ -2045,7 +2606,6 @@
     "country": "Russia",
     "key": "Goyty-Russia",
     "population": {
-      "1200": 1500,
       "1700": 1600,
       "1800": 2900,
       "1850": 2400,
@@ -2091,6 +2651,21 @@
       "1900": 2160
     }
   },
+  "Shalazhi Bronze Age Site-Russia": {
+    "name": "Shalazhi Bronze Age Site",
+    "other_names": [
+      "Shalazhi Bronze Age Site"
+    ],
+    "coords": [
+      43.104,
+      45.3707
+    ],
+    "country": "Russia",
+    "key": "Shalazhi-Russia",
+    "population": {
+      "-1000": 420
+    }
+  },
   "Shalazhi-Russia": {
     "name": "Shalazhi",
     "other_names": [
@@ -2103,7 +2678,6 @@
     "country": "Russia",
     "key": "Shalazhi-Russia",
     "population": {
-      "-1000": 420,
       "1700": 1100,
       "1800": 1900,
       "1850": 1650,
@@ -2208,6 +2782,21 @@
       "1900": 2970
     }
   },
+  "Assinovskaya Bronze Age Site-Russia": {
+    "name": "Assinovskaya Bronze Age Site",
+    "other_names": [
+      "Assinovskaya Bronze Age Site"
+    ],
+    "coords": [
+      43.2484,
+      45.1873
+    ],
+    "country": "Russia",
+    "key": "Assinovskaya-Russia",
+    "population": {
+      "-2500": 350
+    }
+  },
   "Assinovskaya-Russia": {
     "name": "Assinovskaya",
     "other_names": [
@@ -2220,7 +2809,6 @@
     "country": "Russia",
     "key": "Assinovskaya-Russia",
     "population": {
-      "-2500": 350,
       "1800": 1100,
       "1850": 2100,
       "1897": 3890,
@@ -2470,6 +3058,21 @@
       "1900": 2220
     }
   },
+  "Grozny Medieval Gorodishche-Russia": {
+    "name": "Grozny Medieval Gorodishche",
+    "other_names": [
+      "Grozny Medieval Gorodishche"
+    ],
+    "coords": [
+      43.3218,
+      45.6987
+    ],
+    "country": "Russia",
+    "key": "Grozny-Russia",
+    "population": {
+      "1200": 1900
+    }
+  },
   "Grozny-Russia": {
     "name": "Grozny",
     "other_names": [
@@ -2484,7 +3087,6 @@
     "country": "Russia",
     "key": "Grozny-Russia",
     "population": {
-      "1200": 1900,
       "1750": 1800,
       "1800": 2400,
       "1850": 4500,

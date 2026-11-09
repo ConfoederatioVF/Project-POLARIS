@@ -32,7 +32,6 @@
       kk10_fallback_folder: "histmap/2.data_cleaning/population_KK10LUH2/rasters_KK10LUH2_2._global_scaling",
       maxln_asc: "histmap/1.data_raw/metadata_HYDE/general_files/maxln_cr.asc",
       outlier_masks: [],
-      stadester_urban_folder: "histmap/2.data_cleaning/population_Stadester/stadester_urban_rasters",
       sub_iso_asc: "histmap/1.data_raw/metadata_HYDE/general_files/sub_iso_cr.asc",
       urban_mask_buffer_radius: 1,
       urban_mask_inpaint_radius: 4,

@@ -89,6 +89,38 @@
       "-2000": 40
     }
   },
+  "Sagan-Zaba II Bronze Age Site-Russia": {
+    "name": "Sagan-Zaba II Bronze Age Site",
+    "other_names": [
+      "Sagan-Zaba II Bronze Age Site"
+    ],
+    "coords": [
+      52.6747,
+      106.4747
+    ],
+    "country": "Russia",
+    "key": "Sagan-Zaba II-Russia",
+    "population": {
+      "-5200": 30,
+      "-3500": 40,
+      "-2000": 45
+    }
+  },
+  "Sagan-Zaba II Iron Age Site-Russia": {
+    "name": "Sagan-Zaba II Iron Age Site",
+    "other_names": [
+      "Sagan-Zaba II Iron Age Site"
+    ],
+    "coords": [
+      52.6707,
+      106.4707
+    ],
+    "country": "Russia",
+    "key": "Sagan-Zaba II-Russia",
+    "population": {
+      "-500": 50
+    }
+  },
   "Sagan-Zaba II-Russia": {
     "name": "Sagan-Zaba II",
     "other_names": [
@@ -101,10 +133,6 @@
     "country": "Russia",
     "key": "Sagan-Zaba II-Russia",
     "population": {
-      "-5200": 30,
-      "-3500": 40,
-      "-2000": 45,
-      "-500": 50,
       "800": 60
     }
   },
@@ -175,11 +203,11 @@
     "country": "Russia",
     "key": "Ivolga Fortress-Russia",
     "population": {
+      "1": 2500,
+      "50": 1200,
       "-150": 1800,
       "-100": 2400,
-      "-50": 2800,
-      "1": 2500,
-      "50": 1200
+      "-50": 2800
     }
   },
   "Nizhnyaya Ivolga-Russia": {
@@ -194,9 +222,9 @@
     "country": "Russia",
     "key": "Nizhnyaya Ivolga-Russia",
     "population": {
+      "1": 420,
       "-120": 350,
-      "-50": 480,
-      "1": 420
+      "-50": 480
     }
   },
   "Bayangol-Russia": {
@@ -212,10 +240,10 @@
     "country": "Russia",
     "key": "Bayangol-Russia",
     "population": {
-      "-120": 900,
-      "-50": 1400,
       "1": 1500,
-      "50": 800
+      "50": 800,
+      "-120": 900,
+      "-50": 1400
     }
   },
   "Dyrestui-Russia": {
@@ -231,10 +259,10 @@
     "country": "Russia",
     "key": "Dyrestui-Russia",
     "population": {
-      "-150": 450,
-      "-50": 650,
       "1": 700,
-      "50": 400
+      "50": 400,
+      "-150": 450,
+      "-50": 650
     }
   },
   "Ilmovaya Pad-Russia": {
@@ -249,10 +277,10 @@
     "country": "Russia",
     "key": "Ilmovaya Pad-Russia",
     "population": {
-      "-120": 550,
-      "-50": 800,
       "1": 850,
-      "50": 500
+      "50": 500,
+      "-120": 550,
+      "-50": 800
     }
   },
   "Cheremukhovaya Pad-Russia": {
@@ -267,9 +295,9 @@
     "country": "Russia",
     "key": "Cheremukhovaya Pad-Russia",
     "population": {
-      "-100": 320,
       "1": 450,
-      "50": 300
+      "50": 300,
+      "-100": 320
     }
   },
   "Burkhan-Tolgoi-Russia": {
@@ -284,9 +312,9 @@
     "country": "Russia",
     "key": "Burkhan-Tolgoi-Russia",
     "population": {
+      "1": 550,
       "-120": 380,
-      "-50": 520,
-      "1": 550
+      "-50": 520
     }
   },
   "Dureny I-Russia": {
@@ -302,10 +330,10 @@
     "country": "Russia",
     "key": "Dureny I-Russia",
     "population": {
-      "-100": 480,
-      "-50": 650,
       "1": 700,
-      "50": 450
+      "50": 450,
+      "-100": 480,
+      "-50": 650
     }
   },
   "Nizhnemangirtuyskoe-Russia": {
@@ -320,9 +348,9 @@
     "country": "Russia",
     "key": "Nizhnemangirtuyskoe-Russia",
     "population": {
-      "-100": 260,
       "1": 350,
-      "50": 220
+      "50": 220,
+      "-100": 260
     }
   },
   "Mankhay I-Russia": {
@@ -802,7 +830,7 @@
       "Афонтова Гора"
     ],
     "coords": [
-      56.0,
+      56,
       92.85
     ],
     "country": "Russia",
@@ -1009,7 +1037,7 @@
       "Bidzhinskiy"
     ],
     "coords": [
-      54.0,
+      54,
       91.15
     ],
     "country": "Russia",
@@ -1018,6 +1046,23 @@
       "-700": 320,
       "-400": 420,
       "-100": 380
+    }
+  },
+  "Oglakhty Iron Age Site-Russia": {
+    "name": "Oglakhty Iron Age Site",
+    "other_names": [
+      "Oglakhty Iron Age Site"
+    ],
+    "coords": [
+      54.054,
+      91.454
+    ],
+    "country": "Russia",
+    "key": "Oglakhty-Russia",
+    "population": {
+      "100": 620,
+      "300": 680,
+      "-100": 450
     }
   },
   "Oglakhty-Russia": {
@@ -1033,9 +1078,6 @@
     "country": "Russia",
     "key": "Oglakhty-Russia",
     "population": {
-      "-100": 450,
-      "100": 620,
-      "300": 680,
       "500": 520
     }
   },
@@ -1508,6 +1550,51 @@
       "-900": 35
     }
   },
+  "Ust-Kova Stone Age Site-Russia": {
+    "name": "Ust-Kova Stone Age Site",
+    "other_names": [
+      "Ust-Kova Stone Age Site"
+    ],
+    "coords": [
+      58.312,
+      100.3287
+    ],
+    "country": "Russia",
+    "key": "Ust-Kova-Russia",
+    "population": {
+      "-8000": 30
+    }
+  },
+  "Ust-Kova Stone Age Site 2-Russia": {
+    "name": "Ust-Kova Stone Age Site 2",
+    "other_names": [
+      "Ust-Kova Stone Age Site 2"
+    ],
+    "coords": [
+      58.308,
+      100.3247
+    ],
+    "country": "Russia",
+    "key": "Ust-Kova-Russia",
+    "population": {
+      "-5000": 45
+    }
+  },
+  "Ust-Kova Bronze Age Site-Russia": {
+    "name": "Ust-Kova Bronze Age Site",
+    "other_names": [
+      "Ust-Kova Bronze Age Site"
+    ],
+    "coords": [
+      58.304,
+      100.3207
+    ],
+    "country": "Russia",
+    "key": "Ust-Kova-Russia",
+    "population": {
+      "-2000": 60
+    }
+  },
   "Ust-Kova-Russia": {
     "name": "Ust-Kova",
     "other_names": [
@@ -1520,10 +1607,23 @@
     "country": "Russia",
     "key": "Ust-Kova-Russia",
     "population": {
-      "-8000": 30,
-      "-5000": 45,
-      "-2000": 60,
       "200": 75
+    }
+  },
+  "Tsepan Iron Age Site-Russia": {
+    "name": "Tsepan Iron Age Site",
+    "other_names": [
+      "Tsepan Iron Age Site"
+    ],
+    "coords": [
+      58.054,
+      99.454
+    ],
+    "country": "Russia",
+    "key": "Tsepan-Russia",
+    "population": {
+      "100": 90,
+      "-300": 65
     }
   },
   "Tsepan-Russia": {
@@ -1539,9 +1639,37 @@
     "country": "Russia",
     "key": "Tsepan-Russia",
     "population": {
-      "-300": 65,
-      "100": 90,
       "500": 80
+    }
+  },
+  "Kazachka Stone Age Site-Russia": {
+    "name": "Kazachka Stone Age Site",
+    "other_names": [
+      "Kazachka Stone Age Site"
+    ],
+    "coords": [
+      57.708,
+      93.258
+    ],
+    "country": "Russia",
+    "key": "Kazachka-Russia",
+    "population": {
+      "-6000": 35
+    }
+  },
+  "Kazachka Bronze Age Site-Russia": {
+    "name": "Kazachka Bronze Age Site",
+    "other_names": [
+      "Kazachka Bronze Age Site"
+    ],
+    "coords": [
+      57.704,
+      93.254
+    ],
+    "country": "Russia",
+    "key": "Kazachka-Russia",
+    "population": {
+      "-3000": 50
     }
   },
   "Kazachka-Russia": {
@@ -1557,8 +1685,6 @@
     "country": "Russia",
     "key": "Kazachka-Russia",
     "population": {
-      "-6000": 35,
-      "-3000": 50,
       "-1000": 65
     }
   },
@@ -1778,6 +1904,38 @@
       "-6000": 35
     }
   },
+  "Belkachi I Stone Age Site-Russia": {
+    "name": "Belkachi I Stone Age Site",
+    "other_names": [
+      "Belkachi I Stone Age Site"
+    ],
+    "coords": [
+      59.158,
+      131.908
+    ],
+    "country": "Russia",
+    "key": "Belkachi I-Russia",
+    "population": {
+      "-7500": 25
+    }
+  },
+  "Belkachi I Bronze Age Site-Russia": {
+    "name": "Belkachi I Bronze Age Site",
+    "other_names": [
+      "Belkachi I Bronze Age Site"
+    ],
+    "coords": [
+      59.154,
+      131.904
+    ],
+    "country": "Russia",
+    "key": "Belkachi I-Russia",
+    "population": {
+      "-4200": 40,
+      "-3000": 50,
+      "-1500": 55
+    }
+  },
   "Belkachi I-Russia": {
     "name": "Belkachi I",
     "other_names": [
@@ -1790,11 +1948,38 @@
     "country": "Russia",
     "key": "Belkachi I-Russia",
     "population": {
-      "-7500": 25,
-      "-4200": 40,
-      "-3000": 50,
-      "-1500": 55,
       "-500": 45
+    }
+  },
+  "Sumnagin I Stone Age Site-Russia": {
+    "name": "Sumnagin I Stone Age Site",
+    "other_names": [
+      "Sumnagin I Stone Age Site"
+    ],
+    "coords": [
+      58.7913,
+      130.658
+    ],
+    "country": "Russia",
+    "key": "Sumnagin I-Russia",
+    "population": {
+      "-8000": 25,
+      "-6000": 35
+    }
+  },
+  "Sumnagin I Bronze Age Site-Russia": {
+    "name": "Sumnagin I Bronze Age Site",
+    "other_names": [
+      "Sumnagin I Bronze Age Site"
+    ],
+    "coords": [
+      58.7873,
+      130.654
+    ],
+    "country": "Russia",
+    "key": "Sumnagin I-Russia",
+    "population": {
+      "-3000": 45
     }
   },
   "Sumnagin I-Russia": {
@@ -1809,10 +1994,52 @@
     "country": "Russia",
     "key": "Sumnagin I-Russia",
     "population": {
-      "-8000": 25,
-      "-6000": 35,
-      "-3000": 45,
       "-1200": 40
+    }
+  },
+  "Ust-Timpton Stone Age Site-Russia": {
+    "name": "Ust-Timpton Stone Age Site",
+    "other_names": [
+      "Ust-Timpton Stone Age Site"
+    ],
+    "coords": [
+      58.662,
+      127.0953
+    ],
+    "country": "Russia",
+    "key": "Ust-Timpton-Russia",
+    "population": {
+      "-8000": 25
+    }
+  },
+  "Ust-Timpton Stone Age Site 2-Russia": {
+    "name": "Ust-Timpton Stone Age Site 2",
+    "other_names": [
+      "Ust-Timpton Stone Age Site 2"
+    ],
+    "coords": [
+      58.658,
+      127.0913
+    ],
+    "country": "Russia",
+    "key": "Ust-Timpton-Russia",
+    "population": {
+      "-5000": 35
+    }
+  },
+  "Ust-Timpton Bronze Age Site-Russia": {
+    "name": "Ust-Timpton Bronze Age Site",
+    "other_names": [
+      "Ust-Timpton Bronze Age Site"
+    ],
+    "coords": [
+      58.654,
+      127.0873
+    ],
+    "country": "Russia",
+    "key": "Ust-Timpton-Russia",
+    "population": {
+      "-2500": 45
     }
   },
   "Ust-Timpton-Russia": {
@@ -1827,10 +2054,23 @@
     "country": "Russia",
     "key": "Ust-Timpton-Russia",
     "population": {
-      "-8000": 25,
-      "-5000": 35,
-      "-2500": 45,
       "-1000": 45
+    }
+  },
+  "Ust-Mil II Stone Age Site-Russia": {
+    "name": "Ust-Mil II Stone Age Site",
+    "other_names": [
+      "Ust-Mil II Stone Age Site"
+    ],
+    "coords": [
+      59.6373,
+      133.104
+    ],
+    "country": "Russia",
+    "key": "Ust-Mil II-Russia",
+    "population": {
+      "-6000": 30,
+      "-4000": 35
     }
   },
   "Ust-Mil II-Russia": {
@@ -1845,8 +2085,6 @@
     "country": "Russia",
     "key": "Ust-Mil II-Russia",
     "population": {
-      "-6000": 30,
-      "-4000": 35,
       "-1200": 55,
       "-500": 50
     }
@@ -1972,6 +2210,37 @@
       "-1000": 50
     }
   },
+  "Kullaty Bronze Age Site-Russia": {
+    "name": "Kullaty Bronze Age Site",
+    "other_names": [
+      "Kullaty Bronze Age Site"
+    ],
+    "coords": [
+      61.758,
+      129.458
+    ],
+    "country": "Russia",
+    "key": "Kullaty-Russia",
+    "population": {
+      "-4000": 35,
+      "-2500": 50
+    }
+  },
+  "Kullaty Bronze Age Site 2-Russia": {
+    "name": "Kullaty Bronze Age Site 2",
+    "other_names": [
+      "Kullaty Bronze Age Site 2"
+    ],
+    "coords": [
+      61.754,
+      129.454
+    ],
+    "country": "Russia",
+    "key": "Kullaty-Russia",
+    "population": {
+      "-1200": 55
+    }
+  },
   "Kullaty-Russia": {
     "name": "Kullaty",
     "other_names": [
@@ -1984,10 +2253,38 @@
     "country": "Russia",
     "key": "Kullaty-Russia",
     "population": {
-      "-4000": 35,
-      "-2500": 50,
-      "-1200": 55,
       "1400": 120
+    }
+  },
+  "Siktyakh Bronze Age Site-Russia": {
+    "name": "Siktyakh Bronze Age Site",
+    "other_names": [
+      "Siktyakh Bronze Age Site"
+    ],
+    "coords": [
+      69.908,
+      125.108
+    ],
+    "country": "Russia",
+    "key": "Siktyakh-Russia",
+    "population": {
+      "-4000": 30,
+      "-2000": 40
+    }
+  },
+  "Siktyakh Iron Age Site-Russia": {
+    "name": "Siktyakh Iron Age Site",
+    "other_names": [
+      "Siktyakh Iron Age Site"
+    ],
+    "coords": [
+      69.904,
+      125.104
+    ],
+    "country": "Russia",
+    "key": "Siktyakh-Russia",
+    "population": {
+      "-500": 45
     }
   },
   "Siktyakh-Russia": {
@@ -2002,9 +2299,6 @@
     "country": "Russia",
     "key": "Siktyakh-Russia",
     "population": {
-      "-4000": 30,
-      "-2000": 40,
-      "-500": 45,
       "1650": 80,
       "1897": 140
     }
@@ -2193,7 +2487,7 @@
       "Boturus Ulus"
     ],
     "coords": [
-      62.0,
+      62,
       132.4333
     ],
     "country": "Russia",
@@ -2636,9 +2930,9 @@
     "country": "Russia",
     "key": "Poltse I-Russia",
     "population": {
+      "1": 280,
       "-600": 210,
-      "-300": 320,
-      "1": 280
+      "-300": 320
     }
   },
   "Troitskoye-Russia": {
@@ -2765,6 +3059,22 @@
       "-1800": 130
     }
   },
+  "Valentin-Peresheyek Bronze Age Site-Russia": {
+    "name": "Valentin-Peresheyek Bronze Age Site",
+    "other_names": [
+      "Valentin-Peresheyek Bronze Age Site"
+    ],
+    "coords": [
+      43.1207,
+      134.304
+    ],
+    "country": "Russia",
+    "key": "Valentin-Peresheyek-Russia",
+    "population": {
+      "-2500": 70,
+      "-1800": 110
+    }
+  },
   "Valentin-Peresheyek-Russia": {
     "name": "Valentin-Peresheyek",
     "other_names": [
@@ -2777,8 +3087,6 @@
     "country": "Russia",
     "key": "Valentin-Peresheyek-Russia",
     "population": {
-      "-2500": 70,
-      "-1800": 110,
       "-500": 140
     }
   },
@@ -2811,9 +3119,9 @@
     "country": "Russia",
     "key": "Krounovka-1-Russia",
     "population": {
+      "1": 310,
       "-600": 180,
-      "-300": 280,
-      "1": 310
+      "-300": 280
     }
   },
   "Bogolyubovka-1-Russia": {
@@ -2828,9 +3136,9 @@
     "country": "Russia",
     "key": "Bogolyubovka-1-Russia",
     "population": {
+      "100": 230,
       "-400": 170,
-      "-100": 250,
-      "100": 230
+      "-100": 250
     }
   },
   "Peschany-1-Russia": {
@@ -3583,6 +3891,67 @@
       "1900": 38000
     }
   },
+  "Ushki I Stone Age Site-Russia": {
+    "name": "Ushki I Stone Age Site",
+    "other_names": [
+      "Ushki I Stone Age Site"
+    ],
+    "coords": [
+      56.1827,
+      159.966
+    ],
+    "country": "Russia",
+    "key": "Ushki I-Russia",
+    "population": {
+      "-10000": 35,
+      "-8000": 45
+    }
+  },
+  "Ushki I Stone Age Site 2-Russia": {
+    "name": "Ushki I Stone Age Site 2",
+    "other_names": [
+      "Ushki I Stone Age Site 2"
+    ],
+    "coords": [
+      56.1787,
+      159.962
+    ],
+    "country": "Russia",
+    "key": "Ushki I-Russia",
+    "population": {
+      "-5000": 55
+    }
+  },
+  "Ushki I Bronze Age Site-Russia": {
+    "name": "Ushki I Bronze Age Site",
+    "other_names": [
+      "Ushki I Bronze Age Site"
+    ],
+    "coords": [
+      56.1747,
+      159.958
+    ],
+    "country": "Russia",
+    "key": "Ushki I-Russia",
+    "population": {
+      "-2000": 70
+    }
+  },
+  "Ushki I Iron Age Site-Russia": {
+    "name": "Ushki I Iron Age Site",
+    "other_names": [
+      "Ushki I Iron Age Site"
+    ],
+    "coords": [
+      56.1707,
+      159.954
+    ],
+    "country": "Russia",
+    "key": "Ushki I-Russia",
+    "population": {
+      "-500": 90
+    }
+  },
   "Ushki I-Russia": {
     "name": "Ushki I",
     "other_names": [
@@ -3596,11 +3965,6 @@
     "country": "Russia",
     "key": "Ushki I-Russia",
     "population": {
-      "-10000": 35,
-      "-8000": 45,
-      "-5000": 55,
-      "-2000": 70,
-      "-500": 90,
       "1000": 130
     }
   },
@@ -3622,6 +3986,51 @@
       "-2000": 60
     }
   },
+  "Avacha Bronze Age Site-Russia": {
+    "name": "Avacha Bronze Age Site",
+    "other_names": [
+      "Avacha Bronze Age Site"
+    ],
+    "coords": [
+      53.062,
+      158.662
+    ],
+    "country": "Russia",
+    "key": "Avacha-Russia",
+    "population": {
+      "-2000": 55
+    }
+  },
+  "Avacha Iron Age Site-Russia": {
+    "name": "Avacha Iron Age Site",
+    "other_names": [
+      "Avacha Iron Age Site"
+    ],
+    "coords": [
+      53.058,
+      158.658
+    ],
+    "country": "Russia",
+    "key": "Avacha-Russia",
+    "population": {
+      "-500": 80
+    }
+  },
+  "Avacha Gorodishche-Russia": {
+    "name": "Avacha Gorodishche",
+    "other_names": [
+      "Avacha Gorodishche"
+    ],
+    "coords": [
+      53.054,
+      158.654
+    ],
+    "country": "Russia",
+    "key": "Avacha-Russia",
+    "population": {
+      "500": 110
+    }
+  },
   "Avacha-Russia": {
     "name": "Avacha",
     "other_names": [
@@ -3635,10 +4044,52 @@
     "country": "Russia",
     "key": "Avacha-Russia",
     "population": {
-      "-2000": 55,
-      "-500": 80,
-      "500": 110,
       "1500": 220
+    }
+  },
+  "Targay Bronze Age Site-Russia": {
+    "name": "Targay Bronze Age Site",
+    "other_names": [
+      "Targay Bronze Age Site"
+    ],
+    "coords": [
+      52.962,
+      158.412
+    ],
+    "country": "Russia",
+    "key": "Targay-Russia",
+    "population": {
+      "-2500": 60
+    }
+  },
+  "Targay Bronze Age Site 2-Russia": {
+    "name": "Targay Bronze Age Site 2",
+    "other_names": [
+      "Targay Bronze Age Site 2"
+    ],
+    "coords": [
+      52.958,
+      158.408
+    ],
+    "country": "Russia",
+    "key": "Targay-Russia",
+    "population": {
+      "-1000": 95
+    }
+  },
+  "Targay Iron Age Site-Russia": {
+    "name": "Targay Iron Age Site",
+    "other_names": [
+      "Targay Iron Age Site"
+    ],
+    "coords": [
+      52.954,
+      158.404
+    ],
+    "country": "Russia",
+    "key": "Targay-Russia",
+    "population": {
+      "1": 120
     }
   },
   "Targay-Russia": {
@@ -3654,10 +4105,37 @@
     "country": "Russia",
     "key": "Targay-Russia",
     "population": {
-      "-2500": 60,
-      "-1000": 95,
-      "1": 120,
       "1000": 160
+    }
+  },
+  "Zhupanovo Iron Age Site-Russia": {
+    "name": "Zhupanovo Iron Age Site",
+    "other_names": [
+      "Zhupanovo Iron Age Site"
+    ],
+    "coords": [
+      54.0913,
+      159.9913
+    ],
+    "country": "Russia",
+    "key": "Zhupanovo-Russia",
+    "population": {
+      "-500": 75
+    }
+  },
+  "Zhupanovo Gorodishche-Russia": {
+    "name": "Zhupanovo Gorodishche",
+    "other_names": [
+      "Zhupanovo Gorodishche"
+    ],
+    "coords": [
+      54.0873,
+      159.9873
+    ],
+    "country": "Russia",
+    "key": "Zhupanovo-Russia",
+    "population": {
+      "500": 120
     }
   },
   "Zhupanovo-Russia": {
@@ -3673,8 +4151,6 @@
     "country": "Russia",
     "key": "Zhupanovo-Russia",
     "population": {
-      "-500": 75,
-      "500": 120,
       "1500": 180
     }
   },
@@ -3713,6 +4189,22 @@
       "-1500": 80
     }
   },
+  "Starodubskoye-2 Bronze Age Site-Russia": {
+    "name": "Starodubskoye-2 Bronze Age Site",
+    "other_names": [
+      "Starodubskoye-2 Bronze Age Site"
+    ],
+    "coords": [
+      47.4207,
+      142.804
+    ],
+    "country": "Russia",
+    "key": "Starodubskoye-2-Russia",
+    "population": {
+      "-3500": 55,
+      "-2000": 85
+    }
+  },
   "Starodubskoye-2-Russia": {
     "name": "Starodubskoye-2",
     "other_names": [
@@ -3725,9 +4217,22 @@
     "country": "Russia",
     "key": "Starodubskoye-2-Russia",
     "population": {
-      "-3500": 55,
-      "-2000": 85,
       "-500": 120
+    }
+  },
+  "Susuya Iron Age Site-Russia": {
+    "name": "Susuya Iron Age Site",
+    "other_names": [
+      "Susuya Iron Age Site"
+    ],
+    "coords": [
+      46.854,
+      142.7373
+    ],
+    "country": "Russia",
+    "key": "Susuya-Russia",
+    "population": {
+      "-500": 140
     }
   },
   "Susuya-Russia": {
@@ -3743,7 +4248,6 @@
     "country": "Russia",
     "key": "Susuya-Russia",
     "population": {
-      "-500": 140,
       "1": 210,
       "400": 260
     }
@@ -3784,6 +4288,51 @@
       "1200": 200
     }
   },
+  "Yuzhno-Kurilsk Midden Bronze Age Site-Russia": {
+    "name": "Yuzhno-Kurilsk Midden Bronze Age Site",
+    "other_names": [
+      "Yuzhno-Kurilsk Midden Bronze Age Site"
+    ],
+    "coords": [
+      44.0453,
+      145.862
+    ],
+    "country": "Russia",
+    "key": "Yuzhno-Kurilsk Midden-Russia",
+    "population": {
+      "-1500": 55
+    }
+  },
+  "Yuzhno-Kurilsk Midden Iron Age Site-Russia": {
+    "name": "Yuzhno-Kurilsk Midden Iron Age Site",
+    "other_names": [
+      "Yuzhno-Kurilsk Midden Iron Age Site"
+    ],
+    "coords": [
+      44.0413,
+      145.858
+    ],
+    "country": "Russia",
+    "key": "Yuzhno-Kurilsk Midden-Russia",
+    "population": {
+      "1": 85
+    }
+  },
+  "Yuzhno-Kurilsk Midden Gorodishche-Russia": {
+    "name": "Yuzhno-Kurilsk Midden Gorodishche",
+    "other_names": [
+      "Yuzhno-Kurilsk Midden Gorodishche"
+    ],
+    "coords": [
+      44.0373,
+      145.854
+    ],
+    "country": "Russia",
+    "key": "Yuzhno-Kurilsk Midden-Russia",
+    "population": {
+      "800": 140
+    }
+  },
   "Yuzhno-Kurilsk Midden-Russia": {
     "name": "Yuzhno-Kurilsk Midden",
     "other_names": [
@@ -3797,10 +4346,37 @@
     "country": "Russia",
     "key": "Yuzhno-Kurilsk Midden-Russia",
     "population": {
-      "-1500": 55,
-      "1": 85,
-      "800": 140,
       "1500": 160
+    }
+  },
+  "Kurilskoe Ozero Gorodishche-Russia": {
+    "name": "Kurilskoe Ozero Gorodishche",
+    "other_names": [
+      "Kurilskoe Ozero Gorodishche"
+    ],
+    "coords": [
+      51.458,
+      157.108
+    ],
+    "country": "Russia",
+    "key": "Kurilskoe Ozero-Russia",
+    "population": {
+      "500": 95
+    }
+  },
+  "Kurilskoe Ozero Medieval Gorodishche-Russia": {
+    "name": "Kurilskoe Ozero Medieval Gorodishche",
+    "other_names": [
+      "Kurilskoe Ozero Medieval Gorodishche"
+    ],
+    "coords": [
+      51.454,
+      157.104
+    ],
+    "country": "Russia",
+    "key": "Kurilskoe Ozero-Russia",
+    "population": {
+      "1000": 140
     }
   },
   "Kurilskoe Ozero-Russia": {
@@ -3816,8 +4392,6 @@
     "country": "Russia",
     "key": "Kurilskoe Ozero-Russia",
     "population": {
-      "500": 95,
-      "1000": 140,
       "1650": 180
     }
   },
@@ -3913,7 +4487,7 @@
     ],
     "coords": [
       56.25,
-      162.0
+      162
     ],
     "country": "Russia",
     "key": "Nizhnekamchatsk-Russia",
@@ -4116,6 +4690,36 @@
       "-1000": 50
     }
   },
+  "Pegtymel Iron Age Site-Russia": {
+    "name": "Pegtymel Iron Age Site",
+    "other_names": [
+      "Pegtymel Iron Age Site"
+    ],
+    "coords": [
+      69.558,
+      174.908
+    ],
+    "country": "Russia",
+    "key": "Pegtymel-Russia",
+    "population": {
+      "-500": 35
+    }
+  },
+  "Pegtymel Iron Age Site 2-Russia": {
+    "name": "Pegtymel Iron Age Site 2",
+    "other_names": [
+      "Pegtymel Iron Age Site 2"
+    ],
+    "coords": [
+      69.554,
+      174.904
+    ],
+    "country": "Russia",
+    "key": "Pegtymel-Russia",
+    "population": {
+      "1": 45
+    }
+  },
   "Pegtymel-Russia": {
     "name": "Pegtymel",
     "other_names": [
@@ -4129,9 +4733,25 @@
     "country": "Russia",
     "key": "Pegtymel-Russia",
     "population": {
-      "-500": 35,
-      "1": 45,
       "800": 50
+    }
+  },
+  "Uelen Medieval Gorodishche-Russia": {
+    "name": "Uelen Medieval Gorodishche",
+    "other_names": [
+      "Uelen Medieval Gorodishche"
+    ],
+    "coords": [
+      66.164,
+      -169.806
+    ],
+    "country": "Russia",
+    "key": "Uelen-Russia",
+    "population": {
+      "1": 120,
+      "400": 240,
+      "800": 320,
+      "1200": 290
     }
   },
   "Uelen-Russia": {
@@ -4147,14 +4767,28 @@
     "country": "Russia",
     "key": "Uelen-Russia",
     "population": {
-      "1": 120,
-      "400": 240,
-      "800": 320,
-      "1200": 290,
       "1650": 250,
       "1800": 240,
       "1897": 255,
       "1900": 260
+    }
+  },
+  "Ekven Medieval Gorodishche-Russia": {
+    "name": "Ekven Medieval Gorodishche",
+    "other_names": [
+      "Ekven Medieval Gorodishche"
+    ],
+    "coords": [
+      66.024,
+      -170.116
+    ],
+    "country": "Russia",
+    "key": "Ekven-Russia",
+    "population": {
+      "1": 110,
+      "400": 220,
+      "800": 290,
+      "1200": 250
     }
   },
   "Ekven-Russia": {
@@ -4169,10 +4803,6 @@
     "country": "Russia",
     "key": "Ekven-Russia",
     "population": {
-      "1": 110,
-      "400": 220,
-      "800": 290,
-      "1200": 250,
       "1650": 180
     }
   },
@@ -4228,6 +4858,51 @@
       "1400": 170
     }
   },
+  "Sireniki Iron Age Site-Russia": {
+    "name": "Sireniki Iron Age Site",
+    "other_names": [
+      "Sireniki Iron Age Site"
+    ],
+    "coords": [
+      64.412,
+      -173.888
+    ],
+    "country": "Russia",
+    "key": "Sireniki-Russia",
+    "population": {
+      "1": 90
+    }
+  },
+  "Sireniki Gorodishche-Russia": {
+    "name": "Sireniki Gorodishche",
+    "other_names": [
+      "Sireniki Gorodishche"
+    ],
+    "coords": [
+      64.408,
+      -173.892
+    ],
+    "country": "Russia",
+    "key": "Sireniki-Russia",
+    "population": {
+      "500": 160
+    }
+  },
+  "Sireniki Medieval Gorodishche-Russia": {
+    "name": "Sireniki Medieval Gorodishche",
+    "other_names": [
+      "Sireniki Medieval Gorodishche"
+    ],
+    "coords": [
+      64.404,
+      -173.896
+    ],
+    "country": "Russia",
+    "key": "Sireniki-Russia",
+    "population": {
+      "1000": 220
+    }
+  },
   "Sireniki-Russia": {
     "name": "Sireniki",
     "other_names": [
@@ -4241,13 +4916,25 @@
     "country": "Russia",
     "key": "Sireniki-Russia",
     "population": {
-      "1": 90,
-      "500": 160,
-      "1000": 220,
       "1500": 210,
       "1800": 190,
       "1897": 185,
       "1900": 190
+    }
+  },
+  "Naukan Medieval Gorodishche-Russia": {
+    "name": "Naukan Medieval Gorodishche",
+    "other_names": [
+      "Naukan Medieval Gorodishche"
+    ],
+    "coords": [
+      66.0207,
+      -169.7127
+    ],
+    "country": "Russia",
+    "key": "Naukan-Russia",
+    "population": {
+      "1200": 180
     }
   },
   "Naukan-Russia": {
@@ -4263,11 +4950,25 @@
     "country": "Russia",
     "key": "Naukan-Russia",
     "population": {
-      "1200": 180,
       "1650": 240,
       "1800": 280,
       "1897": 295,
       "1900": 300
+    }
+  },
+  "Chaplino Medieval Gorodishche-Russia": {
+    "name": "Chaplino Medieval Gorodishche",
+    "other_names": [
+      "Chaplino Medieval Gorodishche"
+    ],
+    "coords": [
+      64.4207,
+      -172.2293
+    ],
+    "country": "Russia",
+    "key": "Chaplino-Russia",
+    "population": {
+      "1000": 140
     }
   },
   "Chaplino-Russia": {
@@ -4284,7 +4985,6 @@
     "country": "Russia",
     "key": "Chaplino-Russia",
     "population": {
-      "1000": 140,
       "1650": 210,
       "1800": 260,
       "1897": 310,
