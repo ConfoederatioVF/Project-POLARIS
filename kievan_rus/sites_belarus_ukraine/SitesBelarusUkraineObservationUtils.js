@@ -753,8 +753,8 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
           let local_a = local_raions[x].effective_area_km2;
           let local_fw = (local_raions[x].wooded_frac !== undefined) ? local_raions[x].wooded_frac : 1;
 
-          if (!local_raions[x].is_frontier_buffer && local_raions[x].lon < 31.0)
-            local_fw = Math.max(local_fw, 0.85);
+          if (!local_raions[x].is_frontier_buffer && local_raions[x].lat >= 47.4 && local_raions[x].lon < 30.2)
+            local_fw = Math.max(local_fw, 0.80);
 
           local_area += local_a;
           local_all_s += (local_raions[x].total_sites_all_periods || 0);
@@ -812,19 +812,22 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
           raion_list[x]._idx = x;
         }
 
-        //Regularise single-raion individual-mound enumeration spikes (e.g. Sloviansk 80218 in Donetsk) above Q75 + IQR
+        //Regularise single-raion individual-mound enumeration spikes (e.g. Sloviansk 80218 in Donetsk) above Q75 + 1.5*IQR
         if (local_pos_z.length >= 4) {
+          let local_cap_z;
+
           local_pos_z.sort((a, b) => a - b);
           local_q25_z = local_pos_z[Math.floor(0.25*(local_pos_z.length - 1))];
           local_q75_z = local_pos_z[Math.floor(0.75*(local_pos_z.length - 1))];
           local_iqr_z = Math.max(1e-6, local_q75_z - local_q25_z);
+          local_cap_z = local_q75_z + 1.5*local_iqr_z;
 
           for (let x = 0; x < n_raions; x++)
-            if (local_z[x] > local_q75_z) {
-              let local_excess = local_z[x] - local_q75_z;
+            if (local_z[x] > local_cap_z) {
+              let local_excess = local_z[x] - local_cap_z;
               let local_w_iqr = local_iqr_z/(local_iqr_z + local_excess);
 
-              local_z[x] = local_q75_z + local_w_iqr*local_excess;
+              local_z[x] = local_cap_z + local_w_iqr*local_excess;
             }
         }
 
@@ -841,7 +844,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
             if (local_fw >= 0.5) {
               local_forest_area += local_a;
               local_forest_zsum += local_a*local_z[x];
-            } else if (local_fw <= 0.05 && local_r.oblast_id !== 9124 && local_r.oblast_id !== 9118) {
+            } else if (local_fw <= 0.05 && local_r.oblast_id !== 9124 && local_r.oblast_id !== 9125 && local_r.oblast_id !== 9118) {
               local_steppe_area += local_a;
               local_steppe_zsum += local_a*local_z[x];
             }
@@ -852,18 +855,15 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
             let local_zs = local_steppe_zsum/local_steppe_area;
 
             if (local_zf > 1e-6)
-              local_eps_steppe = Math.max(0.42, Math.min(0.55, Math.sqrt(local_zs/local_zf)));
+              local_eps_steppe = Math.max(0.22, Math.min(0.32, Math.sqrt(local_zs/local_zf)));
           }
 
           for (let x = 0; x < n_raions; x++) {
             let local_r = raion_list[x];
-
-            if (local_r.is_frontier_buffer) continue;
-
             let local_fw = (local_r.wooded_frac !== undefined) ? local_r.wooded_frac : 1;
 
-            if (local_r.lon < 31.0)
-              local_fw = Math.max(local_fw, 0.85);
+            if (!local_r.is_frontier_buffer && local_r.lat >= 47.4 && local_r.lon < 30.2)
+              local_fw = Math.max(local_fw, 0.80);
 
             let local_t = Math.max(0, Math.min(1, local_fw/0.75));
             let local_h = local_t*local_t*(3 - 2*local_t);
@@ -888,7 +888,9 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
           local_obl_means[x] = (local_asum > 0) ? local_zsum/local_asum : 0;
         }
 
-        //Compute ecologically weighted Cauchy spatial-neighbourhood prior (excluding extreme kurgan-register outlier oblasts 9118 and 9124 from acting as upward prior donors)
+        //Compute ecologically weighted Cauchy spatial-neighbourhood prior (anchoring open-steppe Wild Fields oblasts to uniform steppe baseline)
+        let local_steppe_target_z = (local_forest_area > 0) ? (local_eps_steppe*(local_forest_zsum/local_forest_area)) : 0.025;
+
         for (let x = 0; x < local_obl_list.length; x++) {
           let local_obl_x = local_obl_list[x];
           let local_r2 = local_obl_x.radius_km*local_obl_x.radius_km;
@@ -900,7 +902,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
 
             let local_obl_y = local_obl_list[y];
 
-            if (local_is_settled && (local_obl_y.id === 9118 || local_obl_y.id === 9124)) continue;
+            if (local_is_settled && (local_obl_y.id === 9118 || local_obl_y.id === 9124 || local_obl_y.id === 9125)) continue;
 
             let local_df = local_obl_x.wooded_frac - local_obl_y.wooded_frac;
             let local_dot = Math.max(-1, Math.min(1, local_obl_x.ux*local_obl_y.ux + local_obl_x.uy*local_obl_y.uy + local_obl_x.uz*local_obl_y.uz));
@@ -913,6 +915,8 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
             local_wz += local_w*local_obl_means[y];
           }
           local_obl_priors[x] = (local_wsum > 0) ? local_wz/local_wsum : local_obl_means[x];
+          if (local_is_settled && local_obl_x.wooded_frac < 0.25)
+            local_obl_priors[x] = 0.25*local_obl_priors[x] + 0.75*(0.75*local_steppe_target_z);
 
           let local_diff = local_obl_means[x] - local_obl_priors[x];
           local_dev_sq.push(local_diff*local_diff);
@@ -928,8 +932,15 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
           let local_obl = local_obl_list[x];
           let local_omega = local_median_dev_sq/(local_median_dev_sq + local_diff*local_diff);
 
-          if (local_is_settled && local_diff > 0 && (local_obl.id === 9118 || local_obl.id === 9124))
-            local_omega *= 0.15;
+          if (local_is_settled && local_obl.wooded_frac < 0.25) {
+            local_omega = 0.20;
+          } else if (local_obl.id === 9111 && local_diff > 0) {
+            local_omega = 0.22;
+          } else if (local_diff > 0) {
+            local_omega = Math.max(0.70, local_omega);
+          } else if (local_diff < 0) {
+            local_omega = Math.min(0.35, local_omega);
+          }
 
           local_eb_mean = local_obl_priors[x] + local_omega*local_diff;
 
@@ -949,7 +960,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
                 (0.55*(local_z_raw/local_mean_z_obl) + 0.45*(local_r_all_z/local_all_z_obl)) :
                 (local_r_all_z/local_all_z_obl);
 
-              local_z_new = 0.45*local_z_raw + 0.55*local_eb_mean*Math.max(0.35, local_rel_shape);
+              local_z_new = 0.35*local_z_raw + 0.65*local_eb_mean*Math.max(0.55, local_rel_shape);
             }
 
             local_r.eb_densities[local_pkey] = local_z_new*local_z_new;

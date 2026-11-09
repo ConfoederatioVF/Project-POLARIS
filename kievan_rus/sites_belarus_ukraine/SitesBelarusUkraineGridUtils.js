@@ -134,7 +134,6 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       let cache_key = `${year}_${apply_steppe ? "settled" : "raw"}`;
       let cell_area = mask_data.cell_land_area;
       let cell_raion = raion_data.cell_nearest_raion;
-      let cross_smooth_d;
       let decliffed_d;
       let f_hab_smooth;
       let hab_ind = new Float32Array(mask_data.valid_cell_count);
@@ -142,9 +141,6 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       let n_valid = mask_data.valid_cell_count;
       let part_cnt = new Int32Array(bio_covs.partition_count);
       let part_id = bio_covs.part_id;
-      let part_norm_cnt = new Int32Array(bio_covs.partition_count);
-      let part_norm_d = new Float32Array(mask_data.valid_cell_count);
-      let part_norm_sum = new Float64Array(bio_covs.partition_count);
       let part_sum = new Float64Array(bio_covs.partition_count);
       let raion_has_hab = new Uint8Array(raion_data.raion_count);
       let raw_sqrt_d = new Float32Array(mask_data.valid_cell_count);
@@ -168,6 +164,9 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         if (local_d <= 0 && raion_has_hab[local_r] === 0 && bio_covs.raion_has_any_sites[local_r] === 1)
           local_d = bio_covs.hyde_rur_1400[i]/local_area;
 
+        if (local_d < 0.002 && bio_covs.raion_has_any_sites[local_r] === 0)
+          local_d = 0;
+
         if (local_d > 0) {
           let local_pid = part_id[i];
           let local_s = Math.sqrt(local_d);
@@ -179,36 +178,22 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         }
       }
 
-      //Stage 1: Exact partition-mean scaling removal for each (sub_iso_cr.asc x forest_wwf_cr.asc) unit
-      for (let i = 0; i < n_valid; i++)
-        if (raw_sqrt_d[i] > 0) {
-          let local_pid = part_id[i];
-          let local_pmean = (part_cnt[local_pid] > 0) ? part_sum[local_pid]/part_cnt[local_pid] : 1;
-          let local_v = raw_sqrt_d[i]/Math.max(1e-6, local_pmean);
-
-          part_norm_d[i] = local_v;
-          part_norm_cnt[local_pid]++;
-          part_norm_sum[local_pid] += local_v;
-        }
-
-      //Stage 2: Within-partition local positive normalisation, cross-border feathering and C2 Wild Fields ecological envelope weighting
+      //Stage 1: Within-partition local positive normalisation and C2 Wild Fields ecological envelope weighting (strictly zero on uninhabited cells)
       f_hab_smooth = this.smoothValidFieldOnGrid(mask_data, hab_ind, 2*bio_covs.catchment_px);
       decliffed_d = this.smoothWithinPartitionPositive(
         mask_data,
-        part_norm_d,
+        raw_sqrt_d,
         part_id,
-        part_norm_sum,
-        part_norm_cnt,
-        2*bio_covs.meso_px
+        part_sum,
+        part_cnt,
+        bio_covs.meso_px
       );
-      cross_smooth_d = this.smoothPositiveFieldOnGrid(mask_data, decliffed_d, bio_covs.catchment_px);
 
       for (let i = 0; i < n_valid; i++)
         if (decliffed_d[i] > 0) {
-          let local_blended_d = 0.65*decliffed_d[i] + 0.35*cross_smooth_d[i];
           let local_env = (apply_steppe && steppe_env) ? steppe_env[i] : 1;
 
-          u_hab[i] = Math.sqrt(Math.max(0, f_hab_smooth[i]))*local_blended_d*local_env;
+          u_hab[i] = Math.sqrt(Math.max(0, f_hab_smooth[i]))*decliffed_d[i]*local_env;
         }
 
       if (hab_cache)
@@ -220,7 +205,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
 
 
     /**
-     * Fits the constrained non-negative Weighted Least Squares (WLS) covariate regression trend m_hat(x) predicting observed raion site amplitudes z_obs from [u_hab, u_hab*u_nat, u_hab*u_eco] and computes the Empirical Bayes variance-partitioned Residual Kriging coupling between the covariate drift m_hat(x) and the kriged archaeological potential.
+     * Fits the constrained non-negative Weighted Least Squares (WLS) covariate regression trend m_hat(x) predicting observed raion site amplitudes z_obs from [u_hab, u_hab*u_nat, u_hab*u_eco] (weighted by inhabited raion area and site count support S_k) and computes crisp 5-arcminute Log-Linear Residual Kriging weights strictly supported on inhabited cells.
      * @alias SitesBelarusUkraineGridUtils.computeResidualKrigingWeights
      *
      * @param {Object} arg0_mask_data
@@ -229,7 +214,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
      * @param {Float32Array} arg3_u_hab
      * @param {Float64Array} arg4_z_obs
      * @param {number} arg5_meso_px
-     * @param {Float32Array} [arg6_arch_potential]
+     * @param {Float64Array} [arg6_s_obs]
      *
      * @returns {Object}
      */
@@ -240,7 +225,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       arg3_u_hab,
       arg4_z_obs,
       arg5_meso_px,
-      arg6_arch_potential
+      arg6_s_obs
     ) {
       //Convert from parameters
       let mask_data = arg0_mask_data;
@@ -249,18 +234,16 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       let u_hab = arg3_u_hab;
       let z_obs = arg4_z_obs;
       let meso_px = arg5_meso_px;
-      let arch_pot = arg6_arch_potential;
+      let s_obs = arg6_s_obs;
 
       //Declare local instance variables
       let beta = new Float64Array(3);
       let cell_area = mask_data.cell_land_area;
       let cell_raion = raion_data.cell_nearest_raion;
-      let combined_field = (arch_pot) ? new Float32Array(mask_data.valid_cell_count) : null;
       let drift_var = 0;
       let kappa_drift = 0.5;
       let m_cell = new Float32Array(mask_data.valid_cell_count);
       let m_macro;
-      let m_sum = 0;
       let n_covs = 3;
       let n_raions = raion_data.raion_count;
       let n_valid = mask_data.valid_cell_count;
@@ -276,7 +259,6 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       let w_m_mean = 0;
       let xtx = new Float64Array(9);
       let xty = new Float64Array(3);
-      let z_arch_sum = 0;
 
       //Aggregate inhabited covariate means per domestic raion catchment
       for (let i = 0; i < n_valid; i++) {
@@ -303,9 +285,10 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         }
       }
 
-      //Assemble normal equations X^T W X * beta = X^T W z_obs weighted by inhabited raion area
+      //Assemble normal equations X^T W X * beta = X^T W z_obs weighted by inhabited raion area and site count support S_k
       for (let i = 0; i < n_raions; i++) {
-        let local_w = r_hab_area[i];
+        let local_sk = (s_obs && s_obs[i] > 0) ? s_obs[i] : 0;
+        let local_w = r_hab_area[i]*(1 + Math.sqrt(local_sk));
 
         if (local_w <= 0) continue;
 
@@ -334,7 +317,8 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
 
       //Compute empirical drift vs residual standard deviations across raions to derive parameter-free precision weight kappa
       for (let i = 0; i < n_raions; i++) {
-        let local_w = r_hab_area[i];
+        let local_sk = (s_obs && s_obs[i] > 0) ? s_obs[i] : 0;
+        let local_w = r_hab_area[i]*(1 + Math.sqrt(local_sk));
 
         if (local_w <= 0) continue;
 
@@ -346,7 +330,8 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       w_m_mean = (total_hab_w > 0) ? w_m_mean/total_hab_w : 0;
 
       for (let i = 0; i < n_raions; i++) {
-        let local_w = r_hab_area[i];
+        let local_sk = (s_obs && s_obs[i] > 0) ? s_obs[i] : 0;
+        let local_w = r_hab_area[i]*(1 + Math.sqrt(local_sk));
 
         if (local_w <= 0) continue;
 
@@ -378,33 +363,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
           let local_ratio = m_cell[i]/m_macro[i];
 
           weights[i] = local_ratio*local_ratio;
-        } else if (m_macro[i] > 0) {
-          weights[i] = 1.0;
         }
-
-      //If raw kriged potential is provided, evaluate full additive-on-amplitude Residual Kriging prediction
-      if (arch_pot) {
-        for (let i = 0; i < n_valid; i++)
-          if (u_hab[i] > 0) {
-            let local_a = Math.max(1, cell_area[i]);
-            let local_z_ok = Math.sqrt(Math.max(0, arch_pot[i])/local_a);
-
-            m_sum += local_a*m_cell[i];
-            z_arch_sum += local_a*local_z_ok;
-          }
-
-        let local_align_scale = (z_arch_sum > 1e-12) ? m_sum/z_arch_sum : 1;
-
-        for (let i = 0; i < n_valid; i++)
-          if (m_cell[i] > 0 && m_macro[i] > 0) {
-            let local_a = Math.max(1, cell_area[i]);
-            let local_fine_ratio = m_cell[i]/m_macro[i];
-            let local_z_ok = Math.sqrt(Math.max(0, arch_pot[i])/local_a)*local_align_scale;
-            let local_z_rk = local_fine_ratio*(kappa_drift*m_macro[i] + (1 - kappa_drift)*local_z_ok);
-
-            combined_field[i] = local_a*local_z_rk*local_z_rk;
-          }
-      }
 
       //Return statement
       return {
@@ -413,7 +372,6 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
           Number(beta[1].toFixed(6)),
           Number(beta[2].toFixed(6))
         ],
-        combined_field: combined_field,
         kappa_drift: Number(kappa_drift.toFixed(4)),
         weights: weights
       };
@@ -523,7 +481,7 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
           if (local_fw >= 0.5) {
             forest_area += local_a;
             forest_zsum += local_a*local_z;
-          } else if (local_fw <= 0.05 && local_r.oblast_id !== 9124 && local_r.oblast_id !== 9118) {
+          } else if (local_fw <= 0.05 && local_r.oblast_id !== 9124 && local_r.oblast_id !== 9125 && local_r.oblast_id !== 9118) {
             steppe_area += local_a;
             steppe_zsum += local_a*local_z;
           }
@@ -535,26 +493,26 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
         let local_zs = steppe_zsum/steppe_area;
 
         if (local_zf > 1e-6)
-          eps_steppe = Math.max(0.45, Math.min(0.55, Math.sqrt(local_zs/local_zf)));
+          eps_steppe = Math.max(0.22, Math.min(0.32, Math.sqrt(local_zs/local_zf)));
       }
 
-      //Define composite partition ID (sub_iso_cr.asc x forest_wwf_cr.asc) so HYDE 3.5's internal forest-vs-steppe step edge is de-cliffed alongside oblast borders
+      //Define partition ID from sub_iso_cr.asc so HYDE 3.5 administrative boundaries are de-cliffed without inverting riparian gallery forests
       for (let i = 0; i < n_valid; i++) {
         let local_f = (forest_grid[valid_indices[i]] > 0) ? 1 : 0;
         let local_gidx = valid_indices[i];
+        let local_lat = 90 - (Math.floor(local_gidx/mask_data.grid_width) + 0.5)*(180/mask_data.grid_height);
         let local_lon = -180 + ((local_gidx % mask_data.grid_width) + 0.5)*(360/mask_data.grid_width);
         let local_p = Math.round(sub_iso_grid[local_gidx]);
-        let local_pkey = `${local_p}_${local_f}`;
-        let local_pid = part_map.get(local_pkey);
+        let local_pid = part_map.get(local_p);
 
         if (!local_pid) {
           local_pid = next_pid++;
-          part_map.set(local_pkey, local_pid);
+          part_map.set(local_p, local_pid);
         }
         part_id[i] = local_pid;
 
-        //Treat the Dniester-Moldova-Budjak Lower Danube corridor (lon < 31.0E) as settled agricultural/maritime territory rather than eastern Wild Fields steppe
-        f_raw[i] = (local_f > 0 || local_lon < 31.0) ? 1 : 0;
+        //Treat the Carpathian-Podolian-Moldovan corridor (lon < 29.8E or lat >= 47.4N & lon < 30.5E) as settled agricultural territory
+        f_raw[i] = (local_f > 0 || local_lon < 29.8 || (local_lat >= 47.4 && local_lon < 30.5)) ? 1 : 0;
         mean_maxln += Math.sqrt(Math.max(0, maxln_grid[local_gidx]));
       }
       mean_maxln = Math.max(1e-4, mean_maxln/n_valid);

@@ -288,6 +288,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
         for (let x = 0; x < n_raions; x++) {
           let local_act_w = 0;
           let local_row = x*n_raions;
+          let local_sum_sw = 0;
           let local_sum_w = 0;
           let local_sum_wz = 0;
 
@@ -295,15 +296,17 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
             if (x === y) continue;
             let local_kw = kernel_m1_matrix[local_row + y];
             let local_r2 = local_kw*local_kw;
+            let local_sw = local_r2*(1 + Math.sqrt(Math.max(0, local_obs.s_obs[y])));
 
             local_sum_w += local_r2;
-            local_sum_wz += local_r2*local_z[y];
+            local_sum_sw += local_sw;
+            local_sum_wz += local_sw*local_z[y];
             if (local_z[y] > 0)
               local_act_w += local_r2;
           }
 
           let local_act_frac = (local_sum_w > 1e-6) ? local_act_w/local_sum_w : 0;
-          let local_nbr_z = (local_sum_w > 1e-6) ? local_sum_wz/local_sum_w : 0;
+          let local_nbr_z = (local_sum_sw > 1e-6) ? local_sum_wz/local_sum_sw : 0;
 
           local_z_adj[x] = Math.max(local_z[x], local_act_frac*local_nbr_z);
         }
@@ -528,7 +531,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           local_u_hab,
           local_model.z_adj,
           meso_smooth_px,
-          local_pot
+          local_model.s_obs
         );
 
         period_wls_betas[local_pkey] = {
@@ -763,8 +766,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           bio_covs,
           local_u_hab,
           local_z_year,
-          meso_smooth_px,
-          local_arch_pot
+          meso_smooth_px
         );
 
         for (let x = 0; x < n_valid; x++) {

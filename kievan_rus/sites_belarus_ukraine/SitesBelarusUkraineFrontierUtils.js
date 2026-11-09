@@ -58,7 +58,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let joint_density;
       let kr_density = new Float32Array(mask_data.valid_cell_count);
       let land_area_grid = mask_data.land_area_grid;
-      let macro_px = Math.max(8, (config.kriging_config.frontier_blend_macro_factor || 5)*bio_covs.catchment_px);
+      let macro_px = Math.max(16, (config.kriging_config.frontier_blend_macro_factor || 6)*bio_covs.catchment_px);
       let mask_grid = mask_data.mask_grid;
       let mda_grid = null;
       let mda_mask = (bio_covs && bio_covs.mda_mask) ? bio_covs.mda_mask : null;
@@ -138,24 +138,8 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       rus_density_grid = new Float32Array(total_pixels);
       rus_mask = new Uint8Array(total_pixels);
 
-      for (let i = 0; i < n_valid; i++) {
-        let local_d = valid_field[i]/Math.max(1, cell_area[i]);
-        let local_gidx = valid_indices[i];
-
-        if (mda_grid) {
-          let local_lat = 90 - (Math.floor(local_gidx/grid_w) + 0.5)*(180/grid_h);
-          let local_lon = -180 + ((local_gidx % grid_w) + 0.5)*(360/grid_w);
-
-          //Couple the Budjak panhandle past the Dniester and Moldova (lat < 46.65N, lon < 30.65E) with local urban-masked HYDE 3.5 density before frontier feathering
-          if (local_lat < 46.65 && local_lon < 30.65) {
-            let local_hd = (mda_grid[local_gidx]*mda_scale)/Math.max(1, cell_area[i]);
-
-            if (local_hd > 0)
-              local_d = 0.30*local_d + 0.70*local_hd;
-          }
-        }
-        kr_density[i] = local_d;
-      }
+      for (let i = 0; i < n_valid; i++)
+        kr_density[i] = valid_field[i]/Math.max(1, cell_area[i]);
       orig_kr_density = new Float32Array(kr_density);
 
       //Identify active Russian/Crimean frontier land pixels (1) and Moldovan HYDE 3.5 land pixels (2)
@@ -253,12 +237,13 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
           if (local_rus_area > 0 && local_kr_area > 0) {
             let local_alpha = 0.5*(1 + Math.cos(Math.PI*(local_d - 1)/Math.max(1, local_eff_macro)));
             let local_kr_mean = local_kr_pop/local_kr_area;
-            let local_max_ratio = (local_is_budjak) ? 6.00 : ((local_is_mda && local_lat < 48.6 && local_lon > 27.0) ? 2.40 : 4.80);
+            let local_max_ratio = (local_is_budjak) ? 3.50 : 1.65;
+            let local_min_ratio = (local_is_budjak) ? 0.40 : 0.55;
             let local_ratio = (local_rus_pop/local_rus_area)/Math.max(1e-6, local_kr_mean);
-            let local_clamped_ratio = Math.max(0.25, Math.min(local_max_ratio, local_ratio));
+            let local_clamped_ratio = Math.max(local_min_ratio, Math.min(local_max_ratio, local_ratio));
 
             if (local_is_budjak)
-              local_alpha = Math.max(0.65, local_alpha);
+              local_alpha = Math.max(0.75, local_alpha);
 
             local_dens = local_dens*Math.pow(local_clamped_ratio, local_alpha);
           }
@@ -272,7 +257,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
         if (rus_mask[i] >= 1)
           joint_density[i] = rus_density_grid[i];
 
-      //Stage 2: Cross-frontier 2D dasymetric kernel blur + immediate boundary continuity across the joint Belarus/Ukraine + Russia/Crimea + Moldova grid
+      //Stage 2: Multiplicative meso-scale ratio matching + immediate boundary feather across the joint Belarus/Ukraine + Russia/Crimea + Moldova/Poland/Baltics grid
       for (let i = 0; i < n_valid; i++) {
         let local_d = dist_to_rus[valid_indices[i]];
         let local_dens = kr_density[i];
@@ -282,7 +267,9 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
           let local_beta = 0.5*(1 + Math.cos(Math.PI*(local_d - 1)/Math.max(1, blur_px)));
           let local_cx = local_gidx % grid_w;
           let local_cy = Math.floor(local_gidx/grid_w);
-          let local_k_rad = 6;
+          let local_int_w = 0;
+          let local_int_wd = 0;
+          let local_k_rad = 5;
           let local_rus_w_sum = 0;
           let local_rus_wd_sum = 0;
           let local_w_sum = 0;
@@ -305,7 +292,10 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
                     local_w_sum += local_w;
                     local_wd_sum += local_w*local_nd;
 
-                    if (rus_mask[local_nidx] >= 1) {
+                    if (mask_grid[local_nidx] === 1) {
+                      local_int_w += local_w;
+                      local_int_wd += local_w*local_nd;
+                    } else if (rus_mask[local_nidx] >= 1) {
                       local_rus_w_sum += local_w;
                       local_rus_wd_sum += local_w*local_nd;
                     }
@@ -314,13 +304,18 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
               }
           }
 
-          if (local_w_sum > 0) {
+          if (local_w_sum > 0 && local_int_w > 0) {
             let local_blur_d = local_wd_sum/local_w_sum;
-            let local_rus_near = (local_rus_w_sum > 0) ? (local_rus_wd_sum/local_rus_w_sum) : local_blur_d;
-            let local_target_d = 0.55*local_rus_near + 0.45*local_blur_d;
-            let local_mix = 0.92*local_beta;
+            let local_int_m = local_int_wd/local_int_w;
+            let local_ratio = Math.max(0.4, Math.min(2.5, local_blur_d/Math.max(1e-6, local_int_m)));
 
-            local_dens = (1 - local_mix)*local_dens + local_mix*local_target_d;
+            local_dens = local_dens*Math.pow(local_ratio, 0.85*local_beta);
+            if (local_d <= 2 && local_rus_w_sum > 0) {
+              let local_rus_near = local_rus_wd_sum/local_rus_w_sum;
+              let local_edge_mix = (local_d === 1) ? 0.45 : 0.20;
+
+              local_dens = (1 - local_edge_mix)*local_dens + local_edge_mix*(0.60*local_rus_near + 0.40*local_blur_d);
+            }
           }
         }
 
@@ -514,7 +509,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
 
               if (local_w_sum > 0) {
                 out_grid[local_idx] = local_val_sum/local_w_sum;
-              } else if (fallback_grid && fallback_grid[local_idx] > 0) {
+              } else if (fallback_grid && fallback_grid[local_idx] > 0 && popc_grid[local_idx] > 0) {
                 out_grid[local_idx] = fallback_grid[local_idx];
               }
             }
@@ -771,12 +766,43 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
             year_urban_mask[i] = 1;
       }
 
-      //2. Union modern artificial reservoir / exclusion-zone zero-holes (Kremenchuk/Kakhovka/Kaniv/Kyiv reservoirs & 1986 Chernobyl exclusion zone) and isolated single-pixel modern/urban outlier spikes (> 8x positive 3x3 Moore rural neighbourhood mean)
+      //2. Union modern artificial reservoir / 1986 Chernobyl exclusion-zone zero-holes surrounded by settled land and isolated single-pixel modern/urban outlier spikes (> 8x positive 3x3 Moore rural neighbourhood mean)
       for (let i = 0; i < n_valid; i++) {
         let local_gidx = valid_indices[i];
 
         if (land_area_grid[local_gidx] > 0 && popc_grid[local_gidx] <= 0) {
-          year_urban_mask[local_gidx] = 1;
+          let local_cx = local_gidx % grid_w;
+          let local_cy = Math.floor(local_gidx/grid_w);
+          let local_land_cnt = 0;
+          let local_lat = 90 - (local_cy + 0.5)/12;
+          let local_lon = -180 + (local_cx + 0.5)/12;
+          let local_pos_cnt = 0;
+
+          if (local_lat >= 51.10 && local_lat <= 51.85 && local_lon >= 29.35 && local_lon <= 30.55) {
+            year_urban_mask[local_gidx] = 1;
+            continue;
+          }
+
+          for (let x = -4; x <= 4; x++) {
+            let local_ny = local_cy + x;
+
+            if (local_ny >= 0 && local_ny < grid_h)
+              for (let y = -4; y <= 4; y++) {
+                if (x === 0 && y === 0) continue;
+
+                let local_nx = (local_cx + y + grid_w) % grid_w;
+                let local_nidx = local_ny*grid_w + local_nx;
+
+                if (land_area_grid[local_nidx] > 0) {
+                  local_land_cnt++;
+                  if (popc_grid[local_nidx] > 0)
+                    local_pos_cnt++;
+                }
+              }
+          }
+
+          if (local_land_cnt > 0 && (local_pos_cnt/local_land_cnt) >= 0.30)
+            year_urban_mask[local_gidx] = 1;
           continue;
         }
         if (year_urban_mask[local_gidx] === 1 || popc_grid[local_gidx] <= 0) continue;
