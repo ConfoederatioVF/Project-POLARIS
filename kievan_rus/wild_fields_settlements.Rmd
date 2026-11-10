@@ -1,0 +1,527 @@
+---
+title: "SETTLEMENT GAZETTEER OF THE WILD FIELDS AND BUDJAK (10000BC - 1400AD)."
+subtitle: "Archaeological Sites, Budjak Maritime Ports, Classical Poleis, Saltovo-Mayaki Strongholds, Kievan Rus Emporia and Golden Horde Cities."
+date: "10 November 2026"
+authors_line: "Aust Kätzchen"
+emails:
+  - austkaeztchen@confoederatio.org
+hero_figure: "figures/wild_fields_regional_map.png"
+hero_caption: "Cartographic basemap of the Wild Fields showing the five natural hydrological sub-regions (including Budjak), steppe river network and principal settlements (10000BC - 1400AD)."
+hero_label: "fig:gazetteer-map"
+bibliography: wild_fields_literature_review.bib
+csl: crd-mla-numeric.csl
+link-citations: true
+output:
+  pdf_document:
+    template: template.tex
+    latex_engine: xelatex
+    keep_tex: false
+  md_document:
+    variant: gfm
+---
+
+```{r setup, include=FALSE}
+Sys.setenv(VELKSCALA_ROOT = "E:/Active Projects/Project 1746 - Intellte/papers/velkscala")
+source("E:/Active Projects/Project 1746 - Intellte/core/framework/R/framework_init.R")
+
+sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
+  text <- as.character(arg0_text)
+  if (length(text) == 0 || is.na(text) || !nzchar(text)) return("")
+  text <- gsub("`", "", text, fixed = TRUE)
+  parts <- strsplit(text, "(?<=\\$)|(?=\\$)", perl = TRUE)[[1]]
+  in_math <- FALSE
+  out_parts <- character(length(parts))
+  for (i in seq_along(parts)) {
+    p <- parts[i]
+    if (identical(p, "$")) {
+      in_math <- !in_math
+      out_parts[i] <- "$"
+    } else if (in_math) {
+      p <- gsub("\u2192", " \\rightarrow ", p, fixed = TRUE)
+      p <- gsub("\u00d7", " \\times ", p, fixed = TRUE)
+      p <- gsub("\u0394", "\\Delta ", p, fixed = TRUE)
+      p <- gsub("\u00b2", "^2", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", "-", p, fixed = TRUE)
+      p <- gsub("---", "-", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
+      out_parts[i] <- p
+    } else {
+      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u00d7", "x", p, fixed = TRUE)
+      p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
+      p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("m\u00b2", "m\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("R\u00b2", "R\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u00b2", "\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", " - ", p, fixed = TRUE)
+      p <- gsub("---", " - ", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      p <- gsub("(?<!\\\\)&", "\\\\&", p, perl = TRUE)
+      p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
+      p <- gsub("(?<!\\\\)_", "\\\\_", p, perl = TRUE)
+      if (isTRUE(arg1_in_table)) {
+        p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
+        p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
+        # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
+        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
+        # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
+        p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
+      }
+      out_parts[i] <- p
+    }
+  }
+  return(paste(out_parts, collapse = ""))
+}
+
+sanitize_prose_unicode_for_latex <- function (arg0_line) {
+  line_str <- as.character(arg0_line)
+  if (length(line_str) == 0 || is.na(line_str) || !nzchar(line_str)) return(line_str)
+  parts <- strsplit(line_str, "(?<=\\$)|(?=\\$)", perl = TRUE)[[1]]
+  in_math <- FALSE
+  for (i in seq_along(parts)) {
+    p <- parts[i]
+    if (identical(p, "$")) {
+      in_math <- !in_math
+    } else if (in_math) {
+      p <- gsub("\u2192", " \\rightarrow ", p, fixed = TRUE)
+      p <- gsub("\u00d7", " \\times ", p, fixed = TRUE)
+      p <- gsub("\u0394", "\\Delta ", p, fixed = TRUE)
+      p <- gsub("\u2248", " \\approx ", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", "-", p, fixed = TRUE)
+      parts[i] <- p
+    } else {
+      p <- gsub(
+        "\\b(Figures?|Figs?\\.|Tables?|Tabs?\\.|Images?|Definitions?|Sections?|Appendix)(?:\\s+|~)\\\\ref\\{([^}]+)\\}",
+        "\\\\crdxref{\\1}{\\2}",
+        p,
+        perl = TRUE
+      )
+      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u00d7", "x", p, fixed = TRUE)
+      p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
+      p <- gsub("\u2248", "~", p, fixed = TRUE)
+      p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("m\u00b2", "m\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("R\u00b2", "R\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u00b2", "\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", " - ", p, fixed = TRUE)
+      p <- gsub("---", " - ", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      parts[i] <- p
+    }
+  }
+  return(paste(parts, collapse = ""))
+}
+
+render_table_template <- function (arg0_df, arg1_options = NULL) {
+  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  options <- if (!is.null(arg1_options)) arg1_options else list()
+
+  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
+  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
+  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
+  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
+  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
+
+  n_cols <- ncol(df)
+  n_rows <- nrow(df)
+  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
+
+  if (length(col_names) != n_cols) {
+    col_names <- colnames(df)
+  }
+  col_names <- gsub("`", "", col_names, fixed = TRUE)
+  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
+  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
+  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
+  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
+  for (c_i in seq_len(n_cols)) {
+    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
+    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
+  }
+
+  if (!is_latex) {
+    disp_df <- df
+    colnames(disp_df) <- col_names
+    for (c_idx in seq_len(n_cols)) {
+      disp_df[[c_idx]] <- vapply(
+        disp_df[[c_idx]],
+        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
+        character(1)
+      )
+    }
+    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
+  }
+
+  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
+  usable_frac <- max(0.75, 0.935 - 0.015 * (n_cols - 1L))
+
+  min_frac <- numeric(n_cols)
+  col_weights <- numeric(n_cols)
+  for (c_idx in seq_len(n_cols)) {
+    hdr_str <- col_names[c_idx]
+    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
+    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
+
+    cell_vec <- as.character(df[[c_idx]])
+    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
+    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
+    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
+    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
+
+    # Word-fit floor in fraction of 468pt textwidth
+    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
+    min_frac[c_idx] <- req_pts / 468.0
+
+    cell_lens <- nchar(cell_vec)
+    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
+    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
+    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
+    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
+  }
+
+  if (sum(min_frac) > usable_frac * 0.94) {
+    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
+  }
+  rem_frac <- max(0.0, usable_frac - sum(min_frac))
+  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
+
+  # IMPORTANT: Do NOT put \hspace{0pt} in col_specs, so header cells never break before the first word (keeping valign=top)
+  col_specs <- vapply(
+    col_fracs,
+    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
+    character(1)
+  )
+  align_str <- paste(col_specs, collapse = "")
+
+  header_cells <- vapply(
+    seq_len(n_cols),
+    function (c_idx) {
+      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
+      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
+    },
+    character(1)
+  )
+  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
+
+  cap_tex <- sanitize_latex_text(caption_str, FALSE)
+  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
+  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
+  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
+
+  block_lines <- c(
+    paste0(strrep("\x60", 3), "{=latex}"),
+    "\\par\\vspace{4pt}",
+    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
+    "\\setlength{\\tabcolsep}{3pt}",
+    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
+    "\\setlength{\\LTpre}{4pt}",
+    "\\setlength{\\LTpost}{4pt}",
+    "\\setlength{\\LTcapwidth}{\\textwidth}",
+    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
+    header_line,
+    "\\endfirsthead",
+    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
+    header_line,
+    "\\endhead"
+  )
+
+  for (r_idx in seq_len(n_rows)) {
+    row_cells <- vapply(
+      seq_len(n_cols),
+      function (c_idx) {
+        raw_v <- df[r_idx, c_idx]
+        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
+        val_str <- trimws(gsub("\\*\\*", "", val_str))
+        if (euro_decimals) {
+          val_str <- convert_euro_decimals_in_text(val_str)
+        }
+        clean_v <- sanitize_latex_text(val_str, TRUE)
+        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
+      },
+      character(1)
+    )
+    row_end <- paste0("\\\\[", row_pt, "]")
+    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
+      row_end <- "\\\\*[5pt]"
+    }
+    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
+  }
+
+  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
+    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
+  }
+  block_lines <- c(
+    block_lines,
+    "\\end{longtable}\\endgroup",
+    "\\vspace{4pt}\\par",
+    strrep("\x60", 3)
+  )
+
+  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
+}
+
+orig_render_figure_template <- render_figure_template
+render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
+  options <- if (!is.null(arg1_options)) arg1_options else list()
+  options$placement <- "!htbp"
+  options$max_height <- "0.34\\textheight"
+  return(orig_render_figure_template(arg0_file_path, options))
+}
+```
+
+```{r load-stadester-json, include=FALSE}
+GAZETTEER_JSON_FILE <- "wild_fields_settlements.json"
+gaz_map <- jsonlite::fromJSON(GAZETTEER_JSON_FILE, simplifyVector = FALSE)
+settlements_list <- unname(gaz_map)
+
+first_year_num <- function (arg0_s) {
+  yrs <- as.numeric(names(arg0_s$population))
+  if (length(yrs) == 0) return(99999)
+  return(min(yrs))
+}
+last_year_num <- function (arg0_s) {
+  yrs <- as.numeric(names(arg0_s$population))
+  if (length(yrs) == 0) return(-99999)
+  return(max(yrs))
+}
+
+ord_idx <- order(
+  vapply(settlements_list, first_year_num, numeric(1)),
+  vapply(settlements_list, function (s) as.character(s$name), character(1))
+)
+settlements_list <- settlements_list[ord_idx]
+
+fmt_other_names <- function (arg0_s) {
+  onames <- unlist(arg0_s$other_names)
+  if (length(onames) == 0) return("-")
+  clean_vec <- unique(as.character(onames))
+  clean_vec <- clean_vec[nzchar(clean_vec) & tolower(clean_vec) != tolower(arg0_s$name)]
+  if (length(clean_vec) == 0) clean_vec <- unique(as.character(onames))
+  return(paste(head(clean_vec, 2L), collapse = "; "))
+}
+
+fmt_year_lbl <- function (arg0_y) {
+  y <- as.numeric(arg0_y)
+  if (y < 0) return(paste0(abs(round(y)), "BC"))
+  return(paste0(round(y), "AD"))
+}
+
+fmt_span <- function (arg0_s) {
+  y1 <- first_year_num(arg0_s)
+  y2 <- last_year_num(arg0_s)
+  if (y1 == y2) return(fmt_year_lbl(y1))
+  if (y1 < 0 && y2 < 0) return(paste0(abs(y1), "-", abs(y2), "BC"))
+  if (y1 > 0 && y2 > 0) return(paste0(y1, "-", y2, "AD"))
+  return(paste0(fmt_year_lbl(y1), " - ", fmt_year_lbl(y2)))
+}
+
+fmt_num_eu <- function (arg0_val) {
+  if (is.null(arg0_val) || is.na(arg0_val)) return("-")
+  v <- as.numeric(arg0_val)
+  if (v >= 1000) {
+    s <- sprintf("%.1fk", v / 1000.0)
+    s <- gsub("\\.", ",", s)
+    return(s)
+  }
+  return(as.character(round(v)))
+}
+
+fmt_coord_pair <- function (arg0_coords) {
+  lat <- as.numeric(arg0_coords[[1]])
+  lon <- as.numeric(arg0_coords[[2]])
+  lat_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lat))), if (lat >= 0) "N" else "S")
+  lon_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lon))), if (lon >= 0) "E" else "W")
+  return(paste0(lat_s, ", ", lon_s))
+}
+
+fmt_pop_series <- function (arg0_s, arg1_ymin = -99999, arg2_ymax = 99999) {
+  pop_map <- arg0_s$population
+  yrs <- as.numeric(names(pop_map))
+  vals <- as.numeric(unlist(pop_map))
+  keep <- which(yrs >= arg1_ymin & yrs <= arg2_ymax)
+  if (length(keep) == 0) return("-")
+  parts <- vapply(keep, function (idx) {
+    paste0(fmt_year_lbl(yrs[idx]), ": ", fmt_num_eu(vals[idx]))
+  }, character(1))
+  return(paste(parts, collapse = "; "))
+}
+
+get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
+  pop_map <- arg0_s$population
+  yrs <- as.numeric(names(pop_map))
+  vals <- as.numeric(unlist(pop_map))
+  keep <- which(yrs >= arg1_ymin & yrs <= arg2_ymax)
+  if (length(keep) == 0) return("-")
+  idx <- keep[which.max(yrs[keep])]
+  return(fmt_num_eu(vals[idx]))
+}
+```
+
+
+
+# Gazetteer Methodology, Schema and Five-Part Sub-Regional Scope
+
+## Scope and `population_Stadester` JSON Architecture
+
+This companion settlement gazetteer documents **`r length(settlements_list)` individual archaeological, proto-urban, fortified and medieval urban settlements** located across the ~238 000 km² domain of **The Wild Fields** (`wild_fields`, partitioned into **Five Natural Sub-Regions**: **I: Budjak [Danube-Prut-Dniester Steppe & Liman]**, **II: NW Pontic Steppe [Dniester-Bug Interfluve]**, **III: Right-Bank Bug-Dnieper & Ingul-Ingulets**, **IV: Left-Bank Lower Dnieper, Veliky Lug & Northern Taurida**, and **V: Middle Seversky Donets, Donets Ridge & Azov Basin**) between **10000BC (-10000) and 1400AD (1400)**. All settlement records are stored in `wild_fields_settlements.json` in compliance with the `population_Stadester` specification:
+
+1. **Strict Positive Integer Population Thresholds**: Every `population` key-value entry records a positive integer (`> 0`) anchored to archaeological site area and dwelling counts, classical *polis* and *chora* surveys, *Dridu* and *Saltovo-Mayaki* fortification enclosures, Kievan Rus chronicle and archaeological evidence, and Golden Horde, Genoese and Moldavian port records up to `1400AD` [@kryzhitsky1999; @subbotin2000; @kravchenko2020; @dovzhenok1961; @bocharov2015; @boguslavskiy2014]. Zero (`0`) values are omitted; when a settlement is abandoned or destroyed (for example, Sredny Stog after 3500BC, Olbia after 375AD, Sidorovo after 965AD or Kuchugury in 1395AD), its time series terminates cleanly at its final attested benchmark.
+2. **Coordinate Precision and Latin Transliteration**: All coordinates (`[latitude, longitude]`) are verified in decimal degrees (`45,32°N` to `50,06°N`, `28,29°E` to `39,55°E`), and all historical and alternate toponyms in `other_names` are transliterated into Latin script.
+
+```{r tab-epoch-summary, results='asis'}
+cnt_prehist <- sum(vapply(settlements_list, function (s) first_year_num(s) <= -1000, logical(1)))
+cnt_classic <- sum(vapply(settlements_list, function (s) first_year_num(s) > -1000 && first_year_num(s) <= 400, logical(1)))
+cnt_med     <- sum(vapply(settlements_list, function (s) first_year_num(s) > 400 && first_year_num(s) <= 1200, logical(1)))
+cnt_horde   <- sum(vapply(settlements_list, function (s) first_year_num(s) > 1200 && first_year_num(s) <= 1400, logical(1)))
+
+summary_df <- data.frame(
+  Horizon = c(
+    "I. Prehistoric, Eneolithic & Bronze Age (10000BC - 1000BC)",
+    "II. Classical Greek Poleis, Scythia, Late Scythian & Chernyakhov (700BC - 400AD)",
+    "III. Early Medieval, Dridu (Budjak), Saltovo-Mayaki, Kievan Rus & Cuman (500AD - 1200AD)",
+    "IV. Golden Horde, Genoese, Moldavian-Budjak & Lithuanian Frontier Ports (1240AD - 1400AD)",
+    "Total Gazetteer Settlements (wild_fields_settlements.json, 10000BC - 1400AD)"
+  ),
+  First_Attested_Count = as.character(c(
+    cnt_prehist, cnt_classic, cnt_med, cnt_horde, length(settlements_list)
+  )),
+  Representative_Sites = c(
+    "Anetovka II, Mirnoe [Budjak], Vovnigi, Mariupol, Dereivka, Bolhrad-Yalpug [Budjak], Usatovo, Mikhailovka, Sabatinovka, Kartamysh",
+    "Tyras [Budjak], Orlovka/Aliobrix [Budjak], Olbia, Berezan, Nikonion, Kamenskoye, Chertomlyk, Zolota Balka, Krasny Mayak, Bashmachka",
+    "Voznesenka, Suvorovo-Katlabukh [Budjak], Sidorovo, Mayaki-Tsaritsyno, Sukhaya Gomolsha, Oleshye, Protolche, Igren-Samar, Sharukhan",
+    "Aq Qerman / Maurocastro [Budjak], Kiliia / Lycostomo [Budjak], Smil / Izmail [Budjak], Kuchugury, Konski Vody, Khadzhibey, Dashov",
+    "All 5 Natural Sub-Regions Including Dedicated Budjak (Sub-Region I) Coverage"
+  ),
+  stringsAsFactors = FALSE
+)
+
+render_table_template(
+  summary_df,
+  list(
+    caption = "Chronological Distribution of the Pre-1400AD Settlements in wild_fields_settlements.json by Epoch of First Attestation.",
+    col_names = c("Chronological Horizon", "Sites", "Representative Anchor Settlements"),
+    label = "tab:epoch-summary"
+  )
+)
+```
+
+# Chronological Settlement Directories (10000BC - 1400AD)
+
+## Prehistoric Forager Camps, Eneolithic Enclosures and Bronze Age Villages (10000BC - 1000BC)
+
+Table \ref{tab:prehistoric-sites} lists all `r cnt_prehist` prehistoric sites first attested between 10000BC and 1000BC, spanning the Epigravettian bison camps, Budjak Mesolithic camps (Mirnoe), Dnieper Rapids cemeteries, Bolgrad-Aldeni (Gumelnita) and Usatovo Eneolithic centres, Yamnaya fortified citadels and Sabatinovka-Srubnaya stone-built villages and copper-mining settlements [@olenkovskiy2010; @telegin1986; @subbotin2000; @chernienko2014].
+
+```{r tab-prehistoric-sites, results='asis'}
+pre_list <- Filter(function (s) first_year_num(s) <= -1000, settlements_list)
+pre_df <- data.frame(
+  Name = vapply(pre_list, function (s) as.character(s$name), character(1)),
+  Aliases = vapply(pre_list, fmt_other_names, character(1)),
+  Coords = vapply(pre_list, function (s) fmt_coord_pair(s$coords), character(1)),
+  Span = vapply(pre_list, fmt_span, character(1)),
+  Pop_Series = vapply(pre_list, function (s) fmt_pop_series(s, -10000, 1400), character(1)),
+  stringsAsFactors = FALSE
+)
+
+render_table_template(
+  pre_df,
+  list(
+    caption = "Prehistoric, Eneolithic and Bronze Age Settlements in the Wild Fields and Budjak (First Attested 10000BC - 1000BC).",
+    col_names = c("Settlement", "Historical / Archaeological Aliases", "Coords", "Attested Span", "Population Trajectory (<= 1400AD)"),
+    label = "tab:prehistoric-sites"
+  )
+)
+```
+
+## Classical Greek Poleis, Royal Scythia, Late Scythian Fortresses and Chernyakhov Centres (700BC - 400AD)
+
+Table \ref{tab:classical-sites} details the `r cnt_classic` settlements first attested during the Classical Greek, Scythian, Sarmatian, Late Scythian and Gothic-Chernyakhov horizons (700BC - 400AD) across Budjak, the Dniester-Bug Liman and the Dnieper-Donets steppes [@kryzhitsky1989; @grakov1954; @bylkova2010; @gudkova1999].
+
+```{r tab-classical-sites, results='asis'}
+cls_list <- Filter(function (s) first_year_num(s) > -1000 && first_year_num(s) <= 400, settlements_list)
+cls_df <- data.frame(
+  Name = vapply(cls_list, function (s) as.character(s$name), character(1)),
+  Aliases = vapply(cls_list, fmt_other_names, character(1)),
+  Coords = vapply(cls_list, function (s) fmt_coord_pair(s$coords), character(1)),
+  Span = vapply(cls_list, fmt_span, character(1)),
+  Pop_Series = vapply(cls_list, function (s) fmt_pop_series(s, -700, 1400), character(1)),
+  stringsAsFactors = FALSE
+)
+
+render_table_template(
+  cls_df,
+  list(
+    caption = "Classical Greek Poleis, Budjak & Olbian Chora Settlements, Royal Scythian Centres, Late Scythian Stone Fortresses and Chernyakhov Settlements (First Attested 700BC - 400AD).",
+    col_names = c("Settlement", "Historical / Archaeological Aliases", "Coords", "Attested Span", "Population Trajectory (<= 1400AD)"),
+    label = "tab:classical-sites"
+  )
+)
+```
+
+## Medieval Steppe Strongholds, Saltovo-Mayaki Towns, Kievan Rus Emporia and Golden Horde / Genoese Ports (500AD - 1400AD)
+
+Table \ref{tab:medieval-cossack-sites} presents all `r cnt_med + cnt_horde` settlements first attested between 500AD and 1400AD, encompassing the Antae/Penkovka rapids villages, the Voznesenka princely camp, the *Dridu* villages of Budjak, the *Saltovo-Mayaki* urban network on the Seversky Donets, the Kievan Rus ports of Oleshye and Protolche, the Polovtsian winter capitals, and the Golden Horde, Genoese, Moldavian and Lithuanian cities of Aq Qerman (Maurocastro), Kiliia (Lycostomo), Smil (Izmail), Kuchugury, Mamai-Surka, Khadzhibey and Dashov [@kravchenko2020; @dovzhenok1961; @bocharov2015; @boguslavskiy2014].
+
+```{r tab-medieval-cossack-sites, results='asis'}
+med_list <- Filter(function (s) first_year_num(s) > 400 && first_year_num(s) <= 1400, settlements_list)
+med_df <- data.frame(
+  Name = vapply(med_list, function (s) as.character(s$name), character(1)),
+  Aliases = vapply(med_list, fmt_other_names, character(1)),
+  Coords = vapply(med_list, function (s) fmt_coord_pair(s$coords), character(1)),
+  Span = vapply(med_list, fmt_span, character(1)),
+  Pop_Series = vapply(med_list, function (s) fmt_pop_series(s, 500, 1400), character(1)),
+  stringsAsFactors = FALSE
+)
+
+render_table_template(
+  med_df,
+  list(
+    caption = "Early Medieval, Balkan-Danubian Dridu, Saltovo-Mayaki, Kievan Rus, Polovtsian, Golden Horde, Genoese and Lithuanian Settlements (First Attested 500AD - 1400AD).",
+    col_names = c("Settlement", "Historical / Archaeological Aliases", "Coords", "Attested Span", "Population Trajectory (500AD - 1400AD)"),
+    label = "tab:medieval-cossack-sites"
+  )
+)
+```
+
+# Complete Master Settlement Gazetteer (10000BC - 1400AD)
+
+Table \ref{tab:master-gazetteer} provides the complete alphabetical directory of all **`r length(settlements_list)` settlements** in `wild_fields_settlements.json`, reporting each settlement's canonical name, alternate historical names, decimal coordinates, attested chronological span and full benchmark population trajectory from 10000BC to 1400AD.
+
+```{r tab-master-gazetteer, results='asis'}
+alpha_idx <- order(vapply(settlements_list, function (s) as.character(s$name), character(1)))
+alpha_list <- settlements_list[alpha_idx]
+
+master_df <- data.frame(
+  Name = vapply(alpha_list, function (s) as.character(s$name), character(1)),
+  Aliases = vapply(alpha_list, fmt_other_names, character(1)),
+  Coords = vapply(alpha_list, function (s) fmt_coord_pair(s$coords), character(1)),
+  Span = vapply(alpha_list, fmt_span, character(1)),
+  Full_Trajectory = vapply(alpha_list, function (s) fmt_pop_series(s, -10000, 1400), character(1)),
+  stringsAsFactors = FALSE
+)
+
+render_table_template(
+  master_df,
+  list(
+    caption = "Complete Alphabetical Master Gazetteer of All Pre-1400AD Settlements in the Wild Fields and Budjak (wild_fields_settlements.json, 10000BC - 1400AD).",
+    col_names = c("Settlement Name", "Alternate / Historical Names", "Coords", "Span", "Complete Benchmark Population Series"),
+    label = "tab:master-gazetteer"
+  )
+)
+```
+
+# Bibliography

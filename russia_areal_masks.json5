@@ -44,6 +44,22 @@
   // Priority 2: Specialist regional masks across European Russia, North Caucasus, Pontic Steppe & Lower Volga, Siberia, and Kievan Rus
   specialist_masks: [
     {
+      id: "crimea",
+      domain: [-10000, 1400],
+      domain_group: "russia_ia_ras",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/crimea.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/crimea_areal_mask.png",
+      priority: 2
+    },
+    {
+      id: "wild_fields",
+      domain: [-10000, 1400],
+      domain_group: "belarus_ukraine",
+      json5_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/wild_fields.json5",
+      mask_path: "histmap/1.data_raw/population_regional/russia/kievan_rus/wild_fields_areal_mask.png",
+      priority: 2
+    },
+    {
       id: "russian_core_principalities",
       domain: [-10000, 1900],
       domain_group: "russia_ia_ras",

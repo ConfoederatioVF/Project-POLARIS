@@ -40,7 +40,7 @@ The following is a compiled list of datasets and supplementary materials made av
 - [Eastern & Pacific Siberia](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_literature_review.pdf)
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/siberia/siberia_yenisei_lena_kolyma_pacific_settlements.pdf)
 
-**VI. Kievan Rus (Pre-Mongol & Devolved Principalities, 10000BC - 1300AD).**
+**VI. Kievan Rus, Wild Fields & Crimea (Pre-Mongol, Steppe Frontier & Devolved Principalities, 10000BC - 2000AD).**
 - [Kiev & Pereyaslavl (Middle Dnieper Core)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/kiev_and_pereyaslavl_literature_review.pdf)
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/kiev_and_pereyaslavl_settlements.pdf)
 - [Chernigov & Novgorod-Seversk (Left-Bank Desna, Seym & Lower Sozh)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/chernigov_and_novgorod_seversk_literature_review.pdf)
@@ -49,3 +49,7 @@ The following is a compiled list of datasets and supplementary materials made av
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/galicia_and_volhynia_settlements.pdf)
 - [Polotsk, Turov & Belarusian Principalities (North-Western Rus)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/polotsk_turov_and_belarusian_principalities_literature_review.pdf)
   - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/polotsk_turov_and_belarusian_principalities_settlements.pdf)
+- [Wild Fields (Pontic-Caspian Steppe, Lower Dnieper, Zaporizhzhia & Sloboda-Donbas)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/wild_fields_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/wild_fields_settlements.pdf)
+- [Crimea (Tauric Chersonesus, Bosporan Kingdom, Theodoro, Genoese Gazaria & Crimean Khanate)](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/crimea_literature_review.pdf)
+  - [Settlement Gazetteer](https://github.com/ConfoederatioVF/Project-POLARIS/blob/main/kievan_rus/crimea_settlements.pdf)

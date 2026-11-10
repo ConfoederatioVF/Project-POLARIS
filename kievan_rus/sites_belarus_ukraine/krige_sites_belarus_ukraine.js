@@ -175,7 +175,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
         let local_g1 = local_emp_gammas[1]/local_sample_var;
         let local_slope01 = Math.max(0, (local_g1 - local_g0)/Math.max(1e-6, local_emp_lags[1] - local_emp_lags[0]));
 
-        local_c0_norm = Math.max(0.05*local_sill_norm, Math.min(0.75*local_sill_norm, local_g0 - local_emp_lags[0]*local_slope01));
+        local_c0_norm = Math.max(0.04*local_sill_norm, Math.min(0.22*local_sill_norm, local_g0 - local_emp_lags[0]*local_slope01));
         local_eta = local_c0_norm/Math.max(0.05*local_sill_norm, local_sill_norm - local_c0_norm);
 
         period_observations[local_pkey] = {
@@ -193,17 +193,17 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
         period_z_arrays[local_pkey] = local_z;
       }
 
-      shared_tau1 = pooled_u_lags[2];
-      shared_tau2 = pooled_u_lags[4];
+      shared_tau1 = pooled_u_lags[1];
+      shared_tau2 = pooled_u_lags[3];
       {
         let local_g0 = pooled_norm_gammas[0];
         let local_g1 = pooled_norm_gammas[1];
         let local_sill = 0;
 
-        for (let i = n_bins - 3; i < n_bins; i++)
+        for (let i = 4; i < 7; i++)
           local_sill += pooled_norm_gammas[i]/3;
 
-        let local_c0 = Math.max(0.05*local_sill, local_g0 - pooled_u_lags[0]*Math.max(0, (local_g1 - local_g0)/Math.max(1e-6, pooled_u_lags[1] - pooled_u_lags[0])));
+        let local_c0 = Math.max(0.04*local_sill, Math.min(0.22*local_sill, local_g0 - pooled_u_lags[0]*Math.max(0, (local_g1 - local_g0)/Math.max(1e-6, pooled_u_lags[1] - pooled_u_lags[0]))));
         let local_matern_half = 1 - (1 + sqrt3)*Math.exp(-sqrt3);
         let local_matern_two = 1 - (1 + 2*sqrt3)*Math.exp(-2*sqrt3);
         let local_target1 = local_c0 + local_matern_half*Math.max(1e-6, local_sill - local_c0);
@@ -224,6 +224,9 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
             shared_tau2 = Math.max(1.8*shared_tau1, pooled_u_lags[i] + local_frac*(pooled_u_lags[i + 1] - pooled_u_lags[i]));
             break;
           }
+
+        shared_tau1 = Math.max(1.05, Math.min(1.45, shared_tau1));
+        shared_tau2 = Math.max(2.20, Math.min(3.20, shared_tau2));
       }
 
       kernel_m1_matrix = new Float64Array(n_raions*n_raions);
@@ -265,8 +268,8 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           shared_tau2,
           local_obs.c0_norm/local_obs.sill_norm
         );
-        let local_c1 = local_fit.c1;
-        let local_c2 = local_fit.c2;
+        let local_c1 = Math.max(0.72, local_fit.c1);
+        let local_c2 = 1 - local_c1;
         let local_weights;
         let local_z = period_z_arrays[local_pkey];
         let local_z_adj = new Float64Array(n_raions);
@@ -287,10 +290,12 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
 
         for (let x = 0; x < n_raions; x++) {
           let local_act_w = 0;
+          let local_imp_factor;
           let local_row = x*n_raions;
           let local_sum_sw = 0;
           let local_sum_w = 0;
           let local_sum_wz = 0;
+          let local_tot_all = raion_list[x].total_sites_all_periods || 0;
 
           for (let y = 0; y < n_raions; y++) {
             if (x === y) continue;
@@ -308,7 +313,15 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
           let local_act_frac = (local_sum_w > 1e-6) ? local_act_w/local_sum_w : 0;
           let local_nbr_z = (local_sum_sw > 1e-6) ? local_sum_wz/local_sum_sw : 0;
 
-          local_z_adj[x] = Math.max(local_z[x], local_act_frac*local_nbr_z);
+          if (local_tot_all === 0) {
+            local_imp_factor = 0.32;
+          } else if (local_z[x] === 0) {
+            local_imp_factor = 0.14;
+          } else {
+            local_imp_factor = 0.0;
+          }
+
+          local_z_adj[x] = Math.max(local_z[x], local_imp_factor*local_act_frac*local_nbr_z);
         }
 
         local_chol_L = SitesBelarusUkraineGridUtils.computeCholeskyFactor(period_cov_matrix, n_raions);
@@ -320,18 +333,18 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
         );
 
         for (let x = 0; x < n_raions; x++)
-          local_zh_mean += (local_z[x] - local_eta*local_weights[x]);
+          local_zh_mean += Math.max(0, local_z_adj[x] - local_eta*local_weights[x]);
         local_zh_mean /= n_raions;
 
         for (let x = 0; x < n_raions; x++) {
-          let local_dzh = (local_z[x] - local_eta*local_weights[x]) - local_zh_mean;
+          let local_dzh = Math.max(0, local_z_adj[x] - local_eta*local_weights[x]) - local_zh_mean;
 
           local_zh_var += local_dzh*local_dzh;
         }
         local_zh_var = Math.max(1e-8, local_zh_var/n_raions);
 
         let local_structural_share = (local_obs.sill_norm - local_obs.c0_norm)/local_obs.sill_norm;
-        let local_var_restore = Math.sqrt((local_obs.sample_variance*local_structural_share)/local_zh_var);
+        let local_var_restore = Math.max(1.0, Math.min(1.45, Math.sqrt((local_obs.sample_variance*local_structural_share)/local_zh_var)));
 
         kriging_models[local_pkey] = {
           active_raion_count: local_obs.active_raion_count,
@@ -504,7 +517,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
         for (let p = 0; p < n_periods; p++) {
           let local_z_restored = Math.max(0, all_mu[p] + all_var_restore[p]*z_acc[p]);
 
-          all_potentials[p][i] = local_area*local_z_restored*local_z_restored;
+          all_potentials[p][i] = local_area*Math.pow(local_z_restored, 2.25);
         }
       }
 
@@ -964,20 +977,10 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
 
       console.log("[SitesBelarusUkraineKriging] Step D: Generating 12 Log-Linear Residual Kriging rasters with cross-frontier dasymetric blending in 1.kriged_rasters/...");
       kriged_results = this.D_generateKrigedRasters(mask_data, raion_data, kriging_bundle, { config: config });
-
-      console.log("[SitesBelarusUkraineKriging] Step E: Generating 15 Log-Linear Residual Kriging population rasters (0 to 1400 AD, HYDE 3.5 urban-masked popc) in 2.population_rasters/...");
+      console.log("[SitesBelarusUkraineKriging] Step E: Generating 48 Log-Linear Residual Kriging population rasters (-10000 to 1900 AD) in 2.population_rasters/...");
       interp_results = this.E_interpolateSubstrataPopulationRasters(mask_data, raion_data, kriged_results, { config: config });
-
       console.log("[SitesBelarusUkraineKriging] Step F: Writing kriging and interpolation metadata...");
-      metadata_obj = this.F_writeKrigingMetadata(
-        mask_data,
-        raion_data,
-        kriging_bundle,
-        kriged_results,
-        interp_results,
-        { config: config }
-      );
-
+      metadata_obj = this.F_writeKrigingMetadata(mask_data, raion_data, kriging_bundle, kriged_results, interp_results, { config: config });
       console.log(`[SitesBelarusUkraineKriging] Pipeline completed in ${((Date.now() - start_ms)/1000).toFixed(2)}s.`);
 
       //Return statement
@@ -987,8 +990,4 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
 }
 
 module.exports = global.SitesBelarusUkraineKriging;
-
-//CLI entry point
-if (require.main === module) {
-  SitesBelarusUkraineKriging.runPipeline();
-}
+if (require.main === module) SitesBelarusUkraineKriging.runPipeline();

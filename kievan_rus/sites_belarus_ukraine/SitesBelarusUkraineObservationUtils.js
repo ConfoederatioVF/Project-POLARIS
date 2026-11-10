@@ -628,7 +628,7 @@ let SitesBelarusUkraineGridUtils = require("./SitesBelarusUkraineGridUtils.js");
       for (let i = 0; i < valid_indices.length; i++)
         raw_cell_radius[i] = raion_radius_km[cell_nearest_raion[i]];
 
-      catchment_smooth_radius_px = Math.max(2, Math.round(median_radius_km/Math.sqrt(mask_data.mean_cell_land_area_km2)));
+      catchment_smooth_radius_px = Math.max(2, Math.round(0.65*median_radius_km/Math.sqrt(mask_data.mean_cell_land_area_km2)));
       cell_radius_km = this.smoothValidFieldOnGrid(mask_data, raw_cell_radius, catchment_smooth_radius_px);
 
       //Return statement

@@ -179,19 +179,21 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       }
 
       //Stage 1: Within-partition local positive normalisation and C2 Wild Fields ecological envelope weighting (strictly zero on uninhabited cells)
-      f_hab_smooth = this.smoothValidFieldOnGrid(mask_data, hab_ind, 2*bio_covs.catchment_px);
+      let steppe_w = (year <= 1600) ? 1.0 : ((year >= 1800) ? 0.0 : (1800 - year)/200);
+
+      f_hab_smooth = this.smoothValidFieldOnGrid(mask_data, hab_ind, Math.max(1, bio_covs.catchment_px));
       decliffed_d = this.smoothWithinPartitionPositive(
         mask_data,
         raw_sqrt_d,
         part_id,
         part_sum,
         part_cnt,
-        bio_covs.meso_px
+        Math.max(5, bio_covs.meso_px)
       );
 
       for (let i = 0; i < n_valid; i++)
         if (decliffed_d[i] > 0) {
-          let local_env = (apply_steppe && steppe_env) ? steppe_env[i] : 1;
+          let local_env = (apply_steppe && steppe_env) ? (1 - steppe_w*(1 - steppe_env[i])) : 1;
 
           u_hab[i] = Math.sqrt(Math.max(0, f_hab_smooth[i]))*decliffed_d[i]*local_env;
         }
@@ -351,18 +353,25 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
       }
 
       //Evaluate 5-arcminute covariate regression trend m_hat(x) on all inhabited cells
-      for (let i = 0; i < n_valid; i++)
-        if (u_hab[i] > 0)
-          m_cell[i] = u_hab[i]*(beta[0] + beta[1]*u_nat[i] + beta[2]*u_eco[i]);
+      {
+        let local_bsum = Math.max(1e-8, beta[0] + beta[1] + beta[2]);
+        let local_b0 = 0.50*(beta[0]/local_bsum) + 0.22;
+        let local_b1 = 0.50*(beta[1]/local_bsum) + 0.20;
+        let local_b2 = 0.50*(beta[2]/local_bsum) + 0.08;
 
-      //Evaluate meso-scale positive-cell regional mean m_macro(x) at the empirical Matérn range meso_px
-      m_macro = this.smoothPositiveFieldOnGrid(mask_data, m_cell, meso_px);
+        for (let i = 0; i < n_valid; i++)
+          if (u_hab[i] > 0)
+            m_cell[i] = u_hab[i]*(local_b0 + local_b1*u_nat[i] + local_b2*u_eco[i]);
+      }
+
+      //Evaluate meso-scale positive-cell regional mean m_macro(x) at tightened scale
+      m_macro = this.smoothPositiveFieldOnGrid(mask_data, m_cell, Math.max(4, Math.round(0.75*meso_px)));
 
       for (let i = 0; i < n_valid; i++)
         if (m_cell[i] > 0 && m_macro[i] > 0) {
-          let local_ratio = m_cell[i]/m_macro[i];
+          let local_ratio = Math.min(3.2, m_cell[i]/m_macro[i]);
 
-          weights[i] = local_ratio*local_ratio;
+          weights[i] = Math.pow(local_ratio, 2.25);
         }
 
       //Return statement
@@ -513,12 +522,12 @@ let SitesBelarusUkraineFrontierUtils = require("./SitesBelarusUkraineFrontierUti
 
         //Treat the Carpathian-Podolian-Moldovan corridor (lon < 29.8E or lat >= 47.4N & lon < 30.5E) as settled agricultural territory
         f_raw[i] = (local_f > 0 || local_lon < 29.8 || (local_lat >= 47.4 && local_lon < 30.5)) ? 1 : 0;
-        mean_maxln += Math.sqrt(Math.max(0, maxln_grid[local_gidx]));
+        mean_maxln += Math.pow(Math.max(0, maxln_grid[local_gidx]), 0.80);
       }
       mean_maxln = Math.max(1e-4, mean_maxln/n_valid);
 
       for (let i = 0; i < n_valid; i++)
-        u_nat[i] = Math.sqrt(Math.max(0, maxln_grid[valid_indices[i]]))/mean_maxln;
+        u_nat[i] = Math.pow(Math.max(0, maxln_grid[valid_indices[i]]), 0.80)/mean_maxln;
 
       //3-pass separable Gaussian-like smoothing of forest_wwf_cr.asc so the Forest-Steppe to Wild Fields ecological transition is C2-continuous over ~220 km with zero 1-pixel edges
       f_ecotone_smooth = this.smoothValidFieldOnGrid(mask_data, f_raw, 4*catchment_px);

@@ -47,7 +47,7 @@
     },
     cshapes_crimea_gwcode: 365,
     cshapes_crimea_gweyear: 2019,
-    dimensionless_lag_bins: [1.5, 2.5, 4.0, 6.0, 9.0, 13.0, 18.0, 25.0, 35.0, 50.0],
+    dimensionless_lag_bins: [0.75, 1.25, 1.85, 2.60, 3.60, 5.00, 7.00, 9.50, 13.00, 18.00],
     earth_radius_km: 6371,
     excluded_oblast_ids: [],
     frontier_blend_blur_factor: 3,
@@ -117,14 +117,32 @@
         active_periods: ["middle_ages"],
         key: "mongol_conquest_1400_horizon",
         year: 1400
+      },
+      {
+        active_periods: ["middle_ages", "early_modern_17_18c"],
+        key: "early_modern_commonwealth_hetmanate_horizon",
+        year: 1600
+      },
+      {
+        active_periods: ["middle_ages", "early_modern_17_18c", "modern"],
+        key: "modern_onset_1800_horizon",
+        year: 1800
+      },
+      {
+        active_periods: ["middle_ages", "early_modern_17_18c", "modern"],
+        key: "late_imperial_1900_horizon",
+        year: 1900
       }
     ],
 
-    // 25 HYDE benchmark years spanning 10000 BC (-10000) to the Mongol Conquests / 1400 AD cutoff
+    // 48 HYDE benchmark years spanning 10000 BC (-10000) to the 1900 AD cutoff
     hyde_years: [
       -10000, -9000, -8000, -7000, -6000, -5000, -4000, -3000, -2000, -1000,
       0, 100, 200, 300, 400, 500, 600, 700, 800, 900,
-      1000, 1100, 1200, 1300, 1400
+      1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700,
+      1710, 1720, 1730, 1740, 1750, 1760, 1770, 1780, 1790,
+      1800, 1810, 1820, 1830, 1840, 1850, 1860, 1870, 1880, 1890,
+      1900
     ]
   },
 

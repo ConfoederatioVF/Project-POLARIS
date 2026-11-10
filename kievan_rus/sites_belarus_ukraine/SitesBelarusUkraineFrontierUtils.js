@@ -46,7 +46,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let bfs_dirs = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]];
       let bfs_head = 0;
       let bfs_queue = [];
-      let blur_px = Math.max(3, (config.kriging_config.frontier_blend_blur_factor || 2)*bio_covs.catchment_px);
+      let blur_px = Math.max(3, Math.round(1.5*bio_covs.catchment_px));
       let cell_area = mask_data.cell_land_area;
       let cov_paths = (config && config.kriging_config && config.kriging_config.covariate_paths) ? config.kriging_config.covariate_paths : {};
       let dist_to_rus;
@@ -58,7 +58,7 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let joint_density;
       let kr_density = new Float32Array(mask_data.valid_cell_count);
       let land_area_grid = mask_data.land_area_grid;
-      let macro_px = Math.max(16, (config.kriging_config.frontier_blend_macro_factor || 6)*bio_covs.catchment_px);
+      let macro_px = Math.max(10, 4*bio_covs.catchment_px);
       let mask_grid = mask_data.mask_grid;
       let mda_grid = null;
       let mda_mask = (bio_covs && bio_covs.mda_mask) ? bio_covs.mda_mask : null;
@@ -660,12 +660,13 @@ let SitesIARASResidualKriging = require("../../1.entire_country/sites_IA_RAS/Sit
       let n_valid = mask_data.valid_cell_count;
       let out_arr;
       let raw_arr = this.loadUrbanMaskedHYDEPopcRaster(mask_data, year, cache, config);
+      let steppe_w = (year <= 1600) ? 1.0 : ((year >= 1800) ? 0.0 : (1800 - year)/200);
 
       if (!bio_covs || !bio_covs.steppe_envelope) return raw_arr;
 
       out_arr = new Float32Array(n_valid);
       for (let i = 0; i < n_valid; i++) {
-        let local_env = bio_covs.steppe_envelope[i];
+        let local_env = 1 - steppe_w*(1 - bio_covs.steppe_envelope[i]);
 
         out_arr[i] = raw_arr[i]*local_env;
       }

@@ -91,6 +91,20 @@
       path: "histmap/1.data_raw/population_regional/russia/kievan_rus/polotsk_turov_and_belarusian_principalities_settlements.json",
       priority: 2,
       region_group: "kievan_rus"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "wild_fields",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/wild_fields_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
+    },
+    {
+      domain: [-10000, 1900],
+      key: "crimea",
+      path: "histmap/1.data_raw/population_regional/russia/kievan_rus/crimea_settlements.json",
+      priority: 2,
+      region_group: "kievan_rus"
     }
   ],
   merge_options: {
