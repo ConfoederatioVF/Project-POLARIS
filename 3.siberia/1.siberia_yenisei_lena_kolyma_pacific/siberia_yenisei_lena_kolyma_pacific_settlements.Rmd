@@ -186,7 +186,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -536,7 +536,20 @@ subreg_map <- c(
 
 fmt_num <- function(x) {
   if (is.null(x) || is.na(x)) return("-")
-  format(as.integer(x), big.mark = ".", decimal.mark = ",", scientific = FALSE, trim = TRUE)
+  v <- as.numeric(x)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
+  if (v >= 1000) {
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
+  }
+  return(as.character(round(v)))
 }
 
 fmt_coord <- function(lat, lon) {
@@ -633,15 +646,17 @@ build_subregion_df <- function(subreg_code) {
 }
 ```
 
-# Introduction
+# Methodology
 
 This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of Eastern and Pacific Siberia (10000BC - 1900AD; Figure \ref{fig:hero}). The regional dataset follows the flat Stadester structure, indexing `r length(gaz_data)` individual settlements by name and country with six standardised fields (name, alternate names, coordinates, country, key, and population) sorted in chronological order (Tables \ref{tab:ii1} to \ref{tab:iv3}). Active occupation spans correspond directly to the first and last recorded benchmark years in each settlement's population history.
 
 Prehistoric camp and pit-house village figures are derived from excavated dwelling counts, floor areas, and cemetery sizes [@Chernykh2022; @Weber2016a; @Kuzmin2006; @AlekseyevDyakonov2009; @Fitzhugh2016; @Dneprovskiy2017]. Estimates for Iron Age and medieval fortified settlements (*gorodishcha*) in Transbaikalia, Tuva, Khakassia, the Amur Basin, and Primorye are drawn from intramural areas and excavated house-pit totals [@Vasyutin2022; @Tulush2011; @Tulush2016; @Artemyeva2013; @Artemyeva2025; @Gelman2018; @Ivliev2021]. Early Russian fortresses (*ostrogi*), 18th-century mining and border towns, and 19th-century urban centres are compiled from *yasak* and garrison rolls [@Dolgikh1960; @Chertykov2009; @Ushnitskiy2017a; @Turaev2013], imperial revision lists and historical urban studies [@Kabuzan1985; @Mansheev2010; @Kurchatova2015; @Kyshpanakov2022a; @Kolomiets2022; @Rygalova2024], and the 1897 First All-Russian Imperial Census [@Troinitskiy1905; @Patkanov1912].
 
-# Yenisei and Baikal Region
+# Results
 
-## Baikal and Selenga Basin
+## Yenisei and Baikal Region
+
+### Baikal and Selenga Basin
 
 ```{r tab-ii1, echo=FALSE}
 render_table_template(
@@ -653,7 +668,7 @@ render_table_template(
 )
 ```
 
-## Sayan, Minusinsk, and Tuva
+### Sayan, Minusinsk, and Tuva
 
 ```{r tab-ii2, echo=FALSE}
 render_table_template(
@@ -665,7 +680,7 @@ render_table_template(
 )
 ```
 
-## Middle and Lower Yenisei
+### Middle and Lower Yenisei
 
 ```{r tab-ii3, echo=FALSE}
 render_table_template(
@@ -677,9 +692,9 @@ render_table_template(
 )
 ```
 
-# Lena and Kolyma Region
+## Lena and Kolyma Region
 
-## Vitim, Olekma, and Aldan
+### Vitim, Olekma, and Aldan
 
 ```{r tab-iii1, echo=FALSE}
 render_table_template(
@@ -691,7 +706,7 @@ render_table_template(
 )
 ```
 
-## Central Yakutia and Lower Lena
+### Central Yakutia and Lower Lena
 
 ```{r tab-iii2, echo=FALSE}
 render_table_template(
@@ -703,7 +718,7 @@ render_table_template(
 )
 ```
 
-## Yana, Indigirka, and Kolyma
+### Yana, Indigirka, and Kolyma
 
 ```{r tab-iii3, echo=FALSE}
 render_table_template(
@@ -715,9 +730,9 @@ render_table_template(
 )
 ```
 
-# Pacific Region
+## Pacific Region
 
-## Amur Basin and Primorye
+### Amur Basin and Primorye
 
 ```{r tab-iv1, echo=FALSE}
 render_table_template(
@@ -729,7 +744,7 @@ render_table_template(
 )
 ```
 
-## Kamchatka, Sakhalin, and Kuril Islands
+### Kamchatka, Sakhalin, and Kuril Islands
 
 ```{r tab-iv2, echo=FALSE}
 render_table_template(
@@ -741,7 +756,7 @@ render_table_template(
 )
 ```
 
-## Chukotka, Anadyr, and Bering Strait
+### Chukotka, Anadyr, and Bering Strait
 
 ```{r tab-iv3, echo=FALSE}
 render_table_template(

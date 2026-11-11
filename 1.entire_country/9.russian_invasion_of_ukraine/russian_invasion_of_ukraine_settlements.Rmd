@@ -182,7 +182,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -290,11 +290,11 @@ render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
 }
 ```
 
-# Overview & Oblast-Keyed Gazetteer Methodology
+# Methodology
 
 This settlement gazetteer documents annual resident population trajectories from 2021AD to 2026AD for 245 cities, frontline towns, regional administrative seats, military garrisons, hydrocarbon boomtowns, and defence-industrial centres across the 123 administrative and occupation-history divisions of the war theatre (Table \ref{tab:gaz-summary}). Coverage spans all 33 Ukrainian oblast and occupation-history divisions across Ukraine's 27 constitutional oblasts, special-status cities, and Autonomous Republic of Crimea, alongside all 7 administrative divisions of Belarus and all 83 federal subjects of the Russian Federation [@libanova2024demographic; @iom2025returns; @belstat2024chislennost; @rosstat2024demografiya; @mediazona2025casualties].
 
-Each entry records verified geographic coordinates, historical and alternative toponyms, sovereign country attribution, and annual headcounts across every benchmark year (2021AD, 2022AD, 2024AD, and 2026AD in the summary tables below), cross-checked against ACLED raion conflict intensity, DeepState frontline polygons, Copernicus Sentinel-1 radar and UNOSAT optical damage assessments, and municipal internal displacement registers [@acled2025ukraine; @deepstate2025map; @scher2023sar; @unosat2023mariupol]. Every one of the 123 analytical divisions is represented by at least its administrative seat alongside major frontline or industrial centres.
+Each entry records geographic coordinates, historical and alternative toponyms, sovereign country attribution, and annual headcounts across every benchmark year (2021AD, 2022AD, 2024AD, and 2026AD in the summary tables below), cross-checked against ACLED raion conflict intensity, DeepState frontline polygons, Copernicus Sentinel-1 radar and UNOSAT optical damage assessments, and municipal internal displacement registers [@acled2025ukraine; @deepstate2025map; @scher2023sar; @unosat2023mariupol]. Every one of the 123 analytical divisions is represented by at least its administrative seat alongside major frontline or industrial centres.
 
 ```{r gazetteer-load, include=FALSE}
 map_df <- jsonlite::fromJSON((if (file.exists("invasion_settlement_oblast_map.json")) "invasion_settlement_oblast_map.json" else "../../_shared/_gis_cache/invasion_settlement_oblast_map.json"))
@@ -354,7 +354,9 @@ render_table_template(
 )
 ```
 
-# Ukraine: Settlements by Modern Oblast & Occupation Zone (33 Divisions Across 27 Oblasts)
+# Results
+
+## Ukraine: Settlements by Modern Oblast & Occupation Zone (33 Divisions Across 27 Oblasts)
 
 ```{r tab-gaz-ua, echo=FALSE}
 render_table_template(
@@ -367,7 +369,7 @@ render_table_template(
 )
 ```
 
-# Belarus: Settlements by Modern Oblast (7 Admin-1 Units)
+## Belarus: Settlements by Modern Oblast (7 Admin-1 Units)
 
 ```{r tab-gaz-by, echo=FALSE}
 render_table_template(
@@ -380,7 +382,7 @@ render_table_template(
 )
 ```
 
-# Russian Federation: Settlements by Federal Subject (83 Units)
+## Russian Federation: Settlements by Federal Subject (83 Units)
 
 ```{r tab-gaz-ru, echo=FALSE}
 render_table_template(

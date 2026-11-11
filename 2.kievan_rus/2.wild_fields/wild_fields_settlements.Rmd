@@ -215,7 +215,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     }
   }
 
-  usable_width <- max(0.95 - 0.014 * n_cols, 0.76)
+  usable_width <- max(0.96 - 0.016 * n_cols, 0.78)
   props <- round((weights/sum(weights)) * usable_width, 4)
 
   col_specs <- vapply(seq_len(n_cols), function(j) {
@@ -229,53 +229,35 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
   })
   body_str <- paste(paste0(body_rows, " \\\\"), collapse = "\n")
 
-  caption_str <- if (!is.null(caption_raw) && nzchar(caption_raw)) sanitize_latex_text(caption_raw, FALSE) else ""
-  label_str <- if (!is.null(label_raw) && nzchar(label_raw)) {
-    paste0("\\label{tab:", gsub("^tab:", "", label_raw), "}")
-  } else {
-    ""
+  caption_tex <- ""
+  if (!is.null(caption_raw) && nzchar(caption_raw)) {
+    cap_clean <- sanitize_latex_text(caption_raw, FALSE)
+    if (!is.null(label_raw) && nzchar(label_raw)) {
+      lbl_clean <- gsub("^tab:", "", label_raw)
+      caption_tex <- sprintf("\\captionof{table}{%s\\label{tab:%s}}\n\\vspace{0.25em}\n", cap_clean, lbl_clean)
+    } else {
+      caption_tex <- sprintf("\\captionof{table}{%s}\n\\vspace{0.25em}\n", cap_clean)
+    }
   }
 
   block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\small",
-    "\\setlength{\\tabcolsep}{3pt}",
-    "\\renewcommand{\\arraystretch}{1.12}",
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    sprintf("\\begin{longtable}{%s}", align_spec)
-  )
-
-  if (nzchar(caption_str)) {
-    block_lines <- c(
-      block_lines,
-      sprintf("\\caption{%s%s}\\\\", caption_str, label_str)
-    )
-  }
-
-  block_lines <- c(
-    block_lines,
+    "\\par\\vspace{0.8em}",
+        "\\begingroup",
+    "\\normalfont\\normalsize",
+    "\\setlength{\\tabcolsep}{4pt}",
+    "\\renewcommand{\\arraystretch}{1.18}",
+    "\\noindent\\begin{minipage}{\\linewidth}",
+    caption_tex,
+    sprintf("\\begin{tabular}{%s}", align_spec),
     "\\toprule",
     paste0(header_str, " \\\\"),
     "\\midrule",
-    "\\endfirsthead",
-    "\\toprule",
-    paste0(header_str, " \\\\"),
-    "\\midrule",
-    "\\endhead",
+    body_str,
     "\\bottomrule",
-    "\\endfoot",
-    "\\bottomrule",
-    "\\endlastfoot",
-    body_str
-  )
-
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
+    "\\end{tabular}",
+    "\\end{minipage}\\par",
+    "\\endgroup",
+    "\\vspace{0.8em}"
   )
 
   return(knitr::asis_output(paste(block_lines, collapse = "\n")))
@@ -339,10 +321,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -350,8 +339,14 @@ fmt_num_eu <- function (arg0_val) {
 fmt_coord_pair <- function (arg0_coords) {
   lat <- as.numeric(arg0_coords[[1]])
   lon <- as.numeric(arg0_coords[[2]])
-  lat_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lat))), if (lat >= 0) "N" else "S")
-  lon_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lon))), if (lon >= 0) "E" else "W")
+  fmt_deg <- function(val) {
+    s <- gsub("\\.", ",", sprintf("%.2f", abs(val)))
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    s
+  }
+  lat_s <- paste0(fmt_deg(lat), if (lat >= 0) "°N" else "°S")
+  lon_s <- paste0(fmt_deg(lon), if (lon >= 0) "°E" else "°W")
   return(paste0(lat_s, ", ", lon_s))
 }
 
@@ -378,13 +373,13 @@ get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
 }
 ```
 
-# Gazetteer Methodology, Schema, and Five-Part Sub-Regional Scope
+# Methodology
 
 ## Scope and Settlement Data Architecture
 
-This companion settlement gazetteer documents `r length(settlements_list)` individual archaeological, proto-urban, fortified, and medieval urban settlements located across the ~238.000 km² domain of the Wild Fields (partitioned into five natural sub-regions: I: Budjak [Danube-Prut-Dniester Steppe and Liman], II: NW Pontic Steppe [Dniester-Bug Interfluve], III: Right-Bank Bug-Dnieper and Ingul-Ingulets, IV: Left-Bank Lower Dnieper, Veliky Lug, and Northern Taurida, and V: Middle Seversky Donets, Donets Ridge, and Azov Basin) between 10000BC and 1400AD.
+This companion settlement gazetteer documents `r length(settlements_list)` individual archaeological, proto-urban, fortified, and medieval urban settlements located across the ~238k km² domain of the Wild Fields (partitioned into five natural sub-regions: I: Budjak [Danube-Prut-Dniester Steppe and Liman], II: NW Pontic Steppe [Dniester-Bug Interfluve], III: Right-Bank Bug-Dnieper and Ingul-Ingulets, IV: Left-Bank Lower Dnieper, Veliky Lug, and Northern Taurida, and V: Middle Seversky Donets, Donets Ridge, and Azov Basin) between 10000BC and 1400AD.
 
-Every population entry records a positive integer (> 0) anchored to archaeological site area and dwelling counts, classical *polis* and *chora* surveys, *Dridu* and *Saltovo-Mayaki* fortification enclosures, Kievan Rus chronicle and archaeological evidence, and Golden Horde, Genoese, and Moldavian port records up to 1400AD [@kryzhitsky1999; @subbotin2000; @kravchenko2020; @dovzhenok1961; @bocharov2015; @boguslavskiy2014]. Zero values are omitted; when a settlement is abandoned or destroyed (for example, Sredny Stog after 3500BC, Olbia after 375AD, Sidorovo after 965AD, or Kuchugury in 1395AD), its time series terminates cleanly at its final attested benchmark. All coordinates are verified in decimal degrees (45,32°N to 50,06°N, 28,29°E to 39,55°E), and all historical and alternate toponyms are transliterated into Latin script.
+Every population entry records a positive integer (> 0) anchored to archaeological site area and dwelling counts, classical *polis* and *chora* surveys, *Dridu* and *Saltovo-Mayaki* fortification enclosures, Kievan Rus chronicle and archaeological evidence, and Golden Horde, Genoese, and Moldavian port records up to 1400AD [@kryzhitsky1999; @subbotin2000; @kravchenko2020; @dovzhenok1961; @bocharov2015; @boguslavskiy2014]. Zero values are omitted; when a settlement is abandoned or destroyed (for example, Sredny Stog after 3500BC, Olbia after 375AD, Sidorovo after 965AD, or Kuchugury in 1395AD), its time series terminates cleanly at its final attested benchmark. All coordinates are in decimal degrees (45,32°N to 50,06°N, 28,29°E to 39,55°E), and all historical and alternate toponyms are transliterated into Latin script.
 
 ```{r tab-epoch-summary, results='asis'}
 cnt_prehist <- sum(vapply(settlements_list, function (s) first_year_num(s) <= -1000, logical(1)))
@@ -423,7 +418,7 @@ render_table_template(
 )
 ```
 
-# Chronological Settlement Directories (10000BC - 1400AD)
+# Results
 
 ## Prehistoric Forager Camps, Eneolithic Enclosures, and Bronze Age Villages (10000BC - 1000BC)
 
@@ -500,9 +495,11 @@ render_table_template(
 )
 ```
 
-# Complete Master Settlement Gazetteer (10000BC - 1400AD)
+# Appendix
 
-Table \ref{tab:master-gazetteer} provides the complete alphabetical directory of all `r length(settlements_list)` settlements in the regional gazetteer, reporting each settlement's canonical name, alternate historical names, decimal coordinates, attested chronological span, and full benchmark population trajectory from 10000BC to 1400AD.
+## Settlement Gazetteer (10000BC - 1400AD)
+
+Table \ref{tab:master-gazetteer} provides the complete alphabetical directory of all `r length(settlements_list)` settlements in the regional gazetteer, reporting each settlement's name, alternate historical names, decimal coordinates, attested chronological span, and full benchmark population trajectory from 10000BC to 1400AD.
 
 ```{r tab-master-gazetteer, results='asis'}
 alpha_idx <- order(vapply(settlements_list, function (s) as.character(s$name), character(1)))
@@ -520,7 +517,7 @@ master_df <- data.frame(
 render_table_template(
   master_df,
   list(
-    caption = "Complete alphabetical master gazetteer of pre-1400AD settlements across the Wild Fields and Budjak (10000BC - 1400AD).",
+    caption = "Complete alphabetical gazetteer of pre-1400AD settlements across the Wild Fields and Budjak (10000BC - 1400AD).",
     col_names = c("Settlement Name", "Alternate / Historical Names", "Coords", "Span", "Complete Benchmark Population Series"),
     label = "tab:master-gazetteer"
   )

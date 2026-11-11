@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 10:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1025,21 +1025,76 @@ File: figures/russian_invasion_of_ukraine_regional_map.png Graphic file (type bm
 [1
 
 ]
-Overfull \hbox (2.12604pt too wide) in paragraph at lines 178--178
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 162.
+
+
+Overfull \hbox (6.16873pt too wide) in paragraph at lines 179--179
 \TU/SourceSerif4(0)/m/n/10 Kostiantynivka|  
  []
 
 
-Overfull \hbox (7.00604pt too wide) in paragraph at lines 199--199
+Overfull \hbox (11.04874pt too wide) in paragraph at lines 200--200
 \TU/SourceSerif4(0)/m/n/10 Sievierodonetsk|  
  []
 
-[2] [3] [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (10.38487pt too wide) in paragraph at lines 457--457
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 245--245
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 246--246
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 247--247
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 248--248
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 249--249
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+
+Overfull \hbox (0.75153pt too wide) in paragraph at lines 250--250
+\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
+ []
+
+[2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (6.637pt too wide) in paragraph at lines 379--379
+\TU/SourceSerif4(0)/m/n/10 Petropavlovsk- 
+ []
+
+
+Overfull \hbox (1.257pt too wide) in paragraph at lines 401--401
+\TU/SourceSerif4(0)/m/n/10 Makhachkala|  
+ []
+
+
+Overfull \hbox (4.407pt too wide) in paragraph at lines 451--451
+\TU/SourceSerif4(0)/m/n/10 Novokuznetsk|  
+ []
+
+
+Overfull \hbox (17.947pt too wide) in paragraph at lines 458--458
 \TU/SourceSerif4(0)/m/n/10 Blagoveshchensk|  
  []
 
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] (./russian_invasion_of_ukraine_settlements.aux)
+
+Overfull \hbox (2.267pt too wide) in paragraph at lines 461--461
+\TU/SourceSerif4(0)/m/n/10 Komsomolsk- 
+ []
+
+[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] (./russian_invasion_of_ukraine_settlements.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1049,15 +1104,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `russian_invasion_of_ukraine_settlements.out' has not changed.
-(rerunfilecheck)             Checksum: 3CFCFA06BDFDF4FA3C6191EF3358103B;1608.
+(rerunfilecheck)             Checksum: 63606DC6B352C6F840DCEEEB7E10EDCB;1523.
  ) 
 Here is how much of TeX's memory you used:
- 28406 strings out of 469594
- 585043 string characters out of 5460474
- 1235160 words of memory out of 5000000
- 57041 multiletter control sequences out of 15000+600000
- 634841 words of font info for 120 fonts, out of 8000000 for 9000
+ 28412 strings out of 469594
+ 585170 string characters out of 5460474
+ 1225042 words of memory out of 5000000
+ 57046 multiletter control sequences out of 15000+600000
+ 634849 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  117i,10n,121p,865b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on russian_invasion_of_ukraine_settlements.pdf (21 pages).
+Output written on russian_invasion_of_ukraine_settlements.pdf (25 pages).

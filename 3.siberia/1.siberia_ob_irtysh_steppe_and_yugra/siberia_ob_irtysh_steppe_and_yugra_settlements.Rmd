@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -388,9 +388,17 @@ get_founded_str <- function (arg0_item) {
 fmt_pop_val <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    return(gsub("\\.", ",", s))
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -428,13 +436,15 @@ build_group_df <- function (arg0_keys, arg1_ranges, arg2_use_founded = FALSE) {
 }
 ```
 
-# Introduction
+# Methodology
 
-This gazetteer compiles the geographical coordinates, historical and indigenous names, occupation spans, and benchmark population histories of 193 individual settlements across Western Siberia (the Ob-Irtysh river basin, ~2,40M km²) from 6000BC to 1900AD [@Chernykh2022]. Reading directly from the regional settlement dataset in the standard Stadester format, the compilation covers prehistoric, Bronze Age, and Iron Age settlements across the Altai region, the South-West Siberian Steppe and Forest-Steppe, and the North-West Siberian Taiga, Tundra, and Yugra, followed by medieval Ob-Ugrian, Selkup, Turkic, and Siberian Tatar fortified centres (*gorodki* and *gorodishcha*), and early modern to Imperial Russian towns, *ostrogi*, factory settlements (*zavody*), and *slobody*.
+This gazetteer compiles the geographical coordinates, historical and indigenous names, occupation spans, and benchmark population histories of 193 individual settlements across Western Siberia (the Ob-Irtysh river basin, ~2,4M km²) from 6000BC to 1900AD [@Chernykh2022]. Reading directly from the regional settlement dataset in the standard Stadester format, the compilation covers prehistoric, Bronze Age, and Iron Age settlements across the Altai region, the South-West Siberian Steppe and Forest-Steppe, and the North-West Siberian Taiga, Tundra, and Yugra, followed by medieval Ob-Ugrian, Selkup, Turkic, and Siberian Tatar fortified centres (*gorodki* and *gorodishcha*), and early modern to Imperial Russian towns, *ostrogi*, factory settlements (*zavody*), and *slobody*.
 
-Prehistoric, Bronze Age, and Iron Age settlement populations are estimated from excavated house counts, dwelling floor areas ($4,5\text{ m}^2$ per person with a contemporaneity factor of $0,65$ to $0,80$), and geomagnetic settlement plans [@Piezonka2023; @Dubovtseva2020; @Borzunov2012; @Ryabogina2010; @Outram2009; @Epimakhov2009; @Krause2019; @Molodin2009; @Matveeva1999; @Losey2018; @Grushin2011; @Dashkovskiy2024]. Medieval Yugra and Siberian Khanate populations combine excavated *gorodishche* house counts with 17th-century Russian fur-tribute (*yasak*) registers using B. O. Dolgikh's household multipliers ($4,0$ per adult male payer for Ob-Ugrian and Selkup communities and $4,5$ to $5,0$ for Siberian Tatar *yurts*) [@Dolgikh1960; @Bakhrushin1935; @Kardash2009; @Vizgalov2008; @Vizgalov2011; @Solodkin2015; @Tataurov2016; @Maslyuzhenko2018; @Matveev2011; @Vodyasov2016; @Vodyasov2017; @Gorbunov2018]. Early modern and 18th- to 19th-century urban and *sloboda* populations are drawn from 17th-century garrison and household rosters (*dozornye* and *perepisnye knigi*), the ten Imperial Poll-Tax Revisions (1719-1858) [@Kabuzan1990; @Kolesnikov1973; @Rezun1989; @Korusenko2011], and the First All-Russian Imperial Census of 1897 [@Patkanov1911; @Tychinskikh2019; @Bryukhanova2021].
+Prehistoric, Bronze Age, and Iron Age settlement populations are estimated from excavated house counts, dwelling floor areas ($4,5\text{ m}^2$ per person with a contemporaneity factor of $0,65$ to $0,8$), and geomagnetic settlement plans [@Piezonka2023; @Dubovtseva2020; @Borzunov2012; @Ryabogina2010; @Outram2009; @Epimakhov2009; @Krause2019; @Molodin2009; @Matveeva1999; @Losey2018; @Grushin2011; @Dashkovskiy2024]. Medieval Yugra and Siberian Khanate populations combine excavated *gorodishche* house counts with 17th-century Russian fur-tribute (*yasak*) registers using B. O. Dolgikh's household multipliers ($4$ per adult male payer for Ob-Ugrian and Selkup communities and $4,5$ to $5$ for Siberian Tatar *yurts*) [@Dolgikh1960; @Bakhrushin1935; @Kardash2009; @Vizgalov2008; @Vizgalov2011; @Solodkin2015; @Tataurov2016; @Maslyuzhenko2018; @Matveev2011; @Vodyasov2016; @Vodyasov2017; @Gorbunov2018]. Early modern and 18th- to 19th-century urban and *sloboda* populations are drawn from 17th-century garrison and household rosters (*dozornye* and *perepisnye knigi*), the ten Imperial Poll-Tax Revisions (1719-1858) [@Kabuzan1990; @Kolesnikov1973; @Rezun1989; @Korusenko2011], and the First All-Russian Imperial Census of 1897 [@Patkanov1911; @Tychinskikh2019; @Bryukhanova2021].
 
-# Prehistoric, Bronze Age, and Iron Age Settlements (6000BC - 500AD)
+# Results
+
+## Prehistoric, Bronze Age, and Iron Age Settlements (6000BC - 500AD)
 
 Table \ref{tab:neolithic_bronze_sites} lists the 45 Neolithic, Eneolithic, and Bronze Age settlements (6000-700BC), and Table \ref{tab:early_iron_sites} lists the 24 Early Iron Age settlements (600BC - 500AD) compiled in the regional settlement dataset.
 
@@ -504,7 +514,7 @@ render_table_template(
 )
 ```
 
-# Medieval Yugra Principalities and Siberian Khanate Centres (500 - 1650AD)
+## Medieval Yugra Principalities and Siberian Khanate Centres (500 - 1650AD)
 
 Table \ref{tab:medieval_settlements} presents the 46 medieval Ob-Ugrian, Samoyedic, Selkup, Altai Turkic, and Siberian Tatar fortified settlements and principalities compiled in the regional settlement dataset.
 
@@ -545,7 +555,7 @@ render_table_template(
 )
 ```
 
-# Early Modern and Imperial Towns, Ostrogs, and Slobodas (1586 - 1900AD)
+## Early Modern and Imperial Towns, Ostrogs, and Slobodas (1586 - 1900AD)
 
 Tables \ref{tab:tobolsk_yugra_towns}, \ref{tab:irtysh_steppe_towns}, and \ref{tab:tomsk_altai_towns} present the 78 Russian administrative towns, fortified *ostrogi*, agricultural *slobody*, and mining settlements (*zavody*) across Tobolsk Governorate, the Irtysh defensive line, Tomsk Governorate, and the Altai region up to the First All-Russian Imperial Census of 1897 and 1900AD.
 

@@ -184,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -374,9 +374,9 @@ build_region_df <- function(reg_slug) {
 \emergencystretch=1.5em
 ```
 
-# Overview and 35-Region Census Benchmark Methodology
+# Methodology
 
-This supplementary gazetteer compiles 234 individual urban settlements across the 35 demographic regions of the post-Soviet East Slavic and Eurasian space (Belarus Regions 1-3, Ukraine Regions 4-11 including the 2014-2021AD Donbas Minsk Line of Contact split between Government-Controlled Donbas Region 9 and Pre-2022 Occupied Donbas Region 10 plus Annexed Crimea & Sevastopol Region 11, and the Russian Federation Regions 12-35 including disaggregated North Caucasus Regions 22-24 and Siberian/Arctic Regions 26-35) from the dissolution of the USSR (1991AD) to the eve of the full-scale Russo-Ukrainian war (2021AD). Each settlement entry records verified geographic coordinates, historical and alternative toponyms, sovereign country attribution (Belarus, Ukraine, or Russia within internationally recognised 1991AD borders), and positive integer population series across five benchmark slices (1991AD, 2002AD, 2010AD, 2014AD, and 2021AD).
+This gazetteer compiles 234 individual urban settlements across the 35 demographic regions of the post-Soviet East Slavic and Eurasian space (Belarus Regions 1-3, Ukraine Regions 4-11 including the 2014-2021AD Donbas Minsk Line of Contact split between Government-Controlled Donbas Region 9 and Pre-2022 Occupied Donbas Region 10 plus Annexed Crimea & Sevastopol Region 11, and the Russian Federation Regions 12-35 including disaggregated North Caucasus Regions 22-24 and Siberian/Arctic Regions 26-35) from the dissolution of the USSR (1991AD) to the eve of the full-scale Russo-Ukrainian war (2021AD). Each settlement entry records geographic coordinates, historical and alternative toponyms, sovereign country attribution (Belarus, Ukraine, or Russia within internationally recognised 1991AD borders), and positive integer population series across five benchmark slices (1991AD, 2002AD, 2010AD, 2014AD, and 2021AD).
 
 For each settlement, population figures are anchored in official post-Soviet census enumerations and demographic yearbooks: the 1999AD, 2009AD, and 2019AD Population Censuses of the Republic of Belarus (Belstat) [@belstat2000perepis1999; @belstat2010perepis2009; @belstat2020perepis2019], the 2001AD All-Ukrainian Population Census, 2014-2021AD Ukrstat annual municipal series, and 2019AD Electronic Assessment [@ukrstat2003perepis2001; @ukrstat2021naselennia; @dubilet2020assessment2019], and the 2002AD, 2010AD, and 2021AD All-Russian Population Censuses (Rosstat) [@rosstat2004perepis2002; @rosstat2012perepis2010; @rosstat2022perepis2021]. For settlements abandoned during the post-Soviet northern exodus, such as the Kolyma coal-mining town of Kadykchan in Region 34 (10.300 in 1991AD and 875 in 2002AD), population series are reported up to their final inhabited benchmark prior to complete evacuation.
 
@@ -393,9 +393,11 @@ if (!knitr::is_latex_output()) {
 }
 ```
 
-# Minsk Metropolitan Magnet (Belarus)
+# Results
 
-Table \ref{tab:reg1-sites} lists the catalogued urban settlements in Region 1 (Minsk City & Minsk Oblast Metropolitan Magnet), where total regional population shifted from 3.400k in 1991AD to 3.480k in 2021AD (+2,4%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+## Minsk Metropolitan Magnet (Belarus)
+
+Table \ref{tab:reg1-sites} lists the catalogued urban settlements in Region 1 (Minsk City & Minsk Oblast Metropolitan Magnet), where total regional population shifted from 3,4M in 1991AD to 3,48M in 2021AD (+2,4%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg1, echo=FALSE, results='asis'}
 df_reg1 <- build_region_df("belarus_minsk_city_and_oblast_magnet")
@@ -408,9 +410,9 @@ render_table_template(
 )
 ```
 
-# Western Belarus Border Belt (Brest & Grodno)
+## Western Belarus Border Belt (Brest & Grodno)
 
-Table \ref{tab:reg2-sites} lists the catalogued urban settlements in Region 2 (Western Belarus: Brest & Grodno Oblasts), where total regional population shifted from 2.680k in 1991AD to 2.360k in 2021AD (-11,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg2-sites} lists the catalogued urban settlements in Region 2 (Western Belarus: Brest & Grodno Oblasts), where total regional population shifted from 2,68M in 1991AD to 2,36M in 2021AD (-11,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg2, echo=FALSE, results='asis'}
 df_reg2 <- build_region_df("belarus_western_brest_and_grodno")
@@ -423,9 +425,9 @@ render_table_template(
 )
 ```
 
-# Eastern Belarus & Chernobyl Belt
+## Eastern Belarus & Chernobyl Belt
 
-Table \ref{tab:reg3-sites} lists the catalogued urban settlements in Region 3 (Eastern & Southeastern Belarus: Vitebsk, Mogilev & Gomel Oblasts), where total regional population shifted from 4.170k in 1991AD to 3.310k in 2021AD (-20,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg3-sites} lists the catalogued urban settlements in Region 3 (Eastern & Southeastern Belarus: Vitebsk, Mogilev & Gomel Oblasts), where total regional population shifted from 4,17M in 1991AD to 3,31M in 2021AD (-20,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg3, echo=FALSE, results='asis'}
 df_reg3 <- build_region_df("belarus_eastern_vitebsk_mogilev_gomel")
@@ -438,9 +440,9 @@ render_table_template(
 )
 ```
 
-# Western Ukraine & Transcarpathia
+## Western Ukraine & Transcarpathia
 
-Table \ref{tab:reg4-sites} lists the catalogued urban settlements in Region 4 (Western Ukraine (Galicia, Volhynia, Bukovina & Zakarpattia)), where total regional population shifted from 10.250k in 1991AD to 9.320k in 2021AD (-9,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg4-sites} lists the catalogued urban settlements in Region 4 (Western Ukraine (Galicia, Volhynia, Bukovina & Zakarpattia)), where total regional population shifted from 10,25M in 1991AD to 9,32M in 2021AD (-9,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg4, echo=FALSE, results='asis'}
 df_reg4 <- build_region_df("ukraine_western_galicia_volhynia_carpathians")
@@ -453,9 +455,9 @@ render_table_template(
 )
 ```
 
-# Kyiv Metropolis & Suburban Ring
+## Kyiv Metropolis & Suburban Ring
 
-Table \ref{tab:reg5-sites} lists the catalogued urban settlements in Region 5 (Kyiv City & Kyiv Metropolitan Oblast), where total regional population shifted from 4.580k in 1991AD to 4.790k in 2021AD (+4,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg5-sites} lists the catalogued urban settlements in Region 5 (Kyiv City & Kyiv Metropolitan Oblast), where total regional population shifted from 4,58M in 1991AD to 4,79M in 2021AD (+4,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg5, echo=FALSE, results='asis'}
 df_reg5 <- build_region_df("ukraine_kyiv_city_and_metropolitan_oblast")
@@ -468,9 +470,9 @@ render_table_template(
 )
 ```
 
-# Central & Northern Ukraine
+## Central & Northern Ukraine
 
-Table \ref{tab:reg6-sites} lists the catalogued urban settlements in Region 6 (Central & Northern Ukraine Depopulation Belt (Chernihiv, Sumy, Poltava, Cherkasy, Vinnytsia, Zhytomyr, Khmelnytskyi, Kirovohrad)), where total regional population shifted from 12.120k in 1991AD to 9.030k in 2021AD (-25,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg6-sites} lists the catalogued urban settlements in Region 6 (Central & Northern Ukraine Depopulation Belt (Chernihiv, Sumy, Poltava, Cherkasy, Vinnytsia, Zhytomyr, Khmelnytskyi, Kirovohrad)), where total regional population shifted from 12,12M in 1991AD to 9,03M in 2021AD (-25,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg6, echo=FALSE, results='asis'}
 df_reg6 <- build_region_df("ukraine_central_and_northern_depopulation_belt")
@@ -483,9 +485,9 @@ render_table_template(
 )
 ```
 
-# Kharkiv, Dnipro & Zaporizhzhia
+## Kharkiv, Dnipro & Zaporizhzhia
 
-Table \ref{tab:reg7-sites} lists the catalogued urban settlements in Region 7 (Kharkiv, Dnipropetrovsk & Zaporizhzhia Industrial East), where total regional population shifted from 9.100k in 1991AD to 7.250k in 2021AD (-20,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg7-sites} lists the catalogued urban settlements in Region 7 (Kharkiv, Dnipropetrovsk & Zaporizhzhia Industrial East), where total regional population shifted from 9,1M in 1991AD to 7,25M in 2021AD (-20,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg7, echo=FALSE, results='asis'}
 df_reg7 <- build_region_df("ukraine_kharkiv_dnipro_zaporizhzhia_industrial_east")
@@ -498,9 +500,9 @@ render_table_template(
 )
 ```
 
-# Ukrainian Black Sea Littoral
+## Ukrainian Black Sea Littoral
 
-Table \ref{tab:reg8-sites} lists the catalogued urban settlements in Region 8 (Ukrainian Black Sea Littoral (Odesa, Mykolaiv & Kherson Oblasts)), where total regional population shifted from 4.700k in 1991AD to 4.050k in 2021AD (-13,8%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg8-sites} lists the catalogued urban settlements in Region 8 (Ukrainian Black Sea Littoral (Odesa, Mykolaiv & Kherson Oblasts)), where total regional population shifted from 4,7M in 1991AD to 4,05M in 2021AD (-13,8%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg8, echo=FALSE, results='asis'}
 df_reg8 <- build_region_df("ukraine_black_sea_odesa_mykolaiv_kherson")
@@ -513,9 +515,9 @@ render_table_template(
 )
 ```
 
-# Donbas (Government-Controlled Area, 2014-2021AD)
+## Donbas (Government-Controlled Area, 2014-2021AD)
 
-Table \ref{tab:reg9-sites} lists the catalogued urban settlements in Region 9 (Government-Controlled Donbas (Mariupol, Kramatorsk, Sievierodonetsk 2014-2021AD)), where total regional population shifted from 3.620k in 1991AD to 2.210k in 2021AD (-39,0%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg9-sites} lists the catalogued urban settlements in Region 9 (Government-Controlled Donbas (Mariupol, Kramatorsk, Sievierodonetsk 2014-2021AD)), where total regional population shifted from 3,62M in 1991AD to 2,21M in 2021AD (-39%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg9, echo=FALSE, results='asis'}
 df_reg9 <- build_region_df("ukraine_donbas_government_controlled_2014_2021")
@@ -528,9 +530,9 @@ render_table_template(
 )
 ```
 
-# Occupied Donbas (2014AD - 2021AD)
+## Occupied Donbas (2014AD - 2021AD)
 
-Table \ref{tab:reg10-sites} lists the catalogued urban settlements in Region 10 (Pre-2022 Occupied Donbas: Donetsk-Makiivka-Horlivka and Luhansk-Alchevsk), where total regional population shifted from 4.600k in 1991AD to 2.470k in 2021AD (-46,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg10-sites} lists the catalogued urban settlements in Region 10 (Pre-2022 Occupied Donbas: Donetsk-Makiivka-Horlivka and Luhansk-Alchevsk), where total regional population shifted from 4,6M in 1991AD to 2,47M in 2021AD (-46,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg10, echo=FALSE, results='asis'}
 df_reg10 <- build_region_df("ukraine_donbas_occupied_ordlo_dpr_lpr_2014_2021")
@@ -543,9 +545,9 @@ render_table_template(
 )
 ```
 
-# Annexed Crimea & Sevastopol (2014-2021AD)
+## Annexed Crimea & Sevastopol (2014-2021AD)
 
-Table \ref{tab:reg11-sites} lists the catalogued urban settlements in Region 11 (Crimea & Sevastopol (March 2014AD Russian Annexation & Demographic Shift)), where total regional population shifted from 2.530k in 1991AD to 2.440k in 2021AD (-3,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg11-sites} lists the catalogued urban settlements in Region 11 (Crimea & Sevastopol (March 2014AD Russian Annexation & Demographic Shift)), where total regional population shifted from 2,53M in 1991AD to 2,44M in 2021AD (-3,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg11, echo=FALSE, results='asis'}
 df_reg11 <- build_region_df("crimea_and_sevastopol_2014_annexation")
@@ -558,9 +560,9 @@ render_table_template(
 )
 ```
 
-# Moscow Megaregion (City & Oblast)
+## Moscow Megaregion (City & Oblast)
 
-Table \ref{tab:reg12-sites} lists the catalogued urban settlements in Region 12 (Moscow City & Moscow Oblast Post-Soviet Hyper-Centralisation Core), where total regional population shifted from 15.800k in 1991AD to 21.150k in 2021AD (+33,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg12-sites} lists the catalogued urban settlements in Region 12 (Moscow City & Moscow Oblast Post-Soviet Hyper-Centralisation Core), where total regional population shifted from 15,8M in 1991AD to 21,15M in 2021AD (+33,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg12, echo=FALSE, results='asis'}
 df_reg12 <- build_region_df("russia_moscow_city_and_oblast_megaregion")
@@ -573,9 +575,9 @@ render_table_template(
 )
 ```
 
-# Saint Petersburg, Leningrad & Kaliningrad
+## Saint Petersburg, Leningrad & Kaliningrad
 
-Table \ref{tab:reg13-sites} lists the catalogued urban settlements in Region 13 (Saint Petersburg, Leningrad Oblast & Kaliningrad Exclave), where total regional population shifted from 7.620k in 1991AD to 8.420k in 2021AD (+10,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg13-sites} lists the catalogued urban settlements in Region 13 (Saint Petersburg, Leningrad Oblast & Kaliningrad Exclave), where total regional population shifted from 7,62M in 1991AD to 8,42M in 2021AD (+10,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg13, echo=FALSE, results='asis'}
 df_reg13 <- build_region_df("russia_st_petersburg_leningrad_and_kaliningrad")
@@ -588,9 +590,9 @@ render_table_template(
 )
 ```
 
-# Depopulating Northwest & Karelia
+## Depopulating Northwest & Karelia
 
-Table \ref{tab:reg14-sites} lists the catalogued urban settlements in Region 14 (Depopulating Northwest: Pskov, Novgorod, Vologda & Republic of Karelia), where total regional population shifted from 3.720k in 1991AD to 2.800k in 2021AD (-24,7%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg14-sites} lists the catalogued urban settlements in Region 14 (Depopulating Northwest: Pskov, Novgorod, Vologda & Republic of Karelia), where total regional population shifted from 3,72M in 1991AD to 2,8M in 2021AD (-24,7%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg14, echo=FALSE, results='asis'}
 df_reg14 <- build_region_df("russia_northwest_pskov_novgorod_vologda_karelia")
@@ -603,9 +605,9 @@ render_table_template(
 )
 ```
 
-# European Russian Arctic Exodus Zone
+## European Russian Arctic Exodus Zone
 
-Table \ref{tab:reg15-sites} lists the catalogued urban settlements in Region 15 (European Arctic Exodus Zone: Murmansk, Arkhangelsk, Komi & Nenets AO), where total regional population shifted from 4.320k in 1991AD to 2.760k in 2021AD (-36,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg15-sites} lists the catalogued urban settlements in Region 15 (European Arctic Exodus Zone: Murmansk, Arkhangelsk, Komi & Nenets AO), where total regional population shifted from 4,32M in 1991AD to 2,76M in 2021AD (-36,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg15, echo=FALSE, results='asis'}
 df_reg15 <- build_region_df("russia_european_arctic_exodus_murmansk_arkhangelsk_komi_nenets")
@@ -618,9 +620,9 @@ render_table_template(
 )
 ```
 
-# Central Non-Black-Earth Ring
+## Central Non-Black-Earth Ring
 
-Table \ref{tab:reg16-sites} lists the catalogued urban settlements in Region 16 (Central Non-Black-Earth Mortality & Shrinkage Ring), where total regional population shifted from 12.350k in 1991AD to 9.750k in 2021AD (-21,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg16-sites} lists the catalogued urban settlements in Region 16 (Central Non-Black-Earth Mortality & Shrinkage Ring), where total regional population shifted from 12,35M in 1991AD to 9,75M in 2021AD (-21,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg16, echo=FALSE, results='asis'}
 df_reg16 <- build_region_df("russia_central_non_black_earth_shrinkage_ring")
@@ -633,9 +635,9 @@ render_table_template(
 )
 ```
 
-# Central Black-Earth Belt (Chernozemye)
+## Central Black-Earth Belt (Chernozemye)
 
-Table \ref{tab:reg17-sites} lists the catalogued urban settlements in Region 17 (Central Black-Earth Belt (Belgorod-Voronezh CIS Returnee Magnet, Kursk, Lipetsk, Tambov)), where total regional population shifted from 7.750k in 1991AD to 7.020k in 2021AD (-9,4%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg17-sites} lists the catalogued urban settlements in Region 17 (Central Black-Earth Belt (Belgorod-Voronezh CIS Returnee Magnet, Kursk, Lipetsk, Tambov)), where total regional population shifted from 7,75M in 1991AD to 7,02M in 2021AD (-9,4%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg17, echo=FALSE, results='asis'}
 df_reg17 <- build_region_df("russia_central_black_earth_belgorod_voronezh_kursk_lipetsk_tambov")
@@ -648,9 +650,9 @@ render_table_template(
 )
 ```
 
-# Volga-Kama Core (Tatarstan & Bashkortostan)
+## Volga-Kama Core (Tatarstan & Bashkortostan)
 
-Table \ref{tab:reg18-sites} lists the catalogued urban settlements in Region 18 (Republics of Tatarstan & Bashkortostan), where total regional population shifted from 7.580k in 1991AD to 7.950k in 2021AD (+4,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg18-sites} lists the catalogued urban settlements in Region 18 (Republics of Tatarstan & Bashkortostan), where total regional population shifted from 7,58M in 1991AD to 7,95M in 2021AD (+4,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg18, echo=FALSE, results='asis'}
 df_reg18 <- build_region_df("russia_volga_tatarstan_and_bashkortostan_republics")
@@ -663,9 +665,9 @@ render_table_template(
 )
 ```
 
-# Middle Volga & Finno-Ugric Republics
+## Middle Volga & Finno-Ugric Republics
 
-Table \ref{tab:reg19-sites} lists the catalogued urban settlements in Region 19 (Middle Volga Oblasts (Samara, Nizhny Novgorod, Kirov, Ulyanovsk, Penza) & Chuvash/Mari/Mordovia/Udmurtia), where total regional population shifted from 15.400k in 1991AD to 13.315k in 2021AD (-13,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg19-sites} lists the catalogued urban settlements in Region 19 (Middle Volga Oblasts (Samara, Nizhny Novgorod, Kirov, Ulyanovsk, Penza) & Chuvash/Mari/Mordovia/Udmurtia), where total regional population shifted from 15,4M in 1991AD to 13,31M in 2021AD (-13,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg19, echo=FALSE, results='asis'}
 df_reg19 <- build_region_df("russia_volga_samara_nizhny_and_finno_ugric_republics")
@@ -678,9 +680,9 @@ render_table_template(
 )
 ```
 
-# Lower Volga Valley & Kalmykia
+## Lower Volga Valley & Kalmykia
 
-Table \ref{tab:reg20-sites} lists the catalogued urban settlements in Region 20 (Lower Volga (Saratov, Volgograd, Astrakhan) & Republic of Kalmykia), where total regional population shifted from 7.120k in 1991AD to 6.440k in 2021AD (-9,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg20-sites} lists the catalogued urban settlements in Region 20 (Lower Volga (Saratov, Volgograd, Astrakhan) & Republic of Kalmykia), where total regional population shifted from 7,12M in 1991AD to 6,44M in 2021AD (-9,6%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg20, echo=FALSE, results='asis'}
 df_reg20 <- build_region_df("russia_lower_volga_saratov_volgograd_astrakhan_kalmykia")
@@ -693,9 +695,9 @@ render_table_template(
 )
 ```
 
-# Southern Russian Sunbelt (Kuban, Don & Stavropol)
+## Southern Russian Sunbelt (Kuban, Don & Stavropol)
 
-Table \ref{tab:reg21-sites} lists the catalogued urban settlements in Region 21 (Southern Russian Sunbelt Magnet (Krasnodar, Rostov, Stavropol & Adygea)), where total regional population shifted from 13.150k in 1991AD to 14.710k in 2021AD (+11,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg21-sites} lists the catalogued urban settlements in Region 21 (Southern Russian Sunbelt Magnet (Krasnodar, Rostov, Stavropol & Adygea)), where total regional population shifted from 13,15M in 1991AD to 14,71M in 2021AD (+11,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg21, echo=FALSE, results='asis'}
 df_reg21 <- build_region_df("russia_southern_sunbelt_krasnodar_rostov_stavropol_adygea")
@@ -708,9 +710,9 @@ render_table_template(
 )
 ```
 
-# Chechnya & Ingushetia (Chechen War Zone)
+## Chechnya & Ingushetia (Chechen War Zone)
 
-Table \ref{tab:reg22-sites} lists the catalogued urban settlements in Region 22 (Chechnya & Ingushetia (1994-2009AD Chechen Wars, Nazran IDP Surge & Post-War Rebound)), where total regional population shifted from 1.320k in 1991AD to 2.040k in 2021AD (+54,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg22-sites} lists the catalogued urban settlements in Region 22 (Chechnya & Ingushetia (1994-2009AD Chechen Wars, Nazran IDP Surge & Post-War Rebound)), where total regional population shifted from 1,32M in 1991AD to 2,04M in 2021AD (+54,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg22, echo=FALSE, results='asis'}
 df_reg22 <- build_region_df("russia_chechnya_and_ingushetia_wars_and_rebound")
@@ -723,9 +725,9 @@ render_table_template(
 )
 ```
 
-# North Ossetia, Kabardino-Balkaria & Karachay
+## North Ossetia, Kabardino-Balkaria & Karachay
 
-Table \ref{tab:reg23-sites} lists the catalogued urban settlements in Region 23 (North Ossetia (1992AD Prigorodny Conflict), Kabardino-Balkaria & Karachay-Cherkessia), where total regional population shifted from 1.920k in 1991AD to 2.110k in 2021AD (+9,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg23-sites} lists the catalogued urban settlements in Region 23 (North Ossetia (1992AD Prigorodny Conflict), Kabardino-Balkaria & Karachay-Cherkessia), where total regional population shifted from 1,92M in 1991AD to 2,11M in 2021AD (+9,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg23, echo=FALSE, results='asis'}
 df_reg23 <- build_region_df("russia_central_caucasus_ossetia_kabardino_karachay")
@@ -738,9 +740,9 @@ render_table_template(
 )
 ```
 
-# Republic of Dagestan (Caspian Boom)
+## Republic of Dagestan (Caspian Boom)
 
-Table \ref{tab:reg24-sites} lists the catalogued urban settlements in Region 24 (Republic of Dagestan (Post-Soviet Natural Increase & Makhachkala-Kaspiysk Urban Boom)), where total regional population shifted from 1.880k in 1991AD to 3.330k in 2021AD (+77,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg24-sites} lists the catalogued urban settlements in Region 24 (Republic of Dagestan (Post-Soviet Natural Increase & Makhachkala-Kaspiysk Urban Boom)), where total regional population shifted from 1,88M in 1991AD to 3,33M in 2021AD (+77,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg24, echo=FALSE, results='asis'}
 df_reg24 <- build_region_df("russia_dagestan_high_fertility_boom")
@@ -753,9 +755,9 @@ render_table_template(
 )
 ```
 
-# Ural Industrial Belt (Sverdlovsk to Orenburg)
+## Ural Industrial Belt (Sverdlovsk to Orenburg)
 
-Table \ref{tab:reg25-sites} lists the catalogued urban settlements in Region 25 (Ural Industrial Belt (Sverdlovsk, Chelyabinsk, Perm, Orenburg & Kurgan)), where total regional population shifted from 16.320k in 1991AD to 15.700k in 2021AD (-3,8%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg25-sites} lists the catalogued urban settlements in Region 25 (Ural Industrial Belt (Sverdlovsk, Chelyabinsk, Perm, Orenburg & Kurgan)), where total regional population shifted from 16,32M in 1991AD to 15,7M in 2021AD (-3,8%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg25, echo=FALSE, results='asis'}
 df_reg25 <- build_region_df("russia_ural_industrial_sverdlovsk_chelyabinsk_perm_orenburg_kurgan")
@@ -768,9 +770,9 @@ render_table_template(
 )
 ```
 
-# Yugra & Yamal Hydrocarbon Arctic
+## Yugra & Yamal Hydrocarbon Arctic
 
-Table \ref{tab:reg26-sites} lists the catalogued urban settlements in Region 26 (Khanty-Mansi (Yugra) & Yamalo-Nenets Hydrocarbon Autonomous Okrugs), where total regional population shifted from 1.820k in 1991AD to 2.255k in 2021AD (+23,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg26-sites} lists the catalogued urban settlements in Region 26 (Khanty-Mansi (Yugra) & Yamalo-Nenets Hydrocarbon Autonomous Okrugs), where total regional population shifted from 1,82M in 1991AD to 2,25M in 2021AD (+23,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg26, echo=FALSE, results='asis'}
 df_reg26 <- build_region_df("russia_yugra_and_yamal_hydrocarbon_arctic")
@@ -783,9 +785,9 @@ render_table_template(
 )
 ```
 
-# West Siberian Trans-Siberian Corridor
+## West Siberian Trans-Siberian Corridor
 
-Table \ref{tab:reg27-sites} lists the catalogued urban settlements in Region 27 (West Siberian Trans-Siberian Belt (Tyumen City Boom, Omsk, Novosibirsk, Tomsk & Altai Krai)), where total regional population shifted from 11.150k in 1991AD to 10.495k in 2021AD (-5,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg27-sites} lists the catalogued urban settlements in Region 27 (West Siberian Trans-Siberian Belt (Tyumen City Boom, Omsk, Novosibirsk, Tomsk & Altai Krai)), where total regional population shifted from 11,15M in 1991AD to 10,49M in 2021AD (-5,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg27, echo=FALSE, results='asis'}
 df_reg27 <- build_region_df("russia_west_siberia_transsiberian_tyumen_omsk_novosibirsk_tomsk_altai")
@@ -798,9 +800,9 @@ render_table_template(
 )
 ```
 
-# Kuzbass Coal-Metallurgical Basin (Kemerovo)
+## Kuzbass Coal-Metallurgical Basin (Kemerovo)
 
-Table \ref{tab:reg28-sites} lists the catalogued urban settlements in Region 28 (Kuzbass Coal-Metallurgical Basin (Kemerovo Oblast Post-Soviet Mine Closures)), where total regional population shifted from 3.180k in 1991AD to 2.600k in 2021AD (-18,2%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg28-sites} lists the catalogued urban settlements in Region 28 (Kuzbass Coal-Metallurgical Basin (Kemerovo Oblast Post-Soviet Mine Closures)), where total regional population shifted from 3,18M in 1991AD to 2,6M in 2021AD (-18,2%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg28, echo=FALSE, results='asis'}
 df_reg28 <- build_region_df("russia_kuzbass_kemerovo_coal_restructuring")
@@ -813,9 +815,9 @@ render_table_template(
 )
 ```
 
-# Southern Siberian Republics (Altai, Khakassia & Tuva)
+## Southern Siberian Republics (Altai, Khakassia & Tuva)
 
-Table \ref{tab:reg29-sites} lists the catalogued urban settlements in Region 29 (Southern Siberian Republics: Altai, Khakassia & Tuva (High Indigenous TFR & Russian Outflow)), where total regional population shifted from 1.090k in 1991AD to 1.085k in 2021AD (-0,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg29-sites} lists the catalogued urban settlements in Region 29 (Southern Siberian Republics: Altai, Khakassia & Tuva (High Indigenous TFR & Russian Outflow)), where total regional population shifted from 1,09M in 1991AD to 1,08M in 2021AD (-0,5%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg29, echo=FALSE, results='asis'}
 df_reg29 <- build_region_df("russia_altai_khakassia_and_tuva_republics")
@@ -828,9 +830,9 @@ render_table_template(
 )
 ```
 
-# East Siberian Trans-Siberian Corridor
+## East Siberian Trans-Siberian Corridor
 
-Table \ref{tab:reg30-sites} lists the catalogued urban settlements in Region 30 (East Siberian Trans-Siberian & Angara-Yenisei Corridor (Krasnoyarsk & Irkutsk)), where total regional population shifted from 6.030k in 1991AD to 5.170k in 2021AD (-14,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg30-sites} lists the catalogued urban settlements in Region 30 (East Siberian Trans-Siberian & Angara-Yenisei Corridor (Krasnoyarsk & Irkutsk)), where total regional population shifted from 6,03M in 1991AD to 5,17M in 2021AD (-14,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg30, echo=FALSE, results='asis'}
 df_reg30 <- build_region_df("russia_krasnoyarsk_and_irkutsk_transsiberian_corridor")
@@ -843,7 +845,7 @@ render_table_template(
 )
 ```
 
-# Norilsk, Taymyr & Evenkia Polar Zone
+## Norilsk, Taymyr & Evenkia Polar Zone
 
 Table \ref{tab:reg31-sites} lists the catalogued urban settlements in Region 31 (Norilsk, Taymyr & Evenkia Polar De-Population Zone), where total regional population shifted from 380k in 1991AD to 220k in 2021AD (-42,1%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
@@ -858,9 +860,9 @@ render_table_template(
 )
 ```
 
-# Republic of Buryatia & Zabaykalsky Krai
+## Republic of Buryatia & Zabaykalsky Krai
 
-Table \ref{tab:reg32-sites} lists the catalogued urban settlements in Region 32 (Republic of Buryatia (Ulan-Ude Rural-Urban Shift) & Zabaykalsky Krai), where total regional population shifted from 2.410k in 1991AD to 1.995k in 2021AD (-17,2%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg32-sites} lists the catalogued urban settlements in Region 32 (Republic of Buryatia (Ulan-Ude Rural-Urban Shift) & Zabaykalsky Krai), where total regional population shifted from 2,41M in 1991AD to 2M in 2021AD (-17,2%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg32, echo=FALSE, results='asis'}
 df_reg32 <- build_region_df("russia_buryatia_and_zabaykalsky_transbaikalia")
@@ -873,9 +875,9 @@ render_table_template(
 )
 ```
 
-# Sakha Republic (Yakutia)
+## Sakha Republic (Yakutia)
 
-Table \ref{tab:reg33-sites} lists the catalogued urban settlements in Region 33 (Sakha Republic (Yakutia: Yakutsk Boom vs Arctic Mining Settlement Collapse)), where total regional population shifted from 1.110k in 1991AD to 985k in 2021AD (-11,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg33-sites} lists the catalogued urban settlements in Region 33 (Sakha Republic (Yakutia: Yakutsk Boom vs Arctic Mining Settlement Collapse)), where total regional population shifted from 1,11M in 1991AD to 985k in 2021AD (-11,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg33, echo=FALSE, results='asis'}
 df_reg33 <- build_region_df("russia_sakha_yakutia_indigenous_urbanisation")
@@ -888,9 +890,9 @@ render_table_template(
 )
 ```
 
-# Extreme Northeast Arctic Exodus Zone
+## Extreme Northeast Arctic Exodus Zone
 
-Table \ref{tab:reg34-sites} lists the catalogued urban settlements in Region 34 (Extreme Northeast Arctic Exodus Zone (Magadan -65%, Chukotka -70% & Kamchatka)), where total regional population shifted from 1.030k in 1991AD to 485k in 2021AD (-52,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg34-sites} lists the catalogued urban settlements in Region 34 (Extreme Northeast Arctic Exodus Zone (Magadan -65%, Chukotka -70% & Kamchatka)), where total regional population shifted from 1,03M in 1991AD to 485k in 2021AD (-52,9%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg34, echo=FALSE, results='asis'}
 df_reg34 <- build_region_df("russia_extreme_northeast_exodus_magadan_chukotka_kamchatka")
@@ -903,9 +905,9 @@ render_table_template(
 )
 ```
 
-# Southern Far East & Pacific Corridor
+## Southern Far East & Pacific Corridor
 
-Table \ref{tab:reg35-sites} lists the catalogued urban settlements in Region 35 (Southern Far East & Pacific Corridor (Primorye, Khabarovsk, Amur, Jewish AO & Sakhalin)), where total regional population shifted from 6.060k in 1991AD to 4.585k in 2021AD (-24,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
+Table \ref{tab:reg35-sites} lists the catalogued urban settlements in Region 35 (Southern Far East & Pacific Corridor (Primorye, Khabarovsk, Amur, Jewish AO & Sakhalin)), where total regional population shifted from 6,06M in 1991AD to 4,58M in 2021AD (-24,3%) [@belstat2020perepis2019; @ukrstat2021naselennia; @rosstat2022perepis2021].
 
 ```{r table-reg35, echo=FALSE, results='asis'}
 df_reg35 <- build_region_df("russia_southern_far_east_pacific_primorye_khabarovsk_amur_sakhalin")
@@ -918,9 +920,11 @@ render_table_template(
 )
 ```
 
-# 35-Region Gazetteer Summary (1991AD - 2021AD)
+# Appendix
 
-Table \ref{tab:regional-summary} summarises the number of catalogued urban settlements (n = 234) and their combined urban sample population across all 35 regions from 1991AD to 2021AD. Across the entire sample of 234 primary and secondary cities, combined urban population rose from 98,92M in 1991AD to 104,20M in 2021AD (+5,3%), reflecting the concentration of post-Soviet populations into major metropolitan agglomerations (Regions 1, 5, 12, 13, 18, 21, 24, 26) even as rural countrysides, conflict zones (Regions 9, 10, 22), and Northern/coal-mining *monogoroda* (Regions 15, 28, 31, 34, 35) contracted sharply.
+## 35-Region Gazetteer Summary (1991AD - 2021AD)
+
+Table \ref{tab:regional-summary} summarises the number of catalogued urban settlements (n = 234) and their combined urban sample population across all 35 regions from 1991AD to 2021AD. Across the entire sample of 234 primary and secondary cities, combined urban population rose from 98,92M in 1991AD to 104,2M in 2021AD (+5,3%), reflecting the concentration of post-Soviet populations into major metropolitan agglomerations (Regions 1, 5, 12, 13, 18, 21, 24, 26) even as rural countrysides, conflict zones (Regions 9, 10, 22), and Northern/coal-mining *monogoroda* (Regions 15, 28, 31, 34, 35) contracted sharply.
 
 ```{r table-summary, echo=FALSE, results='asis'}
 bench_yrs <- c("1991", "2002", "2010", "2014", "2021")

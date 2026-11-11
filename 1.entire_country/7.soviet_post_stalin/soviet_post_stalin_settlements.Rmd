@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -338,10 +338,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -692,13 +699,15 @@ fmt_reg_short <- function (arg0_s) {
 }
 ```
 
-# Settlement Gazetteer Overview (1953AD - 1991AD)
+# Methodology
 
-This supplementary settlement gazetteer accompanies the regional demographic literature review for the post-Stalin Soviet Union (1953AD - 1991AD) and compiles 292 individual urban, industrial, scientific, naval, resource-frontier, and evacuated settlements across all forty-one Late-Soviet regions of the Estonian SSR (Region 1), Latvian SSR (Region 2), Lithuanian SSR (Region 3), Moldavian SSR (Region 4), Kaliningrad Oblast RSFSR exclave (Region 5), Byelorussian SSR (Regions 6-8), Ukrainian SSR (Regions 9-15), and mainland RSFSR (Regions 16-41) [@tssu_1962_perepis_1959; @tssu_1972_perepis_1970; @tssu_1984_perepis_1979; @goskomstat_1991_perepis_1989; @goskomstat_1992_demograficheskiy_ezhegodnik_1991]. Every entry records verified geographic coordinates, historical Soviet or pre-Soviet toponyms and functional designations, modern republic attribution (Estonia, Latvia, Lithuania, Moldova, Belarus, Ukraine, or Russia), and positive integer population series across the six post-Stalin benchmark years (1953AD, 1959AD, 1970AD, 1979AD, 1989AD, and 1991AD, plus 1986AD pre-evacuation benchmarks for settlements inside the Chernobyl Exclusion Zone) [@lappo_1997_geografiya_gorodov; @rowland_1996_russia_secret_cities_zato; @iaea_2006_chernobyl_environmental_consequences].
+This supplementary settlement gazetteer accompanies the regional demographic literature review for the post-Stalin Soviet Union (1953AD - 1991AD) and compiles 292 individual urban, industrial, scientific, naval, resource-frontier, and evacuated settlements across all forty-one Late-Soviet regions of the Estonian SSR (Region 1), Latvian SSR (Region 2), Lithuanian SSR (Region 3), Moldavian SSR (Region 4), Kaliningrad Oblast RSFSR exclave (Region 5), Byelorussian SSR (Regions 6-8), Ukrainian SSR (Regions 9-15), and mainland RSFSR (Regions 16-41) [@tssu_1962_perepis_1959; @tssu_1972_perepis_1970; @tssu_1984_perepis_1979; @goskomstat_1991_perepis_1989; @goskomstat_1992_demograficheskiy_ezhegodnik_1991]. Every entry records geographic coordinates, historical Soviet or pre-Soviet toponyms and functional designations, modern republic attribution (Estonia, Latvia, Lithuania, Moldova, Belarus, Ukraine, or Russia), and positive integer population series across the six post-Stalin benchmark years (1953AD, 1959AD, 1970AD, 1979AD, 1989AD, and 1991AD, plus 1986AD pre-evacuation benchmarks for settlements inside the Chernobyl Exclusion Zone) [@lappo_1997_geografiya_gorodov; @rowland_1996_russia_secret_cities_zato; @iaea_2006_chernobyl_environmental_consequences].
 
 To facilitate regional cross-referencing across all forty-one Late-Soviet regions, Section 2 tabulates the 47 enumerated settlements of the Baltic SSRs (Estonia, Latvia, Lithuania), the Moldavian SSR, and the Kaliningrad Oblast Baltic Fleet exclave (Regions 1-5, including Snieckus/Visaginas, Sillamae, Tiraspol, Ribnita, Comrat, and Baltiysk), Section 3 tabulates the 82 settlements of the Byelorussian SSR (Regions 6-8) and Ukrainian SSR (Regions 9-15, including the 1954AD Crimean transfer and the 1986AD Chernobyl Exclusion Zone), Section 4 tabulates 107 settlements across European Russia, Leningrad-Novgorod-Pskov (Region 17), the Karelian and Komi ASSRs, the *Nechernozemye* depopulation ring, the Volga-Kama and Ural ASSRs, the 1957AD restored North Caucasus and Kalmyk ASSRs, and declassified *ZATO* nuclear cities (Regions 16-30), Section 5 tabulates 56 settlements across the Yamalo-Nenets and Khanty-Mansi hydrocarbon okrugs, Western Siberia, the Angara-Yenisei hydro cascades, the Tuva, Buryat, and Yakut ASSRs, the Baikal-Amur Mainline (BAM), and the Russian Far East (Regions 31-41), and Section 6 provides the complete unified alphabetical directory across all forty-one regions.
 
-# Baltic SSRs, Moldavian SSR, and Kaliningrad Exclave Directory (Regions 1 - 5)
+# Results
+
+## Baltic SSRs, Moldavian SSR, and Kaliningrad Exclave Directory (Regions 1 - 5)
 
 ```{r tab-western-ssrs-kaliningrad, echo=FALSE, results='asis'}
 west_ids <- c(
@@ -733,7 +742,7 @@ render_table_template(
 )
 ```
 
-# Belarus and Ukraine Settlement Directory (Regions 6 - 15)
+## Belarus and Ukraine Settlement Directory (Regions 6 - 15)
 
 ```{r tab-belarus-ukraine, echo=FALSE, results='asis'}
 sub_bu <- Filter(function (s) s$country %in% c("Belarus", "Ukraine"), settlements_list)
@@ -761,7 +770,7 @@ render_table_template(
 )
 ```
 
-# European Russia, Volga-Urals, and North Caucasus Directory (Regions 16 - 30)
+## European Russia, Volga-Urals, and North Caucasus Directory (Regions 16 - 30)
 
 ```{r tab-european-russia, echo=FALSE, results='asis'}
 sib_ids <- c(
@@ -802,7 +811,7 @@ render_table_template(
 )
 ```
 
-# Siberia, Yakutia, and the Russian Far East Directory (Regions 31 - 41)
+## Siberia, Yakutia, and the Russian Far East Directory (Regions 31 - 41)
 
 ```{r tab-siberia-fareast, echo=FALSE, results='asis'}
 sub_sib <- Filter(function (s) s$country == "Russia" && (get_rid(s) %in% sib_ids), settlements_list)
@@ -830,7 +839,9 @@ render_table_template(
 )
 ```
 
-# Complete Alphabetical Settlement Directory (292 Settlements)
+# Appendix
+
+## Alphabetical Settlement Directory (292 Settlements)
 
 ```{r tab-complete-directory, echo=FALSE, results='asis'}
 all_sorted <- settlements_list[order(vapply(settlements_list, function (s) as.character(s$key), character(1)))]

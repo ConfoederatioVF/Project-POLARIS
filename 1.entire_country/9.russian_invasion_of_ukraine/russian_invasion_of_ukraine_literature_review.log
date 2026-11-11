@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 10:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,23 +1027,37 @@ File: figures/russian_invasion_of_ukraine_regional_map.png Graphic file (type bm
 ] [2] [3]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 227.
+(hyperref)                be the same. Added a new anchor on input line 223.
 
 [4] [5]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 328.
+
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig2_population_trajectory.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig2_population_trajectory.png>
 [6] [7]
-Overfull \hbox (3.38214pt too wide) in paragraph at lines 487--487
+Overfull \hbox (3.38214pt too wide) in paragraph at lines 470--470
 \TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk 
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15]
+[8] [9] [10] [11] [12] [13] [14] [15] [16]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig3_subregional_distribution.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig3_subregional_distribution.png>
-[16] [17] [18]
+[17] [18] [19]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig4_urban_hierarchy.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/figures/russian_invasion_of_ukraine_fig4_urban_hierarchy.png>
-[19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] (./russian_invasion_of_ukraine_literature_review.aux)
+[20]
+Overfull \hbox (2.44565pt too wide) in paragraph at lines 790--790
+[]|\TU/Karla(0)/b/n/10 Named/ 
+ []
+
+
+Overfull \hbox (2.44565pt too wide) in paragraph at lines 793--793
+[]|\TU/Karla(0)/b/n/10 Named/ 
+ []
+
+[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] (./russian_invasion_of_ukraine_literature_review.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1053,15 +1067,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `russian_invasion_of_ukraine_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: F94EAB3B1D2C558F3468FDB1EE46956B;4166.
+(rerunfilecheck)             Checksum: C6CFCA352D24B8E7AC64B2B957D0C05C;3535.
  ) 
 Here is how much of TeX's memory you used:
- 28466 strings out of 469594
- 591241 string characters out of 5460474
- 1187790 words of memory out of 5000000
- 57094 multiletter control sequences out of 15000+600000
+ 28468 strings out of 469594
+ 591237 string characters out of 5460474
+ 1174956 words of memory out of 5000000
+ 57097 multiletter control sequences out of 15000+600000
  634857 words of font info for 122 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,1033b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1031b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on russian_invasion_of_ukraine_literature_review.pdf (30 pages).

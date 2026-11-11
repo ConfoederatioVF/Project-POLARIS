@@ -351,7 +351,7 @@ build_reg48_df <- function (arg0_reg_nums) {
 GAZ_COL_FRACS <- c(0.245, 0.115, rep(0.0545, 9))
 ```
 
-# Overview and Forty-Eight-Region Tsarist Gazetteer Structure
+# Methodology
 
 This supplementary settlement gazetteer compiles 275 urban centres, governorate and uezd seats, seceding national capitals, early Soviet autonomous republic (ASSR) and autonomous oblast (AO) capitals, industrial towns and Arctic river posts across all forty-eight pre-war Tsarist Governorates and Oblasts (18.607.231 km2) from the 1914AD pre-war baseline through the 1917AD Revolutions, the 1918-1922AD Civil War and Independence Wars, the 1921-1922AD Povolzhye-Ural-Southern Ukrainian Famine and the 1926AD recovery. Every catalogued settlement is mapped to one of the forty-eight historical regions alongside positive integer population benchmarks across all nine epoch years: 1914AD, 1917AD, 1918AD, 1919AD, 1920AD, 1921AD, 1922AD, 1924AD and 1926AD.
 
@@ -370,9 +370,11 @@ if (!knitr::is_latex_output()) {
 }
 ```
 
-# Regions 1 - 4: Former Congress Poland (Ten Vistula Governorates)
+# Results
 
-Table \ref{tab:reg1-4} documents 23 industrial and administrative centres across Warsaw, Plock and Lomza (Region 1), Piotrkow and Kalisz (Region 2), Lublin, Siedlce and Kholm (Region 3) and Radom, Kielce and Suwalki (Region 4), capturing the 1914AD shelling of Kalisz, the 1915AD Great Retreat evacuation, raw-material blockade de-industrialisation in Lodz (477,9k to 342,0k in 1917AD), the 1920AD Battle of Warsaw and post-Riga urban recovery in the 1921AD Polish Census [@gus1921skorowidz; @barwinski2015ethnic; @gatrell1999whole].
+## Regions 1 - 4: Former Congress Poland (Ten Vistula Governorates)
+
+Table \ref{tab:reg1-4} documents 23 industrial and administrative centres across Warsaw, Plock and Lomza (Region 1), Piotrkow and Kalisz (Region 2), Lublin, Siedlce and Kholm (Region 3) and Radom, Kielce and Suwalki (Region 4), capturing the 1914AD shelling of Kalisz, the 1915AD Great Retreat evacuation, raw-material blockade de-industrialisation in Lodz (477,9k to 342k in 1917AD), the 1920AD Battle of Warsaw and post-Riga urban recovery in the 1921AD Polish Census [@gus1921skorowidz; @barwinski2015ethnic; @gatrell1999whole].
 
 ```{r table-reg1-4, echo=FALSE, results='asis'}
 render_table_template(
@@ -385,9 +387,9 @@ render_table_template(
 )
 ```
 
-# Regions 5 - 9: Baltic Governorates and Finland
+## Regions 5 - 9: Baltic Governorates and Finland
 
-Table \ref{tab:reg5-9} lists 28 port, industrial and administrative centres across Estland (Region 5), Livland (Region 6), Courland (Region 7), Southern Finland (Region 8) and Interior and Northern Finland (Region 9), recording the 1915-1917AD evacuation of Courland and Riga (517,5k to 185,1k by 1920AD before recovering to 339,0k by 1926AD), the 1918AD Finnish Civil War and prison camp mortality at Helsingfors, Tammerfors, Tavastehus and Viipuri, and the 1920-1925AD Estonian, Latvian and Finnish censuses [@myrskyla2023finnish; @rantala2020warvictims; @gusachenko2021latvia; @estonia1924rahvaloendus; @skujenieks1927latvia; @svt1923finland].
+Table \ref{tab:reg5-9} lists 28 port, industrial and administrative centres across Estland (Region 5), Livland (Region 6), Courland (Region 7), Southern Finland (Region 8) and Interior and Northern Finland (Region 9), recording the 1915-1917AD evacuation of Courland and Riga (517,5k to 185,1k by 1920AD before recovering to 339k by 1926AD), the 1918AD Finnish Civil War and prison camp mortality at Helsingfors, Tammerfors, Tavastehus and Viipuri, and the 1920-1925AD Estonian, Latvian and Finnish censuses [@myrskyla2023finnish; @rantala2020warvictims; @gusachenko2021latvia; @estonia1924rahvaloendus; @skujenieks1927latvia; @svt1923finland].
 
 ```{r table-reg5-9, echo=FALSE, results='asis'}
 render_table_template(
@@ -400,9 +402,9 @@ render_table_template(
 )
 ```
 
-# Regions 10 - 16: Lithuania, Belarus, Galicia, Bukovina-Subcarpathia and Bessarabia
+## Regions 10 - 16: Lithuania, Belarus, Galicia, Bukovina-Subcarpathia and Bessarabia
 
-Table \ref{tab:reg10-16} covers 42 cities across Kovno (Region 10), Vilna and Grodno (Region 11), Minsk (Region 12), Vitebsk and Mogilev including Latgalian Dvinsk and Rezhitsa (Region 13), Eastern Galicia (Region 14), Bukovina and Subcarpathian Rus (Region 15) and Bessarabia (Region 16), tracing Ober Ost depopulation, Kaunas's provisional capital boom (42,0k to 94,4k), Zeligowski's 1920AD seizure of Vilna, the 1921AD Riga partition of Belarus, the 1918-1919AD battle for Lviv and the Khotyn (1919AD) and Tatarbunary (1924AD) uprisings in Bessarabia [@balkelis2018war; @marcinkevicius2026lithuania; @cichoracki2014polesia; @mick2016galicia; @tartakovsky2009bessarabia; @bondarenko2019bessarabia].
+Table \ref{tab:reg10-16} covers 42 cities across Kovno (Region 10), Vilna and Grodno (Region 11), Minsk (Region 12), Vitebsk and Mogilev including Latgalian Dvinsk and Rezhitsa (Region 13), Eastern Galicia (Region 14), Bukovina and Subcarpathian Rus (Region 15) and Bessarabia (Region 16), tracing Ober Ost depopulation, Kaunas's provisional capital boom (42k to 94,4k), Zeligowski's 1920AD seizure of Vilna, the 1921AD Riga partition of Belarus, the 1918-1919AD battle for Lviv and the Khotyn (1919AD) and Tatarbunary (1924AD) uprisings in Bessarabia [@balkelis2018war; @marcinkevicius2026lithuania; @cichoracki2014polesia; @mick2016galicia; @tartakovsky2009bessarabia; @bondarenko2019bessarabia].
 
 ```{r table-reg10-16, echo=FALSE, results='asis'}
 render_table_template(
@@ -415,9 +417,9 @@ render_table_template(
 )
 ```
 
-# Regions 17 - 24: Ukraine, Novorossiya and Taurida-Crimea
+## Regions 17 - 24: Ukraine, Novorossiya and Taurida-Crimea
 
-Table \ref{tab:reg17-24} lists 46 urban and industrial centres across Volhynia (Region 17), Podolia (Region 18), Kyiv (Region 19), Chernigov and Poltava (Region 20), Kharkov (Region 21), Kherson (Region 22), Ekaterinoslav (Region 23) and Taurida (Region 24), capturing the 1919AD anti-Jewish pogroms across Right-Bank shtetls, Makhno's Huliaipole epicentre, Odessa's 55% contraction (630,0k to 282,0k in 1922AD), Wrangel's November 1920AD Crimean evacuation from Sevastopol and the 1921-1922AD Southern Ukrainian and Crimean famine [@abramson1999prayer; @veidlinger2021midst; @kulchytsky2015demohrafichni; @kolesnikov2025zarubezhe].
+Table \ref{tab:reg17-24} lists 46 urban and industrial centres across Volhynia (Region 17), Podolia (Region 18), Kyiv (Region 19), Chernigov and Poltava (Region 20), Kharkov (Region 21), Kherson (Region 22), Ekaterinoslav (Region 23) and Taurida (Region 24), capturing the 1919AD anti-Jewish pogroms across Right-Bank shtetls, Makhno's Huliaipole epicentre, Odessa's 55% contraction (630k to 282k in 1922AD), Wrangel's November 1920AD Crimean evacuation from Sevastopol and the 1921-1922AD Southern Ukrainian and Crimean famine [@abramson1999prayer; @veidlinger2021midst; @kulchytsky2015demohrafichni; @kolesnikov2025zarubezhe].
 
 ```{r table-reg17-24, echo=FALSE, results='asis'}
 render_table_template(
@@ -430,7 +432,7 @@ render_table_template(
 )
 ```
 
-# Regions 25 - 31: Petrograd, Northern Russia, Moscow, Central Industrial Ring and Black-Earth Core
+## Regions 25 - 31: Petrograd, Northern Russia, Moscow, Central Industrial Ring and Black-Earth Core
 
 Table \ref{tab:reg25-31} compiles 41 cities across Saint Petersburg Governorate (Region 25), Novgorod, Pskov and Olonets (Region 26), Arkhangelsk and Vologda (Region 27), Moscow Governorate (Region 28), the Central Industrial Ring (Region 29) and Western and Eastern Central Black-Earth Governorates (Regions 30-31), recording Petrograd's 70,2% War Communism collapse (2,42M in 1917AD to 722,2k in 1920AD), Moscow's 49,1% drop (2,02M to 1,03M), Allied intervention at Murmansk and Arkhangelsk and the 1920-1921AD Antonovshchina peasant insurgency in Tambov [@koenker1985urbanization; @tsu1920perepis; @dyachkov2021tambov; @tsu1926vsesoyuznaya].
 
@@ -445,7 +447,7 @@ render_table_template(
 )
 ```
 
-# Regions 32 - 40: Middle and Lower Volga, Don-Kuban-Caucasus and the Urals
+## Regions 32 - 40: Middle and Lower Volga, Don-Kuban-Caucasus and the Urals
 
 Table \ref{tab:reg32-40} lists 54 cities across the Middle Volga (Region 32), Samara and Saratov (Region 33), Astrakhan (Region 34), the Don Cossack Host (Region 35), Kuban and Black Sea (Region 36), Stavropol and Terek (Region 37), Dagestan (Region 38), Perm and Vyatka (Region 39) and Ufa and Orenburg (Region 40), spanning the 1921-1922AD Povolzhye-Ural famine epicentre, ARA relief hubs, Don-Kuban-Terek decossackisation, the Mountain and Dagestan ASSRs and Ural industrial recovery [@wheatcroft1981famine; @patenaude2002big; @polyakov2005povolzhskiy; @venkov2018kazachestvo; @feldman2001ural].
 
@@ -460,7 +462,7 @@ render_table_template(
 )
 ```
 
-# Regions 41 - 48: West and East Siberia, Altai-Tuva, Yakutia and the Far East
+## Regions 41 - 48: West and East Siberia, Altai-Tuva, Yakutia and the Far East
 
 Table \ref{tab:reg41-48} compiles 41 towns across Southern Tobolsk and Omsk (Region 41), the Northern Ob-Irtysh Tundra (Region 42), Tomsk and Altai (Region 43), Altai-Sayan and Uriankhai/Tuva (Region 44), Krasnoyarsk and Irkutsk (Region 45), Yenisei-Turukhansk and Lena Goldfields (Region 46), Transbaikalia and Yakutia (Region 47) and Priamurye and Sakhalin (Region 48), tracing Kolchak's 1919AD refugee swell in Omsk (245k), the 1919-1920AD Great Siberian Ice March typhus trail, Chita as capital of the Far Eastern Republic (1920-1922AD), the May 1920AD destruction of Nikolaevsk-on-Amur and the October 1922AD evacuation of Vladivostok [@smele2015russian; @borodin2012siberia; @tumurkhonova2009buryat; @temirgaleev2017primorye].
 
@@ -475,7 +477,9 @@ render_table_template(
 )
 ```
 
-# Forty-Eight-Region Gazetteer Coverage and Urban-Regional Summary
+# Appendix
+
+## Forty-Eight-Region Gazetteer Coverage and Urban-Regional Summary
 
 Table \ref{tab:reg48-summary} verifies 100% regional coverage across all forty-eight pre-war Tsarist Governorates and Oblasts (275 settlements in total, with at least four settlements in every region), comparing total regional populations (k) against gazetteer municipal sums (k) at 1914AD, 1917AD, 1920AD, 1922AD and 1926AD.
 

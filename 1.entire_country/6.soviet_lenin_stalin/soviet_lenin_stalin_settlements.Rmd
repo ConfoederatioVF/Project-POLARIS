@@ -184,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -366,9 +366,9 @@ build_reg_df <- function (arg0_reg_nums) {
 }
 ```
 
-# Overview and Estimation Rules across the 45 Stalin-Era Regions
+# Methodology
 
-This supplementary settlement gazetteer compiles 251 urban centres, SSR and ASSR/AO capitals, liquidated and deported ethnic centres, Five-Year-Plan industrial boomtowns, and NKVD-MVD Gulag camp-industrial complexes across all 45 Stalin-era regions of Estonia (Region 1, 6 entries), Latvia (Region 2, 6 entries), Lithuania (Region 3, 5 entries), Moldova (Region 4, 6 entries), Belarus (Regions 6-7, 18 entries), Ukraine including Crimea (Regions 8-15, 63 entries), and Russia including Kaliningrad Oblast and Karelia (Region 5 and Regions 16-45, 147 entries) between 1926AD and 1953AD. Each settlement entry records verified geographic coordinates, historical and Soviet toponyms, sovereign country attribution (Estonia, Latvia, Lithuania, Moldova, Belarus, Ukraine, or Russia), and positive integer population estimates across the 1926AD, 1933AD, 1939AD, 1945AD, and 1953AD benchmarks.
+This supplementary settlement gazetteer compiles 251 urban centres, SSR and ASSR/AO capitals, liquidated and deported ethnic centres, Five-Year-Plan industrial boomtowns, and NKVD-MVD Gulag camp-industrial complexes across all 45 Stalin-era regions of Estonia (Region 1, 6 entries), Latvia (Region 2, 6 entries), Lithuania (Region 3, 5 entries), Moldova (Region 4, 6 entries), Belarus (Regions 6-7, 18 entries), Ukraine including Crimea (Regions 8-15, 63 entries), and Russia including Kaliningrad Oblast and Karelia (Region 5 and Regions 16-45, 147 entries) between 1926AD and 1953AD. Each settlement entry records geographic coordinates, historical and Soviet toponyms, sovereign country attribution (Estonia, Latvia, Lithuania, Moldova, Belarus, Ukraine, or Russia), and positive integer population estimates across the 1926AD, 1933AD, 1939AD, 1945AD, and 1953AD benchmarks.
 
 Population figures for 1926AD and 1939AD are derived from the First All-Union Census (17 December 1926AD) and the All-Union Census (17 January 1939AD), supplemented for 1939-1945AD annexed borderland cities (Tallinn, Tartu, Narva, and Parnu in Region 1; Riga, Liepaja, Daugavpils, and Jelgava in Region 2; Vilnius, Kaunas, Klaipeda, and Siauliai in Region 3; Chisinau, Balti, and Bender in Region 4; Kaliningrad/Konigsberg, Sovetsk/Tilsit, and Chernyakhovsk/Insterburg in Region 5; Brest and Grodno in Region 6; Lviv, Ternopil, and Lutsk in Region 8; Chernivtsi, Izmail, and Uzhhorod in Region 9; Vyborg and Sortavala in Region 16; Kyzyl in Region 39; and Yuzhno-Sakhalinsk/Toyohara in Region 45) by contemporary Estonian, Latvian, Lithuanian, Polish, Romanian, Czechoslovak, Finnish, German, Tuvan, and Japanese municipal censuses [@tsunkhu1929perepis1926; @polyakov1992perepis1939; @andreev1998demograficheskaya; @parming1972estonia; @zvidrins1992latvia; @balkelis2005vilnius; @kostyashov2009sekretnaya]. Figures for 1933AD, 1945AD, and 1953AD are reconstructed from TsUNKhU urban registers, Evacuation Council and post-liberation municipal tallies (1944-1945AD), NKVD-MVD special-settlement and Gulag administration records, and pre-1959AD statistical yearbooks [@polyakov1991perepis1937; @rudnytskyi2015holodomor; @zemskov2003spetsposelentsy; @khlevniuk2004history; @casu2014moldova]. In the tables below, benchmarks prior to a settlement's foundation (such as Kohtla-Jarve and Sillamae industrial combinats, Vorkuta, Inta, Norilsk, Magadan, Susuman, or Pevek in 1926AD) or after its destruction (Khatyn after March 1943AD) are denoted by -.
 
@@ -385,7 +385,9 @@ if (!knitr::is_latex_output()) {
 }
 ```
 
-# Regions 1 - 5: Baltic SSRs, Moldavian SSR, and Kaliningrad Oblast
+# Results
+
+## Regions 1 - 5: Baltic SSRs, Moldavian SSR, and Kaliningrad Oblast
 
 Table \ref{tab:reg1-5} lists 28 settlements across Region 1 (Estonian SSR: Tallinn, Tartu, Kohtla-Jarve, Parnu, Narva, Sillamae), Region 2 (Latvian SSR: Riga, Liepaja, Daugavpils, Jelgava, Ventspils, Rezekne), Region 3 (Lithuanian SSR: Vilnius, Kaunas, Klaipeda, Siauliai, Panevezys), Region 4 (Moldavian SSR: Chisinau, Balti, Tiraspol, Bender, Cahul, Orhei), and Region 5 (Kaliningrad Oblast/Northern East Prussia: Kaliningrad, Sovetsk, Chernyakhovsk, Baltiysk, Gusev) [@mertelsmann2009estonia; @strods2002priboi; @balkelis2005vilnius; @casu2014moldova; @kostyashov2022kaliningrad].
 
@@ -399,7 +401,7 @@ render_table_template(
 )
 ```
 
-# Regions 6 - 7: Byelorussian SSR (Western Belarus 1939 Annexation & Eastern BSSR)
+## Regions 6 - 7: Byelorussian SSR (Western Belarus 1939 Annexation & Eastern BSSR)
 
 Table \ref{tab:reg6-7} lists 18 settlements across Region 6 (Western Belarus: Brest, Grodno, Baranovichi, Molodechno, Pinsk, Lida) and Region 7 (Eastern Byelorussian SSR: Minsk, Vitebsk, Gomel, Mogilev, Bobruisk, Polotsk, Orsha, Borisov, Mozyr, Slutsk, Rechitsa, Khatyn) [@bylov2004belarus; @arad2009holocaust].
 
@@ -413,7 +415,7 @@ render_table_template(
 )
 ```
 
-# Regions 8 - 11: Western, Right-Bank, and Left-Bank Ukraine (Annexations & Holodomor Core)
+## Regions 8 - 11: Western, Right-Bank, and Left-Bank Ukraine (Annexations & Holodomor Core)
 
 Table \ref{tab:reg8-11} lists 38 settlements across Region 8 (Western Ukraine: Galicia & Volhynia 1939 Annexation), Region 9 (Northern Bukovina & Budjak 1940 + Transcarpathia 1945 Annexations: Chernivtsi, Izmail, Bilhorod-Dnistrovskyi, Uzhhorod, Mukachevo), Region 10 (Right-Bank Ukrainian SSR: Kyiv, Vinnytsia, Zhytomyr, Cherkasy, Bila Tserkva, Uman, Kamianets-Podilskyi), and Region 11 (Left-Bank Ukrainian SSR Holodomor Epicentre: Kharkiv, Poltava, Sumy, Chernihiv, Kremenchuk) [@rudnytskyi2015holodomor; @wolowyna2020holodomor; @polian2001against].
 
@@ -427,7 +429,7 @@ render_table_template(
 )
 ```
 
-# Regions 12 - 15: Dnieper Industrial Bend, Donbas Basin, Black Sea Steppe, and Crimean ASSR
+## Regions 12 - 15: Dnieper Industrial Bend, Donbas Basin, Black Sea Steppe, and Crimean ASSR
 
 Table \ref{tab:reg12-15} lists 25 settlements across Region 12 (Dnieper Industrial Bend), Region 13 (Donbas Coal-Metallurgical Basin), Region 14 (Ukrainian Black Sea Steppe: Odesa, Mykolaiv, Kherson, Pervomaisk, Balta), and Region 15 (Crimean ASSR to Crimean Oblast: Sevastopol, Simferopol, Kerch, Bakhchisarai) [@polyakov1992perepis1939; @senyavsky2019urbanisation; @bugai1995deportatsiya].
 
@@ -441,7 +443,7 @@ render_table_template(
 )
 ```
 
-# Regions 16 - 22: Karelia, Leningrad Siege Zone, Komi Gulag, Moscow, and Black-Earth
+## Regions 16 - 22: Karelia, Leningrad Siege Zone, Komi Gulag, Moscow, and Black-Earth
 
 Table \ref{tab:reg16-22} lists 42 settlements across Region 16 (Karelo-Finnish SSR & Murmansk: Murmansk, Vyborg, Petrozavodsk, Monchegorsk, Medvezhyegorsk, Belomorsk, Sortavala), Region 17 (Leningrad, Pskov, Novgorod, Volkhov, Staraya Russa), Region 18 (Komi ASSR & Nenets Okrug: Syktyvkar, Vorkuta, Inta, Ukhta, Pechora, Naryan-Mar), Region 19 (Arkhangelsk, Vologda, Severodvinsk, Kotlas), Region 20 (Moscow Metropolis & Dmitlag), Region 21 (Upper Volga & Western Front), and Region 22 (Central Black-Earth Belt) [@baron2007karelia; @lomagin2002neizvestnaya; @applebaum2003gulag].
 
@@ -455,7 +457,7 @@ render_table_template(
 )
 ```
 
-# Regions 23 - 34: Volga-Ural ASSRs, Liquidated Volga/Caucasus ASSRs, and Ural Arsenal
+## Regions 23 - 34: Volga-Ural ASSRs, Liquidated Volga/Caucasus ASSRs, and Ural Arsenal
 
 Table \ref{tab:reg23-34} lists 54 settlements across Region 23 (Chuvash, Mari, Mordovian & Udmurt ASSRs + Gorky/Kirov), Region 24 (Tatar ASSR & Ulyanovsk-Penza), Region 25 (Kuibyshev Wartime Capital, Orenburg, Orsk, Chapayevsk), Region 26 (Liquidated Volga German ASSR: Engels, Marks/Marxstadt, Krasnoarmeysk/Balzer), Region 27 (Stalingrad, Saratov, Astrakhan), Region 28 (Liquidated Kalmyk ASSR: Elista, Lagan), Region 29 (Rostov, Krasnodar/Kuban & Adygei AO: incl. blacklisted Stanitsa Poltavskaya), Region 30 (Stavropol, Karachay AO & Cherkess AO: Stavropol, Pyatigorsk, Cherkessk, Karachaevsk/Mikoyan-Shakhar), Region 31 (Kabardino-Balkar & North Ossetian ASSRs: Ordzhonikidze/Dzaudzhikau, Nalchik, Tyrnyauz), Region 32 (Liquidated Chechen-Ingush ASSR to Grozny Oblast: Grozny, Gudermes, Nazran), Region 33 (Dagestan ASSR: Makhachkala, Derbent, Khasavyurt), and Region 34 (Great Ural Evacuation Arsenal & Bashkir ASSR) [@german2000nemtsy; @bugai1995deportatsiya; @tsutsiev2014atlas; @kotkin1995magnetic].
 
@@ -469,7 +471,7 @@ render_table_template(
 )
 ```
 
-# Regions 35 - 45: Siberian Spine, Special Settlements, Polar Gulag, Republics & Far East
+## Regions 35 - 45: Siberian Spine, Special Settlements, Polar Gulag, Republics & Far East
 
 Table \ref{tab:reg35-45} lists 46 settlements across Region 35 (West Siberian Trans-Siberian Spine: Novosibirsk, Omsk, Tomsk, Tyumen, Kurgan), Region 36 (Ob-Irtysh Special Settlements: Kolpashevo/Narym, Salekhard, Khanty-Mansiysk), Region 37 (Kuzbass Coal-Steel & Siblag: Stalinsk, Kemerovo, Prokopyevsk, Leninsk-Kuznetsky, Anzhero-Sudzhensk), Region 38 (Altai Deportee Hub: Barnaul, Biysk, Rubtsovsk, Slavgorod), Region 39 (Oyrot/Gorno-Altai AO, Khakass AO & Tuva AO: Abakan, Gorno-Altaysk, Chernogorsk, Kyzyl), Region 40 (East Siberian Corridor: Irkutsk, Krasnoyarsk, Cheremkhovo, Tayshet Ozerlag), Region 41 (Yenisei-Taymyr Polar Gulag: Igarka, Norilsk, Dudinka), Region 42 (Buryat-Mongol ASSR & Chita Bamlag: Ulan-Ude, Chita, Zakamensk/Gorodok), Region 43 (Yakut ASSR: Yakutsk, Aldan, Churapcha), Region 44 (Dalstroy Kolyma-Magadan: Petropavlovsk, Magadan, Susuman, Pevek), and Region 45 (Southern Far East: Vladivostok, Khabarovsk, Blagoveshchensk, Komsomolsk-on-Amur, Ussuriysk, Yuzhno-Sakhalinsk, Svobodny, Birobidzhan) [@werth2007cannibal; @shalak2005eastsiberia; @antonov2018churapcha; @applebaum2003gulag].
 
@@ -483,7 +485,9 @@ render_table_template(
 )
 ```
 
-# 45-Region Gazetteer Summary
+# Appendix
+
+## 45-Region Gazetteer Summary
 
 Table \ref{tab:regional-summary} summarises the number of catalogued settlements and the combined urban sample population across each of the 45 Stalin-era regions from 1926AD to 1953AD.
 

@@ -7,7 +7,7 @@ emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/fig1_principalities_areal_masks_map.png"
 hero_caption: "Regional boundaries and hydrological catchments of pre-Mongol principalities and Mongol-era polities across the Russian Core (10000BC - 1900AD)."
-hero_label: "fig:principalities_map"
+hero_label: "fig:principalities-map"
 bibliography: russian_core_principalities_areal_masks_and_bins.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
 link-citations: true
@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -286,7 +286,7 @@ This review reconstructs the long-run population and settlement history of the R
 
 # Background
 
-To maintain consistent geographic boundaries across the prehistoric, Kievan Rus (882 - 1240AD), Mongol and Appanage (1240 - 1500AD), Muscovite (1500 - 1700AD), and Imperial (1700 - 1900AD) periods, the historical principalities are grouped into eight regional divisions defined by river basins and historical provincial boundaries (Table \ref{tab:polity_catalogue} and Figure \ref{fig:principalities_map}). Because several large polities span multiple modern republics or oblasts - notably the Golden Horde, the Novgorod Republic, and the Chernigov-Seversk principalities - the estimates in this study cover the territory of the Russian Core and the Middle Volga-Ural basin (~1.943.000 km²), excluding the Lower Volga steppe south of Ukek (51,5°N), the Ukrainian Dnieper-Desna left bank south of the Seym-Bryansk watershed (52°N), and Belarusian Polotsk-Turov-Vitebsk west of the Smolensk Dnieper gate (31°E).
+To maintain consistent geographic boundaries across the prehistoric, Kievan Rus (882 - 1240AD), Mongol and Appanage (1240 - 1500AD), Muscovite (1500 - 1700AD), and Imperial (1700 - 1900AD) periods, the historical principalities are grouped into eight regional divisions defined by river basins and historical provincial boundaries (Table \ref{tab:polity_catalogue} and Figure \ref{fig:principalities-map}). Because several large polities span multiple modern republics or oblasts - notably the Golden Horde, the Novgorod Republic, and the Chernigov-Seversk principalities - the estimates in this study cover the territory of the Russian Core and the Middle Volga-Ural basin (~1.943.000 km²), excluding the Lower Volga steppe south of Ukek (51,5°N), the Ukrainian Dnieper-Desna left bank south of the Seym-Bryansk watershed (52°N), and Belarusian Polotsk-Turov-Vitebsk west of the Smolensk Dnieper gate (31°E).
 
 # Methodology
 
@@ -373,7 +373,7 @@ render_figure_template(
   "figures/fig1_principalities_areal_masks_map.png",
   list(
     caption = "Territorial boundaries and hydrological basins of the pre-Mongol principalities, Volga Bulgaria, and Mongol-era polities across the Russian Core.",
-    label = "fig:principalities_map",
+    label = "fig:principalities-map",
     width = "0.98\\textwidth",
     span_columns = TRUE,
     placement = "t"
@@ -395,7 +395,7 @@ During the Atlantic climatic optimum (5500 - 2800BC), the spread of Upper Volga 
 
 Around 2800 - 2000BC, the arrival of Corded Ware groups of the Fatyanovo-Balanovo culture introduced domesticated cattle, sheep, goats, pigs, and wheeled vehicles into the Upper and Middle Volga forest zone [@Nordqvist2020; @Saag2021]. Ancient DNA analyses from Fatyanovo cemeteries in Yaroslavl, Ivanovo, Moscow, and Chuvashia (including Volosovo-Danilovsky, featuring over 100 graves) confirm that Fatyanovo pastoralists carried steppe-derived ancestry mixed with Central European Early Farmers and coexisted for several centuries with indigenous Volosovo hunter-fishers before genetic and cultural integration [@Saag2021; @Nordqvist2020]. Subsequent Middle and Late Bronze Age societies - the Abashevo (2200 - 1700BC), Seima-Turbino (2100 - 1800BC), Pozdnyakovo (1800 - 1200BC), and Prikazan (1600 - 900BC) cultures - expanded copper-tin metallurgy along the Oka, Klyazma, Kostroma, and Kama rivers, as documented at the Starshe-Nikitinsky cemetery and the Govyadinovo settlement [@Engovatova2021; @Novikov2019]. Total regional population reached 182k in 2000BC and 278k by 1000BC.
 
-The transition to the Early Iron Age (800BC - 500AD) brought local bog-iron smelting, stockbreeding (dominated by horses, cattle, and pigs), and forest swidden millet-barley cultivation [@Krenke2011; @Krenke2019; @Lopatina2023]. Across the Upper Volga, Moskva, and Oka basins, the Finno-Ugric Dyakovo culture (700BC - 500AD) constructed hundreds of promontory hillforts (*gorodishcha*) protected by concentric ditches and log palisades, while the related Gorodets culture occupied the Middle Oka and Moksha-Sura forest-steppe, the Dnieper-Dvina and Yukhnovo cultures occupied the Smolensk and Bryansk-Desna basins, and the Ananyino (800 - 300BC), Pyanobor (200BC - 300AD), and Glyadenovo cultures flourished along the Kama and Vyatka valleys [@Krenke2011; @Belavin2023]. N. A. Krenke's excavations at Dyakovo Gorodishche, Kuntsevo, and Borsheva in the Moskva basin show that Iron Age hillforts averaged 0,15 - 0,5 ha of enclosed habitation, spaced at 3 - 7 km intervals along main rivers and housing 50 - 150 inhabitants (8 - 20 timber dwellings), surrounded by small satellite hamlets (*selishcha*) [@Krenke2011; @Krenke2019; @Sevostyanov2022]. By 1AD, the total population of the eight regions reached 610k, expanding to 920k in 500AD and 1.390k by 800AD as Early Slavic groups (Ilmen Slovenes, Krivichi, Vyatichi, and Severians) and Early Bulgars entered the forest and forest-steppe zones [@Medovichev2014; @Mayorov2015].
+The transition to the Early Iron Age (800BC - 500AD) brought local bog-iron smelting, stockbreeding (dominated by horses, cattle, and pigs), and forest swidden millet-barley cultivation [@Krenke2011; @Krenke2019; @Lopatina2023]. Across the Upper Volga, Moskva, and Oka basins, the Finno-Ugric Dyakovo culture (700BC - 500AD) constructed hundreds of promontory hillforts (*gorodishcha*) protected by concentric ditches and log palisades, while the related Gorodets culture occupied the Middle Oka and Moksha-Sura forest-steppe, the Dnieper-Dvina and Yukhnovo cultures occupied the Smolensk and Bryansk-Desna basins, and the Ananyino (800 - 300BC), Pyanobor (200BC - 300AD), and Glyadenovo cultures flourished along the Kama and Vyatka valleys [@Krenke2011; @Belavin2023]. N. A. Krenke's excavations at Dyakovo Gorodishche, Kuntsevo, and Borsheva in the Moskva basin show that Iron Age hillforts averaged 0,15 - 0,5 ha of enclosed habitation, spaced at 3 - 7 km intervals along main rivers and housing 50 - 150 inhabitants (8 - 20 timber dwellings), surrounded by small satellite hamlets (*selishcha*) [@Krenke2011; @Krenke2019; @Sevostyanov2022]. By 1AD, the total population of the eight regions reached 610k, expanding to 920k in 500AD and 1,39M by 800AD as Early Slavic groups (Ilmen Slovenes, Krivichi, Vyatichi, and Severians) and Early Bulgars entered the forest and forest-steppe zones [@Medovichev2014; @Mayorov2015].
 
 ## Kievan Rus Principalities (850 - 1240AD)
 
@@ -549,11 +549,11 @@ render_table_template(
 
 ### The 1237-1240 Invasion, the 1257-1259 Census, and Appanage Settlement
 
-Batu Khan's winter campaign of 1237 - 1238 against Ryazan, Kolomna, Moscow, Vladimir, Suzdal, Rostov, Yaroslavl, Tver, Torzhok, and Kozelsk - preceded by Subutai's 1236 conquest of Volga Bulgaria and followed by the 1239 campaigns against Murom, Gorodets, and Chernigov - inflicted severe demographic losses on the fortified urban centres and exposed forest-steppe valleys [@Fennell1983; @Mayorov2021; @Gorsky2014]. Out of 74 Russian towns known from twelfth- and early thirteenth-century archaeological layers, 49 were burned during 1237 - 1240, and 14 (including Old Ryazan and Izheslavl) never recovered their prior urban status [@Kuza1989; @Darkevich1995]. Between 1200 and 1250AD, total population across the eight regional divisions fell by roughly 18%, from 4.670k to 3.850k, with the steepest declines occurring in Ryazan (-28,8%), Chernigov-Upper Oka (-25,9%), Volga Bulgaria (-22,4%), and Vladimir-Suzdal (-19,6%), whereas uninvaded Novgorod and Pskov experienced only minor border losses (-4,8%) [@Kuchkin1996; @Fennell1983].
+Batu Khan's winter campaign of 1237 - 1238 against Ryazan, Kolomna, Moscow, Vladimir, Suzdal, Rostov, Yaroslavl, Tver, Torzhok, and Kozelsk - preceded by Subutai's 1236 conquest of Volga Bulgaria and followed by the 1239 campaigns against Murom, Gorodets, and Chernigov - inflicted severe demographic losses on the fortified urban centres and exposed forest-steppe valleys [@Fennell1983; @Mayorov2021; @Gorsky2014]. Out of 74 Russian towns known from twelfth- and early thirteenth-century archaeological layers, 49 were burned during 1237 - 1240, and 14 (including Old Ryazan and Izheslavl) never recovered their prior urban status [@Kuza1989; @Darkevich1995]. Between 1200 and 1250AD, total population across the eight regional divisions fell by roughly 18%, from 4,67M to 3,85M, with the steepest declines occurring in Ryazan (-28,8%), Chernigov-Upper Oka (-25,9%), Volga Bulgaria (-22,4%), and Vladimir-Suzdal (-19,6%), whereas uninvaded Novgorod and Pskov experienced only minor border losses (-4,8%) [@Kuchkin1996; @Fennell1983].
 
 To organise systematic taxation (*vykhod*/*dan'*) and military conscription across the Jochid Ulus, Grand Qan Möngke and Berke dispatched imperial census officials (*chislenniki*) in 1257 - 1259 to register households in Suzdalia, Ryazan, Murom, and (with Alexander Nevsky's military enforcement in 1259) Veliky Novgorod [@Allsen1987; @Gorsky2014; @Avdeev2025]. As analysed by G. Vernadsky [@Vernadsky1953] and T. T. Allsen [@Allsen1987], the Mongol administrative system grouped registered tax-paying peasant households into decimal units of ten, hundred, thousand (*tysyacha*), and ten thousand (*tumen*/*t'ma*). The 27 to 43 *t'my* cited in fourteenth-century princely treaties and chronicle entries across North-Eastern Rus and Novgorod - where a fiscal *t'ma* in wooded agricultural zones corresponded to 10.000 - 15.000 tax-paying households (60k - 90k inhabitants) rather than a full steppe cavalry corps - align closely with an aggregate post-invasion population of 3,85M in 1250AD, recovering to 4,33M in 1300AD and 4,84M on the eve of the Black Death (1350AD) [@Vernadsky1953; @Allsen1987; @Kuchkin1984].
 
-Between the late thirteenth and fifteenth centuries, archaeological surveys document a profound reorganisation of rural settlement across the Moscow, Tver, and Vladimir-Suzdal principalities known in Russian historiography as the "ascent to the hills" (*vzlet na kholmy*) or internal watershed colonisation [@Chernov1991; @Shpolyanskiy2021; @Boytsov2020]. Rather than remaining concentrated along major river floodplains vulnerable to Golden Horde punitive raids (*rati* such as Dyuden's campaign of 1293 or Tokhtamysh's sack of 1382), peasant settlers cleared upland morainic loams using iron-shod *sokha* ploughs and three-field crop rotation (winter rye, spring oats, and fallow). S. Z. Chernov's total archaeological surveys of the Radonezh, Zvenigorod, Vorya, and Pereyaslavl *volosti* demonstrate that between 1280 and 1450AD hundreds of small 1 - 3 household clearing hamlets (*pochinki* and *derevni*, 0,2 - 0,8 ha) multiplied across interfluvial hills under the patronage of the Grand Princes of Moscow and monastic estates such as the Trinity-Sergius Lavra [@Chernov1991; @Boytsov2020]. Simultaneously, the Grand Principality of Tver (including Kashin, Mikulin, Zubtsov, Kholm, and Staritsa) and the Principality of Nizhny Novgorod-Suzdal (founded 1341 at the Volga-Oka confluence) emerged as major demographic and commercial rivals to Moscow [@Kuchkin1984; @Bogdanov2025]. Although the second wave of the Black Death (1352 - 1353, which killed Grand Prince Simeon the Proud and Metropolitan Theognostus, followed by recurrent plague outbreaks in 1364 - 1366, 1389, and 1417 - 1427) temporarily reduced total population from 4.840k in 1350AD to 4.490k in 1400AD, rapid upland colonisation raised the Moscow-Tver region from 330k in 1250AD to 830k in 1450AD and 1.080k by 1500AD [@Martin2007; @Kopanev1959].
+Between the late thirteenth and fifteenth centuries, archaeological surveys document a profound reorganisation of rural settlement across the Moscow, Tver, and Vladimir-Suzdal principalities known in Russian historiography as the "ascent to the hills" (*vzlet na kholmy*) or internal watershed colonisation [@Chernov1991; @Shpolyanskiy2021; @Boytsov2020]. Rather than remaining concentrated along major river floodplains vulnerable to Golden Horde punitive raids (*rati* such as Dyuden's campaign of 1293 or Tokhtamysh's sack of 1382), peasant settlers cleared upland morainic loams using iron-shod *sokha* ploughs and three-field crop rotation (winter rye, spring oats, and fallow). S. Z. Chernov's total archaeological surveys of the Radonezh, Zvenigorod, Vorya, and Pereyaslavl *volosti* demonstrate that between 1280 and 1450AD hundreds of small 1 - 3 household clearing hamlets (*pochinki* and *derevni*, 0,2 - 0,8 ha) multiplied across interfluvial hills under the patronage of the Grand Princes of Moscow and monastic estates such as the Trinity-Sergius Lavra [@Chernov1991; @Boytsov2020]. Simultaneously, the Grand Principality of Tver (including Kashin, Mikulin, Zubtsov, Kholm, and Staritsa) and the Principality of Nizhny Novgorod-Suzdal (founded 1341 at the Volga-Oka confluence) emerged as major demographic and commercial rivals to Moscow [@Kuchkin1984; @Bogdanov2025]. Although the second wave of the Black Death (1352 - 1353, which killed Grand Prince Simeon the Proud and Metropolitan Theognostus, followed by recurrent plague outbreaks in 1364 - 1366, 1389, and 1417 - 1427) temporarily reduced total population from 4,84M in 1350AD to 4,49M in 1400AD, rapid upland colonisation raised the Moscow-Tver region from 330k in 1250AD to 830k in 1450AD and 1,08M by 1500AD [@Martin2007; @Kopanev1959].
 
 ### Volga Bulgaria, the Golden Horde Uluses, and the Kazan, Kasimov, and Temnikov Polities
 
@@ -567,9 +567,9 @@ However, the Golden Horde's "Great Troubles" (*Velikaya Zamknutnya*, 1359 - 1380
 
 Following the unification of the northern principalities under Ivan III (1462 - 1505) and Vasily III (1505 - 1533), the Muscovite state compiled land cadastres (*pistsovye knigi*) that provide household-by-household inventories of towns and rural *pogosty* [@Shapiro1971; @Kopanev1959; @Avdeev2025]. In the Novgorod Five Pyatinas (1495 - 1505), A. L. Shapiro and A. I. Kopanev's analysis of surviving cadastral books documents approximately 65.000 - 70.000 peasant homesteads (*dvory*) assessed in *obzha* plough-units (1 *obzha* = 1 man with 1 horse ploughing ~15 *desyatiny* across three fields), corresponding to 500k - 550k inhabitants in the Five Pyatinas proper and 810k across the entire Novgorod-Pskov-Northern Dvina region in 1500AD, rising to 940k by 1550AD [@Shapiro1971; @Kopanev1959]. Across the Zamoskovny Krai (Moscow, Tver, Vladimir, Suzdal, Pereyaslavl, Rostov, Yaroslavl, Kostroma, and Beloozero), early sixteenth-century cadastres indicate 2,57M inhabitants in 1500AD (1,49M in Vladimir-Suzdal and Rostov-Yaroslavl, and 1,08M in Moscow-Tver), expanding to 3,09M by mid-century (1550AD) as three-field arable farming reached its highest pre-industrial extent in the non-chernozem forest zone [@Kopanev1959; @Vodarsky1973]. In the newly annexed Kazan *uezd*, the 1565 - 1568 *pistsovye knigi* of Nikita Borisov and Dmitry Kikin register over 700 Russian, Tatar, and Chuvash settlements across the Kazanka, Sviyaga, and Kama *darugas* [@Mustafina2008; @Abdullin2013].
 
-During the late sixteenth and early seventeenth centuries, the northern and western regions suffered two severe demographic crises: first, the Livonian War (1558 - 1583), the Oprichnina (1565 - 1572, including Ivan IV's 1570 sack of Novgorod), and the 1569 - 1571 famine and plague, which left 60 - 85% of registered *obzhi* in the Novgorod Pyatinas and Moscow *uezd* recorded as abandoned waste (*pustoshi*) in the 1580s cadastres [@Shapiro1971; @Selin2020]; and second, the Time of Troubles (*Smuta*, 1598 - 1613), triggered by the 1601 - 1603 volcanic-winter famine and Polish-Lithuanian and Swedish military intervention [@Vodarsky1973; @Martin2007]. Across all eight regional divisions, total population declined from 7.650k in 1550AD to 6.750k in 1600AD.
+During the late sixteenth and early seventeenth centuries, the northern and western regions suffered two severe demographic crises: first, the Livonian War (1558 - 1583), the Oprichnina (1565 - 1572, including Ivan IV's 1570 sack of Novgorod), and the 1569 - 1571 famine and plague, which left 60 - 85% of registered *obzhi* in the Novgorod Pyatinas and Moscow *uezd* recorded as abandoned waste (*pustoshi*) in the 1580s cadastres [@Shapiro1971; @Selin2020]; and second, the Time of Troubles (*Smuta*, 1598 - 1613), triggered by the 1601 - 1603 volcanic-winter famine and Polish-Lithuanian and Swedish military intervention [@Vodarsky1973; @Martin2007]. Across all eight regional divisions, total population declined from 7,65M in 1550AD to 6,75M in 1600AD.
 
-Recovery during the seventeenth century was accompanied by a decisive geographical redistribution of population southward across the Belgorod and Simbirsk Fortified Lines (*Zasechnaya cherta*, constructed 1635 - 1654), documented in the 1646 and 1678 Empire-wide household census books (*perepisnye knigi*) analysed by Ya. E. Vodarsky [@Vodarsky1977; @Vodarsky1973; @Avdeev2025]. Because seventeenth-century peasant families frequently combined married brothers or adult sons inside a single fenced courtyard to reduce household (*dvor*) taxation, Vodarsky established that the average rural household size in 1678 had risen to 6,5 - 8,5 persons (3,5 - 4,2 males per *dvor*). As illustrated in Figure \ref{fig:cadastre_densities}, between 1500 and 1678/1700AD population in the old north-western forest core barely surpassed its mid-sixteenth-century level (1.015k in 1700AD), whereas the forest-steppe provinces along the Upper Oka, Kursk, Orel, and Tula (doubling from 650k in 1500AD to 1.350k in 1700AD), the Ryazan and Upper Don black-earth frontier (rising from 560k to 1.050k), the Middle Volga (rising from 860k to 1.180k), and the Vyatka-Kama-Perm lands (rising from 610k to 915k) expanded rapidly, bringing the aggregate population of the eight regions to 10.190k (10,19M) by 1700AD [@Vodarsky1977].
+Recovery during the seventeenth century was accompanied by a decisive geographical redistribution of population southward across the Belgorod and Simbirsk Fortified Lines (*Zasechnaya cherta*, constructed 1635 - 1654), documented in the 1646 and 1678 Empire-wide household census books (*perepisnye knigi*) analysed by Ya. E. Vodarsky [@Vodarsky1977; @Vodarsky1973; @Avdeev2025]. Because seventeenth-century peasant families frequently combined married brothers or adult sons inside a single fenced courtyard to reduce household (*dvor*) taxation, Vodarsky established that the average rural household size in 1678 had risen to 6,5 - 8,5 persons (3,5 - 4,2 males per *dvor*). As illustrated in Figure \ref{fig:cadastre_densities}, between 1500 and 1678/1700AD population in the old north-western forest core barely surpassed its mid-sixteenth-century level (1,01M in 1700AD), whereas the forest-steppe provinces along the Upper Oka, Kursk, Orel, and Tula (doubling from 650k in 1500AD to 1,35M in 1700AD), the Ryazan and Upper Don black-earth frontier (rising from 560k to 1,05M), the Middle Volga (rising from 860k to 1,18M), and the Vyatka-Kama-Perm lands (rising from 610k to 915k) expanded rapidly, bringing the aggregate population of the eight regions to 10,19M (10,19M) by 1700AD [@Vodarsky1977].
 
 ```{r fig-cadastre-densities, results='asis'}
 render_figure_template(
@@ -586,13 +586,13 @@ render_figure_template(
 
 ## Imperial Tax Revisions and the 1897 Census (1700 - 1900AD)
 
-The transition from household taxation to the individual male soul tax (*podushnaya podat'*) under Peter I (1718 - 1724) inaugurated a regular series of ten Imperial Poll-Tax Revisions (*revizii*/*revizskie skazki*) between 1719 and 1858, compiled and cross-checked with parish vital registers by V. M. Kabuzan [@Kabuzan1963; @Kabuzan1971; @Ulyanova2016; @Troitskaya2017], followed by late nineteenth-century zemstvo statistics and the First All-Russian Imperial Census of 28 January 1897 [@Troynitsky1905; @Rashin1956; @Mironov2000]. Across the two centuries between 1700 and 1900AD, the total population of the eight historical regions quadrupled from 10.190k (10,19M) to 41.500k (41,5M), driven by three major regional processes (Figure \ref{fig:population_estimates}).
+The transition from household taxation to the individual male soul tax (*podushnaya podat'*) under Peter I (1718 - 1724) inaugurated a regular series of ten Imperial Poll-Tax Revisions (*revizii*/*revizskie skazki*) between 1719 and 1858, compiled and cross-checked with parish vital registers by V. M. Kabuzan [@Kabuzan1963; @Kabuzan1971; @Ulyanova2016; @Troitskaya2017], followed by late nineteenth-century zemstvo statistics and the First All-Russian Imperial Census of 28 January 1897 [@Troynitsky1905; @Rashin1956; @Mironov2000]. Across the two centuries between 1700 and 1900AD, the total population of the eight historical regions quadrupled from 10,19M (10,19M) to 41,5M (41,5M), driven by three major regional processes (Figure \ref{fig:population_estimates}).
 
-In the north-western provinces, Peter I's foundation of Saint Petersburg in the Neva delta in 1703 (within the historical Ingrian and Vodskaya Pyatina territory of Novgorod) created a rapidly growing imperial capital and maritime port that reached ~95k inhabitants by 1750, 220k in 1800, 490k in 1850, and 1.264,9k in the 1897 Census (2.112k across Saint Petersburg Guberniya) [@Rashin1956; @Troynitsky1905]. Combined with Novgorod (1.367k in 1897), Pskov (1.122,3k), Olonets (364,2k), and the Northern Dvina and Arkhangelsk districts, the north-western region rose from 1.015k in 1700AD to 1.950k in 1800AD and 4.950k by 1900AD [@Kabuzan1971; @Troynitsky1905].
+In the north-western provinces, Peter I's foundation of Saint Petersburg in the Neva delta in 1703 (within the historical Ingrian and Vodskaya Pyatina territory of Novgorod) created a rapidly growing imperial capital and maritime port that reached ~95k inhabitants by 1750, 220k in 1800, 490k in 1850, and 1,26M in the 1897 Census (2,11M across Saint Petersburg Guberniya) [@Rashin1956; @Troynitsky1905]. Combined with Novgorod (1,37M in 1897), Pskov (1,12M), Olonets (364,2k), and the Northern Dvina and Arkhangelsk districts, the north-western region rose from 1,01M in 1700AD to 1,95M in 1800AD and 4,95M by 1900AD [@Kabuzan1971; @Troynitsky1905].
 
-Throughout the eighteenth and first half of the nineteenth centuries (First through Tenth Revisions, 1719 - 1858), the fertile Central Black Earth (*Chernozem*) forest-steppe provinces south of the Oka River experienced the highest rural natural increase and peasant settlement densities in the Russian core [@Kabuzan1971; @Myakisheva2016; @Myakisheva2018]. Across Kursk Guberniya (2.371,1k in 1897), Orel Guberniya with Bryansk and Karachev (2.033,8k), Tula Guberniya (1.419,5k), and Kaluga Guberniya (1.132,8k), the regional population climbed from 1.350k in 1700AD to 2.950k in 1800AD and 6.450k in 1900AD (58,2 persons/km² in 1897) [@Troynitsky1905; @Rashin1956]. Similarly, in Ryazan Guberniya (1.802,2k in 1897) and the northern Upper Don *uezds* of Tambov and Voronezh Guberniyas (Lipetsk, Yelets, Lebedyan, Dankov, Usman, Shatsk, and Morshansk), population rose from 1.050k in 1700AD to 2.250k in 1800AD and 4.850k by 1900AD [@Myakisheva2018; @Troynitsky1905].
+Throughout the eighteenth and first half of the nineteenth centuries (First through Tenth Revisions, 1719 - 1858), the fertile Central Black Earth (*Chernozem*) forest-steppe provinces south of the Oka River experienced the highest rural natural increase and peasant settlement densities in the Russian core [@Kabuzan1971; @Myakisheva2016; @Myakisheva2018]. Across Kursk Guberniya (2,37M in 1897), Orel Guberniya with Bryansk and Karachev (2,03M), Tula Guberniya (1,42M), and Kaluga Guberniya (1,13M), the regional population climbed from 1,35M in 1700AD to 2,95M in 1800AD and 6,45M in 1900AD (58,2 persons/km² in 1897) [@Troynitsky1905; @Rashin1956]. Similarly, in Ryazan Guberniya (1,8M in 1897) and the northern Upper Don *uezds* of Tambov and Voronezh Guberniyas (Lipetsk, Yelets, Lebedyan, Dankov, Usman, Shatsk, and Morshansk), population rose from 1,05M in 1700AD to 2,25M in 1800AD and 4,85M by 1900AD [@Myakisheva2018; @Troynitsky1905].
 
-In the old Zamoskovny core, thin podzolic soils encouraged seasonal craft migration (*otkhodnichestvo*), proto-industrial linen and cotton manufacturing (centred on Moscow, Ivanovo-Voznesensk, Shuya, Orekhovo-Zuyevo, Yaroslavl, and Kostroma), and post-1861 railway urbanisation [@Mironov2000; @Troitskaya2017]. By the 1897 Census, Moscow Guberniya reached 2.430,6k (with Moscow city at 1.038,6k) and Tver Guberniya reached 1.769,1k, bringing the Moscow-Tver division to 4.420k in 1900AD; simultaneously, the Vladimir-Suzdal and Rostov-Yaroslavl division - spanning Vladimir (1.515,7k), Kostroma (1.387k), Vologda (1.341,8k), and Yaroslavl (1.071,4k) together with the Belozersk and Cherepovets districts - reached 5.650k by 1900AD [@Troynitsky1905; @Rashin1956]. Even faster growth occurred across Nizhny Novgorod (1.524,9k), Vyatka (3.030,8k), and Perm (2.994,3k), where state peasant land colonisation in Vyatka and the eighteenth- and nineteenth-century expansion of Ural iron and copper metallurgy multiplied the regional population more than eightfold from 915k in 1700AD to 2.420k in 1800AD and 7.650k in 1900AD [@Kabuzan1971; @Troynitsky1905]. In the Middle Volga (Kazan Guberniya at 2.170,7k in 1897, Simbirsk at 1.527,8k, Penza at 1.470,5k, and the Kasimov, Elatma, and Temnikov *uezds* at ~680k), multi-ethnic Russian, Tatar, Chuvash, Mordvin, and Mari agricultural growth raised the population from 1.180k in 1700AD to 2.470k in 1800AD and 5.850k in 1900AD [@Troynitsky1905; @Akhtyamova2016].
+In the old Zamoskovny core, thin podzolic soils encouraged seasonal craft migration (*otkhodnichestvo*), proto-industrial linen and cotton manufacturing (centred on Moscow, Ivanovo-Voznesensk, Shuya, Orekhovo-Zuyevo, Yaroslavl, and Kostroma), and post-1861 railway urbanisation [@Mironov2000; @Troitskaya2017]. By the 1897 Census, Moscow Guberniya reached 2,43M (with Moscow city at 1,04M) and Tver Guberniya reached 1,77M, bringing the Moscow-Tver division to 4,42M in 1900AD; simultaneously, the Vladimir-Suzdal and Rostov-Yaroslavl division - spanning Vladimir (1,52M), Kostroma (1,39M), Vologda (1,34M), and Yaroslavl (1,07M) together with the Belozersk and Cherepovets districts - reached 5,65M by 1900AD [@Troynitsky1905; @Rashin1956]. Even faster growth occurred across Nizhny Novgorod (1,52M), Vyatka (3,03M), and Perm (2,99M), where state peasant land colonisation in Vyatka and the eighteenth- and nineteenth-century expansion of Ural iron and copper metallurgy multiplied the regional population more than eightfold from 915k in 1700AD to 2,42M in 1800AD and 7,65M in 1900AD [@Kabuzan1971; @Troynitsky1905]. In the Middle Volga (Kazan Guberniya at 2,17M in 1897, Simbirsk at 1,53M, Penza at 1,47M, and the Kasimov, Elatma, and Temnikov *uezds* at ~680k), multi-ethnic Russian, Tatar, Chuvash, Mordvin, and Mari agricultural growth raised the population from 1,18M in 1700AD to 2,47M in 1800AD and 5,85M in 1900AD [@Troynitsky1905; @Akhtyamova2016].
 
 ```{r fig-population-estimates, results='asis'}
 render_figure_template(
@@ -633,55 +633,55 @@ df_bins <- data.frame(
     "2,5k", "4,2k", "8,5k", "16k", "22k", "30k", "45k", "68k",
     "95k", "145k", "220k", "285k", "380k", "490k", "620k", "590k",
     "630k", "670k", "610k", "680k", "810k", "940k", "760k", "880k",
-    "1.015k", "1.380k", "1.950k", "2.820k", "4.950k"
+    "1,01M", "1,38M", "1,95M", "2,82M", "4,95M"
   ),
   C2_Vlad = c(
     "2,2k", "3,8k", "7,8k", "15k", "21k", "32k", "48k", "75k",
     "105k", "160k", "240k", "310k", "430k", "620k", "920k", "740k",
-    "860k", "980k", "940k", "1.180k", "1.490k", "1.780k", "1.580k", "1.980k",
-    "2.450k", "2.780k", "3.350k", "4.120k", "5.650k"
+    "860k", "980k", "940k", "1,18M", "1,49M", "1,78M", "1,58M", "1,98M",
+    "2,45M", "2,78M", "3,35M", "4,12M", "5,65M"
   ),
   C3_Mosc = c(
     "0,9k", "1,5k", "3,1k", "6,2k", "8,8k", "14k", "22k", "35k",
     "50k", "75k", "110k", "145k", "200k", "280k", "390k", "330k",
-    "440k", "590k", "620k", "830k", "1.080k", "1.310k", "1.120k", "1.390k",
-    "1.690k", "1.960k", "2.480k", "3.180k", "4.420k"
+    "440k", "590k", "620k", "830k", "1,08M", "1,31M", "1,12M", "1,39M",
+    "1,69M", "1,96M", "2,48M", "3,18M", "4,42M"
   ),
   C4_Ryaz = c(
     "1,4k", "2,3k", "4,6k", "9k", "13k", "20k", "31k", "48k",
     "68k", "100k", "150k", "195k", "270k", "380k", "520k", "370k",
     "410k", "440k", "390k", "460k", "560k", "690k", "620k", "810k",
-    "1.050k", "1.480k", "2.250k", "3.240k", "4.850k"
+    "1,05M", "1,48M", "2,25M", "3,24M", "4,85M"
   ),
   C5_Smol = c(
     "0,8k", "1,4k", "2,8k", "5,5k", "7,8k", "12k", "19k", "30k",
     "44k", "68k", "105k", "145k", "210k", "310k", "430k", "390k",
     "370k", "380k", "340k", "380k", "430k", "480k", "410k", "460k",
-    "540k", "740k", "980k", "1.180k", "1.680k"
+    "540k", "740k", "980k", "1,18M", "1,68M"
   ),
   C6_Oka = c(
     "1,5k", "2,5k", "5k", "9,8k", "14k", "22k", "34k", "52k",
     "74k", "110k", "165k", "220k", "310k", "430k", "580k", "430k",
     "460k", "490k", "450k", "530k", "650k", "820k", "740k", "980k",
-    "1.350k", "1.920k", "2.950k", "4.150k", "6.450k"
+    "1,35M", "1,92M", "2,95M", "4,15M", "6,45M"
   ),
   C7_Vyat = c(
     "1,8k", "3k", "6k", "11,5k", "16k", "23k", "34k", "50k",
     "70k", "102k", "145k", "180k", "230k", "290k", "360k", "340k",
     "380k", "430k", "450k", "520k", "610k", "710k", "680k", "790k",
-    "915k", "1.450k", "2.420k", "4.180k", "7.650k"
+    "915k", "1,45M", "2,42M", "4,18M", "7,65M"
   ),
   C8_Volg = c(
     "1,9k", "3,3k", "6,7k", "13k", "19,4k", "29k", "45k", "72k",
     "104k", "160k", "255k", "340k", "480k", "650k", "850k", "660k",
     "780k", "860k", "690k", "760k", "860k", "920k", "840k", "990k",
-    "1.180k", "1.640k", "2.470k", "3.580k", "5.850k"
+    "1,18M", "1,64M", "2,47M", "3,58M", "5,85M"
   ),
   Total = c(
     "13k", "22k", "44,5k", "86k", "122k", "182k", "278k", "430k",
-    "610k", "920k", "1.390k", "1.820k", "2.510k", "3.450k", "4.670k", "3.850k",
-    "4.330k", "4.840k", "4.490k", "5.340k", "6.490k", "7.650k", "6.750k", "8.280k",
-    "10.190k", "13.350k", "18.850k", "26.450k", "41.500k"
+    "610k", "920k", "1,39M", "1,82M", "2,51M", "3,45M", "4,67M", "3,85M",
+    "4,33M", "4,84M", "4,49M", "5,34M", "6,49M", "7,65M", "6,75M", "8,28M",
+    "10,19M", "13,35M", "18,85M", "26,45M", "41,5M"
   ),
   stringsAsFactors = FALSE
 )
@@ -772,7 +772,7 @@ render_table_template(
 
 ## Regional Density Estimates
 
-Table \ref{tab:areal_masks} summarises the localised agro-ecological and urban settlement zones across the Russian Core and Middle Volga-Ural region from 10000BC to 1900AD, together with their population densities and primary sources.
+Table \ref{tab:areal-masks} summarises the localised agro-ecological and urban settlement zones across the Russian Core and Middle Volga-Ural region from 10000BC to 1900AD, together with their population densities and primary sources.
 
 ```{r table-areal-masks, results='asis'}
 df_masks <- data.frame(
@@ -853,7 +853,7 @@ render_table_template(
   df_masks,
   list(
     caption = "Population densities and inhabited areas across ecological and settlement zones of the Russian Core from 10000BC to 1900AD.",
-    label = "tab:areal_masks",
+    label = "tab:areal-masks",
     col_names = c("Ecological and Settlement Zone", "Date Range", "Density (inh./km²)", "Area (km²)", "Ecological Zone & Historical/Archaeological Basis"),
     font_size = "footnotesize",
     scale_to_fit = FALSE,

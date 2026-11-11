@@ -183,7 +183,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -282,7 +282,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
 }
 ```
 
-# Gazetteer Overview and Methodology (10000BC - 1300AD)
+# Methodology
 
 This companion document details the settlement-level gazetteer (comprising 145 distinct archaeological sites and pre-Mongol and devolved-principality settlements) for the Principalities of Kiev and Pereyaslavl in the Middle Dnieper Core (10000BC - 1300AD). All benchmark series are book-ended at the Mongol Conquests (1239-1240AD) and the immediate post-conquest Golden Horde *baskak*-administered appanage period (1250AD - 1300AD).
 
@@ -290,15 +290,17 @@ This companion document details the settlement-level gazetteer (comprising 145 d
 
 Population estimates for individual settlements in the regional gazetteer are derived from three primary archaeological and documentary methodologies spanning prehistoric planimetry, medieval fortified enclosures, and post-Mongol stratigraphic calibration.
 
-For prehistoric and proto-urban planimetry (10000BC - 500BC), Upper Palaeolithic and Neolithic estimates (10000BC - 6000BC) are derived from excavated mammoth-bone dwelling rings at Mezhirich, Dobranichevka, Gontsy, and Kirillovskaya (100 - 250 seasonal band and village inhabitants) and Dnieper-Donets cemetery cohorts at Nikolskoye and Vovnigi (300 - 450 inhabitants) [@tolochko1972; @videiko2004]. Trypillia BII-CI mega-site estimates (3600BC) are derived from high-resolution geomagnetic survey house counts across the Cherkasy-Uman Ros-Southern Bug interfluve (Talianky 450 ha, ~2.700 anomalies; Maidanetske 200 ha, ~2.100 anomalies; Nebelivka 260 ha, ~1.450 anomalies; Dobrovody 250 ha), applying Diachenko and Menotti's synchronous occupation coefficient (75 - 80% simultaneous house occupancy) and 5,5 - 6,5 persons per two-storey *ploshchadka* homestead [@videiko2004; @diachenko2012; @kruts1989]. Scythian forest-steppe giant hillfort and Greek Pontic polis estimates (500BC) are derived from excavated habitation quarters at Belsk (Gelonus, 4.020 ha perimeter, 152,6 ha across the Western, Eastern, and Kuzeminsk citadels, 12,0k), Trakhtemyriv (500 ha, 4,5k), Motronyn (200 ha, 4,0k), Nemirov (110 ha, 4,0k), and the 50 ha stone-walled urban core of Olbia (15,0k) [@shramko1987; @kryzhitsky1999; @daragan2017].
+For prehistoric and proto-urban planimetry (10000BC - 500BC), Upper Palaeolithic and Neolithic estimates (10000BC - 6000BC) are derived from excavated mammoth-bone dwelling rings at Mezhirich, Dobranichevka, Gontsy, and Kirillovskaya (100 - 250 seasonal band and village inhabitants) and Dnieper-Donets cemetery cohorts at Nikolskoye and Vovnigi (300 - 450 inhabitants) [@tolochko1972; @videiko2004]. Trypillia BII-CI mega-site estimates (3600BC) are derived from high-resolution geomagnetic survey house counts across the Cherkasy-Uman Ros-Southern Bug interfluve (Talianky 450 ha, ~2.700 anomalies; Maidanetske 200 ha, ~2.100 anomalies; Nebelivka 260 ha, ~1.450 anomalies; Dobrovody 250 ha), applying Diachenko and Menotti's synchronous occupation coefficient (75 - 80% simultaneous house occupancy) and 5,5 - 6,5 persons per two-storey *ploshchadka* homestead [@videiko2004; @diachenko2012; @kruts1989]. Scythian forest-steppe giant hillfort and Greek Pontic polis estimates (500BC) are derived from excavated habitation quarters at Belsk (Gelonus, 4.020 ha perimeter, 152,6 ha across the Western, Eastern, and Kuzeminsk citadels, 12k), Trakhtemyriv (500 ha, 4,5k), Motronyn (200 ha, 4k), Nemirov (110 ha, 4k), and the 50 ha stone-walled urban core of Olbia (15k) [@shramko1987; @kryzhitsky1999; @daragan2017].
 
-For Kievan Rus fortified enclosures (*gorodishcha*) and suburbs (*posady*, 800AD - 1240AD), following the foundational methodologies of P. P. Tolochko [@tolochko1983; @tolochko1989], A. V. Kuza [@kuza1989; @kuza1996], and M. A. Sahaydak [@sahaydak1991], fortified Rus towns are partitioned into the inner citadel (*detinets*), outer walled city (*okolny gorod*), and unfortified riverine craft suburbs (*posady* and *podol*). Within densely built *detinets* and *okolny gorod* ramparts, average homestead (*usadba*) plots measure 300 - 500 m? (20 - 25 homesteads per hectare at 5,5 - 6,0 persons per household, yielding 110 - 150 persons/ha). In suburban *posad* zones and frontier cavalry towns of the Porossia and Posullya lines, lower-density courtyard layouts (600 - 900 m?) yield 70 - 110 persons/ha [@morgunov2003; @motsia2007].
+For Kievan Rus fortified enclosures (*gorodishcha*) and suburbs (*posady*, 800AD - 1240AD), following the foundational methodologies of P. P. Tolochko [@tolochko1983; @tolochko1989], A. V. Kuza [@kuza1989; @kuza1996], and M. A. Sahaydak [@sahaydak1991], fortified Rus towns are partitioned into the inner citadel (*detinets*), outer walled city (*okolny gorod*), and unfortified riverine craft suburbs (*posady* and *podol*). Within densely built *detinets* and *okolny gorod* ramparts, average homestead (*usadba*) plots measure 300-500 m² (20 - 25 homesteads per hectare at 5,5 - 6 persons per household, yielding 110 - 150 persons/ha). In suburban *posad* zones and frontier cavalry towns of the Porossia and Posullya lines, lower-density courtyard layouts (600-900 m²) yield 70 - 110 persons/ha [@morgunov2003; @motsia2007].
 
-For post-Mongol stratigraphic and fiscal calibration (1240AD - 1300AD), estimates are calibrated to the 1239-1240AD destruction horizons across Pereyaslavl, Posullya, Porossia, and Kiev, John of Plano Carpini's 1246AD eyewitness count of ~200 surviving households in Kievan *Podol* (4,0k total metropolitan population in 1250AD, recovering to 8,5k by 1300AD per H. Yu. Ivakin), and the differential survival of the Drevlian Polesia and Bolokhov Land communities prior to Daniel of Galicia's 1257AD punitive campaign [@ivakin1996; @dawson1955; @tomashevsky2008].
+For post-Mongol stratigraphic and fiscal calibration (1240AD - 1300AD), estimates are calibrated to the 1239-1240AD destruction horizons across Pereyaslavl, Posullya, Porossia, and Kiev, John of Plano Carpini's 1246AD eyewitness count of ~200 surviving households in Kievan *Podol* (4k total metropolitan population in 1250AD, recovering to 8,5k by 1300AD per H. Yu. Ivakin), and the differential survival of the Drevlian Polesia and Bolokhov Land communities prior to Daniel of Galicia's 1257AD punitive campaign [@ivakin1996; @dawson1955; @tomashevsky2008].
 
-# Prehistoric and Early Iron Age Sites (10000BC - 600AD)
+# Results
 
-## Upper Palaeolithic, Neolithic, Trypillia Mega-Sites and Bronze Age Centres (10000BC - 2000BC)
+## Prehistoric and Early Iron Age Sites (10000BC - 600AD)
+
+### Upper Palaeolithic, Neolithic, Trypillia Mega-Sites and Bronze Age Centres (10000BC - 2000BC)
 
 ```{r table-auto-1, echo=FALSE, results='asis'}
 df_tab_1 <- data.frame(
@@ -334,21 +336,21 @@ df_tab_1 <- data.frame(
     "Buzky"
   ),
   col_2 = c(
-    "48,80°N, 30,53°E",
+    "48,8°N, 30,53°E",
     "48,82°N, 30,69°E",
     "48,64°N, 30,56°E",
     "48,77°N, 30,38°E",
     "48,93°N, 30,62°E",
     "48,67°N, 30,37°E",
     "48,84°N, 30,45°E",
-    "49,00°N, 31,09°E",
-    "48,61°N, 30,30°E",
+    "49°N, 31,09°E",
+    "48,61°N, 30,3°E",
     "48,72°N, 30,78°E",
     "49,05°N, 29,86°E",
     "50,12°N, 30,77°E",
     "47,29°N, 33,95°E",
     "48,91°N, 33,68°E",
-    "50,12°N, 30,90°E",
+    "50,12°N, 30,9°E",
     "49,09°N, 32,55°E",
     "50,34°N, 30,56°E",
     "50,29°N, 30,92°E",
@@ -503,7 +505,7 @@ render_table_template(
 )
 ```
 
-## Scythian Hillforts, Greek Poleis, Zarubintsy and Chernyakhov Centres (500BC - 600AD)
+### Scythian Hillforts, Greek Poleis, Zarubintsy and Chernyakhov Centres (500BC - 600AD)
 
 ```{r table-auto-2, echo=FALSE, results='asis'}
 df_tab_2 <- data.frame(
@@ -533,17 +535,17 @@ df_tab_2 <- data.frame(
     "Monastyrek"
   ),
   col_2 = c(
-    "46,69°N, 31,90°E",
+    "46,69°N, 31,9°E",
     "50,09°N, 34,63°E",
     "47,49°N, 34,42°E",
     "49,98°N, 31,36°E",
     "49,14°N, 32,26°E",
     "48,97°N, 28,84°E",
     "50,85°N, 33,67°E",
-    "46,60°N, 31,41°E",
+    "46,6°N, 31,41°E",
     "50,33°N, 30,47°E",
     "48,89°N, 31,79°E",
-    "48,90°N, 31,70°E",
+    "48,9°N, 31,7°E",
     "49,69°N, 31,54°E",
     "48,94°N, 31,64°E",
     "46,64°N, 32,17°E",
@@ -554,7 +556,7 @@ df_tab_2 <- data.frame(
     "49,73°N, 31,52°E",
     "49,92°N, 31,59°E",
     "50,22°N, 30,42°E",
-    "50,69°N, 30,40°E",
+    "50,69°N, 30,4°E",
     "49,97°N, 31,39°E"
   ),
   col_3 = c(
@@ -672,9 +674,9 @@ render_table_template(
 )
 ```
 
-# Kievan Rus and Devolved Principalities (800AD - 1300AD)
+## Kievan Rus and Devolved Principalities (800AD - 1300AD)
 
-## Principality of Kiev: Metropolitan Core and Right-Bank Ring
+### Principality of Kiev: Metropolitan Core and Right-Bank Ring
 
 ```{r table-auto-3, echo=FALSE, results='asis'}
 df_tab_3 <- data.frame(
@@ -725,11 +727,11 @@ df_tab_3 <- data.frame(
     "49,69°N, 31,54°E",
     "50,13°N, 30,89°E",
     "49,92°N, 31,43°E",
-    "50,25°N, 30,40°E",
-    "49,97°N, 31,40°E",
+    "50,25°N, 30,4°E",
+    "49,97°N, 31,4°E",
     "50,37°N, 30,54°E",
     "49,97°N, 31,05°E",
-    "50,10°N, 30,82°E",
+    "50,1°N, 30,82°E",
     "50,14°N, 30,64°E",
     "50,29°N, 29,53°E",
     "50,27°N, 30,52°E",
@@ -737,7 +739,7 @@ df_tab_3 <- data.frame(
     "50,16°N, 30,71°E",
     "50,44°N, 29,92°E",
     "50,22°N, 30,11°E",
-    "50,78°N, 30,30°E",
+    "50,78°N, 30,3°E",
     "50,19°N, 30,82°E",
     "50,39°N, 30,44°E",
     "50,27°N, 29,89°E",
@@ -745,7 +747,7 @@ df_tab_3 <- data.frame(
     "50,81°N, 30,36°E",
     "50,35°N, 30,03°E",
     "50,09°N, 29,97°E",
-    "50,33°N, 30,30°E",
+    "50,33°N, 30,3°E",
     "50,57°N, 30,27°E",
     "50,63°N, 30,23°E",
     "50,54°N, 30,22°E"
@@ -909,7 +911,7 @@ render_table_template(
 )
 ```
 
-## Porossia Steppe-Frontier Line, Drevlian Land and Bolokhov Land
+### Porossia Steppe-Frontier Line, Drevlian Land and Bolokhov Land
 
 ```{r table-auto-4, echo=FALSE, results='asis'}
 df_tab_4 <- data.frame(
@@ -958,7 +960,7 @@ df_tab_4 <- data.frame(
     "49,42°N, 31,26°E",
     "49,55°N, 30,88°E",
     "49,52°N, 29,92°E",
-    "49,70°N, 29,44°E",
+    "49,7°N, 29,44°E",
     "49,59°N, 30,73°E",
     "49,72°N, 31,22°E",
     "49,53°N, 31,75°E",
@@ -977,12 +979,12 @@ df_tab_4 <- data.frame(
     "50,11°N, 28,97°E",
     "50,37°N, 29,19°E",
     "49,79°N, 27,45°E",
-    "49,47°N, 27,50°E",
+    "49,47°N, 27,5°E",
     "50,77°N, 29,24°E",
     "50,25°N, 28,66°E",
-    "49,92°N, 28,50°E",
+    "49,92°N, 28,5°E",
     "49,52°N, 27,29°E",
-    "50,50°N, 29,24°E",
+    "50,5°N, 29,24°E",
     "49,75°N, 27,22°E",
     "49,77°N, 27,59°E",
     "50,86°N, 28,47°E",
@@ -1162,7 +1164,7 @@ render_table_template(
 )
 ```
 
-## Principality of Pereyaslavl, Posullya and Lower Dnieper (Oleshye)
+### Principality of Pereyaslavl, Posullya and Lower Dnieper (Oleshye)
 
 ```{r table-auto-5, echo=FALSE, results='asis'}
 df_tab_5 <- data.frame(
@@ -1195,7 +1197,7 @@ df_tab_5 <- data.frame(
   col_2 = c(
     "50,07°N, 31,46°E",
     "46,62°N, 32,62°E",
-    "50,02°N, 33,00°E",
+    "50,02°N, 33°E",
     "50,59°N, 32,39°E",
     "49,57°N, 32,73°E",
     "50,75°N, 33,48°E",
@@ -1205,15 +1207,15 @@ df_tab_5 <- data.frame(
     "49,59°N, 34,55°E",
     "49,85°N, 32,97°E",
     "49,78°N, 33,27°E",
-    "50,20°N, 33,17°E",
+    "50,2°N, 33,17°E",
     "49,85°N, 36,22°E",
     "49,93°N, 32,99°E",
-    "50,29°N, 31,70°E",
+    "50,29°N, 31,7°E",
     "47,82°N, 35,07°E",
     "50,72°N, 31,37°E",
     "50,35°N, 33,33°E",
     "50,61°N, 33,33°E",
-    "50,40°N, 30,66°E",
+    "50,4°N, 30,66°E",
     "49,42°N, 33,77°E",
     "49,69°N, 32,85°E",
     "51,02°N, 34,94°E"

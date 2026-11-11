@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -294,12 +294,20 @@ gaz <- jsonlite::fromJSON("circassia_settlements.json", simplifyVector = FALSE)
 
 fmt_pop <- function(v) {
   if (is.null(v) || is.na(v)) return("-")
-  val <- as.numeric(v)
-  if (val >= 1000) {
-    paste0(gsub("\\.", ",", sprintf("%.1f", val / 1000)), "k")
-  } else {
-    as.character(round(val))
+  v <- as.numeric(v)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
   }
+  if (v >= 1000) {
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
+  }
+  return(as.character(round(v)))
 }
 
 fmt_yr <- function(y) {
@@ -336,13 +344,15 @@ get_peak_str <- function(s) {
 }
 ```
 
-# Introduction
+# Methodology
 
 This supplementary report presents the settlement population gazetteer accompanying the regional literature review of Circassia and Central Ciscaucasia (10000BC - 1900AD). The dataset indexes `r length(gaz)` settlements across Krasnodar Krai, the Republic of Adygea, Karachay-Cherkessia, Kabardino-Balkaria, North Ossetia-Alania, and the Caucasian Mineral Waters district with alternate and Cyrillic names, decimal coordinates, and chronological population estimates for inhabited benchmark years.
 
 Prehistoric, Bronze Age, Classical Bosporan, Maeotian, and Alanic estimates are derived from excavated settlement areas and cemetery studies [@formozov1965stone; @korenevskiy2004; @markovin1978dolmens; @reinhold2017; @belinskiy2018; @kuznetsov2017phanagoria; @alekseeva1997anapa; @kuznetsov1992; @kuznetsov1993; @korobov2017]. Early modern and 19th-century figures draw on Genoese and Ottoman port records, Russian diplomatic registers, and accounts of the 1859-1864 expulsion [@kusheva1963; @gardanov1967social; @volkova1974; @khotko2001; @khotko2015zichia; @berger1860expulsion; @kumykov1994], while 1897 and 1900 figures come from the First All-Russian Imperial Census [@kabuzan1996; @troynitskiy1905kuban; @bgeu2007demography; @golovlev2017census].
 
-# Master Settlement Directory
+# Results
+
+## Settlement Directory
 
 ```{r tab-master, echo=FALSE, results='asis'}
 df_master <- data.frame(
@@ -361,7 +371,7 @@ df_master <- data.frame(
 render_table_template(
   df_master,
   list(
-    caption = "Master directory of all indexed settlements in Circassia and Central Ciscaucasia (10000BC - 1900AD).",
+    caption = "Directory of all indexed settlements in Circassia and Central Ciscaucasia (10000BC - 1900AD).",
     label = "tab:circassia-master-gazetteer",
     col_names = c("Settlement", "Historical / Native Names", "Coords", "Documented Span", "Peak Population", "1897AD", "1900AD"),
     alignment = c("l", "l", "l", "l", "r", "r", "r"),
@@ -371,7 +381,9 @@ render_table_template(
 )
 ```
 
-# Prehistoric, Bronze Age, Bosporan, and Maeotian Settlements (10000BC - 400AD)
+## Regional Settlement Gazetteer
+
+### Prehistoric, Bronze Age, Bosporan, and Maeotian Settlements (10000BC - 400AD)
 
 ```{r tab-prehistoric, echo=FALSE, results='asis'}
 pre_s <- Filter(function(s) any(as.integer(names(s$population)) <= 400), gaz)
@@ -403,7 +415,7 @@ render_table_template(
 )
 ```
 
-# Medieval and Early Modern Settlements (600 - 1700AD)
+### Medieval and Early Modern Settlements (600 - 1700AD)
 
 ```{r tab-medieval, echo=FALSE, results='asis'}
 med_s <- Filter(function(s) {
@@ -438,7 +450,7 @@ render_table_template(
 )
 ```
 
-# Eighteenth and Nineteenth-Century Settlements (1700 - 1900AD)
+### Eighteenth and Nineteenth-Century Settlements (1700 - 1900AD)
 
 ```{r tab-modern, echo=FALSE, results='asis'}
 mod_s <- Filter(function(s) any(as.integer(names(s$population)) >= 1700), gaz)

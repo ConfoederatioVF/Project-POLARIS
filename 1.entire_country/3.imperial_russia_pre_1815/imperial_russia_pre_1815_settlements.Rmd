@@ -184,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -378,11 +378,11 @@ build_region_df <- function(reg_slug) {
 \emergencystretch=1.5em
 ```
 
-# Overview and Soul-Revision Methodology
+# Methodology
 
-This supplementary gazetteer compiles 224 urban settlements, fortress towns, maritime ports, *miasteczka* (*shtetlekh*), colonist centres, Ural/Altai metallurgical factory settlements (*gornye zavody*) and Siberian *ostrogi* across the 40 period-authentic provincial and frontier regions of the 1721AD - 1815AD synthesis (total area 18.496.636 km², growing from 23.888k in 1721AD to 51.171k in 1815AD, or 22.263k to 47.821k within the 39-region Russian Empire envelope excluding Habsburg Galicia-Bukovina) [@Kabuzan1963; @Kabuzan1971; @Vodarsky1973; @Mironov1990Urban]. Every settlement record is catalogued with full municipal metadata (name, other_names, coords, country, key and population), keyed by <Name>-<Country> according to modern sovereign borders (Estonia, Latvia, Finland, Lithuania, Poland, Belarus, Ukraine, Moldova and Russia) with strictly positive integer headcounts across up to eight benchmark years (1721, 1744, 1762, 1782, 1795, 1806, 1811 and 1815).
+This gazetteer compiles 224 urban settlements, fortress towns, maritime ports, *miasteczka* (*shtetlekh*), colonist centres, Ural/Altai metallurgical factory settlements (*gornye zavody*) and Siberian *ostrogi* across the 40 period-authentic provincial and frontier regions of the 1721AD - 1815AD synthesis (total area 18.496.636 km², growing from 23,89M in 1721AD to 51,17M in 1815AD, or 22,26M to 47,82M within the 39-region Russian Empire envelope excluding Habsburg Galicia-Bukovina) [@Kabuzan1963; @Kabuzan1971; @Vodarsky1973; @Mironov1990Urban]. Every settlement record is catalogued with municipal metadata (primary name, alternate historical names, coordinates, modern country and population series), keyed by settlement name and modern sovereign country (Estonia, Latvia, Finland, Lithuania, Poland, Belarus, Ukraine, Moldova and Russia) with positive integer headcounts across up to eight benchmark years (1721, 1744, 1762, 1782, 1795, 1806, 1811 and 1815).
 
-Town population series synthesise Imperial Soul-Revision merchant and *meshchane* (*posad*) rolls with governorate police and military-statistical returns reconstructed by Boris Mironov, Yaroslav Vodarsky, Vladimir Kabuzan and Pyotr Keppen [@Mironov1990Urban; @Vodarsky1973; @Kabuzan1990; @Keppen1857], supplemented by Baltic German *Hakenrevisionen* and Lutheran magistracy lists [@Hupel1774; @Palli1996], Swedish-Finnish *Tabellverket* urban registers [@Jutikkala1965; @Turpeinen1979], Polish-Lithuanian *podymne* / *kahal* and Austrian Galician conscriptions [@Kuklo2009; @Stampfer1995; @Fellerer2023Galicia], Novorossiya and Bessarabia colonist chancellery tables [@Skalkovsky1836; @Herlihy1986; @Bushin2011; @Feldman2023Bessarabia], Ural and Altai mining-chancellery inventories [@Portal1950; @Smirnov1992UralZavody; @Isaev2025AltaiCabinet] and Siberian *Trakt* and *ostrog* returns [@Hartley2014; @Forsyth1992]. In keeping with the population_Stadester specification, newly founded eighteenth- and early nineteenth-century ports, fortresses and factory towns (such as Ekaterinburg 1723AD, Orenburg 1735/1743AD, Barnaul 1730s, Petropavlovsk-Kamchatsky 1740AD, Elisavetgrad 1754AD, Izhevsk 1760AD, Katharinenstadt 1765AD, Kherson 1778AD, Mariupol 1778AD, Sevastopol 1783AD, Simferopol 1784AD, Nikolaev 1789AD, Ekaterinodar 1793AD, Odessa 1794AD and Novocherkassk 1805AD) omit pre-foundation keys in JSON and report - prior to establishment (New in the net change column). To ensure crisp 10pt tabular legibility within standard margins, the 40 regional tables below display the five principal revision benchmarks (1721AD, 1762AD, 1795AD, 1811AD and 1815AD), whilst all intermediate 1744AD, 1782AD and 1806AD values remain preserved in the full settlement dataset.
+Town population series synthesise Imperial Soul-Revision merchant and *meshchane* (*posad*) rolls with governorate police and military-statistical returns reconstructed by Boris Mironov, Yaroslav Vodarsky, Vladimir Kabuzan and Pyotr Keppen [@Mironov1990Urban; @Vodarsky1973; @Kabuzan1990; @Keppen1857], supplemented by Baltic German *Hakenrevisionen* and Lutheran magistracy lists [@Hupel1774; @Palli1996], Swedish-Finnish *Tabellverket* urban registers [@Jutikkala1965; @Turpeinen1979], Polish-Lithuanian *podymne*/*kahal* and Austrian Galician conscriptions [@Kuklo2009; @Stampfer1995; @Fellerer2023Galicia], Novorossiya and Bessarabia colonist chancellery tables [@Skalkovsky1836; @Herlihy1986; @Bushin2011; @Feldman2023Bessarabia], Ural and Altai mining-chancellery inventories [@Portal1950; @Smirnov1992UralZavody; @Isaev2025AltaiCabinet] and Siberian *Trakt* and *ostrog* returns [@Hartley2014; @Forsyth1992]. Newly founded eighteenth- and early nineteenth-century ports, fortresses and factory towns (such as Ekaterinburg 1723AD, Orenburg 1735/1743AD, Barnaul 1730s, Petropavlovsk-Kamchatsky 1740AD, Elisavetgrad 1754AD, Izhevsk 1760AD, Katharinenstadt 1765AD, Kherson 1778AD, Mariupol 1778AD, Sevastopol 1783AD, Simferopol 1784AD, Nikolaev 1789AD, Ekaterinodar 1793AD, Odessa 1794AD and Novocherkassk 1805AD) omit pre-foundation entries and report a hyphen (`-`) prior to establishment (`New` in the net change column). To maintain 10pt tabular legibility within standard margins, the 40 regional tables below display the five principal revision benchmarks (1721AD, 1762AD, 1795AD, 1811AD and 1815AD), whilst all intermediate 1744AD, 1782AD and 1806AD values remain preserved in the full settlement dataset.
 
 ```{r fig1-md-only, echo=FALSE, results='asis'}
 if (!knitr::is_latex_output()) {
@@ -397,9 +397,11 @@ if (!knitr::is_latex_output()) {
 }
 ```
 
-# Estland Governorate (Ostsee)
+# Results
 
-Table \ref{tab:reg1-sites} lists the catalogued settlements in Region 1 (1. Estland Governorate (Reval; 1721AD Nystad Baltic Capitulation Province)) (area 22.637 km²), where total regional population moved from 105k in 1721AD, reaching 228k in 1811AD and 232k in 1815AD (+121,0%) [@Palli1980; @Palli1996; @Hupel1774].
+## Estland Governorate (Ostsee)
+
+Table \ref{tab:reg1-sites} lists the catalogued settlements in Region 1 (1. Estland Governorate (Reval; 1721AD Nystad Baltic Capitulation Province)) (area 22.637 km²), where total regional population moved from 105k in 1721AD, reaching 228k in 1811AD and 232k in 1815AD (+121%) [@Palli1980; @Palli1996; @Hupel1774].
 
 ```{r table-reg1, echo=FALSE, results='asis'}
 df_reg1 <- build_region_df("ostsee_estland_governorate")
@@ -412,7 +414,7 @@ render_table_template(
 )
 ```
 
-# Livland Governorate (Riga & Dorpat)
+## Livland Governorate (Riga & Dorpat)
 
 Table \ref{tab:reg2-sites} lists the catalogued settlements in Region 2 (2. Livland Governorate (Riga, Dorpat & Osel; 1721AD Nystad Baltic Province)) (area 54.235 km²), where total regional population moved from 195k in 1721AD, reaching 605k in 1811AD and 615k in 1815AD (+215,4%) [@Hupel1774; @Jaadla2014Tartu; @Savikhin2011Ostsee].
 
@@ -427,9 +429,9 @@ render_table_template(
 )
 ```
 
-# Courland Governorate (Mitau & Libau)
+## Courland Governorate (Mitau & Libau)
 
-Table \ref{tab:reg3-sites} lists the catalogued settlements in Region 3 (3. Courland Governorate (Mitau & Libau; 1795AD Third Partition Annexation)) (area 27.588 km²), where total regional population moved from 200k in 1721AD, reaching 435k in 1811AD and 418k in 1815AD (+109,0%) [@Kabuzan1990; @Kabuzan1992; @Kappeler2001].
+Table \ref{tab:reg3-sites} lists the catalogued settlements in Region 3 (3. Courland Governorate (Mitau & Libau; 1795AD Third Partition Annexation)) (area 27.588 km²), where total regional population moved from 200k in 1721AD, reaching 435k in 1811AD and 418k in 1815AD (+109%) [@Kabuzan1990; @Kabuzan1992; @Kappeler2001].
 
 ```{r table-reg3, echo=FALSE, results='asis'}
 df_reg3 <- build_region_df("ostsee_courland_governorate")
@@ -442,7 +444,7 @@ render_table_template(
 )
 ```
 
-# Old Finland/Vyborg Governorate
+## Old Finland/Vyborg Governorate
 
 Table \ref{tab:reg4-sites} lists the catalogued settlements in Region 4 (4. Old Finland/Vyborg Governorate (1721AD Nystad & 1743AD Abo; Reunited 1812AD)) (area 43.532 km²), where total regional population moved from 110k in 1721AD, reaching 198k in 1811AD and 202k in 1815AD (+83,6%) [@Kashchenko2016Vyborg; @Jutikkala1965].
 
@@ -457,7 +459,7 @@ render_table_template(
 )
 ```
 
-# Grand Duchy of Finland (1809AD)
+## Grand Duchy of Finland (1809AD)
 
 Table \ref{tab:reg5-sites} lists the catalogued settlements in Region 5 (5. Grand Duchy of Finland (Abo, Helsingfors, Tavastehus, Vasa & Uleaborg; Annexed 1809AD)) (area 333.899 km²), where total regional population moved from 390k in 1721AD, reaching 880k in 1811AD and 908k in 1815AD (+132,8%) [@Jutikkala1965; @Turpeinen1979; @Pitkanen1993].
 
@@ -472,9 +474,9 @@ render_table_template(
 )
 ```
 
-# Vilna Governorate & Samogitia
+## Vilna Governorate & Samogitia
 
-Table \ref{tab:reg6-sites} lists the catalogued settlements in Region 6 (6. Vilna Governorate & Samogitia/Kovno (1795AD Third Partition & 1812AD Grande Armee Crossing)) (area 94.337 km²), where total regional population moved from 655k in 1721AD, reaching 1.220k in 1811AD and 1.110k in 1815AD (+69,5%) [@Kuklo2009; @Stampfer1995; @Lieven2009].
+Table \ref{tab:reg6-sites} lists the catalogued settlements in Region 6 (6. Vilna Governorate & Samogitia/Kovno (1795AD Third Partition & 1812AD Grande Armee Crossing)) (area 94.337 km²), where total regional population moved from 655k in 1721AD, reaching 1,22M in 1811AD and 1,11M in 1815AD (+69,5%) [@Kuklo2009; @Stampfer1995; @Lieven2009].
 
 ```{r table-reg6, echo=FALSE, results='asis'}
 df_reg6 <- build_region_df("lithuania_vilna_and_samogitia_kovno")
@@ -487,7 +489,7 @@ render_table_template(
 )
 ```
 
-# Grodno Governorate & Belostok Oblast
+## Grodno Governorate & Belostok Oblast
 
 Table \ref{tab:reg7-sites} lists the catalogued settlements in Region 7 (7. Grodno Governorate & Belostok Oblast (1795AD Third Partition & 1807AD Treaty of Tilsit)) (area 40.416 km²), where total regional population moved from 360k in 1721AD, reaching 760k in 1811AD and 695k in 1815AD (+93,1%) [@Kuklo2009; @Reutskaya2016Belarus; @Klier1986].
 
@@ -502,9 +504,9 @@ render_table_template(
 )
 ```
 
-# Vitebsk & Mogilev Governorates
+## Vitebsk & Mogilev Governorates
 
-Table \ref{tab:reg8-sites} lists the catalogued settlements in Region 8 (8. Vitebsk & Mogilev Governorates (1772AD First Partition Eastern Belarus & 1812AD Berezina)) (area 80.648 km²), where total regional population moved from 610k in 1721AD, reaching 1.380k in 1811AD and 1.245k in 1815AD (+104,1%) [@Reutskaya2016Belarus; @Kabuzan1971; @Lieven2009].
+Table \ref{tab:reg8-sites} lists the catalogued settlements in Region 8 (8. Vitebsk & Mogilev Governorates (1772AD First Partition Eastern Belarus & 1812AD Berezina)) (area 80.648 km²), where total regional population moved from 610k in 1721AD, reaching 1,38M in 1811AD and 1,25M in 1815AD (+104,1%) [@Reutskaya2016Belarus; @Kabuzan1971; @Lieven2009].
 
 ```{r table-reg8, echo=FALSE, results='asis'}
 df_reg8 <- build_region_df("belarus_vitebsk_and_mogilev_1772")
@@ -517,9 +519,9 @@ render_table_template(
 )
 ```
 
-# Minsk Governorate & Polesia
+## Minsk Governorate & Polesia
 
-Table \ref{tab:reg9-sites} lists the catalogued settlements in Region 9 (9. Minsk Governorate & Pripyat Polesia (1793AD Second Partition Central Belarus)) (area 94.971 km²), where total regional population moved from 430k in 1721AD, reaching 995k in 1811AD and 920k in 1815AD (+114,0%) [@Reutskaya2016Belarus; @Stampfer1995; @Kabuzan1992].
+Table \ref{tab:reg9-sites} lists the catalogued settlements in Region 9 (9. Minsk Governorate & Pripyat Polesia (1793AD Second Partition Central Belarus)) (area 94.971 km²), where total regional population moved from 430k in 1721AD, reaching 995k in 1811AD and 920k in 1815AD (+114%) [@Reutskaya2016Belarus; @Stampfer1995; @Kabuzan1992].
 
 ```{r table-reg9, echo=FALSE, results='asis'}
 df_reg9 <- build_region_df("belarus_minsk_governorate_1793")
@@ -532,9 +534,9 @@ render_table_template(
 )
 ```
 
-# Habsburg Galicia & Bukovina
+## Habsburg Galicia & Bukovina
 
-Table \ref{tab:reg10-sites} lists the catalogued settlements in Region 10 (10. Habsburg Kingdom of Galicia & Lodomeria (1772AD), Bukovina (1775AD) & Carpathian Rus) (area 70.612 km²), where total regional population moved from 1.625k in 1721AD, reaching 3.260k in 1811AD and 3.350k in 1815AD (+106,2%) [@Bohachevsky1967; @Fellerer2023Galicia; @Kuklo2009].
+Table \ref{tab:reg10-sites} lists the catalogued settlements in Region 10 (10. Habsburg Kingdom of Galicia & Lodomeria (1772AD), Bukovina (1775AD) & Carpathian Rus) (area 70.612 km²), where total regional population moved from 1,62M in 1721AD, reaching 3,26M in 1811AD and 3,35M in 1815AD (+106,2%) [@Bohachevsky1967; @Fellerer2023Galicia; @Kuklo2009].
 
 ```{r table-reg10, echo=FALSE, results='asis'}
 df_reg10 <- build_region_df("habsburg_galicia_and_bukovina_1772")
@@ -547,9 +549,9 @@ render_table_template(
 )
 ```
 
-# Volhynia & Podolia Governorates
+## Volhynia & Podolia Governorates
 
-Table \ref{tab:reg11-sites} lists the catalogued settlements in Region 11 (11. Volhynia & Podolia Governorates (1793-1795AD Partitions; Early Pale of Settlement)) (area 118.214 km²), where total regional population moved from 1.195k in 1721AD, reaching 2.870k in 1811AD and 2.960k in 1815AD (+147,7%) [@Perkovsky1979; @Klier1986; @Kabuzan2006].
+Table \ref{tab:reg11-sites} lists the catalogued settlements in Region 11 (11. Volhynia & Podolia Governorates (1793-1795AD Partitions; Early Pale of Settlement)) (area 118.214 km²), where total regional population moved from 1,2M in 1721AD, reaching 2,87M in 1811AD and 2,96M in 1815AD (+147,7%) [@Perkovsky1979; @Klier1986; @Kabuzan2006].
 
 ```{r table-reg11, echo=FALSE, results='asis'}
 df_reg11 <- build_region_df("ukraine_volhynia_and_podolia_1793")
@@ -562,7 +564,7 @@ render_table_template(
 )
 ```
 
-# Kyiv Governorate (Left & Right Bank)
+## Kyiv Governorate (Left & Right Bank)
 
 Table \ref{tab:reg12-sites} lists the catalogued settlements in Region 12 (12. Kyiv Governorate (Left-Bank City & 1793AD Right-Bank Hinterland)) (area 54.181 km²), where total regional population moved from 342k in 1721AD, reaching 905k in 1811AD and 940k in 1815AD (+174,9%) [@Perkovsky1979; @Kabuzan2006; @Mironov1990Urban].
 
@@ -577,9 +579,9 @@ render_table_template(
 )
 ```
 
-# Little Russia: Chernigov & Poltava
+## Little Russia: Chernigov & Poltava
 
-Table \ref{tab:reg13-sites} lists the catalogued settlements in Region 13 (13. Little Russia: Chernigov & Poltava Governorates (Hetmanate Abolished 1764-1781AD)) (area 106.759 km²), where total regional population moved from 1.555k in 1721AD, reaching 3.270k in 1811AD and 3.350k in 1815AD (+115,4%) [@Irtenina2022Hetmanate; @Kabuzan2006; @Moon1999].
+Table \ref{tab:reg13-sites} lists the catalogued settlements in Region 13 (13. Little Russia: Chernigov & Poltava Governorates (Hetmanate Abolished 1764-1781AD)) (area 106.759 km²), where total regional population moved from 1,55M in 1721AD, reaching 3,27M in 1811AD and 3,35M in 1815AD (+115,4%) [@Irtenina2022Hetmanate; @Kabuzan2006; @Moon1999].
 
 ```{r table-reg13, echo=FALSE, results='asis'}
 df_reg13 <- build_region_df("malorossiya_chernigov_and_poltava")
@@ -592,9 +594,9 @@ render_table_template(
 )
 ```
 
-# Sloboda-Ukrainian/Kharkov Gov.
+## Sloboda-Ukrainian/Kharkov Gov.
 
-Table \ref{tab:reg14-sites} lists the catalogued settlements in Region 14 (14. Sloboda-Ukrainian/Kharkov Governorate (Cossack Regiments Abolished 1765AD)) (area 57.378 km²), where total regional population moved from 402k in 1721AD, reaching 1.065k in 1811AD and 1.100k in 1815AD (+173,6%) [@Bagaley1918; @Kabuzan2006; @Mironov1990Urban].
+Table \ref{tab:reg14-sites} lists the catalogued settlements in Region 14 (14. Sloboda-Ukrainian/Kharkov Governorate (Cossack Regiments Abolished 1765AD)) (area 57.378 km²), where total regional population moved from 402k in 1721AD, reaching 1,06M in 1811AD and 1,1M in 1815AD (+173,6%) [@Bagaley1918; @Kabuzan2006; @Mironov1990Urban].
 
 ```{r table-reg14, echo=FALSE, results='asis'}
 df_reg14 <- build_region_df("sloboda_ukraine_kharkov_governorate")
@@ -607,7 +609,7 @@ render_table_template(
 )
 ```
 
-# Ekaterinoslav & Former Zaporizhzhia
+## Ekaterinoslav & Former Zaporizhzhia
 
 Table \ref{tab:reg15-sites} lists the catalogued settlements in Region 15 (15. Ekaterinoslav Governorate & Former Zaporozhian Lands (Sich Destroyed 1775AD)) (area 58.890 km²), where total regional population moved from 145k in 1721AD, reaching 765k in 1811AD and 820k in 1815AD (+465,5%) [@Kabuzan1976Novorossiya; @Pakhomenko2014Mariupol1778; @Bessarabova2017].
 
@@ -622,7 +624,7 @@ render_table_template(
 )
 ```
 
-# Kherson, Nikolaev & Odessa Steppe
+## Kherson, Nikolaev & Odessa Steppe
 
 Table \ref{tab:reg16-sites} lists the catalogued settlements in Region 16 (16. Kherson/Nikolaev Governorate & Ochakov Steppe (1774/1791AD Annexations; Odessa 1794AD)) (area 77.455 km²), where total regional population moved from 105k in 1721AD, reaching 565k in 1811AD and 620k in 1815AD (+490,5%) [@Herlihy1986; @Skalkovsky1836; @Bushin2011; @Kashirin2019].
 
@@ -637,9 +639,9 @@ render_table_template(
 )
 ```
 
-# Taurida Governorate (Crimea 1783AD)
+## Taurida Governorate (Crimea 1783AD)
 
-Table \ref{tab:reg17-sites} lists the catalogued settlements in Region 17 (17. Taurida Governorate (Crimean Khanate Annexed 1783AD; Tatar Exodus & Colonist Settlement)) (area 69.868 km²), where total regional population moved from 370k in 1721AD, reaching 345k in 1811AD and 370k in 1815AD (0,0%) [@Williams2001; @Dmitriev2018CrimeaEmigration; @Kabuzan1976Novorossiya].
+Table \ref{tab:reg17-sites} lists the catalogued settlements in Region 17 (17. Taurida Governorate (Crimean Khanate Annexed 1783AD; Tatar Exodus & Colonist Settlement)) (area 69.868 km²), where total regional population moved from 370k in 1721AD, reaching 345k in 1811AD and 370k in 1815AD (0%) [@Williams2001; @Dmitriev2018CrimeaEmigration; @Kabuzan1976Novorossiya].
 
 ```{r table-reg17, echo=FALSE, results='asis'}
 df_reg17 <- build_region_df("novorossiya_taurida_crimea_1783")
@@ -652,7 +654,7 @@ render_table_template(
 )
 ```
 
-# Bessarabia Oblast (1812AD Annexation)
+## Bessarabia Oblast (1812AD Annexation)
 
 Table \ref{tab:reg18-sites} lists the catalogued settlements in Region 18 (18. Bessarabia Oblast (Kishinev, Bender & Budjak; Annexed at Treaty of Bucharest 1812AD)) (area 47.077 km²), where total regional population moved from 200k in 1721AD, reaching 310k in 1811AD and 385k in 1815AD (+92,5%) [@Feldman2023Bessarabia; @Bas2015Novorossiya; @Kabuzan1992].
 
@@ -667,7 +669,7 @@ render_table_template(
 )
 ```
 
-# Saint Petersburg Governorate
+## Saint Petersburg Governorate
 
 Table \ref{tab:reg19-sites} lists the catalogued settlements in Region 19 (19. Saint Petersburg Governorate (Imperial Capital, Kronstadt & Ingria)) (area 62.709 km²), where total regional population moved from 260k in 1721AD, reaching 735k in 1811AD and 760k in 1815AD (+192,3%) [@Mironov1990Urban; @Kahan1985; @Vodarsky1973].
 
@@ -682,9 +684,9 @@ render_table_template(
 )
 ```
 
-# Novgorod, Pskov & Olonets Govs.
+## Novgorod, Pskov & Olonets Govs.
 
-Table \ref{tab:reg20-sites} lists the catalogued settlements in Region 20 (20. Novgorod, Pskov & Olonets Governorates (Vyshny Volochyok Canal & Petrozavodsk Ironworks)) (area 306.752 km²), where total regional population moved from 1.155k in 1721AD, reaching 1.755k in 1811AD and 1.770k in 1815AD (+53,2%) [@Vodarsky1973; @Kahan1985; @Mironov1990Urban].
+Table \ref{tab:reg20-sites} lists the catalogued settlements in Region 20 (20. Novgorod, Pskov & Olonets Governorates (Vyshny Volochyok Canal & Petrozavodsk Ironworks)) (area 306.752 km²), where total regional population moved from 1,16M in 1721AD, reaching 1,75M in 1811AD and 1,77M in 1815AD (+53,2%) [@Vodarsky1973; @Kahan1985; @Mironov1990Urban].
 
 ```{r table-reg20, echo=FALSE, results='asis'}
 df_reg20 <- build_region_df("lakes_novgorod_pskov_and_olonets")
@@ -697,7 +699,7 @@ render_table_template(
 )
 ```
 
-# Arkhangelsk & Vologda Governorates
+## Arkhangelsk & Vologda Governorates
 
 Table \ref{tab:reg21-sites} lists the catalogued settlements in Region 21 (21. Arkhangelsk & Vologda Governorates (White Sea Pomorye, Velikiy Ustyug & Komi Pechora)) (area 1.313.985 km²), where total regional population moved from 560k in 1721AD, reaching 905k in 1811AD and 920k in 1815AD (+64,3%) [@Vodarsky1977; @Kabuzan1971; @Kahan1985].
 
@@ -712,9 +714,9 @@ render_table_template(
 )
 ```
 
-# Moscow Governorate (Old Capital)
+## Moscow Governorate (Old Capital)
 
-Table \ref{tab:reg22-sites} lists the catalogued settlements in Region 22 (22. Moscow Governorate (1771AD Plague Riot & 1812AD Napoleonic Fire/Occupation)) (area 28.080 km²), where total regional population moved from 725k in 1721AD, reaching 1.235k in 1811AD and 1.120k in 1815AD (+54,5%) [@Alexander1980; @Iskhakov2013Plague1771; @Mironov1990Urban; @Lieven2009].
+Table \ref{tab:reg22-sites} lists the catalogued settlements in Region 22 (22. Moscow Governorate (1771AD Plague Riot & 1812AD Napoleonic Fire/Occupation)) (area 28.080 km²), where total regional population moved from 725k in 1721AD, reaching 1,24M in 1811AD and 1,12M in 1815AD (+54,5%) [@Alexander1980; @Iskhakov2013Plague1771; @Mironov1990Urban; @Lieven2009].
 
 ```{r table-reg22, echo=FALSE, results='asis'}
 df_reg22 <- build_region_df("capital_moscow_governorate")
@@ -727,9 +729,9 @@ render_table_template(
 )
 ```
 
-# Smolensk, Kaluga & Tver Govs.
+## Smolensk, Kaluga & Tver Govs.
 
-Table \ref{tab:reg23-sites} lists the catalogued settlements in Region 23 (23. Smolensk, Kaluga & Tver Governorates (1812AD Smolensk-Borodino-Maloyaroslavets War Corridor)) (area 152.780 km²), where total regional population moved from 1.720k in 1721AD, reaching 2.870k in 1811AD and 2.640k in 1815AD (+53,5%) [@Shelomentseva2015Smolensk1812; @Lieven2009; @Mironov1990Urban].
+Table \ref{tab:reg23-sites} lists the catalogued settlements in Region 23 (23. Smolensk, Kaluga & Tver Governorates (1812AD Smolensk-Borodino-Maloyaroslavets War Corridor)) (area 152.780 km²), where total regional population moved from 1,72M in 1721AD, reaching 2,87M in 1811AD and 2,64M in 1815AD (+53,5%) [@Shelomentseva2015Smolensk1812; @Lieven2009; @Mironov1990Urban].
 
 ```{r table-reg23, echo=FALSE, results='asis'}
 df_reg23 <- build_region_df("western_approach_smolensk_kaluga_tver")
@@ -742,9 +744,9 @@ render_table_template(
 )
 ```
 
-# Central Industrial Non-Black-Earth
+## Central Industrial Non-Black-Earth
 
-Table \ref{tab:reg24-sites} lists the catalogued settlements in Region 24 (24. Central Non-Black-Earth Governorates: Vladimir, Yaroslavl, Kostroma & Nizhny Novgorod) (area 217.281 km²), where total regional population moved from 2.420k in 1721AD, reaching 4.020k in 1811AD and 4.110k in 1815AD (+69,8%) [@Mironov1990Urban; @Kahan1985; @Moon1999].
+Table \ref{tab:reg24-sites} lists the catalogued settlements in Region 24 (24. Central Non-Black-Earth Governorates: Vladimir, Yaroslavl, Kostroma & Nizhny Novgorod) (area 217.281 km²), where total regional population moved from 2,42M in 1721AD, reaching 4,02M in 1811AD and 4,11M in 1815AD (+69,8%) [@Mironov1990Urban; @Kahan1985; @Moon1999].
 
 ```{r table-reg24, echo=FALSE, results='asis'}
 df_reg24 <- build_region_df("central_non_black_earth_industrial")
@@ -757,9 +759,9 @@ render_table_template(
 )
 ```
 
-# Northern Black-Earth: Tula & Oryol
+## Northern Black-Earth: Tula & Oryol
 
-Table \ref{tab:reg25-sites} lists the catalogued settlements in Region 25 (25. Northern Central Black-Earth Governorates: Tula, Ryazan & Oryol) (area 114.125 km²), where total regional population moved from 1.580k in 1721AD, reaching 3.420k in 1811AD and 3.520k in 1815AD (+122,8%) [@Kabuzan1971; @Myakisheva2016; @Mironov1990Urban].
+Table \ref{tab:reg25-sites} lists the catalogued settlements in Region 25 (25. Northern Central Black-Earth Governorates: Tula, Ryazan & Oryol) (area 114.125 km²), where total regional population moved from 1,58M in 1721AD, reaching 3,42M in 1811AD and 3,52M in 1815AD (+122,8%) [@Kabuzan1971; @Myakisheva2016; @Mironov1990Urban].
 
 ```{r table-reg25, echo=FALSE, results='asis'}
 df_reg25 <- build_region_df("northern_black_earth_tula_ryazan_orel")
@@ -772,9 +774,9 @@ render_table_template(
 )
 ```
 
-# Southern Black-Earth: Kursk & Voronezh
+## Southern Black-Earth: Kursk & Voronezh
 
-Table \ref{tab:reg26-sites} lists the catalogued settlements in Region 26 (26. Southern Central Black-Earth Governorates: Kursk, Voronezh & Tambov) (area 166.565 km²), where total regional population moved from 1.510k in 1721AD, reaching 3.940k in 1811AD and 4.120k in 1815AD (+172,8%) [@Myakisheva2016; @Kabuzan1971; @Moon1999].
+Table \ref{tab:reg26-sites} lists the catalogued settlements in Region 26 (26. Southern Central Black-Earth Governorates: Kursk, Voronezh & Tambov) (area 166.565 km²), where total regional population moved from 1,51M in 1721AD, reaching 3,94M in 1811AD and 4,12M in 1815AD (+172,8%) [@Myakisheva2016; @Kabuzan1971; @Moon1999].
 
 ```{r table-reg26, echo=FALSE, results='asis'}
 df_reg26 <- build_region_df("southern_black_earth_kursk_voronezh_tambov")
@@ -787,9 +789,9 @@ render_table_template(
 )
 ```
 
-# Middle Volga: Kazan, Simbirsk & Penza
+## Middle Volga: Kazan, Simbirsk & Penza
 
-Table \ref{tab:reg27-sites} lists the catalogued settlements in Region 27 (27. Middle Volga Governorates: Kazan, Simbirsk & Penza (Lashmany & Finno-Turkic Revisions)) (area 145.898 km²), where total regional population moved from 1.420k in 1721AD, reaching 3.180k in 1811AD and 3.290k in 1815AD (+131,7%) [@Abdullin2013; @Kabuzan1990; @Mironov1990Urban].
+Table \ref{tab:reg27-sites} lists the catalogued settlements in Region 27 (27. Middle Volga Governorates: Kazan, Simbirsk & Penza (Lashmany & Finno-Turkic Revisions)) (area 145.898 km²), where total regional population moved from 1,42M in 1721AD, reaching 3,18M in 1811AD and 3,29M in 1815AD (+131,7%) [@Abdullin2013; @Kabuzan1990; @Mironov1990Urban].
 
 ```{r table-reg27, echo=FALSE, results='asis'}
 df_reg27 <- build_region_df("middle_volga_kazan_simbirsk_penza")
@@ -802,9 +804,9 @@ render_table_template(
 )
 ```
 
-# Lower Volga: Saratov & Astrakhan
+## Lower Volga: Saratov & Astrakhan
 
-Table \ref{tab:reg28-sites} lists the catalogued settlements in Region 28 (28. Saratov & Astrakhan Governorates (1763AD Volga German Colonies & 1771AD Kalmyk Exodus)) (area 329.069 km²), where total regional population moved from 480k in 1721AD, reaching 1.490k in 1811AD and 1.580k in 1815AD (+229,2%) [@Bartlett1979; @Galperina2013VolgaGermans; @Khodarkovsky1992; @Ochirov2012Kalmyk1771].
+Table \ref{tab:reg28-sites} lists the catalogued settlements in Region 28 (28. Saratov & Astrakhan Governorates (1763AD Volga German Colonies & 1771AD Kalmyk Exodus)) (area 329.069 km²), where total regional population moved from 480k in 1721AD, reaching 1,49M in 1811AD and 1,58M in 1815AD (+229,2%) [@Bartlett1979; @Galperina2013VolgaGermans; @Khodarkovsky1992; @Ochirov2012Kalmyk1771].
 
 ```{r table-reg28, echo=FALSE, results='asis'}
 df_reg28 <- build_region_df("lower_volga_saratov_astrakhan_1763_1771")
@@ -817,7 +819,7 @@ render_table_template(
 )
 ```
 
-# Province of the Don Cossack Host
+## Province of the Don Cossack Host
 
 Table \ref{tab:reg29-sites} lists the catalogued settlements in Region 29 (29. Province of the Don Cossack Host (Cherkassk, Novocherkassk 1805AD & Taganrog)) (area 172.657 km²), where total regional population moved from 180k in 1721AD, reaching 645k in 1811AD and 680k in 1815AD (+277,8%) [@Sunderland2004; @Kabuzan1971; @Mironov1990Urban].
 
@@ -832,7 +834,7 @@ render_table_template(
 )
 ```
 
-# Caucasian Line, Kuban & Stavropol
+## Caucasian Line, Kuban & Stavropol
 
 Table \ref{tab:reg30-sites} lists the catalogued settlements in Region 30 (30. Caucasian Fortified Line, Black Sea Cossack Kuban (1792AD) & Georgievsk/Stavropol) (area 112.703 km²), where total regional population moved from 120k in 1721AD, reaching 465k in 1811AD and 505k in 1815AD (+320,8%) [@Burykina2008; @Sunderland2004; @Kabuzan1990].
 
@@ -847,7 +849,7 @@ render_table_template(
 )
 ```
 
-# North Caucasian Highlanders
+## North Caucasian Highlanders
 
 Table \ref{tab:reg31-sites} lists the catalogued settlements in Region 31 (31. North Caucasian Highlanders: Circassia, Kabarda, Chechnya & Dagestan Khanates) (area 149.430 km²), where total regional population moved from 780k in 1721AD, reaching 905k in 1811AD and 910k in 1815AD (+16,7%) [@Tovsultanov2017; @Kabuzan1990; @Kappeler2001].
 
@@ -862,9 +864,9 @@ render_table_template(
 )
 ```
 
-# Perm & Vyatka Foundry Urals
+## Perm & Vyatka Foundry Urals
 
-Table \ref{tab:reg32-sites} lists the catalogued settlements in Region 32 (32. Perm & Vyatka Governorates (Demidov-Stroganov Metallurgical Serf Foundries)) (area 491.785 km²), where total regional population moved from 685k in 1721AD, reaching 1.845k in 1811AD and 1.920k in 1815AD (+180,3%) [@Portal1950; @Smirnov1992UralZavody; @Kahan1985].
+Table \ref{tab:reg32-sites} lists the catalogued settlements in Region 32 (32. Perm & Vyatka Governorates (Demidov-Stroganov Metallurgical Serf Foundries)) (area 491.785 km²), where total regional population moved from 685k in 1721AD, reaching 1,84M in 1811AD and 1,92M in 1815AD (+180,3%) [@Portal1950; @Smirnov1992UralZavody; @Kahan1985].
 
 ```{r table-reg32, echo=FALSE, results='asis'}
 df_reg32 <- build_region_df("northern_urals_perm_and_vyatka")
@@ -877,9 +879,9 @@ render_table_template(
 )
 ```
 
-# Orenburg Governorate & Bashkiria
+## Orenburg Governorate & Bashkiria
 
-Table \ref{tab:reg33-sites} lists the catalogued settlements in Region 33 (33. Orenburg Governorate & Bashkiria (1735AD Orenburg Line & 1773-1775AD Pugachev Rebellion)) (area 425.090 km²), where total regional population moved from 460k in 1721AD, reaching 1.320k in 1811AD and 1.400k in 1815AD (+204,3%) [@Shaykhislamov2018Bashkiria; @Kahan1985; @Kabuzan1971].
+Table \ref{tab:reg33-sites} lists the catalogued settlements in Region 33 (33. Orenburg Governorate & Bashkiria (1735AD Orenburg Line & 1773-1775AD Pugachev Rebellion)) (area 425.090 km²), where total regional population moved from 460k in 1721AD, reaching 1,32M in 1811AD and 1,4M in 1815AD (+204,3%) [@Shaykhislamov2018Bashkiria; @Kahan1985; @Kabuzan1971].
 
 ```{r table-reg33, echo=FALSE, results='asis'}
 df_reg33 <- build_region_df("southern_urals_orenburg_and_bashkiria")
@@ -892,7 +894,7 @@ render_table_template(
 )
 ```
 
-# Tobolsk South: Siberian Trakt & Ishim
+## Tobolsk South: Siberian Trakt & Ishim
 
 Table \ref{tab:reg34-sites} lists the catalogued settlements in Region 34 (34. Tobolsk Governorate South: Siberian Trakt (Tyumen, Kurgan) & Ishim Fortified Line) (area 244.121 km²), where total regional population moved from 215k in 1721AD, reaching 528k in 1811AD and 545k in 1815AD (+153,5%) [@Hartley2014; @Korusenko2011Siberia; @Kabuzan1971].
 
@@ -907,7 +909,7 @@ render_table_template(
 )
 ```
 
-# Tobolsk North: Ob-Irtysh Yasak Basin
+## Tobolsk North: Ob-Irtysh Yasak Basin
 
 Table \ref{tab:reg35-sites} lists the catalogued settlements in Region 35 (35. Tobolsk & Narym River North: Tobolsk, Berezov, Surgut & Obdorsk Yasak Tundra) (area 1.637.985 km²), where total regional population moved from 85k in 1721AD, reaching 156k in 1811AD and 160k in 1815AD (+88,2%) [@Forsyth1992; @Korusenko2011Siberia; @Hartley2014].
 
@@ -922,7 +924,7 @@ render_table_template(
 )
 ```
 
-# Tomsk & Altai Cabinet Silver Mines
+## Tomsk & Altai Cabinet Silver Mines
 
 Table \ref{tab:reg36-sites} lists the catalogued settlements in Region 36 (36. Tomsk Governorate (1804AD) & Kolyvan-Voskresensk Altai Cabinet Silver Mines (Barnaul)) (area 499.967 km²), where total regional population moved from 95k in 1721AD, reaching 289k in 1811AD and 300k in 1815AD (+215,8%) [@Isaev2025AltaiCabinet; @Hartley2014; @Kahan1985].
 
@@ -937,7 +939,7 @@ render_table_template(
 )
 ```
 
-# Altai-Sayan & Minusinsk Borderlands
+## Altai-Sayan & Minusinsk Borderlands
 
 Table \ref{tab:reg37-sites} lists the catalogued settlements in Region 37 (37. Altai-Sayan & Minusinsk Borderlands (post-1756AD Dzungar Collapse & Qing Tannu-Uriankhai)) (area 418.838 km²), where total regional population moved from 75k in 1721AD, reaching 122k in 1811AD and 125k in 1815AD (+66,7%) [@Ekeev2020; @Forsyth1992; @Kabuzan1990].
 
@@ -952,9 +954,9 @@ render_table_template(
 )
 ```
 
-# Yeniseisk, Krasnoyarsk & Turukhansk
+## Yeniseisk, Krasnoyarsk & Turukhansk
 
-Table \ref{tab:reg38-sites} lists the catalogued settlements in Region 38 (38. Yeniseisk Province: Krasnoyarsk Trakt, Angara Portage & Turukhansk Polar North) (area 2.253.435 km²), where total regional population moved from 72k in 1721AD, reaching 138k in 1811AD and 144k in 1815AD (+100,0%) [@Hartley2014; @Forsyth1992; @Kabuzan1971].
+Table \ref{tab:reg38-sites} lists the catalogued settlements in Region 38 (38. Yeniseisk Province: Krasnoyarsk Trakt, Angara Portage & Turukhansk Polar North) (area 2.253.435 km²), where total regional population moved from 72k in 1721AD, reaching 138k in 1811AD and 144k in 1815AD (+100%) [@Hartley2014; @Forsyth1992; @Kabuzan1971].
 
 ```{r table-reg38, echo=FALSE, results='asis'}
 df_reg38 <- build_region_df("siberia_yeniseisk_and_turukhansk_basin")
@@ -967,7 +969,7 @@ render_table_template(
 )
 ```
 
-# Irkutsk & Transbaikal Kiakhta Frontier
+## Irkutsk & Transbaikal Kiakhta Frontier
 
 Table \ref{tab:reg39-sites} lists the catalogued settlements in Region 39 (39. Irkutsk Governorate & Transbaikal Frontier (1727AD Treaty of Kiakhta & Nerchinsk Silver Katorga)) (area 2.502.734 km²), where total regional population moved from 142k in 1721AD, reaching 243k in 1811AD and 252k in 1815AD (+77,5%) [@Hartley2014; @Forsyth1992; @Kahan1985].
 
@@ -982,7 +984,7 @@ render_table_template(
 )
 ```
 
-# Yakutsk, Okhotsk & Kamchatka Oblast
+## Yakutsk, Okhotsk & Kamchatka Oblast
 
 Table \ref{tab:reg40-sites} lists the catalogued settlements in Region 40 (40. Yakutsk, Okhotsk Seaboard & Kamchatka Oblast (Bering Expeditions & 1768AD Smallpox Shock)) (area 5.297.950 km²), where total regional population moved from 155k in 1721AD, reaching 158k in 1811AD and 160k in 1815AD (+3,2%) [@Turaev2012Kamchatka; @Tolkacheva2015Kamchatka; @Forsyth1992].
 
@@ -997,7 +999,9 @@ render_table_template(
 )
 ```
 
-# Regional Gazetteer Summary (Regions 1-40)
+# Appendix
+
+## Regional Gazetteer Summary (Regions 1-40)
 
 Table \ref{tab:regional-summary} aggregates the catalogued urban sample across all 40 period-authentic regions from 1721AD to 1815AD [@Mironov1990Urban; @Kabuzan1971; @Keppen1857].
 

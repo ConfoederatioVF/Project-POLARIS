@@ -297,9 +297,9 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
 }
 ```
 
-# Gazetteer Overview and Summary (172 Sites, 10000BC - 1300AD)
+# Methodology
 
-This supplementary settlement gazetteer covers North-Western Rus (Polotsk, Turov, and Belarusian Rus), strictly book-ended at the Mongol Conquests (1238-1241AD) and the immediate post-conquest devolved principalities (1240AD - 1300AD). The gazetteer catalogues 172 distinct pre-Mongol chronicle towns, fortified *gorodishcha*, and prehistoric and Iron Age archaeological type-sites across all five sub-regional clusters.
+This supplementary settlement gazetteer covers North-Western Rus (Polotsk, Turov, and Belarusian Rus), book-ended at the Mongol Conquests (1238-1241AD) and the immediate post-conquest devolved principalities (1240AD - 1300AD). The gazetteer catalogues 172 distinct pre-Mongol chronicle towns, fortified *gorodishcha*, and prehistoric and Iron Age archaeological type-sites across all five sub-regional clusters.
 
 ```{r table-auto-1, echo=FALSE, results='asis'}
 df_tab_1 <- data.frame(
@@ -341,12 +341,12 @@ df_tab_1 <- data.frame(
   ),
   col_5 = c(
     "Menka (2,4k in 1000AD)",
-    "Polotsk (25,0k / 23,0k)",
-    "Minsk (9,0k / 8,8k)",
-    "Turov (12,0k / 7,5k)",
-    "Grodno (8,5k) / Novogrudok (9,0k in 1300AD)",
-    "Gomel (6,5k / 4,0k), Mstislavl (5,0k / 4,5k)",
-    "Polotsk (25,0k at 1200AD; 23,0k at 1300AD)"
+    "Polotsk (25k / 23k)",
+    "Minsk (9k / 8,8k)",
+    "Turov (12k / 7,5k)",
+    "Grodno (8,5k) / Novogrudok (9k in 1300AD)",
+    "Gomel (6,5k / 4k), Mstislavl (5k / 4,5k)",
+    "Polotsk (25k at 1200AD; 23k at 1300AD)"
   ),
   stringsAsFactors = FALSE
 )
@@ -363,15 +363,15 @@ render_table_template(
 )
 ```
 
-All population entries in the regional settlement database use strictly chronological benchmark keys from 10000BC to 1300AD and store strictly positive integers (> 0).
+All population entries in the regional settlement database use chronological benchmark keys from 10000BC to 1300AD and store positive integers (> 0).
 
-# Estimation Methodology by Historical Horizon (10000BC - 1300AD)
+# Results
 
 ## Prehistoric, Neolithic, Bronze Age, and Iron Age Sites (10000BC - 500AD)
 
-For the 24 prehistoric and Iron Age type-sites, site populations are derived from excavated dwelling counts, cultural layer area (m² or ha), and palaeodemographic household multipliers (5 - 7 persons per hearth or pit-dwelling) established by M. M. Charniauski, U. F. Isaenko, A. G. Mitrofanov, and L. D. Pobol [@charniauski1997arkhealogiya; @mitrofanov1978zhelezny; @pobol1983arkheologicheskie; @isaenko1999arkhealogiya]. Across Final Palaeolithic and Mesolithic camps (10000BC - 5000BC), *Yurevichi* (51,9442°N, 29,5314°E) on the Pripyat, *Berdizh* (52,8331°N, 30,9325°E) and *Grensk* (52,9711°N, 30,8922°E) on the Sozh, *Korma*, *Ankovichi*, and *Borok* represent reindeer- and mammoth-hunter base camps of 40 - 65 residents at 10000BC, expanding to 70 - 110 inhabitants in Mesolithic lacustrine settlements at 5000BC. During the Neolithic pile-dwelling and flint-mining horizon (5000BC - 2500BC), the waterlogged pile-dwelling cluster of Asavets (*Krivina peat bog*, 54,9614°N, 29,4231°E), Kryvina 1, and the Krasnoselsky flint-mining complex (53,2642°N, 24,4319°E) supported semi-permanent communities of 160 - 340 inhabitants.
+For the 24 prehistoric and Iron Age type-sites, site populations are derived from excavated dwelling counts, cultural layer area (m² or ha), and palaeodemographic household multipliers (5 - 7 persons per hearth or pit-dwelling) established by M. M. Charniauski, U. F. Isaenko, A. G. Mitrofanov, and L. D. Pobol [@charniauski1997arkhealogiya; @mitrofanov1978zhelezny; @pobol1983arkheologicheskie; @isaenko1999arkhealogiya]. Across Final Palaeolithic and Mesolithic camps (10000BC - 5000BC), *Yurevichi* (51,94°N, 29,53°E) on the Pripyat, *Berdizh* (52,83°N, 30,93°E) and *Grensk* (52,97°N, 30,89°E) on the Sozh, *Korma*, *Ankovichi*, and *Borok* represent reindeer- and mammoth-hunter base camps of 40 - 65 residents at 10000BC, expanding to 70 - 110 inhabitants in Mesolithic lacustrine settlements at 5000BC. During the Neolithic pile-dwelling and flint-mining horizon (5000BC - 2500BC), the waterlogged pile-dwelling cluster of Asavets (*Krivina peat bog*, 54,96°N, 29,42°E), Kryvina 1, and the Krasnoselsky flint-mining complex (53,26°N, 24,43°E) supported semi-permanent communities of 160 - 340 inhabitants.
 
-In the Bronze Age and Iron Age hillfort era (1200BC - 500AD), large lowland enclosures of the Milograd and Zarubintsy cultures in southern Belarus (*Milograd* 480 at 500BC, *Chaplin* 560 at 200AD, *Goroshkov* 490 at 200AD, *Mokhov* 450 at 500AD) outsized the smaller fortified promontory hillforts of the Brushed Pottery and Dnieper-Dvina cultures (*Malyshki* 350 at 200AD, *Zazony* 320 at 200AD, *Bancerovshchina* 490 at 500AD). Located at the confluence of the Menka and Dunai streams 16 km west of modern Minsk, the *Menka* complex (1,5 ha ramparted hillfort and 40,0 ha open craft settlement excavated by E. M. Zagorulsky) served as the initial tribal and early Rurikid centre of *Mensk* (850 in 800AD, 1.600 in 900AD, peaking at 2.400 in 1000AD) before the 1067AD Battle on the Nemiga River and the transfer of the princely seat to the Svisloch-Nemiga *Zamchishche* at Minsk, declining thereafter to an unfortified rural *selyshche* (950 in 1100AD; 500 in 1200AD; 420 in 1300AD) [@zagorulsky1982vozniknovenie].
+In the Bronze Age and Iron Age hillfort era (1200BC - 500AD), large lowland enclosures of the Milograd and Zarubintsy cultures in southern Belarus (*Milograd* 480 at 500BC, *Chaplin* 560 at 200AD, *Goroshkov* 490 at 200AD, *Mokhov* 450 at 500AD) outsized the smaller fortified promontory hillforts of the Brushed Pottery and Dnieper-Dvina cultures (*Malyshki* 350 at 200AD, *Zazony* 320 at 200AD, *Bancerovshchina* 490 at 500AD). Located at the confluence of the Menka and Dunai streams 16 km west of modern Minsk, the *Menka* complex (1,5 ha ramparted hillfort and 40 ha open craft settlement excavated by E. M. Zagorulsky) served as the initial tribal and early Rurikid centre of *Mensk* (850 in 800AD, 1.600 in 900AD, peaking at 2.400 in 1000AD) before the 1067AD Battle on the Nemiga River and the transfer of the princely seat to the Svisloch-Nemiga *Zamchishche* at Minsk, declining thereafter to an unfortified rural *selyshche* (950 in 1100AD; 500 in 1200AD; 420 in 1300AD) [@zagorulsky1982vozniknovenie].
 
 ## Pre-Mongol Kievan Rus and Post-1240AD Principality Centres (800AD - 1300AD)
 
@@ -466,90 +466,90 @@ df_tab_2 <- data.frame(
     "Berestye & Volhynia"
   ),
   col_3 = c(
-    "55,4879, 28,7856",
-    "52,0692, 27,7358",
-    "55,1904, 30,2049",
-    "53,9006, 27,5590",
-    "53,6884, 23,8258",
-    "52,1153, 26,1031",
-    "52,0975, 23,6877",
-    "53,5942, 25,8192",
-    "52,4345, 30,9754",
-    "54,0203, 31,7258",
-    "53,0275, 27,5594",
-    "53,1561, 24,4514",
-    "54,3414, 29,7547",
-    "54,5081, 30,4172",
-    "54,0003, 27,2917",
-    "54,2279, 28,5050",
-    "53,0636, 26,6322",
-    "51,5744, 26,5650",
-    "52,0494, 29,2456",
-    "54,7078, 29,1497",
-    "54,2006, 27,8489",
-    "53,0869, 25,3164",
-    "55,6419, 27,0419",
-    "52,0558, 27,2133",
-    "53,0833, 30,0500",
-    "53,7131, 31,7139",
-    "55,7469, 30,7539",
-    "54,3239, 30,2928",
-    "51,7878, 30,2678",
-    "53,4439, 31,0014",
-    "56,2528, 26,1964",
-    "53,4289, 28,9781",
-    "53,1500, 27,0917",
-    "52,3617, 30,3917",
-    "51,1286, 26,3042",
-    "51,9458, 30,7953",
-    "56,6406, 25,4194",
-    "52,2139, 24,3564",
-    "52,9167, 30,9167",
-    "53,9000, 30,3333",
-    "52,4008, 23,8194"
+    "55,49, 28,79",
+    "52,07, 27,74",
+    "55,19, 30,2",
+    "53,9, 27,56",
+    "53,69, 23,83",
+    "52,12, 26,1",
+    "52,1, 23,69",
+    "53,59, 25,82",
+    "52,43, 30,98",
+    "54,02, 31,73",
+    "53,03, 27,56",
+    "53,16, 24,45",
+    "54,34, 29,75",
+    "54,51, 30,42",
+    "54, 27,29",
+    "54,23, 28,5",
+    "53,06, 26,63",
+    "51,57, 26,57",
+    "52,05, 29,25",
+    "54,71, 29,15",
+    "54,2, 27,85",
+    "53,09, 25,32",
+    "55,64, 27,04",
+    "52,06, 27,21",
+    "53,08, 30,05",
+    "53,71, 31,71",
+    "55,75, 30,75",
+    "54,32, 30,29",
+    "51,79, 30,27",
+    "53,44, 31",
+    "56,25, 26,2",
+    "53,43, 28,98",
+    "53,15, 27,09",
+    "52,36, 30,39",
+    "51,13, 26,3",
+    "51,95, 30,8",
+    "56,64, 25,42",
+    "52,21, 24,36",
+    "52,92, 30,92",
+    "53,9, 30,33",
+    "52,4, 23,82"
   ),
   col_4 = c(
-    "190,0 ha",
-    "45,0 ha",
-    "50,0 ha",
-    "38,0 ha",
-    "35,0 ha",
-    "38,0 ha",
-    "34,0 ha",
-    "32,0 ha",
-    "30,0 ha",
-    "26,0 ha",
-    "25,0 ha",
-    "24,0 ha",
-    "35,0 ha",
-    "22,0 ha",
-    "20,0 ha",
-    "18,0 ha",
-    "18,0 ha",
-    "18,0 ha",
+    "190 ha",
+    "45 ha",
+    "50 ha",
+    "38 ha",
+    "35 ha",
+    "38 ha",
+    "34 ha",
+    "32 ha",
+    "30 ha",
+    "26 ha",
+    "25 ha",
+    "24 ha",
+    "35 ha",
+    "22 ha",
+    "20 ha",
+    "18 ha",
+    "18 ha",
+    "18 ha",
     "16,5 ha",
-    "15,0 ha",
-    "15,0 ha",
-    "15,0 ha",
+    "15 ha",
+    "15 ha",
+    "15 ha",
     "13,5 ha",
-    "14,0 ha",
-    "14,0 ha",
+    "14 ha",
+    "14 ha",
     "13,5 ha",
-    "13,0 ha",
+    "13 ha",
     "12,5 ha",
     "12,5 ha",
     "12,5 ha",
     "13,5 ha",
-    "12,0 ha",
+    "12 ha",
     "11,5 ha",
-    "11,0 ha",
-    "10,0 ha",
+    "11 ha",
+    "10 ha",
     "9,5 ha",
-    "10,0 ha",
+    "10 ha",
     "9,5 ha",
     "9,5 ha",
-    "9,0 ha",
-    "12,0 ha"
+    "9 ha",
+    "12 ha"
   ),
   col_5 = c(
     "10.000",

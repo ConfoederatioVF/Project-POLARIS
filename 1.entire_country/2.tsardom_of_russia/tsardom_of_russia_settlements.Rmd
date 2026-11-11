@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -338,10 +338,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -378,7 +385,7 @@ get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
 ```
 
 
-# Gazetteer Structure and 38-Region Coverage (1400AD - 1721AD)
+# Methodology
 
 This settlement gazetteer accompanies the demographic literature review for the Tsardom of Russia, Baltic Provinces, Lithuanian-Polish Rus, and Siberian Colonisation (1400AD - 1721AD) and compiles `r length(settlements_list)` individual georeferenced settlements across all 38 period-authentic regions spanning Russia and Siberia (109 settlements across Regions 18-38), Ukraine and Crimea (47 settlements across Regions 9-17), Estland-Livland, Courland-Inflanty, Core Lithuania, and Old Finland (27 settlements across Regions 1-4), and Belarus (22 settlements across Regions 5-8) [@Vodarsky1973; @Vodarsky1977; @Kabuzan1963; @Palli1996; @Dunsdorfs1962; @Kiaupa2000; @KarpachevKozlovsky1972; @Yakovenko2006; @Dolgikh1960]. Every Hanseatic port, Magdeburg-law town (*miasteczko*), ducal residence, Swedish border fortress, Cossack regimental capital, southern abatis-line stronghold, Ural salt or ironworks settlement, and Siberian *ostrog* is recorded as an independent entry with decimal-degree coordinates (`[lat, lon]`) and positive integer population benchmarks across its documented period of occupation between 1400AD and 1720AD [@Tikhomirov1962; @Bernotas2013; @Sharukho2010; @Rezun1989; @Zhigalov2024].
 
@@ -442,7 +449,7 @@ render_table_template(
 )
 ```
 
-# Benchmark Matrix of Principal Settlements (1400AD - 1720AD)
+# Results
 
 ```{r tab-benchmark-matrix, echo=FALSE}
 build_matrix_df <- function (arg0_list) {
@@ -477,7 +484,9 @@ render_table_template(
 )
 ```
 
-# Complete Georeferenced Settlement Directory (1400AD - 1721AD)
+# Appendix
+
+## Georeferenced Settlement Directory (1400AD - 1721AD)
 
 ```{r tab-full-directory, echo=FALSE}
 dir_rows <- lapply(settlements_list, function (s) {

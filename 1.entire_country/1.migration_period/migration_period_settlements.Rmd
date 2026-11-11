@@ -184,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -374,9 +374,9 @@ build_slice_df <- function(idx_vec) {
 }
 ```
 
-# Overview and Estimation Rules
+# Methodology
 
-This supplementary gazetteer compiles 198 excavated Migration Period (c. 250-750AD) and Early Medieval transitional settlements, promontory hillforts (*gorodishcha*), riverine villages (*selishcha*), and fortified towns across the six macro-regions of Belarus, Ukraine, and Russia (excluding the Baltic provinces). All records are stored in the companion settlement JSON file in the standard Stadester dictionary format, keyed by settlement and country identifier with English and Russian names, decimal coordinates, and positive integer population estimates keyed by calendar year.
+This gazetteer compiles 198 excavated Migration Period (c. 250-750AD) and Early Medieval transitional settlements, promontory hillforts (*gorodishcha*), riverine villages (*selishcha*), and fortified towns across the six macro-regions of Belarus, Ukraine, and Russia (excluding the Baltic provinces). All records are stored in the companion settlement JSON file in the standard Stadester dictionary format, keyed by settlement and country identifier with English and Russian names, decimal coordinates, and positive integer population estimates keyed by calendar year.
 
 For each settlement, population figures during the Migration Period (250-750AD) and the Early Medieval transition (900AD) are derived from excavated dwelling counts, fortified and unfortified habitation areas, and associated cemetery burial totals [@oblomskiy2016kolochinskaya; @krenke2019moskvorechye; @goldina1999drevnyaya; @gadzhiev2002derbent]. In the JSON file, only inhabited benchmark years are recorded so that the first and last keys represent each site's documented occupation span; in the tables below, benchmarks prior to foundation or after abandonment are denoted by a hyphen (-). Where a Migration Period settlement evolved directly into a modern town or village on the same site, its population at the First All-Russian Census of 1897 (1900AD benchmark) is included [@troinitsky1905perepis].
 
@@ -393,7 +393,9 @@ if (!knitr::is_latex_output()) {
 }
 ```
 
-# European Forest-Steppe Settlements
+# Results
+
+## European Forest-Steppe Settlements
 
 Table \ref{tab:reg1-sites} lists 38 excavated settlements across the Seim, Psel, Upper Don, Oskol, and Desna forest-steppe valleys, covering the Kiev, Eastern Chernyakhov, Kolochin, Penkovka, Volyntsevo-Romny, Borshevo, and Saltovo-Mayaki cultures [@shchukin2005gotskiy; @oblomskiy2002dneprovskoe; @oblomskiy2016kolochinskaya; @sedov1999drevnerusskaya].
 
@@ -408,7 +410,7 @@ render_table_template(
 )
 ```
 
-# Mixed and Boreal Forest Zone Settlements
+## Mixed and Boreal Forest Zone Settlements
 
 Table \ref{tab:reg2-sites} lists 55 excavated hillforts, riverine villages, and proto-urban centres across the Moskva, Upper and Middle Oka, Upper Volga, Ilmen-Volkhov, Pskov, and Upper Dnieper forest basins, spanning the Late Dyakovo, Moshchiny, Ryazan-Oka, Tushemlya, Pskov Long Barrows, Merya, Muroma, and Early Rus' traditions [@krenke2011dyakovo; @mayorov2016moschiny; @akhmedov2018ryazan; @lopatin2007severnye; @islanova2012ozero].
 
@@ -423,7 +425,7 @@ render_table_template(
 )
 ```
 
-# Middle Volga, Kama-Vyatka, and Cis-Ural Settlements
+## Middle Volga, Kama-Vyatka, and Cis-Ural Settlements
 
 Table \ref{tab:reg3-sites} lists 44 excavated hillforts and village complexes across the Samara Bend, Middle Volga, Kama, Vyatka, Belaya, and Sylva basins, representing the Imenkovo, Azelino, Mazunino, Turaevo, Bakhmutino, Turbasly, Kushnarenkovo, Nevolino, Lomovatovo, and Polom cultures [@vyazov2019middle; @goldina1999drevnyaya; @goldina2012nevolino; @bakhshiev2017bakhmutino; @nazarov2025lomovatovo].
 
@@ -438,7 +440,7 @@ render_table_template(
 )
 ```
 
-# Open Pontic-Caspian Steppe Settlements
+## Open Pontic-Caspian Steppe Settlements
 
 Table \ref{tab:reg4-sites} lists 16 excavated emporia, seasonal winter camps, river-delta towns, and Khazar brick and stone fortresses across the Lower Don, Lower Volga, and Southern Trans-Ural steppe [@shchukin2005gotskiy; @botalov2009gunny; @kazanski2020steppe].
 
@@ -453,7 +455,7 @@ render_table_template(
 )
 ```
 
-# North Caucasus and Caspian Corridor Settlements
+## North Caucasus and Caspian Corridor Settlements
 
 Table \ref{tab:reg5-sites} lists 22 excavated fortress cities, terraced mountain strongholds, and coastal settlements across Dagestan, the Central Caucasus (Alanian Kislovodsk and Kuban valleys), and the Taman-Black Sea littoral [@gadzhiev2002derbent; @gmyrya2022palasa; @korobov2013terraced; @mastykova2009kuban].
 
@@ -468,7 +470,7 @@ render_table_template(
 )
 ```
 
-# Western and Southern Siberian Settlements
+## Western and Southern Siberian Settlements
 
 Table \ref{tab:reg6-sites} lists 23 excavated fortified settlements, iron-working villages, and agro-pastoral centres across the Tobol-Irtysh, Middle and Lower Ob, Minusinsk Basin, Russian Altai, and Lake Baikal regions, covering the Sargat, Potchevash, Relka, Tashtyk, Bulan-Koby, Early Turkic, and Kurykan traditions [@matveeva2000sargat; @zelenkov2025potchevash; @azbelev2007oglakhty; @seregin2021altai; @kharinsky2005baikal].
 
@@ -483,7 +485,9 @@ render_table_template(
 )
 ```
 
-# Regional Gazetteer Summary
+# Appendix
+
+## Regional Gazetteer Summary
 
 Table \ref{tab:regional-summary} summarises the number of catalogued settlements and the combined excavated sample population across the six regions from 250AD to 1900AD.
 

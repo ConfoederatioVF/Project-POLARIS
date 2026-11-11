@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -360,10 +360,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -397,13 +404,15 @@ get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
 }
 ```
 
-# Overview
+# Methodology
 
-This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of the Russian Core Principalities. The dataset contains 258 individual settlements across the eight historical regions of European Russia (Novgorod and the Russian North, Vladimir-Suzdal and Rostov-Yaroslavl, Moscow and Tver, Ryazan and the Upper Oka, Smolensk and the Upper Dnieper, the Bryansk-Kursk-Voronezh Forest-Steppe, Nizhny Novgorod-Vyatka-Great Perm, and the Middle Volga and Cis-Urals) from 10000BC to 1900AD, recording canonical and historical settlement names, geographical coordinates, and benchmark population trajectories.
+This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of the Russian Core Principalities. The dataset contains 258 individual settlements across the eight historical regions of European Russia (Novgorod and the Russian North, Vladimir-Suzdal and Rostov-Yaroslavl, Moscow and Tver, Ryazan and the Upper Oka, Smolensk and the Upper Dnieper, the Bryansk-Kursk-Voronezh Forest-Steppe, Nizhny Novgorod-Vyatka-Great Perm, and the Middle Volga and Cis-Urals) from 10000BC to 1900AD, recording and historical settlement names, geographical coordinates, and benchmark population trajectories.
 
 Population figures are compiled from excavated dwelling floors and settlement plans for Mesolithic, Neolithic, Bronze Age, and Early Iron Age sites [@Zhilin2019; @Oshibkina2006; @Kostyleva2014; @Kostyleva2022; @Nordqvist2020; @Engovatova2021], walled urban footprints (*detinets* and *okolny gorod*) and unfortified *posad* areas for Kievan Rus, Volga Bulgaria, and Golden Horde towns [@Tikhomirov1956; @Kuza1989; @Kuza1996; @Nosov1990; @Darkevich1995; @Eniosova2012; @Khuzin2001; @Rudenko2012; @Nedashkovsky2000; @Belorybkin2022; @Belavin2023], and Muscovite cadastral books (*pistsovye knigi*), Imperial poll-tax revisions (*revizii*), and the 1897 First General Census for early modern and nineteenth-century towns [@Kopanev1959; @Shapiro1971; @Vodarsky1973; @Vodarsky1977; @Kabuzan1963; @Kabuzan1971; @Rashin1956; @Mironov2000; @Troynitsky1905].
 
-# Prehistoric, Bronze Age, and Early Iron Age Settlements (10000BC - 800AD)
+# Results
+
+## Prehistoric, Bronze Age, and Early Iron Age Settlements (10000BC - 800AD)
 
 ```{r tab-rc-ancient, results='asis'}
 ancient_list <- Filter(function (s) first_year_num(s) <= 800, settlements_list)
@@ -430,7 +439,7 @@ render_table_template(
 )
 ```
 
-# Kievan Rus, Volga Bulgaria, and Golden Horde Settlements (850 - 1500AD)
+## Kievan Rus, Volga Bulgaria, and Golden Horde Settlements (850 - 1500AD)
 
 ```{r tab-rc-medieval, results='asis'}
 med_list <- Filter(function (s) {
@@ -463,7 +472,7 @@ render_table_template(
 )
 ```
 
-# Muscovite and Imperial Settlements (1550 - 1900AD)
+## Muscovite and Imperial Settlements (1550 - 1900AD)
 
 ```{r tab-rc-modern, results='asis'}
 mod_list <- Filter(function (s) {
@@ -497,7 +506,7 @@ render_table_template(
 )
 ```
 
-# Complete Settlement Gazetteer
+## settlement gazetteer
 
 ```{r tab-rc-all, results='asis'}
 df_all <- do.call(rbind, lapply(settlements_list, function (s) {

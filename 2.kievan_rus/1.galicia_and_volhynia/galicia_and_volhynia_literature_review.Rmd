@@ -388,7 +388,7 @@ df_tab_1 <- data.frame(
     "680k (500 - 880k)",
     "520k (380 - 680k)",
     "680k (520 - 860k)",
-    "820k (640 - 1.020k)"
+    "820k (640 - 1,02M)"
   ),
   stringsAsFactors = FALSE
 )
@@ -411,7 +411,7 @@ render_table_template(
 
 Following the post-Chernyakhov transition (fifth and sixth centuries AD), the Upper Dniester, Western Bug and Styr-Horyn basins became the core of the Early Slavic Prague-Korchak Culture (520k regional population at 600AD) [@baran1998earlyslavs; @aulikh1972zymne]. At Zymne on the Luha River near Volodymyr (50,8°N, 24,33°E), V. V. Aulikh excavated a sixth- to seventh-century AD timber-palisaded citadel (1,5k inhabitants) yielding non-ferrous jewellery moulds, iron weapons, silvered belt mounts and Byzantine coins of Justinian I and Justin II (527-578AD), destroyed during the Avar wars against the *Duliby* [@aulikh1972zymne]. Contemporaneous early Slavic settlements stood at Ripniv, Bovshiv, Zelene, Krylos and Rashkiv [@baran1998earlyslavs].
 
-During the Luka-Raikovetska tribal era (800AD 680k; 900AD 820k), the White Croats, Volhynians, Buzhany and Tivertsi built large multi-part hillforts (*gorodishcha*): Plisnesk (160 ha across seven defensive rampart lines, 6k in 900AD) [@fylypchuk2012plisnesk], Stilsko (200 ha enclosure on the Kolodnytsia with 10 km of ramparts, 7k in 900AD), Old Halych (*Krylos*, 4,5k in 900AD), Revne (2,5k), Volyn (*Grudek*, 3,5k), Cherven (3k), Busk (*Buzhsk*, 2,5k) and Peremyshl (3,5k) [@tomenchuk2006halych; @kotlyar1998galician; @timoshchuk1982bukovina]. After Grand Prince Vladimir the Great's 981AD Cherven campaign, his 992AD Croat campaign and the foundation of Volodymyr (988AD), regional population reached 1,15M (1.150k) at 1000AD [@kotlyar1998galician].
+During the Luka-Raikovetska tribal era (800AD 680k; 900AD 820k), the White Croats, Volhynians, Buzhany and Tivertsi built large multi-part hillforts (*gorodishcha*): Plisnesk (160 ha across seven defensive rampart lines, 6k in 900AD) [@fylypchuk2012plisnesk], Stilsko (200 ha enclosure on the Kolodnytsia with 10 km of ramparts, 7k in 900AD), Old Halych (*Krylos*, 4,5k in 900AD), Revne (2,5k), Volyn (*Grudek*, 3,5k), Cherven (3k), Busk (*Buzhsk*, 2,5k) and Peremyshl (3,5k) [@tomenchuk2006halych; @kotlyar1998galician; @timoshchuk1982bukovina]. After Grand Prince Vladimir the Great's 981AD Cherven campaign, his 992AD Croat campaign and the foundation of Volodymyr (988AD), regional population reached 1,15M (1,15M) at 1000AD [@kotlyar1998galician].
 
 ### Devolved Principalities (1084AD - 1200AD)
 
@@ -449,7 +449,7 @@ render_figure_template(
 
 ### Mongol Invasion and the Kingdom of Rus (1240AD - 1300AD)
 
-On the eve of Batu Khan's western campaign (1240AD), the unified Romanovichi realm supported 1,75M (1.750k) inhabitants, down slightly from the 1,82M 1200AD unification peak following the 1205-1238AD boyar and Hungarian wars of succession. During the winter campaign of December 1240AD - March 1241AD, Mongol armies stormed and burned Iziaslavl, Kolodyazhyn, Volodymyr, Halych, Zvenyhorod, Peresopnytsia and Terebovlia, reducing the regional population to a post-conquest trough of 1,24M (1.240k) in 1250AD (-31,9% below 1200AD) [@kotlyar2002chronicle; @karger1964iziaslavl]. Because the cliff fortresses of Kremenets and Danyliv, the new royal capital at Kholm, Bakota in Ponizia and the Carpathian mountain valleys survived intact, King Daniel Romanovich (crowned *Rex Russiae* at Dorohychyn in 1253AD), Vasilko Romanovich, Lev Danilovich (who made Lviv the main capital in 1272AD) and Yuri I Lvovich led a demographic and urban recovery across the Kingdom of Rus, reaching 1,38M (1.380k) by 1300AD [@krypyakevych1984galicia; @petehyrych2006galicia; @rappoport1967military].
+On the eve of Batu Khan's western campaign (1240AD), the unified Romanovichi realm supported 1,75M (1,75M) inhabitants, down slightly from the 1,82M 1200AD unification peak following the 1205-1238AD boyar and Hungarian wars of succession. During the winter campaign of December 1240AD - March 1241AD, Mongol armies stormed and burned Iziaslavl, Kolodyazhyn, Volodymyr, Halych, Zvenyhorod, Peresopnytsia and Terebovlia, reducing the regional population to a post-conquest trough of 1,24M (1,24M) in 1250AD (-31,9% below 1200AD) [@kotlyar2002chronicle; @karger1964iziaslavl]. Because the cliff fortresses of Kremenets and Danyliv, the new royal capital at Kholm, Bakota in Ponizia and the Carpathian mountain valleys survived intact, King Daniel Romanovich (crowned *Rex Russiae* at Dorohychyn in 1253AD), Vasilko Romanovich, Lev Danilovich (who made Lviv the main capital in 1272AD) and Yuri I Lvovich led a demographic and urban recovery across the Kingdom of Rus, reaching 1,38M (1,38M) by 1300AD [@krypyakevych1984galicia; @petehyrych2006galicia; @rappoport1967military].
 
 ```{r table-auto-2, echo=FALSE, results='asis'}
 df_tab_2 <- data.frame(
@@ -508,13 +508,13 @@ df_tab_2 <- data.frame(
     "345k"
   ),
   col_7 = c(
-    "1,15M (1.150k)",
-    "1,46M (1.460k)",
-    "1,65M (1.650k)",
-    "1,82M (1.820k)",
-    "1,75M (1.750k)",
-    "1,24M (1.240k)",
-    "1,38M (1.380k)"
+    "1,15M (1,15M)",
+    "1,46M (1,46M)",
+    "1,65M (1,65M)",
+    "1,82M (1,82M)",
+    "1,75M (1,75M)",
+    "1,24M (1,24M)",
+    "1,38M (1,38M)"
   ),
   stringsAsFactors = FALSE
 )

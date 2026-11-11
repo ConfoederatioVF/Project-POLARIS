@@ -183,7 +183,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -338,10 +338,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -371,13 +378,15 @@ fmt_pop_series <- function (arg0_s, arg1_ymin = -99999, arg2_ymax = 99999) {
 }
 ```
 
-# Gazetteer Methodology and Structure
+# Methodology
 
-This settlement gazetteer accompanies the regional demographic literature review of Crimea (~26.945 km²) and documents all `r length(settlements_list)` individual settlements and archaeological sites across the time domain from 10000BC to 1400AD. Every entry records its canonical settlement name, historical and alternative designations, geographical coordinates, occupied date span, and positive-integer population benchmarks.
+This settlement gazetteer accompanies the regional demographic literature review of Crimea (~26.945 km²) and documents all `r length(settlements_list)` individual settlements and archaeological sites across the time domain from 10000BC to 1400AD. Every entry records its settlement name, historical and alternative designations, geographical coordinates, occupied date span, and positive-integer population benchmarks.
 
 Population series are calibrated from rock-shelter and open-camp planimetry for the Palaeolithic, Mesolithic, Neolithic, and Bronze Age (10000BC - 1000BC) [@cherkasov2018; @shchepinsky1966; @kris1981]; walled urban area and rural *chora* cadastres for Classical Chersonesus Taurica, the European Bosporan Kingdom, and the Late Scythian Kingdom (500BC - 400AD) [@maslennikov1998; @carter2000; @popova2011]; and fortress enclosures, cave-town plateaus, and commercial quarter reconstructions for Byzantine Cherson, Crimean Gothia, the Khazar Tudunate, Kievan Rus Korsun and Korchev, the Principality of Theodoro, Golden Horde Solkhat, and Genoese Gazaria (500AD - 1400AD) [@aibabin1999; @baranov1990; @bocharov2017; @myts2024; @ozturk2019; @inalcik1996; @vodarsky2003].
 
-# Prehistoric, Classical and Scythian Sites (10000BC - 400AD)
+# Results
+
+## Prehistoric, Classical and Scythian Sites (10000BC - 400AD)
 
 ```{r table-prehistoric-classical, echo=FALSE, results='asis'}
 sub_ancient <- Filter(function (s) first_year_num(s) <= 400, settlements_list)
@@ -399,7 +408,7 @@ render_table_template(
 )
 ```
 
-# Medieval Byzantine, Gothic, Saltovo-Mayaki, Genoese and Golden Horde Settlements (500AD - 1400AD)
+## Medieval Byzantine, Gothic, Saltovo-Mayaki, Genoese and Golden Horde Settlements (500AD - 1400AD)
 
 ```{r table-medieval-modern, echo=FALSE, results='asis'}
 sub_med_mod <- Filter(function (s) first_year_num(s) >= 500, settlements_list)

@@ -183,7 +183,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -282,23 +282,25 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
 }
 ```
 
-# Gazetteer Overview and Methodology (10000BC - 1300AD)
+# Methodology
 
 ## Structure of the 142-Settlement Dataset
 
-This companion document details the settlement-level gazetteer accompanying the regional demographic synthesis of Chernigov and Novgorod-Seversk. Book-ended at the Mongol Conquests (1239AD) and the immediate post-conquest devolved principalities (1240AD - 1300AD), the gazetteer catalogues 142 verified archaeological type-sites, Severian and Radimichi promontory hillforts, tenth-century Varangian-Rus retinue complexes, and Olgovichi chronicle towns (*gorodishcha*) across the 72.235 km² Southern Core of the Chernigov-Seversk realm (Chernihivska Oblast, Sumska Oblast, and the Eastern Gomel and Lower Sozh corridor).
+This companion document details the settlement-level gazetteer accompanying the regional demographic synthesis of Chernigov and Novgorod-Seversk. Book-ended at the Mongol Conquests (1239AD) and the immediate post-conquest devolved principalities (1240AD - 1300AD), the gazetteer catalogues 142 archaeological type-sites, Severian and Radimichi promontory hillforts, tenth-century Varangian-Rus retinue complexes, and Olgovichi chronicle towns (*gorodishcha*) across the 72.235 km² Southern Core of the Chernigov-Seversk realm (Chernihivska Oblast, Sumska Oblast, and the Eastern Gomel and Lower Sozh corridor).
 
-Each settlement entry records its canonical English and historical designation along with Ukrainian, Belarusian, and Old East Slavic chronicle orthographies, verified geographic coordinates in decimal degrees (between 50,14°N - 53,13°N and 29,83°E - 35,26°E), functional settlement classification (regional capital, principality capital, chronicle fortress, or archaeological site), and benchmark population series across nineteen chronological horizons from 10000BC to 1300AD (10000BC, 6000BC, 4000BC, 1500BC, 500BC, 0AD, 300AD, 500AD, 700AD, 800AD, 900AD, 1000AD, 1050AD, 1100AD, 1150AD, 1200AD, 1239AD, 1250AD, and 1300AD). Unoccupied horizons are omitted rather than encoded as zero.
+Each settlement entry records its English and historical designation along with Ukrainian, Belarusian, and Old East Slavic chronicle orthographies, geographic coordinates in decimal degrees (between 50,14°N - 53,13°N and 29,83°E - 35,26°E), functional settlement classification (regional capital, principality capital, chronicle fortress, or archaeological site), and benchmark population series across nineteen chronological horizons from 10000BC to 1300AD (10000BC, 6000BC, 4000BC, 1500BC, 500BC, 0AD, 300AD, 500AD, 700AD, 800AD, 900AD, 1000AD, 1050AD, 1100AD, 1150AD, 1200AD, 1239AD, 1250AD, and 1300AD). Unoccupied horizons are omitted rather than encoded as zero.
 
 ## Calibration Multipliers Across Pre-Mongol Horizons (10000BC - 1300AD)
 
-For the Upper Palaeolithic to Early Iron Age (10000BC - 500AD, comprising 22 type-sites), mammoth-hunter winter base camps on the middle Desna (Mezin, Pushkari I, Chulatovo I-II, Novgorod-Seversky, and Buzhany) are scaled at 75 - 120 persons per multi-dwelling bone-hut complex [@shovkoplyas1965mezinskaya; @boriskovsky1953paleolit; @velichko1997mammoth]. Yukhnovo and Milograd Early Iron Age promontory hillforts (0,5 - 3,0 ha) are calibrated at 380 - 780 inhabitants [@tretyakov1966finno], while Late Zarubintsy, Kiev culture (Roishche and Harivka-Desna), and Kolochin (Kolochin I) riverside complexes are scaled at 580 - 850 inhabitants [@byrnya1991ranneslavyanskie; @symonovich1983chernyakhov].
+For the Upper Palaeolithic to Early Iron Age (10000BC - 500AD, comprising 22 type-sites), mammoth-hunter winter base camps on the middle Desna (Mezin, Pushkari I, Chulatovo I-II, Novgorod-Seversky, and Buzhany) are scaled at 75 - 120 persons per multi-dwelling bone-hut complex [@shovkoplyas1965mezinskaya; @boriskovsky1953paleolit; @velichko1997mammoth]. Yukhnovo and Milograd Early Iron Age promontory hillforts (0,5 - 3 ha) are calibrated at 380 - 780 inhabitants [@tretyakov1966finno], while Late Zarubintsy, Kiev culture (Roishche and Harivka-Desna), and Kolochin (Kolochin I) riverside complexes are scaled at 580 - 850 inhabitants [@byrnya1991ranneslavyanskie; @symonovich1983chernyakhov].
 
 For the Volyntsevo, Romny-Severian, and Viking-Age centres (700AD - 1000AD), major Severian and Radimichi *opoliya* citadels (Volyntsevo, Bytytsia, Gornal, Novotroitske, and Romny) and Varangian-Rus retinue complexes (Shestovytsia at 3.200, Boldyni Hory at 2.500, Mokhov at 1.950, and Lyubech at 3.500) are reconstructed from excavated sunken-dwelling (*poluzemlyanka*) densities and barrow necropolis mortality tables [@sukhobokov1975slaviane; @motsia2011shestovytsia; @androschuk2013vikings].
 
 For the Olgovichi principalities at their twelfth- and early thirteenth-century apogee (1050AD - 1239AD), fortified *detinets* and *okolny gorod* ramparts (120 - 150 inh/ha) and unfortified *posad* and *podol* craft suburbs (75 - 100 inh/ha) follow the archaeological syntheses of V. P. Kovalenko [@kovalenko2008chernihiv], A. V. Kuza [@kuza1989malye; @kuza1996gorodishcha], P. P. Tolochko [@tolochko1989goroda], A. K. Zaitsev [@zaitsev1975chernigov], Yu. Yu. Morgunov [@morgunov2003posemye], and H. V. Shtykhov [@shtykhov1992goroda]. For the October 1239AD Mongol destruction and post-conquest devolved principalities (1250AD - 1300AD), population estimates are calibrated from excavated destruction horizons across the Posemye and Desna corridors (Putivl, Vyr, Vorgol, Vsevolozh, and Chernigov) and the post-conquest survival of Hlukhiv (4.500 in 1300AD), Novgorod-Seversk (4.500), Putivl (3.800), Gomel (3.400), and Chernigov (6.000) [@dimnik2003olgovichi; @kuczynski1936ziemie].
 
-# Prehistoric, Proto-Slavic and Viking-Age Sites (22 Sites)
+# Results
+
+## Prehistoric, Proto-Slavic and Viking-Age Sites (n=22)
 
 Table \ref{tab:auto-tab-1} presents the 22 prehistoric, Early Iron Age, Kiev and Kolochin, Romny-Severian, and Viking-Age type-sites included in the gazetteer (10000BC - 1300AD).
 
@@ -311,11 +313,11 @@ df_tab_1 <- data.frame(
     "Novgorod-Seversky (52,01°N, 33,26°E)",
     "Mezhyrich-Desna (51,69°N, 33,15°E)",
     "Kurove-Yukhnovo (52,07°N, 33,29°E)",
-    "Sosnytsia-Mnogopillya (51,51°N, 32,50°E)",
+    "Sosnytsia-Mnogopillya (51,51°N, 32,5°E)",
     "Marianivka (51,36°N, 33,52°E)",
     "Harivka-Desna (51,45°N, 31,25°E)",
     "Roishche (51,65°N, 31,26°E)",
-    "Volyntsevo (51,40°N, 33,94°E)",
+    "Volyntsevo (51,4°N, 33,94°E)",
     "Harivka-Seym (51,34°N, 33,89°E)",
     "Gornal (51,06°N, 35,22°E)",
     "Novotroitske (50,62°N, 34,48°E)",
@@ -463,21 +465,21 @@ render_table_template(
 )
 ```
 
-# Principality of Chernigov Core (52 Settlements)
+## Principality of Chernigov Core (52 Settlements)
 
 Table \ref{tab:auto-tab-2} documents the 52 chronicle towns and excavated *gorodishcha* across the Chernigov Core (Chernihivska Oblast) from 800AD to 1300AD.
 
 ```{r table-auto-2, echo=FALSE, results='asis'}
 df_tab_2 <- data.frame(
   col_1 = c(
-    "Chernigov (51,50°N, 31,29°E)",
-    "Lyubech (51,70°N, 30,66°E)",
+    "Chernigov (51,5°N, 31,29°E)",
+    "Lyubech (51,7°N, 30,66°E)",
     "Snovsk (Sedniv) (51,64°N, 31,57°E)",
     "Oster (Gorodets) Ostersky (50,95°N, 30,88°E)",
     "Pryluky (Priluk) (50,59°N, 32,39°E)",
     "Vsevolozh (Syvolozh) (51,18°N, 32,36°E)",
     "Unenezh (Nizhyn) (51,05°N, 31,89°E)",
-    "Sosnytsia (51,53°N, 32,50°E)",
+    "Sosnytsia (51,53°N, 32,5°E)",
     "Khorobor (Makoshyne) (51,47°N, 32,33°E)",
     "Baturin (Baturyn) (51,34°N, 32,88°E)",
     "Bakhmach (Bakhmatch) (51,18°N, 32,83°E)",
@@ -492,17 +494,17 @@ df_tab_2 <- data.frame(
     "Gurichev (51,41°N, 31,22°E)",
     "Lutava (Karpilivka) (50,98°N, 30,82°E)",
     "Korop (51,56°N, 32,95°E)",
-    "Chemer (Chemerin) (51,10°N, 31,22°E)",
+    "Chemer (Chemerin) (51,1°N, 31,22°E)",
     "Kovchyn (Pakul)-Bilous (51,46°N, 31,08°E)",
     "Borzna (51,25°N, 32,43°E)",
     "Horodnya (51,89°N, 31,59°E)",
     "Kozelets (50,91°N, 31,12°E)",
-    "Staryi Bilous (51,49°N, 31,20°E)",
+    "Staryi Bilous (51,49°N, 31,2°E)",
     "Bobrovytsia (50,74°N, 31,39°E)",
     "Kobyzhcha (50,83°N, 31,28°E)",
     "Ichnya (50,86°N, 32,39°E)",
-    "Vypovziv (50,94°N, 30,80°E)",
-    "Ripky (51,80°N, 31,09°E)",
+    "Vypovziv (50,94°N, 30,8°E)",
+    "Ripky (51,8°N, 31,09°E)",
     "Horbove (51,46°N, 31,59°E)",
     "Boiaro (Bruzhytsi) (51,55°N, 31,49°E)",
     "Obmachiv (51,37°N, 32,81°E)",
@@ -512,11 +514,11 @@ df_tab_2 <- data.frame(
     "Ponornytsia (51,72°N, 32,85°E)",
     "Petrushyn (51,63°N, 31,35°E)",
     "Novi Mlyny (51,42°N, 32,98°E)",
-    "Kloniv (Klochkiv) (51,68°N, 31,60°E)",
+    "Kloniv (Klochkiv) (51,68°N, 31,6°E)",
     "Tabayivka (51,62°N, 31,15°E)",
     "Berezivka-Udai (50,83°N, 33,14°E)",
     "Kulykivka (51,37°N, 31,65°E)",
-    "Sokyryntsi-Utkivka (50,70°N, 32,79°E)",
+    "Sokyryntsi-Utkivka (50,7°N, 32,79°E)",
     "Kruty (51,06°N, 32,11°E)",
     "Vykoniv (Desna) (50,93°N, 30,76°E)",
     "Radul (51,83°N, 30,72°E)",
@@ -808,7 +810,7 @@ render_table_template(
 )
 ```
 
-# Novgorod-Seversk, Putivl, Vorgol and Hlukhiv (44 Settlements)
+## Novgorod-Seversk, Putivl, Vorgol and Hlukhiv (44 Settlements)
 
 Table \ref{tab:auto-tab-3} details the 44 princely capitals, chronicle fortresses, and excavated *gorodishcha* across the Middle Desna, Seym (Posemye), Esman, Sula, Psyol, and Vorskla valleys (800AD - 1300AD).
 
@@ -821,19 +823,19 @@ df_tab_3 <- data.frame(
     "Vyr (Stari Vyrky) (51,16°N, 34,29°E)",
     "Romny (Romen) (50,75°N, 33,47°E)",
     "Vorgol (51,48°N, 33,78°E)",
-    "Lipen (Sumy) (50,91°N, 34,80°E)",
-    "Okhtyrka (Vorskla) (50,31°N, 34,90°E)",
+    "Lipen (Sumy) (50,91°N, 34,8°E)",
+    "Okhtyrka (Vorskla) (50,31°N, 34,9°E)",
     "Voronizh (51,77°N, 33,46°E)",
     "Hlinsk (Glinsk) (50,62°N, 33,32°E)",
     "Popash (51,02°N, 33,68°E)",
-    "Konotop (51,24°N, 33,20°E)",
+    "Konotop (51,24°N, 33,2°E)",
     "Viakhan (50,95°N, 33,85°E)",
     "Zartyi (51,44°N, 34,05°E)",
-    "Lipovets (Posemye) (51,20°N, 34,15°E)",
+    "Lipovets (Posemye) (51,2°N, 34,15°E)",
     "Nedryhailiv (50,83°N, 33,88°E)",
     "Igoreve Seltsye (51,35°N, 33,75°E)",
     "Olshana (Lebedyn) (50,58°N, 34,48°E)",
-    "Zelenyi Hai (50,80°N, 34,85°E)",
+    "Zelenyi Hai (50,8°N, 34,85°E)",
     "Zarichne (Trostyanets) (50,48°N, 34,96°E)",
     "Myropillya (51,02°N, 35,26°E)",
     "Vovkivtsi (50,81°N, 33,58°E)",
@@ -842,9 +844,9 @@ df_tab_3 <- data.frame(
     "Pustoviitivka (50,79°N, 33,58°E)",
     "Znob-Novhorodske (52,26°N, 33,59°E)",
     "Kuzemyn (50,14°N, 34,68°E)",
-    "Mezhyrich-Psel (50,70°N, 34,47°E)",
+    "Mezhyrich-Psel (50,7°N, 34,47°E)",
     "Korovyntsi (50,81°N, 33,74°E)",
-    "Chasha (Buryn) (51,20°N, 33,83°E)",
+    "Chasha (Buryn) (51,2°N, 33,83°E)",
     "Bytytsia (51,01°N, 34,93°E)",
     "Velyki Budky (50,88°N, 33,65°E)",
     "Nyzy (50,78°N, 34,77°E)",
@@ -1105,7 +1107,7 @@ render_table_template(
 )
 ```
 
-# Lower Sozh and Dnieper Corridor (24 Settlements)
+## Lower Sozh and Dnieper Corridor (24 Settlements)
 
 Table \ref{tab:auto-tab-4} documents the 24 chronicle fortresses and Radimichi-Rus *gorodishcha* in the eastern Gomel and Lower Sozh corridor (800AD - 1300AD).
 
@@ -1116,24 +1118,24 @@ df_tab_4 <- data.frame(
     "Bragin (51,78°N, 30,27°E)",
     "Rechitsa (52,36°N, 30,39°E)",
     "Chechersk (52,91°N, 30,91°E)",
-    "Loyev (51,94°N, 30,80°E)",
+    "Loyev (51,94°N, 30,8°E)",
     "Khalch (52,57°N, 31,14°E)",
     "Streshin (52,73°N, 30,11°E)",
-    "Gorval (52,57°N, 30,20°E)",
+    "Gorval (52,57°N, 30,2°E)",
     "Zaspa (52,29°N, 30,48°E)",
     "Dobrush-Iput (52,41°N, 31,32°E)",
     "Pridneprovskoe (Zhlobin) (52,89°N, 30,04°E)",
-    "Korma-Sozh (53,13°N, 30,80°E)",
+    "Korma-Sozh (53,13°N, 30,8°E)",
     "Komarin (51,44°N, 30,56°E)",
-    "Sharpylovka (52,10°N, 30,91°E)",
+    "Sharpylovka (52,1°N, 30,91°E)",
     "Nisimkovichi (52,88°N, 31,04°E)",
-    "Svetilovichi-Besed (52,78°N, 31,30°E)",
+    "Svetilovichi-Besed (52,78°N, 31,3°E)",
     "Tereshkovichi (52,27°N, 30,95°E)",
     "Kholmichi (52,15°N, 30,63°E)",
     "Raduga-Sozh (52,64°N, 31,08°E)",
     "Neglyubka-Besed (52,66°N, 31,53°E)",
     "Strumen (Khoiniki) (51,89°N, 29,96°E)",
-    "Uvarovichi-Uza (52,60°N, 30,73°E)",
+    "Uvarovichi-Uza (52,6°N, 30,73°E)",
     "Vedrich (Vasilevichi) (52,25°N, 29,83°E)",
     "Lipov (Buda)-Koshelevo (52,72°N, 30,57°E)"
   ),

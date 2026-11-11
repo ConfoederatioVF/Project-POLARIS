@@ -181,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -364,10 +364,17 @@ fmt_span <- function (arg0_s) {
 fmt_num_eu <- function (arg0_val) {
   if (is.null(arg0_val) || is.na(arg0_val)) return("-")
   v <- as.numeric(arg0_val)
+  if (v >= 1000000) {
+    s <- formatC(v / 1000000.0, format = "f", digits = 2L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "M"))
+  }
   if (v >= 1000) {
-    s <- sprintf("%.1fk", v / 1000.0)
-    s <- gsub("\\.", ",", s)
-    return(s)
+    s <- formatC(v / 1000.0, format = "f", digits = 1L, big.mark = ".", decimal.mark = ",")
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(paste0(s, "k"))
   }
   return(as.character(round(v)))
 }
@@ -402,13 +409,15 @@ get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
 }
 ```
 
-# Overview
+# Methodology
 
 This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of the Lower Volga (10000BC - 1900AD). The dataset contains 146 individual settlements across the Volga Delta, Volga-Akhtuba Floodplain, Saratov-Volgograd river corridor, Kalmyk Steppe, and Astrakhan-Volgograd Trans-Volga from 10000BC to 1900AD, indexing each settlement with alternate and historical names, decimal coordinates, and chronological population estimates for inhabited benchmark years.
 
 Population figures are derived from excavated pit-house floor areas and cemetery cohorts for Mesolithic, Neolithic, Eneolithic, Bronze Age Srubnaya and Sarmatian sites [@koltsov2005mezolit; @smagin2018mikrolitov; @yudin2004varfolomeyevka; @baratskov2015itogi; @vybornov2022khronologiya; @agapov1990khvalynskiy; @tsibin2019maksimovka; @malov2008nizhneye; @lopatin2014nachalo; @skripkin2012chislennosti; @balabanova2009khronologicheskiye], urban and rural settlement excavations for Khazar Itil, Pre-Mongol Saksin and Golden Horde cities [@solovyev2022semibugry; @vasilyev2015saksin; @vasilyev2020samosdelka; @zilivinskaya2014ocherki; @yegorov1985geografiya; @fyodorovdavydov1994goroda; @nedashkovsky2000ukek; @nedashkovsky2010goroda; @nedashkovsky2022predmety; @shigapov2022selishch; @zeleneev2018selitrennom; @pigarev2021topografii] and Russian garrison rolls, Imperial tax revisions (*revizii*), Volga German colony censuses, Kalmyk and Inner (Bukey) Kazakh Horde records and the 1897 Census [@zaitsev2006astrakhanskoye; @syzranov2014astrakhani; @trepavlov2016nogayskoy; @moiseev2015stepnyye; @kabuzan1963narodonaseleniye; @solovyov2013saratovskoy; @brylyov2018volgogradskoy; @pleve1998nemetskiye; @doenninghaus2011nemetskikh; @ochirov2008tyurkoyazychnyye; @okonova2012migratsii; @kyshpanakov2026kalmyki; @belousov2019bukeyevskoy; @pirova2020tatarakh; @troynitsky1904saratov; @troynitsky1904astrakhan].
 
-# Prehistoric, Bronze Age, and Sarmatian Settlements (10000BC - 400AD)
+# Results
+
+## Prehistoric, Bronze Age, and Sarmatian Settlements (10000BC - 400AD)
 
 ```{r tab-volga-ancient, results='asis'}
 v_ancient_list <- Filter(function (s) first_year_num(s) <= 400, settlements_list)
@@ -435,7 +444,7 @@ render_table_template(
 )
 ```
 
-# Medieval Khazar, Pre-Mongol Saksin, and Golden Horde Settlements (750 - 1550AD)
+## Medieval Khazar, Pre-Mongol Saksin, and Golden Horde Settlements (750 - 1550AD)
 
 ```{r tab-volga-medieval, results='asis'}
 v_med_list <- Filter(function (s) {
@@ -468,7 +477,7 @@ render_table_template(
 )
 ```
 
-# Early Modern and Imperial Settlements, Volga German Colonies, and Steppe Centres (1558 - 1900AD)
+## Early Modern and Imperial Settlements, Volga German Colonies, and Steppe Centres (1558 - 1900AD)
 
 ```{r tab-volga-modern, results='asis'}
 v_mod_list <- Filter(function (s) {
@@ -502,7 +511,7 @@ render_table_template(
 )
 ```
 
-# Complete Settlement Gazetteer
+## settlement gazetteer
 
 ```{r tab-volga-all, results='asis'}
 df_v_all <- do.call(rbind, lapply(settlements_list, function (s) {
@@ -518,7 +527,7 @@ df_v_all <- do.call(rbind, lapply(settlements_list, function (s) {
 render_table_template(
   df_v_all,
   list(
-    caption = "Complete directory of all 146 indexed settlements and population series in the Lower Volga gazetteer (10000BC - 1900AD).",
+    caption = "Directory of all 146 indexed settlements and population series in the Lower Volga gazetteer (10000BC - 1900AD).",
     label = "tab:volga-all",
     col_names = c("Stadester Key", "Coords", "Occupied Span", "Complete Population Series (Year: Population)"),
     scale_to_fit = FALSE
