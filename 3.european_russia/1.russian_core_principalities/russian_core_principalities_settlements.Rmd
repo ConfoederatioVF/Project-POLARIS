@@ -1,0 +1,528 @@
+---
+title: "THE RUSSIAN CORE PRINCIPALITIES: SUPPLEMENTARY SETTLEMENT GAZETTEER"
+subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1900AD)."
+date: "8 November 2026"
+authors_line: "Aust Kätzchen"
+emails:
+  - austkaeztchen@confoederatio.org
+hero_figure: "figures/fig1_principalities_areal_masks_map.png"
+hero_caption: "Regional boundaries, hydrological catchments, and principal settlements across the eight historical regions of the Russian Core (10000BC - 1900AD)."
+hero_label: "fig:hero"
+bibliography: russian_core_principalities_areal_masks_and_bins.bib
+csl: ../../_shared/template/crd-mla-numeric.csl
+link-citations: true
+output:
+  pdf_document:
+    template: ../../_shared/template/template.tex
+    latex_engine: xelatex
+    keep_tex: false
+---
+
+```{r setup, include=FALSE}
+source("../../_shared/template/polaris_rmd_helpers.R")
+Sys.setenv(VELKSCALA_ROOT = "E:/Active Projects/Project 1746 - Intellte/papers/velkscala")
+source("E:/Active Projects/Project 1746 - Intellte/core/framework/R/framework_init.R")
+
+# Ensure all tables render inline at 10pt body font size without horizontal overflow or float page isolation,
+# and replace em/en-dashes with plain hyphens (-).
+sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
+  text <- as.character(arg0_text)
+  if (length(text) == 0 || is.na(text) || !nzchar(text)) return("")
+  text <- gsub("`", "", text, fixed = TRUE)
+  parts <- strsplit(text, "(?<=\\$)|(?=\\$)", perl = TRUE)[[1]]
+  in_math <- FALSE
+  out_parts <- character(length(parts))
+  for (i in seq_along(parts)) {
+    p <- parts[i]
+    if (identical(p, "$")) {
+      in_math <- !in_math
+      out_parts[i] <- "$"
+    } else if (in_math) {
+      p <- gsub("\u2192", " \\rightarrow ", p, fixed = TRUE)
+      p <- gsub("\u00d7", " \\times ", p, fixed = TRUE)
+      p <- gsub("\u0394", "\\Delta ", p, fixed = TRUE)
+      p <- gsub("\u00b2", "^2", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", "-", p, fixed = TRUE)
+      p <- gsub("---", "-", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
+      out_parts[i] <- p
+    } else {
+      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u00d7", "x", p, fixed = TRUE)
+      p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
+      p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("m\u00b2", "m\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("R\u00b2", "R\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u00b2", "\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", " - ", p, fixed = TRUE)
+      p <- gsub("---", " - ", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      p <- gsub("(?<!\\\\)&", "\\\\&", p, perl = TRUE)
+      p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
+      p <- gsub("(?<!\\\\)_", "\\\\_", p, perl = TRUE)
+      if (isTRUE(arg1_in_table)) {
+        p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
+        p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
+        # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
+        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
+        # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
+        p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
+      }
+      out_parts[i] <- p
+    }
+  }
+  return(paste(out_parts, collapse = ""))
+}
+
+sanitize_prose_unicode_for_latex <- function (arg0_line) {
+  line_str <- as.character(arg0_line)
+  if (length(line_str) == 0 || is.na(line_str) || !nzchar(line_str)) return(line_str)
+  parts <- strsplit(line_str, "(?<=\\$)|(?=\\$)", perl = TRUE)[[1]]
+  in_math <- FALSE
+  for (i in seq_along(parts)) {
+    p <- parts[i]
+    if (identical(p, "$")) {
+      in_math <- !in_math
+    } else if (in_math) {
+      p <- gsub("\u2192", " \\rightarrow ", p, fixed = TRUE)
+      p <- gsub("\u00d7", " \\times ", p, fixed = TRUE)
+      p <- gsub("\u0394", "\\Delta ", p, fixed = TRUE)
+      p <- gsub("\u2248", " \\approx ", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", "-", p, fixed = TRUE)
+      parts[i] <- p
+    } else {
+      p <- gsub(
+        "\\b(Figures?|Figs?\\.|Tables?|Tabs?\\.|Images?|Definitions?|Sections?|Appendix)(?:\\s+|~)\\\\ref\\{([^}]+)\\}",
+        "\\\\crdxref{\\1}{\\2}",
+        p,
+        perl = TRUE
+      )
+      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u00d7", "x", p, fixed = TRUE)
+      p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
+      p <- gsub("\u2248", "~", p, fixed = TRUE)
+      p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("m\u00b2", "m\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("R\u00b2", "R\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u00b2", "\\textsuperscript{2}", p, fixed = TRUE)
+      p <- gsub("\u2013", "-", p, fixed = TRUE)
+      p <- gsub("\u2014", " - ", p, fixed = TRUE)
+      p <- gsub("---", " - ", p, fixed = TRUE)
+      p <- gsub("--", "-", p, fixed = TRUE)
+      parts[i] <- p
+    }
+  }
+  return(paste(parts, collapse = ""))
+}
+
+render_table_template <- function (arg0_df, arg1_options = NULL) {
+  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  options <- if (!is.null(arg1_options)) arg1_options else list()
+
+  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
+  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
+  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
+  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
+  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
+
+  n_cols <- ncol(df)
+  n_rows <- nrow(df)
+  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
+
+  if (length(col_names) != n_cols) {
+    col_names <- colnames(df)
+  }
+  col_names <- gsub("`", "", col_names, fixed = TRUE)
+  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
+  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
+  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
+  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
+  for (c_i in seq_len(n_cols)) {
+    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
+    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
+    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
+  }
+
+  if (!is_latex) {
+    disp_df <- df
+    colnames(disp_df) <- col_names
+    for (c_idx in seq_len(n_cols)) {
+      disp_df[[c_idx]] <- vapply(
+        disp_df[[c_idx]],
+        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
+        character(1)
+      )
+    }
+    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
+  }
+
+  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
+  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
+
+  min_frac <- numeric(n_cols)
+  col_weights <- numeric(n_cols)
+  for (c_idx in seq_len(n_cols)) {
+    hdr_str <- col_names[c_idx]
+    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
+    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
+
+    cell_vec <- as.character(df[[c_idx]])
+    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
+    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
+    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
+    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
+
+    # Word-fit floor in fraction of 468pt textwidth
+    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
+    min_frac[c_idx] <- req_pts / 468.0
+
+    cell_lens <- nchar(cell_vec)
+    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
+    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
+    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
+    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
+  }
+
+  if (sum(min_frac) > usable_frac * 0.94) {
+    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
+  }
+  rem_frac <- max(0.0, usable_frac - sum(min_frac))
+  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
+
+  col_specs <- vapply(
+    col_fracs,
+    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
+    character(1)
+  )
+  align_str <- paste(col_specs, collapse = "")
+
+  header_cells <- vapply(
+    seq_len(n_cols),
+    function (c_idx) {
+      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
+      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
+    },
+    character(1)
+  )
+  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
+
+  cap_tex <- sanitize_latex_text(caption_str, FALSE)
+  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
+  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
+  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
+
+  block_lines <- c(
+    paste0(strrep("\x60", 3), "{=latex}"),
+    "\\par\\vspace{4pt}",
+    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
+    "\\setlength{\\tabcolsep}{3pt}",
+    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
+    "\\setlength{\\LTpre}{4pt}",
+    "\\setlength{\\LTpost}{4pt}",
+    "\\setlength{\\LTcapwidth}{\\textwidth}",
+    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
+    header_line,
+    "\\endfirsthead",
+    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
+    header_line,
+    "\\endhead"
+  )
+
+  for (r_idx in seq_len(n_rows)) {
+    row_cells <- vapply(
+      seq_len(n_cols),
+      function (c_idx) {
+        raw_v <- df[r_idx, c_idx]
+        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
+        val_str <- trimws(gsub("\\*\\*", "", val_str))
+        if (euro_decimals) {
+          val_str <- convert_euro_decimals_in_text(val_str)
+        }
+        clean_v <- sanitize_latex_text(val_str, TRUE)
+        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
+      },
+      character(1)
+    )
+    row_end <- paste0("\\\\[", row_pt, "]")
+    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
+      row_end <- "\\\\*[5pt]"
+    }
+    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
+  }
+
+  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
+    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
+  }
+  block_lines <- c(
+    block_lines,
+    "\\end{longtable}\\endgroup",
+    "\\vspace{4pt}\\par",
+    strrep("\x60", 3)
+  )
+
+  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
+}
+orig_render_figure_template <- render_figure_template
+render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
+  options <- if (!is.null(arg1_options)) arg1_options else list()
+  options$placement <- "!htbp"
+  if (is.null(options$max_height) || identical(options$max_height, "none")) {
+    options$max_height <- "0.42\\textheight"
+  }
+  return(orig_render_figure_template(arg0_file_path, options))
+}
+```
+
+```{r set-json-path, include=FALSE}
+GAZETTEER_JSON_FILE <- "russian_core_principalities_settlements.json"
+```
+
+```{r load-stadester-json, include=FALSE}
+gaz_map <- jsonlite::fromJSON(GAZETTEER_JSON_FILE, simplifyVector = FALSE)
+settlements_list <- unname(gaz_map)
+
+# Sort chronologically by first occupied year, then alphabetically by name
+first_year_num <- function (arg0_s) {
+  yrs <- as.numeric(names(arg0_s$population))
+  if (length(yrs) == 0) return(99999)
+  return(min(yrs))
+}
+last_year_num <- function (arg0_s) {
+  yrs <- as.numeric(names(arg0_s$population))
+  if (length(yrs) == 0) return(-99999)
+  return(max(yrs))
+}
+
+ord_idx <- order(
+  vapply(settlements_list, first_year_num, numeric(1)),
+  vapply(settlements_list, function (s) as.character(s$name), character(1))
+)
+settlements_list <- settlements_list[ord_idx]
+
+translit_cyr <- function (arg0_str) {
+  s <- as.character(arg0_str)
+  if (!nzchar(s)) return("")
+  cyr <- c(
+    "А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Ъ","Ы","Ь","Э","Ю","Я",
+    "а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"
+  )
+  lat <- c(
+    "A","B","V","G","D","E","Yo","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","Kh","Ts","Ch","Sh","Shch","","Y","","E","Yu","Ya",
+    "a","b","v","g","d","e","yo","zh","z","i","y","k","l","m","n","o","p","r","s","t","u","f","kh","ts","ch","sh","shch","","y","","e","yu","ya"
+  )
+  for (i in seq_along(cyr)) {
+    s <- gsub(cyr[i], lat[i], s, fixed = TRUE)
+  }
+  return(s)
+}
+
+fmt_other_names <- function (arg0_s) {
+  onames <- unlist(arg0_s$other_names)
+  if (length(onames) == 0) return("-")
+  clean_vec <- unique(vapply(onames, translit_cyr, character(1)))
+  clean_vec <- clean_vec[nzchar(clean_vec) & tolower(clean_vec) != tolower(arg0_s$name)]
+  if (length(clean_vec) == 0) {
+    clean_vec <- unique(vapply(onames, translit_cyr, character(1)))
+  }
+  return(paste(head(clean_vec, 2L), collapse = "; "))
+}
+
+fmt_year_lbl <- function (arg0_y) {
+  y <- as.numeric(arg0_y)
+  if (y < 0) return(paste0(abs(round(y)), "BC"))
+  return(paste0(round(y), "AD"))
+}
+
+fmt_span <- function (arg0_s) {
+  y1 <- first_year_num(arg0_s)
+  y2 <- last_year_num(arg0_s)
+  if (y1 == y2) return(fmt_year_lbl(y1))
+  if (y1 < 0 && y2 < 0) return(paste0(abs(y1), "-", abs(y2), "BC"))
+  if (y1 > 0 && y2 > 0) return(paste0(y1, "-", y2, "AD"))
+  return(paste0(fmt_year_lbl(y1), " - ", fmt_year_lbl(y2)))
+}
+
+fmt_num_eu <- function (arg0_val) {
+  if (is.null(arg0_val) || is.na(arg0_val)) return("-")
+  v <- as.numeric(arg0_val)
+  if (v >= 1000) {
+    s <- sprintf("%.1fk", v / 1000.0)
+    s <- gsub("\\.", ",", s)
+    return(s)
+  }
+  return(as.character(round(v)))
+}
+
+fmt_coord_pair <- function (arg0_coords) {
+  lat <- gsub("\\.", ",", sprintf("%.2f", as.numeric(arg0_coords[[1]])))
+  lon <- gsub("\\.", ",", sprintf("%.2f", as.numeric(arg0_coords[[2]])))
+  return(paste0(lat, "°N, ", lon, "°E"))
+}
+
+fmt_pop_series <- function (arg0_s, arg1_ymin = -99999, arg2_ymax = 99999) {
+  pop_map <- arg0_s$population
+  yrs <- as.numeric(names(pop_map))
+  vals <- as.numeric(unlist(pop_map))
+  keep <- which(yrs >= arg1_ymin & yrs <= arg2_ymax)
+  if (length(keep) == 0) return("-")
+  parts <- vapply(keep, function (idx) {
+    paste0(fmt_year_lbl(yrs[idx]), ": ", fmt_num_eu(vals[idx]))
+  }, character(1))
+  return(paste(parts, collapse = "; "))
+}
+
+get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
+  pop_map <- arg0_s$population
+  yrs <- as.numeric(names(pop_map))
+  vals <- as.numeric(unlist(pop_map))
+  keep <- which(yrs >= arg1_ymin & yrs <= arg2_ymax)
+  if (length(keep) == 0) return("-")
+  idx <- keep[which.max(yrs[keep])]
+  return(fmt_num_eu(vals[idx]))
+}
+```
+
+# Overview
+
+This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of the Russian Core Principalities. The dataset contains 258 individual settlements across the eight historical regions of European Russia (Novgorod and the Russian North, Vladimir-Suzdal and Rostov-Yaroslavl, Moscow and Tver, Ryazan and the Upper Oka, Smolensk and the Upper Dnieper, the Bryansk-Kursk-Voronezh Forest-Steppe, Nizhny Novgorod-Vyatka-Great Perm, and the Middle Volga and Cis-Urals) from 10000BC to 1900AD, recording canonical and historical settlement names, geographical coordinates, and benchmark population trajectories.
+
+Population figures are compiled from excavated dwelling floors and settlement plans for Mesolithic, Neolithic, Bronze Age, and Early Iron Age sites [@Zhilin2019; @Oshibkina2006; @Kostyleva2014; @Kostyleva2022; @Nordqvist2020; @Engovatova2021], walled urban footprints (*detinets* and *okolny gorod*) and unfortified *posad* areas for Kievan Rus, Volga Bulgaria, and Golden Horde towns [@Tikhomirov1956; @Kuza1989; @Kuza1996; @Nosov1990; @Darkevich1995; @Eniosova2012; @Khuzin2001; @Rudenko2012; @Nedashkovsky2000; @Belorybkin2022; @Belavin2023], and Muscovite cadastral books (*pistsovye knigi*), Imperial poll-tax revisions (*revizii*), and the 1897 First General Census for early modern and nineteenth-century towns [@Kopanev1959; @Shapiro1971; @Vodarsky1973; @Vodarsky1977; @Kabuzan1963; @Kabuzan1971; @Rashin1956; @Mironov2000; @Troynitsky1905].
+
+# Prehistoric, Bronze Age, and Early Iron Age Settlements (10000BC - 800AD)
+
+```{r tab-rc-ancient, results='asis'}
+ancient_list <- Filter(function (s) first_year_num(s) <= 800, settlements_list)
+
+df_ancient <- do.call(rbind, lapply(ancient_list, function (s) {
+  data.frame(
+    Settlement = s$name,
+    Other_Names = fmt_other_names(s),
+    Coords = fmt_coord_pair(s$coords),
+    Span = fmt_span(s),
+    Pop_History = fmt_pop_series(s, -10000, 800),
+    stringsAsFactors = FALSE
+  )
+}))
+
+render_table_template(
+  df_ancient,
+  list(
+    caption = "Archaeological and prehistoric settlements of the Russian Core and Middle Volga-Ural basin with estimated populations from 10000BC to 800AD.",
+    label = "tab:rc-ancient",
+    col_names = c("Settlement", "Alternative Names", "Coords", "Occupied Span", "Population Estimates by Date"),
+    scale_to_fit = FALSE
+  )
+)
+```
+
+# Kievan Rus, Volga Bulgaria, and Golden Horde Settlements (850 - 1500AD)
+
+```{r tab-rc-medieval, results='asis'}
+med_list <- Filter(function (s) {
+  yrs <- as.numeric(names(s$population))
+  any(yrs >= 850 & yrs <= 1500)
+}, settlements_list)
+
+df_med <- do.call(rbind, lapply(med_list, function (s) {
+  data.frame(
+    Settlement = s$name,
+    Other_Names = fmt_other_names(s),
+    Coords = fmt_coord_pair(s$coords),
+    P_950_1000 = get_pop_window_val(s, 850, 1020),
+    P_1150 = get_pop_window_val(s, 1080, 1170),
+    P_1200_1235 = get_pop_window_val(s, 1180, 1236),
+    P_1300_1350 = get_pop_window_val(s, 1250, 1360),
+    P_1400_1500 = get_pop_window_val(s, 1390, 1510),
+    stringsAsFactors = FALSE
+  )
+}))
+
+render_table_template(
+  df_med,
+  list(
+    caption = "Medieval urban and rural settlements of Kievan Rus, Volga Bulgaria, Great Perm, and the Golden Horde across the Russian Core (850 - 1500AD).",
+    label = "tab:rc-medieval",
+    col_names = c("Settlement", "Historical Names", "Coords", "1000AD", "1150AD", "1200-1235AD", "1300-1350AD", "1500AD"),
+    scale_to_fit = FALSE
+  )
+)
+```
+
+# Muscovite and Imperial Settlements (1550 - 1900AD)
+
+```{r tab-rc-modern, results='asis'}
+mod_list <- Filter(function (s) {
+  yrs <- as.numeric(names(s$population))
+  any(yrs >= 1550)
+}, settlements_list)
+
+df_mod <- do.call(rbind, lapply(mod_list, function (s) {
+  data.frame(
+    Settlement = s$name,
+    Other_Names = fmt_other_names(s),
+    Coords = fmt_coord_pair(s$coords),
+    P_1600 = get_pop_window_val(s, 1550, 1650),
+    P_1700 = get_pop_window_val(s, 1670, 1725),
+    P_1800 = get_pop_window_val(s, 1780, 1825),
+    P_1850 = get_pop_window_val(s, 1840, 1865),
+    P_1897 = get_pop_window_val(s, 1895, 1898),
+    P_1900 = get_pop_window_val(s, 1899, 1905),
+    stringsAsFactors = FALSE
+  )
+}))
+
+render_table_template(
+  df_mod,
+  list(
+    caption = "Muscovite and Imperial urban centres, fortress towns, and provincial capitals of the Russian Core with population benchmarks (1550 - 1900AD).",
+    label = "tab:rc-modern",
+    col_names = c("Settlement", "Alternative Names", "Coords", "1600AD", "1700AD", "1800AD", "1850AD", "1897AD", "1900AD"),
+    scale_to_fit = FALSE
+  )
+)
+```
+
+# Complete Settlement Gazetteer
+
+```{r tab-rc-all, results='asis'}
+df_all <- do.call(rbind, lapply(settlements_list, function (s) {
+  data.frame(
+    Key = s$name,
+    Coords = fmt_coord_pair(s$coords),
+    Span = fmt_span(s),
+    Pop_Series = fmt_pop_series(s),
+    stringsAsFactors = FALSE
+  )
+}))
+
+render_table_template(
+  df_all,
+  list(
+    caption = "Complete chronological directory of all 258 settlement entries and population series across the Russian Core (10000BC - 1900AD).",
+    label = "tab:rc-all",
+    col_names = c("Settlement", "Coords", "Occupied Span", "Complete Population Series (Year: Population)"),
+    scale_to_fit = FALSE
+  )
+)
+```
+
+# Sources
+
+::: {#refs}
+:::
+
+```{r footnotes, results='asis'}
+emit_crd_footnotes()
+```
