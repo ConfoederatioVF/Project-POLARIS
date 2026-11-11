@@ -49,7 +49,7 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
       p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
       out_parts[i] <- p
     } else {
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
@@ -67,8 +67,10 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
         p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
         p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
         # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
         p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
         # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
         p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
@@ -103,7 +105,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
         p,
         perl = TRUE
       )
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("\u2248", "~", p, fixed = TRUE)
@@ -123,6 +125,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
 
 render_table_template <- function (arg0_df, arg1_options = NULL) {
   df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
   options <- if (!is.null(arg1_options)) arg1_options else list()
 
   caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
@@ -163,7 +166,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
         character(1)
       )
     }
-    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
     return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
   }
 
@@ -178,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))

@@ -49,7 +49,7 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
       p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
       out_parts[i] <- p
     } else {
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
@@ -67,8 +67,10 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
         p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
         p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
         # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
         p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
         # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
         p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
@@ -103,7 +105,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
         p,
         perl = TRUE
       )
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("\u2248", "~", p, fixed = TRUE)
@@ -123,6 +125,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
 
 render_table_template <- function (arg0_df, arg1_options = NULL) {
   df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
   options <- if (!is.null(arg1_options)) arg1_options else list()
 
   caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
@@ -163,7 +166,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
         character(1)
       )
     }
-    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
     return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
   }
 
@@ -178,7 +181,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -302,15 +305,15 @@ In the Amur-Primorye basin and the Northwest Pacific islands and coasts, excavat
 
 ## Regional Subdivisions
 
-All population estimates are organised according to the nine drainage regions defined by Chernykh et al. [@Chernykh2022] and mapped in Figure \ref{fig:hero}. The Yenisei and Baikal Region (~ 3,28M km²) comprises the Baikal and Selenga Basin (~ 650k km²: Lake Baikal, Upper Angara, Barguzin, Selenga, Uda, Khilok, Chikoy, and Onon-Ingoda headwaters), the Sayan, Minusinsk, and Tuva Basin (~ 380k km²: Minusinsk Hollow, Abakan, Chulym, Kan, and Upper Yenisei / Ulug-Khem / Khemchik basins in Tuva), and the Middle and Lower Yenisei (~ 2,25M km²: Middle and Lower Yenisei, Lower Angara, Stony and Lower Tunguska, Pyasina, Khatanga, and Taimyr Peninsula).
+All population estimates are organised according to the nine drainage regions defined by Chernykh et al. [@Chernykh2022] and mapped in Figure \ref{fig:hero}. The Yenisei and Baikal Region (~ 3,28M km²) comprises the Baikal and Selenga Basin (~ 650k km²: Lake Baikal, Upper Angara, Barguzin, Selenga, Uda, Khilok, Chikoy, and Onon-Ingoda headwaters), the Sayan, Minusinsk, and Tuva Basin (~ 380k km²: Minusinsk Hollow, Abakan, Chulym, Kan, and Upper Yenisei/Ulug-Khem/Khemchik basins in Tuva), and the Middle and Lower Yenisei (~ 2,25M km²: Middle and Lower Yenisei, Lower Angara, Stony and Lower Tunguska, Pyasina, Khatanga, and Taimyr Peninsula).
 
-The Lena and Kolyma Region (~ 4,05M km²) encompasses the Vitim and Aldan Basins (~ 1,12M km²: Vitim, Olekma, Aldan, Amga, Uchur, and Maya basins), Central Yakutia and the Middle Lena (~ 1,38M km²: Middle and Lower Lena, Central Yakutian *alaas* lowland, and Vilyuy basin), and the Yana, Indigirka, and Kolyma Basins (~ 1,55M km²: Yana, Indigirka, Alazeya, Kolyma, and Omolon basins, plus the New Siberian Islands). The Pacific Region (~ 2,78M km²) comprises the Amur, Ussuri, and Primorye Basin (~ 980k km²: Shilka-Argun, Upper/Middle/Lower Amur, Zeya, Bureya, Ussuri, Lake Khanka, and Primorye coast), Kamchatka, Sakhalin, and the Kuril Islands (~ 650k km²: Okhotsk coast, Kamchatka Peninsula, Sakhalin Island, and Kuril Archipelago), and Chukotka, Anadyr, and the Bering Strait (~ 1,15M km²: Anadyr basin, Chukotka Peninsula, Bering Strait coast, and Koryak Highlands / Penzhina-Gizhiga bays).
+The Lena and Kolyma Region (~ 4,05M km²) encompasses the Vitim and Aldan Basins (~ 1,12M km²: Vitim, Olekma, Aldan, Amga, Uchur, and Maya basins), Central Yakutia and the Middle Lena (~ 1,38M km²: Middle and Lower Lena, Central Yakutian *alaas* lowland, and Vilyuy basin), and the Yana, Indigirka, and Kolyma Basins (~ 1,55M km²: Yana, Indigirka, Alazeya, Kolyma, and Omolon basins, plus the New Siberian Islands). The Pacific Region (~ 2,78M km²) comprises the Amur, Ussuri, and Primorye Basin (~ 980k km²: Shilka-Argun, Upper/Middle/Lower Amur, Zeya, Bureya, Ussuri, Lake Khanka, and Primorye coast), Kamchatka, Sakhalin, and the Kuril Islands (~ 650k km²: Okhotsk coast, Kamchatka Peninsula, Sakhalin Island, and Kuril Archipelago), and Chukotka, Anadyr, and the Bering Strait (~ 1,15M km²: Anadyr basin, Chukotka Peninsula, Bering Strait coast, and Koryak Highlands/Penzhina-Gizhiga bays).
 
 ## Estimation Methods
 
-Four standard archaeological and historical conversion methods are used to translate field and archival records into regional population totals across nineteen benchmark dates from 10000BC to 1900AD. Using standard floor-area ratios (~ 6-10 m² per person) and North Asian ethnographic observations [@Dneprovskiy2017; @Kiryanov2019], single-hearth pit-houses of 20-45 m² (Boisman, Yankovsky, and Shayga *kan*-heated houses) are estimated at 5-7 occupants; medium multi-hearth houses of 60-120 m² (Suchu Island, Okhotsk Culture, and Ekven whalebone *nynglu*) at 12-20 occupants; and large communal winter houses (Karasuk timber houses at Torgazhak of 100-200 m²; Itelmen winter *zimniki* of 150-300 m²) at 25-80 occupants. For walled towns (*gorodishcha*) of the Xiongnu (Ivolga, Bayangol), Uyghur Khaganate (Por-Bajin, Shagonar), Bohai Kingdom (Kraskinskoye, Koksharovka-1), and Jurchen Jin / Eastern Xia (Krasnoyarovskoye, Shayginskoye), excavated dwelling counts (54 houses in 25% of the 7,2 ha interior at Ivolga; over 310 houses across 47,6 ha at Shayginskoye) indicate 30-55 dwellings/ha in residential wards, corresponding to 150-300 persons/ha in densely built towns and 40-80 persons/ha in large mountain refuge enclosures [@Vasyutin2022; @Artemyeva2013; @Artemyeva2025].
+Four standard archaeological and historical conversion methods are used to translate field and archival records into regional population totals across nineteen benchmark dates from 10000BC to 1900AD. Using standard floor-area ratios (~ 6-10 m² per person) and North Asian ethnographic observations [@Dneprovskiy2017; @Kiryanov2019], single-hearth pit-houses of 20-45 m² (Boisman, Yankovsky, and Shayga *kan*-heated houses) are estimated at 5-7 occupants; medium multi-hearth houses of 60-120 m² (Suchu Island, Okhotsk Culture, and Ekven whalebone *nynglu*) at 12-20 occupants; and large communal winter houses (Karasuk timber houses at Torgazhak of 100-200 m²; Itelmen winter *zimniki* of 150-300 m²) at 25-80 occupants. For walled towns (*gorodishcha*) of the Xiongnu (Ivolga, Bayangol), Uyghur Khaganate (Por-Bajin, Shagonar), Bohai Kingdom (Kraskinskoye, Koksharovka-1), and Jurchen Jin/Eastern Xia (Krasnoyarovskoye, Shayginskoye), excavated dwelling counts (54 houses in 25% of the 7,2 ha interior at Ivolga; over 310 houses across 47,6 ha at Shayginskoye) indicate 30-55 dwellings/ha in residential wards, corresponding to 150-300 persons/ha in densely built towns and 40-80 persons/ha in large mountain refuge enclosures [@Vasyutin2022; @Artemyeva2013; @Artemyeva2025].
 
-Living community size $P$ is estimated from the minimum number of individuals ($M_{\text{MNI}}$) buried over a calibrated cemetery duration $T$ (in years) at an annual crude mortality rate $m \approx 0{,}030\text{-}0{,}035\text{ yr}^{-1}$ via $P = (M_{\text{MNI}} \cdot c_{\text{exc}}) / (m \cdot T)$, where $c_{\text{exc}}$ accounts for unexcavated cemetery area and subadult burial under-representation [@Weber2016b]. In the historical period, adult male tribute-payers (*yasachnye lyudi*, aged 18-50) in 17th-century Russian *yasak* registers are converted to total population using B. O. Dolgikh's household multipliers [@Dolgikh1960]: x 3,5-4,0 for taiga and tundra hunter-herders (Evenks, Evens, Yukaghirs, Kets, Samoyeds), x 4,0-4,5 for pastoralists (Sakha, Buryats, Yenisei Kyrgyz, Tuvans), and x 4,5-5,0 for sedentary plough farmers and multi-family river fishers (Daurs, Duchers, Itelmens). For 1750, 1800, 1850, and 1900AD, district (*uyezd* / *okrug*) returns from the 2nd (1744), 5th (1795), and 9th-10th (1850-1858) revisions, Steppe Duma registers, and the 1897 Imperial Census (adjusted to 1900AD via guberniya statistical yearbooks) are allocated to the nine drainage regions [@Kabuzan1985; @Troinitskiy1905; @Patkanov1912; @Rygalova2024].
+Living community size $P$ is estimated from the minimum number of individuals ($M_{\text{MNI}}$) buried over a calibrated cemetery duration $T$ (in years) at an annual crude mortality rate $m \approx 0{,}030\text{-}0{,}035\text{ yr}^{-1}$ via $P = (M_{\text{MNI}} \cdot c_{\text{exc}})/(m \cdot T)$, where $c_{\text{exc}}$ accounts for unexcavated cemetery area and subadult burial under-representation [@Weber2016b]. In the historical period, adult male tribute-payers (*yasachnye lyudi*, aged 18-50) in 17th-century Russian *yasak* registers are converted to total population using B. O. Dolgikh's household multipliers [@Dolgikh1960]: x 3,5-4,0 for taiga and tundra hunter-herders (Evenks, Evens, Yukaghirs, Kets, Samoyeds), x 4,0-4,5 for pastoralists (Sakha, Buryats, Yenisei Kyrgyz, Tuvans), and x 4,5-5,0 for sedentary plough farmers and multi-family river fishers (Daurs, Duchers, Itelmens). For 1750, 1800, 1850, and 1900AD, district (*uyezd* / *okrug*) returns from the 2nd (1744), 5th (1795), and 9th-10th (1850-1858) revisions, Steppe Duma registers, and the 1897 Imperial Census (adjusted to 1900AD via guberniya statistical yearbooks) are allocated to the nine drainage regions [@Kabuzan1985; @Troinitskiy1905; @Patkanov1912; @Rygalova2024].
 
 # Yenisei and Baikal Region
 
@@ -348,7 +351,7 @@ During the Tagar culture (*Tagarskaya kultura*, ~ 800-100 cal BC), the Minusinsk
 
 ### Yenisei Kyrgyz, Uyghur Fortresses, Khongorai, and Imperial Settlement (600-1900AD)
 
-Along the Khemchik and Ulug-Khem valleys of Tuva between 745 and 840AD, the Uyghur Khaganate built 17 rectangular stamped-clay (*pakhs*) fortresses connected by earthen ramparts (*Dlinnaya Stena*), including Shagonar I-V (Shagonar III covers 22 ha), Bazhyn-Alaak (18 ha), and the island complex of Por-Bajin (215 x 162 m, 3,5 ha in Lake Tere-Khol) [@Tulush2011; @Tulush2016]. Using the 774-775AD radiocarbon spike, Kuitems et al. [@Kuitems2020] dated the felling of Por-Bajin's foundation larch timbers to the summer of 777AD under Tengri Bögü Khagan. North of the Sayan Range from the 6th to 13th centuries AD, the Yenisei Kyrgyz state — supported by plough agriculture, irrigation canals (*aryks*) along the Abakan, Uybat, and Erba rivers, and elite *chaatas* cemeteries (Uybatsky, Kopensky) — overthrew the Uyghur Khaganate in 840AD [@Mitko2009]. Around 800-900AD, the Sayan-Tuva region supported ~ 64,0k inhabitants (~ 40k in Minusinsk and ~ 24k in Tuva), before 13th-century Mongol campaigns (1207-1293AD) and deportations reduced the population to ~ 42,0k in 1200AD and ~ 28,0k in 1500AD.
+Along the Khemchik and Ulug-Khem valleys of Tuva between 745 and 840AD, the Uyghur Khaganate built 17 rectangular stamped-clay (*pakhs*) fortresses connected by earthen ramparts (*Dlinnaya Stena*), including Shagonar I-V (Shagonar III covers 22 ha), Bazhyn-Alaak (18 ha), and the island complex of Por-Bajin (215 x 162 m, 3,5 ha in Lake Tere-Khol) [@Tulush2011; @Tulush2016]. Using the 774-775AD radiocarbon spike, Kuitems et al. [@Kuitems2020] dated the felling of Por-Bajin's foundation larch timbers to the summer of 777AD under Tengri Bögü Khagan. North of the Sayan Range from the 6th to 13th centuries AD, the Yenisei Kyrgyz state  -  supported by plough agriculture, irrigation canals (*aryks*) along the Abakan, Uybat, and Erba rivers, and elite *chaatas* cemeteries (Uybatsky, Kopensky)  -  overthrew the Uyghur Khaganate in 840AD [@Mitko2009]. Around 800-900AD, the Sayan-Tuva region supported ~ 64,0k inhabitants (~ 40k in Minusinsk and ~ 24k in Tuva), before 13th-century Mongol campaigns (1207-1293AD) and deportations reduced the population to ~ 42,0k in 1200AD and ~ 28,0k in 1500AD.
 
 In 1650AD, the four Yenisei Kyrgyz princely *uluses* (Altysar, Altyr, Isar, Tubin) of Khongorai and their tributary *kyshtym* clans (Kachin, Sagai, Beltir, Kyzyl, Shor, Kamasin) numbered ~ 12,8k, while Tuvans and Todzhins numbered ~ 11,2k and Sayan Samoyeds (Mator, Karagas, Koibal) ~ 1,2k, giving an indigenous population of 25,20k (0,0663 persons/km²) [@Dolgikh1960; @Chertykov2009]. After the Qing Empire relocated a large part of the Yenisei Kyrgyz elite to the Ili valley in 1703 and Russia erected the Abakan (1707) and Sayansk (1718) forts, the Minusinsk, Achinsk, and Kansk forest-steppes became the premier grain-growing belt of Yeniseysk Guberniya (founded 1822) [@Kyshpanakov2022a; @Kyshpanakov2022b]. Under the Kachinskaya, Sagayskaya, and Kyzylskaya Steppe Dumas, the indigenous Khakas ("Yenisei Turks") grew from ~ 14k in the mid-18th century to 37,7k in the 1897 Census, while Russian peasant immigration pushed the total population of Minusinsk Okrug alone to 182,7k (with another 111,5k in Achinsk Okrug and 96,2k in Kansk Okrug) [@Kyshpanakov2022a; @Troinitskiy1905]. South of the Sayan Range in Qing-ruled Uriankhai (Tuva, *Tangnu-Uryankhai*), banners (*khoshuns*) of Tuvan pastoralists numbered ~ 50,0k-55,0k by the late 19th century, joined from the 1860s onward by Russian Old Believer farmers, gold miners, and merchants (~ 2,5k Russians by 1900AD) [@Tokareva2018; @Natsak2024]. Across the entire Sayan, Minusinsk, and Tuva region, total population increased from 31,5k in 1700AD to 58,0k in 1750AD, 105,0k in 1800AD, 215,0k in 1850AD, and 440,0k in 1900AD.
 
@@ -514,7 +517,7 @@ df_sites <- data.frame(
     "13 driftwood/whalebone houses (>540 m2 trench)",
     "3,7 ha island; 142 pit-houses (25+ excavated)",
     "Shell midden; 5 houses + 28 graves (MNI > 40)",
-    "13,0 ha walled city (1 380 m perimeter), temple",
+    "13,0 ha walled city (1.380 m perimeter), temple",
     "180,0 ha mountain capital (8 km wall), Forbidden City",
     "47,6 ha fortress; >310 kan houses, 14 workshops",
     "Layers VII-VI: >50 surface & pit dwellings",
@@ -572,10 +575,10 @@ df_yasak <- data.frame(
     "TOTAL"
   ),
   Area_km2 = c(
-    "650 000", "380 000", "2 250 000", "3 280 000",
-    "1 120 000", "1 380 000", "1 550 000", "4 050 000",
-    "980 000", "650 000", "1 150 000", "2 780 000",
-    "10 110 000"
+    "650.000", "380.000", "2.250.000", "3.280.000",
+    "1.120.000", "1.380.000", "1.550.000", "4.050.000",
+    "980.000", "650.000", "1.150.000", "2.780.000",
+    "10.110.000"
   ),
   Indig_1650 = c(
     "36,60k", "25,20k", "20,45k", "82,25k",
@@ -584,16 +587,16 @@ df_yasak <- data.frame(
     "220,53k"
   ),
   Total_1900 = c(
-    "850,0k", "440,0k", "215,0k", "1 505,0k",
+    "850,0k", "440,0k", "215,0k", "1.505,0k",
     "48,0k", "225,0k", "22,2k", "295,2k",
     "590,0k", "46,0k", "18,0k", "654,0k",
-    "2 454,2k"
+    "2.454,2k"
   ),
   Composition = c(
     "1650: Buryats 27,3k, Evenks 9,3k. 1897/1900: Buryats 288,6k, Russians & Semeiskie ~548k, Evenks ~13k",
     "1650: Kyrgyz/Khakas 12,8k, Tuvans 11,2k. 1897/1900: Minusinsk-Achinsk-Kansk Russians ~345k, Khakas 37,7k, Tuva ~55k",
     "1650: Evenks 10,16k, Kets/Yeniseians 5,54k, Samoyeds 4,75k. 1897/1900: Yeniseysk/Angara Russians ~192k, Indig. ~23k",
-    "Yenisei & Baikal Region (82,25k indigenous in 1650AD; 1 505,0k total by 1900AD)",
+    "Yenisei & Baikal Region (82,25k indigenous in 1650AD; 1.505,0k total by 1900AD)",
     "1650: Evenks 8,8k, Evens 1,5k. 1897/1900: Vitim-Olekma goldfields ~22k, Amga-Aldan Sakha ~14k, Evenks/Evens ~12k",
     "1650: Sakha 28,47k (35 volosts), Evenks 5,7k. 1897/1900: Sakha ~198k in Middle Lena (225,8k in oblast), Russians ~20k",
     "1650: Yukaghirs 3,29k, Evens 2,4k, Sakha 0,3k. 1897/1900: Verkhoyansk & Kolymsk okrugs (Sakha, Evens, Yukaghirs, Russians)",
@@ -602,7 +605,7 @@ df_yasak <- data.frame(
     "1650: Itelmens 12,68k, Koryaks 3,5k, Ainu 4,2k, Evens/Nivkh 5,3k. 1897/1900: Sakhalin (28,1k), Kamchatka-Okhotsk-Kurils (17,9k)",
     "1650: Koryaks 7,25k, Yupik 4,0k, Chukchi 2,5k, Chuvans 1,49k. 1897/1900: Chukchi 11,8k, Koryaks 3,8k, Yupik 1,3k",
     "Pacific Region (87,82k indigenous in 1650AD; 654,0k total by 1900AD)",
-    "Complete Eastern & Pacific Siberia (220,53k indigenous in 1650AD; 2 454,20k / 2,45M total in 1900AD)"
+    "Complete Eastern & Pacific Siberia (220,53k indigenous in 1650AD; 2.454,20k / 2,45M total in 1900AD)"
   ),
   stringsAsFactors = FALSE
 )
@@ -636,7 +639,7 @@ df_pop <- data.frame(
   IV_1 = c("3,5k", "6,0k", "11,0k", "17,5k", "25,5k", "34,0k", "43,0k", "55,0k", "66,0k", "72,0k", "86,0k", "95,0k", "54,0k", "46,9k", "28,5k", "62,0k", "102,0k", "155,0k", "590,0k"),
   IV_2 = c("1,8k", "3,0k", "5,2k", "7,5k", "10,5k", "13,5k", "15,5k", "18,0k", "20,0k", "21,5k", "24,0k", "24,5k", "25,0k", "25,7k", "26,2k", "18,5k", "16,0k", "19,0k", "46,0k"),
   IV_3 = c("1,2k", "2,0k", "3,2k", "4,5k", "5,8k", "7,0k", "8,0k", "9,5k", "11,5k", "12,8k", "14,2k", "14,5k", "14,9k", "15,2k", "15,5k", "15,8k", "16,5k", "17,2k", "18,0k"),
-  Total = c("15,20k", "26,10k", "44,90k", "56,70k", "84,10k", "114,80k", "151,50k", "201,30k", "224,90k", "229,10k", "265,90k", "264,10k", "220,70k", "220,53k", "234,80k", "390,80k", "669,00k", "1 170,70k", "2 454,20k"),
+  Total = c("15,20k", "26,10k", "44,90k", "56,70k", "84,10k", "114,80k", "151,50k", "201,30k", "224,90k", "229,10k", "265,90k", "264,10k", "220,70k", "220,53k", "234,80k", "390,80k", "669,00k", "1.170,70k", "2.454,20k"),
   stringsAsFactors = FALSE
 )
 
@@ -688,7 +691,7 @@ Third, in Uyghur Tuva (17 fortresses dated 750-840AD) and Jurchen Eastern Xia Pr
 
 # Conclusion
 
-Across the 11,900-year span from the Younger Dryas (10000BC) to the turn of the 20th century (1900AD), the demographic history of Eastern and Pacific Siberia unfolded across five major phases: (1) an Early-to-Middle Holocene expansion of fishing and marine-hunting communities along the Baikal-Angara rapids (Kitoi), the Lower Amur (Osipovka to Suchu Island), and the Pacific coast (Boisman, Ushki), interrupted in Cis-Baikal by the 4900-4200 cal BC cemetery gap; (2) a Bronze and Early Iron Age agro-pastoral and metallurgical expansion in the southern steppes (Karasuk, Tagar, Aldy-Bel, Slab Grave, Xiongnu) and Primorye (Zaisanovka to Yankovsky and Krounovka) that raised the combined population past 200k by 500BC; (3) an Early and High Medieval urban and state-building peak (~ 265,9k at 800AD and ~ 264,1k at 1200AD) centred on the Yenisei Kyrgyz and Uyghur fortresses in the Sayan-Tuva basins and the Bohai and Jurchen walled cities in Primorye; (4) a Late Medieval pastoral expansion — led by Sakha horse-and-cattle herders in the Central Yakutian *alaas* lowland (reaching 34,17k by 1650AD) and Chukchi and Koryak tundra reindeer herders — documented in the mid-17th-century *yasak* baseline of 220,53k indigenous inhabitants; and (5) an 18th- and 19th-century demographic transformation driven by sustained Buryat (288,6k in 1897) and Sakha (225,8k in 1897) population growth alongside Russian peasant, Cossack, and mining settlement across the Minusinsk, Irkutsk, Transbaikal, Lena-Vitim, and post-1858 Amur-Ussuri basins, bringing the total population of Eastern and Pacific Siberia to 2,45M by 1900AD.
+Across the 11,900-year span from the Younger Dryas (10000BC) to the turn of the 20th century (1900AD), the demographic history of Eastern and Pacific Siberia unfolded across five major phases: (1) an Early-to-Middle Holocene expansion of fishing and marine-hunting communities along the Baikal-Angara rapids (Kitoi), the Lower Amur (Osipovka to Suchu Island), and the Pacific coast (Boisman, Ushki), interrupted in Cis-Baikal by the 4900-4200 cal BC cemetery gap; (2) a Bronze and Early Iron Age agro-pastoral and metallurgical expansion in the southern steppes (Karasuk, Tagar, Aldy-Bel, Slab Grave, Xiongnu) and Primorye (Zaisanovka to Yankovsky and Krounovka) that raised the combined population past 200k by 500BC; (3) an Early and High Medieval urban and state-building peak (~ 265,9k at 800AD and ~ 264,1k at 1200AD) centred on the Yenisei Kyrgyz and Uyghur fortresses in the Sayan-Tuva basins and the Bohai and Jurchen walled cities in Primorye; (4) a Late Medieval pastoral expansion  -  led by Sakha horse-and-cattle herders in the Central Yakutian *alaas* lowland (reaching 34,17k by 1650AD) and Chukchi and Koryak tundra reindeer herders  -  documented in the mid-17th-century *yasak* baseline of 220,53k indigenous inhabitants; and (5) an 18th- and 19th-century demographic transformation driven by sustained Buryat (288,6k in 1897) and Sakha (225,8k in 1897) population growth alongside Russian peasant, Cossack, and mining settlement across the Minusinsk, Irkutsk, Transbaikal, Lena-Vitim, and post-1858 Amur-Ussuri basins, bringing the total population of Eastern and Pacific Siberia to 2,45M by 1900AD.
 
 # Appendix
 

@@ -47,7 +47,7 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
       p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
       out_parts[i] <- p
     } else {
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
@@ -100,7 +100,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
         p,
         perl = TRUE
       )
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("\u2248", "~", p, fixed = TRUE)
@@ -120,6 +120,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
 
 render_table_template <- function (arg0_df, arg1_options = NULL) {
   df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
   options <- if (!is.null(arg1_options)) arg1_options else list()
 
   caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
@@ -160,7 +161,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
         character(1)
       )
     }
-    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
     return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
   }
 
@@ -285,7 +286,7 @@ render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
 
 ```{r load-gazetteer-data, include=FALSE}
 gaz_map <- jsonlite::fromJSON("russian_civil_war_settlements.json", simplifyVector = FALSE)
-sum_json <- jsonlite::fromJSON("../../_shared/_gis_cache/russian_civil_war_summary.json", simplifyVector = FALSE)
+sum_json <- jsonlite::fromJSON((if (file.exists("russian_civil_war_summary.json")) "russian_civil_war_summary.json" else "../../_shared/_gis_cache/russian_civil_war_summary.json"), simplifyVector = FALSE)
 
 all_entries <- unname(gaz_map)
 regs <- sum_json$regions
@@ -352,7 +353,7 @@ GAZ_COL_FRACS <- c(0.245, 0.115, rep(0.0545, 9))
 
 # Overview and Forty-Eight-Region Tsarist Gazetteer Structure
 
-This supplementary settlement gazetteer compiles 275 urban centres, governorate and uezd seats, seceding national capitals, early Soviet autonomous republic (ASSR) and autonomous oblast (AO) capitals, industrial towns and Arctic river posts across all forty-eight pre-war Tsarist Governorates and Oblasts (18 607 231 km2) from the 1914AD pre-war baseline through the 1917AD Revolutions, the 1918-1922AD Civil War and Independence Wars, the 1921-1922AD Povolzhye-Ural-Southern Ukrainian Famine and the 1926AD recovery. Every settlement in russian_civil_war_settlements.json carries an explicit region_id mapped to one of the forty-eight regions in russian_civil_war.json5 alongside positive integer population benchmarks across all nine epoch years: 1914AD, 1917AD, 1918AD, 1919AD, 1920AD, 1921AD, 1922AD, 1924AD and 1926AD.
+This supplementary settlement gazetteer compiles 275 urban centres, governorate and uezd seats, seceding national capitals, early Soviet autonomous republic (ASSR) and autonomous oblast (AO) capitals, industrial towns and Arctic river posts across all forty-eight pre-war Tsarist Governorates and Oblasts (18.607.231 km2) from the 1914AD pre-war baseline through the 1917AD Revolutions, the 1918-1922AD Civil War and Independence Wars, the 1921-1922AD Povolzhye-Ural-Southern Ukrainian Famine and the 1926AD recovery. Every catalogued settlement is mapped to one of the forty-eight historical regions alongside positive integer population benchmarks across all nine epoch years: 1914AD, 1917AD, 1918AD, 1919AD, 1920AD, 1921AD, 1922AD, 1924AD and 1926AD.
 
 Municipal series are anchored to the 1914AD TsSK statistical yearbooks, the 1917AD All-Russian Municipal Census [@vseros1917gorod], the 28 August 1920AD All-Russian Census [@tsu1920perepis], the 1920AD Finnish Census [@svt1923finland], the 1920AD and 1925AD Latvian Censuses [@skujenieks1927latvia], the 30 September 1921AD First Polish Census [@gus1921skorowidz; @barwinski2015ethnic], the 15 February 1921AD Czechoslovak Census [@csr1924scitani], the 28 December 1922AD Estonian Census [@estonia1924rahvaloendus], the 17 September 1923AD Lithuanian Census [@lithuania1926gyventojai], Romanian administrative directories for Bessarabia and Bukovina [@tartakovsky2009bessarabia; @fondos2024bessarabia], the 15 March 1923AD All-Union Urban Census [@tsu1923gorod] and the 17 December 1926AD First All-Union Population Census [@tsu1926vsesoyuznaya; @koenker1985urbanization; @volkov1930dinamika].
 
@@ -384,7 +385,7 @@ render_table_template(
 )
 ```
 
-# Regions 5 - 9: Baltic Baltic Governorates and Finland
+# Regions 5 - 9: Baltic Governorates and Finland
 
 Table \ref{tab:reg5-9} lists 28 port, industrial and administrative centres across Estland (Region 5), Livland (Region 6), Courland (Region 7), Southern Finland (Region 8) and Interior and Northern Finland (Region 9), recording the 1915-1917AD evacuation of Courland and Riga (517,5k to 185,1k by 1920AD before recovering to 339,0k by 1926AD), the 1918AD Finnish Civil War and prison camp mortality at Helsingfors, Tammerfors, Tavastehus and Viipuri, and the 1920-1925AD Estonian, Latvian and Finnish censuses [@myrskyla2023finnish; @rantala2020warvictims; @gusachenko2021latvia; @estonia1924rahvaloendus; @skujenieks1927latvia; @svt1923finland].
 
@@ -479,7 +480,7 @@ render_table_template(
 Table \ref{tab:reg48-summary} verifies 100% regional coverage across all forty-eight pre-war Tsarist Governorates and Oblasts (275 settlements in total, with at least four settlements in every region), comparing total regional populations (k) against gazetteer municipal sums (k) at 1914AD, 1917AD, 1920AD, 1922AD and 1926AD.
 
 ```{r table-reg48-summary, echo=FALSE, results='asis'}
-fmt_int_sp <- function (v) format(as.integer(round(v)), big.mark = " ", scientific = FALSE, trim = TRUE)
+fmt_int_sp <- function (v) format(as.integer(round(v)), big.mark = ".", scientific = FALSE, trim = TRUE)
 
 sum_rows <- lapply(seq_along(regs), function (i) {
   r <- regs[[i]]

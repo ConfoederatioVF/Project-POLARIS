@@ -216,7 +216,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
   }
 
   usable_width <- max(0.95 - 0.014 * n_cols, 0.76)
-  props <- round((weights / sum(weights)) * usable_width, 4)
+  props <- round((weights/sum(weights)) * usable_width, 4)
 
   col_specs <- vapply(seq_len(n_cols), function(j) {
     sprintf(">{\\raggedright\\arraybackslash}p{%.4f\\linewidth}", props[j])
@@ -382,7 +382,7 @@ get_pop_window_val <- function (arg0_s, arg1_ymin, arg2_ymax) {
 
 ## Scope and Settlement Data Architecture
 
-This companion settlement gazetteer documents r length(settlements_list) individual archaeological, proto-urban, fortified, and medieval urban settlements located across the ~238 000 km² domain of the Wild Fields (partitioned into five natural sub-regions: I: Budjak [Danube-Prut-Dniester Steppe and Liman], II: NW Pontic Steppe [Dniester-Bug Interfluve], III: Right-Bank Bug-Dnieper and Ingul-Ingulets, IV: Left-Bank Lower Dnieper, Veliky Lug, and Northern Taurida, and V: Middle Seversky Donets, Donets Ridge, and Azov Basin) between 10000BC and 1400AD.
+This companion settlement gazetteer documents `r length(settlements_list)` individual archaeological, proto-urban, fortified, and medieval urban settlements located across the ~238.000 km² domain of the Wild Fields (partitioned into five natural sub-regions: I: Budjak [Danube-Prut-Dniester Steppe and Liman], II: NW Pontic Steppe [Dniester-Bug Interfluve], III: Right-Bank Bug-Dnieper and Ingul-Ingulets, IV: Left-Bank Lower Dnieper, Veliky Lug, and Northern Taurida, and V: Middle Seversky Donets, Donets Ridge, and Azov Basin) between 10000BC and 1400AD.
 
 Every population entry records a positive integer (> 0) anchored to archaeological site area and dwelling counts, classical *polis* and *chora* surveys, *Dridu* and *Saltovo-Mayaki* fortification enclosures, Kievan Rus chronicle and archaeological evidence, and Golden Horde, Genoese, and Moldavian port records up to 1400AD [@kryzhitsky1999; @subbotin2000; @kravchenko2020; @dovzhenok1961; @bocharov2015; @boguslavskiy2014]. Zero values are omitted; when a settlement is abandoned or destroyed (for example, Sredny Stog after 3500BC, Olbia after 375AD, Sidorovo after 965AD, or Kuchugury in 1395AD), its time series terminates cleanly at its final attested benchmark. All coordinates are verified in decimal degrees (45,32°N to 50,06°N, 28,29°E to 39,55°E), and all historical and alternate toponyms are transliterated into Latin script.
 
@@ -502,7 +502,7 @@ render_table_template(
 
 # Complete Master Settlement Gazetteer (10000BC - 1400AD)
 
-Table \ref{tab:master-gazetteer} provides the complete alphabetical directory of all r length(settlements_list) settlements in the regional gazetteer, reporting each settlement's canonical name, alternate historical names, decimal coordinates, attested chronological span, and full benchmark population trajectory from 10000BC to 1400AD.
+Table \ref{tab:master-gazetteer} provides the complete alphabetical directory of all `r length(settlements_list)` settlements in the regional gazetteer, reporting each settlement's canonical name, alternate historical names, decimal coordinates, attested chronological span, and full benchmark population trajectory from 10000BC to 1400AD.
 
 ```{r tab-master-gazetteer, results='asis'}
 alpha_idx <- order(vapply(settlements_list, function (s) as.character(s$name), character(1)))

@@ -52,7 +52,7 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
       p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
       out_parts[i] <- p
     } else {
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
@@ -70,8 +70,10 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
         p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
         p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
         # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
         p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
         # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
         p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
@@ -106,7 +108,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
         p,
         perl = TRUE
       )
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("\u2248", "~", p, fixed = TRUE)
@@ -126,6 +128,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
 
 render_table_template <- function (arg0_df, arg1_options = NULL) {
   df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
   options <- if (!is.null(arg1_options)) arg1_options else list()
 
   caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
@@ -166,7 +169,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
         character(1)
       )
     }
-    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
     return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
   }
 
@@ -181,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -376,15 +379,15 @@ Formed by post-Zarubintsy and post-Chernyakhov settlers from the Dnieper-Desna f
 
 ## Permic and Cis-Ural Groups: Mazunino, Bakhmutino, Turaevo, Lomovatovo, and Polom (c. 250-750AD)
 
-In the Kama, Vyatka, Belaya, and Sylva river basins of the Cis-Urals (Udmurtia, Perm Krai, Bashkortostan, and eastern Tatarstan), large-scale excavations synthesised by Goldina, Gening, Chizhevskiy, Bakhshiev, and Shmuratko document steady Permic and Ugrian population growth [@goldina1999drevnyaya; @goldina2012nevolino; @gening1988turaevo; @bakhshiev2017bakhmutino; @shmuratko2011prikamye; @chizhevskiy2020oboronitelnye; @belitskaya2026slitki]. Following the breakup of the Late Pyanobor union in the third to sixth centuries AD, the Mazunino culture (Middle Kama and Lower Belaya) and Bakhmutino culture (Belaya-Ufa basin, including the large *Ufa II* fortified town and *Birsk* cemetery with over 1 000 burials) built dense networks of timber-rampart hillforts (0,8-2,5 ha) and open villages [@goldina1999drevnyaya; @bakhshiev2017bakhmutino; @chizhevskiy2020oboronitelnye]. In the fifth century AD, the arrival of armed steppe-forest groups created the Turaevo kurgan group (*Turaevo*, *Bartym*) on the Middle Kama [@gening1988turaevo; @shmuratko2011prikamye].
+In the Kama, Vyatka, Belaya, and Sylva river basins of the Cis-Urals (Udmurtia, Perm Krai, Bashkortostan, and eastern Tatarstan), large-scale excavations synthesised by Goldina, Gening, Chizhevskiy, Bakhshiev, and Shmuratko document steady Permic and Ugrian population growth [@goldina1999drevnyaya; @goldina2012nevolino; @gening1988turaevo; @bakhshiev2017bakhmutino; @shmuratko2011prikamye; @chizhevskiy2020oboronitelnye; @belitskaya2026slitki]. Following the breakup of the Late Pyanobor union in the third to sixth centuries AD, the Mazunino culture (Middle Kama and Lower Belaya) and Bakhmutino culture (Belaya-Ufa basin, including the large *Ufa II* fortified town and *Birsk* cemetery with over 1.000 burials) built dense networks of timber-rampart hillforts (0,8-2,5 ha) and open villages [@goldina1999drevnyaya; @bakhshiev2017bakhmutino; @chizhevskiy2020oboronitelnye]. In the fifth century AD, the arrival of armed steppe-forest groups created the Turaevo kurgan group (*Turaevo*, *Bartym*) on the Middle Kama [@gening1988turaevo; @shmuratko2011prikamye].
 
 Between the fifth and eighth centuries AD, across the Upper Kama (*Lomovatovo*), Cheptsa (*Polom*), and Sylva (*Nevolino*, e.g. *Brody*, *Verkh-Saya*) basins, Permic communities lived in multi-hearth surface log longhouses (35-65 m², mean 42,0 m², housing 10-15 family members) and buried their dead in large flat cemeteries containing hundreds of graves with Sassanian and Byzantine silver vessels (*Bartym*, *Kudymkar*) exchanged for northern sable and squirrel furs [@goldina1999drevnyaya; @goldina2012nevolino; @nazarov2025lomovatovo; @ivanov2021ugrian]. Total population across the Kama-Vyatka-Belaya Cis-Urals grew from 265k in 250AD to 335k in 550AD and 395k by 700AD.
 
 # North Caucasus and Caspian Corridor
 
-The North Caucasus and the narrow Caspian coastal plain of Dagestan formed the strategic gateway between the Eurasian steppe and the Sassanian and Byzantine empires [@korobov2013terraced; @korobov2023alany; @gadzhiev2002derbent; @gmyrya2022palasa]. Using GIS mapping, soil phosphate testing, and systematic surveys of 268 Early Alanian fortified settlements and catacomb cemeteries (*Klin-Yar III-IV*, *Mokraya Balka*, *Gornoe Ekho*), Korobov and Borisov showed that after the Hunnic invasion of the open Ciscaucasian steppe in 375AD, Alanian communities settled densely inside the sheltered Kislovodsk mountain basin (800-1 400 m elevation) [@korobov2013terraced; @korobov2023alany; @fomenko2018alany]. To support this concentrated population, Alanian farmers built thousands of hectares of artificial agricultural terraces fertilised with household manure [@korobov2013terraced]. Each stone-walled cliff fortress (0,8-2,5 ha, spaced 1,0-2,5 km apart) and paired catacomb cemetery (*Klin-Yar* and *Mokraya Balka* containing 400-1 000+ family catacombs) supported 80-175 inhabitants (mean 120), producing mountain-valley densities of 12-22 persons/km² and a central Alanian piedmont population of 195-260k between the fifth and eighth centuries AD [@korobov2013terraced; @korobov2023alany].
+The North Caucasus and the narrow Caspian coastal plain of Dagestan formed the strategic gateway between the Eurasian steppe and the Sassanian and Byzantine empires [@korobov2013terraced; @korobov2023alany; @gadzhiev2002derbent; @gmyrya2022palasa]. Using GIS mapping, soil phosphate testing, and systematic surveys of 268 Early Alanian fortified settlements and catacomb cemeteries (*Klin-Yar III-IV*, *Mokraya Balka*, *Gornoe Ekho*), Korobov and Borisov showed that after the Hunnic invasion of the open Ciscaucasian steppe in 375AD, Alanian communities settled densely inside the sheltered Kislovodsk mountain basin (800-1.400 m elevation) [@korobov2013terraced; @korobov2023alany; @fomenko2018alany]. To support this concentrated population, Alanian farmers built thousands of hectares of artificial agricultural terraces fertilised with household manure [@korobov2013terraced]. Each stone-walled cliff fortress (0,8-2,5 ha, spaced 1,0-2,5 km apart) and paired catacomb cemetery (*Klin-Yar* and *Mokraya Balka* containing 400-1.000+ family catacombs) supported 80-175 inhabitants (mean 120), producing mountain-valley densities of 12-22 persons/km² and a central Alanian piedmont population of 195-260k between the fifth and eighth centuries AD [@korobov2013terraced; @korobov2023alany].
 
-On the Lower Kuban and Taman-Abkhazian coast (*Dyurso*, *Pashkovskiy*, *Borisovskiy*), Mastykova's study of burial dress documents mixed Alanian, Adyghe-Zikh, and East Germanic (*Tetraxite Goth*) farming and port communities [95-130k] [@mastykova2009kuban; @mastykova2009ierarkhiya]. Along the Caspian coast in Dagestan, the Sassanian construction of the stone fortress and walls of Derbent under Kavad I and Khosrow I Anushirvan (6th century AD) protected a dense urban-garrison and irrigated farming zone alongside the large Palasa-Syrt kurgan-catacomb cemetery (1 500+ mounds dating to the 4th-6th centuries AD, excavated by Gmyrya, Gadzhiev, and Malashev) [@gadzhiev2002derbent; @gmyrya2022palasa; @malashev2011palasa]. Total population across the North Caucasus and Dagestan rose from 435k in 250AD to 480k in 550AD and 570k by 700AD.
+On the Lower Kuban and Taman-Abkhazian coast (*Dyurso*, *Pashkovskiy*, *Borisovskiy*), Mastykova's study of burial dress documents mixed Alanian, Adyghe-Zikh, and East Germanic (*Tetraxite Goth*) farming and port communities [95-130k] [@mastykova2009kuban; @mastykova2009ierarkhiya]. Along the Caspian coast in Dagestan, the Sassanian construction of the stone fortress and walls of Derbent under Kavad I and Khosrow I Anushirvan (6th century AD) protected a dense urban-garrison and irrigated farming zone alongside the large Palasa-Syrt kurgan-catacomb cemetery (1.500+ mounds dating to the 4th-6th centuries AD, excavated by Gmyrya, Gadzhiev, and Malashev) [@gadzhiev2002derbent; @gmyrya2022palasa; @malashev2011palasa]. Total population across the North Caucasus and Dagestan rose from 435k in 250AD to 480k in 550AD and 570k by 700AD.
 
 # Western and Southern Siberia
 
@@ -446,13 +449,13 @@ df_macro <- data.frame(
     "1800AD",
     "1900AD"
   ),
-  Forest_Steppe = c("490", "640", "690", "460", "500", "690", "890", "1 080", "1 550", "1 850", "3 400", "7 800", "18 900"),
-  Forest_Zone = c("390", "440", "465", "500", "555", "720", "920", "1 140", "1 950", "3 500", "5 200", "9 400", "19 800"),
-  Volga_Urals = c("340", "410", "440", "485", "545", "630", "740", "850", "1 300", "1 650", "2 650", "5 800", "13 600"),
-  North_Caucasus = c("360", "435", "460", "450", "480", "570", "660", "730", "950", "1 050", "1 250", "1 950", "5 400"),
-  Siberia = c("240", "275", "280", "245", "255", "300", "335", "365", "450", "550", "700", "1 350", "5 750"),
-  Steppe = c("230", "250", "225", "140", "155", "220", "285", "335", "400", "500", "600", "1 800", "4 050"),
-  Total_k = c("2 050", "2 450", "2 560", "2 280", "2 490", "3 130", "3 830", "4 500", "6 600", "9 100", "13 800", "28 100", "67 500"),
+  Forest_Steppe = c("490", "640", "690", "460", "500", "690", "890", "1.080", "1.550", "1.850", "3.400", "7.800", "18.900"),
+  Forest_Zone = c("390", "440", "465", "500", "555", "720", "920", "1.140", "1.950", "3.500", "5.200", "9.400", "19.800"),
+  Volga_Urals = c("340", "410", "440", "485", "545", "630", "740", "850", "1.300", "1.650", "2.650", "5.800", "13.600"),
+  North_Caucasus = c("360", "435", "460", "450", "480", "570", "660", "730", "950", "1.050", "1.250", "1.950", "5.400"),
+  Siberia = c("240", "275", "280", "245", "255", "300", "335", "365", "450", "550", "700", "1.350", "5.750"),
+  Steppe = c("230", "250", "225", "140", "155", "220", "285", "335", "400", "500", "600", "1.800", "4.050"),
+  Total_k = c("2.050", "2.450", "2.560", "2.280", "2.490", "3.130", "3.830", "4.500", "6.600", "9.100", "13.800", "28.100", "67.500"),
   Range_M = c(
     "1,60-2,54 M",
     "1,91-3,04 M",
@@ -700,7 +703,7 @@ df_app <- data.frame(
     "0,4-1,8 persons/km² (forest-steppe valleys)"
   ),
   Farming_System = c(
-    "Millet, barley, wheat; iron plough (Chernyakhov) -> winter rye (6th-8th c.)",
+    "Millet, barley, wheat; iron plough (Chernyakhov) to winter rye (6th-8th c.)",
     "Forest-fallow & flood-plain plots; barley, wheat, flax, livestock, fur trade",
     "Intensive iron-plough farming; winter rye, millet, wheat; cylindrical grain pits",
     "Mixed arable-pastoralism, horse breeding, bronze/iron metallurgy, fur export",

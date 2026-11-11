@@ -52,7 +52,7 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
       p <- gsub("(?<!\\\\)%", "\\\\%", p, perl = TRUE)
       out_parts[i] <- p
     } else {
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("km\u00b2", "km\\textsuperscript{2}", p, fixed = TRUE)
@@ -70,8 +70,10 @@ sanitize_latex_text <- function (arg0_text, arg1_in_table = FALSE) {
         p <- gsub("\\_", "\\_\\allowbreak{}", p, fixed = TRUE)
         p <- gsub("/", "/\\allowbreak{}", p, fixed = TRUE)
         # Keep thousands-separated numbers and BC/AD dates on a single line inside table cells
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
-        p <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1~\\2", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\b[1-9][0-9]{0,2}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
+        p <- gsub("(?<=\\.[0-9]{3}) (?=[0-9]{3}\\b)", ".", p, perl = TRUE)
         p <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", p, perl = TRUE)
         # Prevent line breaks immediately after a leading negative sign (e.g. -10000)
         p <- gsub("(^|\\s|\\()-([0-9])", "\\1\\\\mbox{-}\\2", p, perl = TRUE)
@@ -106,7 +108,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
         p,
         perl = TRUE
       )
-      p <- gsub("\u2192", "->", p, fixed = TRUE)
+      p <- gsub("\u2192", " to ", p, fixed = TRUE)
       p <- gsub("\u00d7", "x", p, fixed = TRUE)
       p <- gsub("\u0394", "$\\Delta$", p, fixed = TRUE)
       p <- gsub("\u2248", "~", p, fixed = TRUE)
@@ -126,6 +128,7 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
 
 render_table_template <- function (arg0_df, arg1_options = NULL) {
   df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
   options <- if (!is.null(arg1_options)) arg1_options else list()
 
   caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
@@ -166,7 +169,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
         character(1)
       )
     }
-    kb <- knitr::kable(disp_df, format = "markdown", caption = if (nzchar(caption_str)) caption_str else NULL)
+    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
     return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
   }
 
@@ -181,7 +184,7 @@ render_table_template <- function (arg0_df, arg1_options = NULL) {
     hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
 
     cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1 280,0k) and dates (10000BC) as single unbreakable tokens
+    # Treat thousands-separated numbers (1.280,0k) and dates (10000BC) as single unbreakable tokens
     cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
     cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
     cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
@@ -295,7 +298,7 @@ gaz_map <- jsonlite::fromJSON(GAZETTEER_JSON_FILE, simplifyVector = FALSE)
 all_entries <- unname(gaz_map)
 entry_reg_nums <- c(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 25, 25, 25, 25, 26, 26, 26, 27, 27, 27, 28, 28, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 30, 30, 30, 31, 31, 31, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 35, 35, 35, 35, 35, 36, 36, 36, 37, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 41, 41, 41, 42, 42, 42, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 45, 45, 45)
 
-sdata <- jsonlite::fromJSON("../../_shared/_gis_cache/soviet_lenin_stalin_summary.json", simplifyVector = FALSE)
+sdata <- jsonlite::fromJSON((if (file.exists("soviet_lenin_stalin_summary.json")) "soviet_lenin_stalin_summary.json" else "../../_shared/_gis_cache/soviet_lenin_stalin_summary.json"), simplifyVector = FALSE)
 regs_list <- sdata$regions
 
 fmt_eu_pop <- function (arg0_val) {
@@ -384,7 +387,7 @@ if (!knitr::is_latex_output()) {
 
 # Regions 1 - 5: Baltic SSRs, Moldavian SSR, and Kaliningrad Oblast
 
-Table \ref{tab:reg1-5} lists 28 settlements across Region 1 (Estonian SSR: Tallinn, Tartu, Kohtla-Jarve, Parnu, Narva, Sillamae), Region 2 (Latvian SSR: Riga, Liepaja, Daugavpils, Jelgava, Ventspils, Rezekne), Region 3 (Lithuanian SSR: Vilnius, Kaunas, Klaipeda, Siauliai, Panevezys), Region 4 (Moldavian SSR: Chisinau, Balti, Tiraspol, Bender, Cahul, Orhei), and Region 5 (Kaliningrad Oblast / Northern East Prussia: Kaliningrad, Sovetsk, Chernyakhovsk, Baltiysk, Gusev) [@mertelsmann2009estonia; @strods2002priboi; @balkelis2005vilnius; @casu2014moldova; @kostyashov2022kaliningrad].
+Table \ref{tab:reg1-5} lists 28 settlements across Region 1 (Estonian SSR: Tallinn, Tartu, Kohtla-Jarve, Parnu, Narva, Sillamae), Region 2 (Latvian SSR: Riga, Liepaja, Daugavpils, Jelgava, Ventspils, Rezekne), Region 3 (Lithuanian SSR: Vilnius, Kaunas, Klaipeda, Siauliai, Panevezys), Region 4 (Moldavian SSR: Chisinau, Balti, Tiraspol, Bender, Cahul, Orhei), and Region 5 (Kaliningrad Oblast/Northern East Prussia: Kaliningrad, Sovetsk, Chernyakhovsk, Baltiysk, Gusev) [@mertelsmann2009estonia; @strods2002priboi; @balkelis2005vilnius; @casu2014moldova; @kostyashov2022kaliningrad].
 
 ```{r table-reg1-5, echo=FALSE, results='asis'}
 render_table_template(
@@ -426,7 +429,7 @@ render_table_template(
 
 # Regions 12 - 15: Dnieper Industrial Bend, Donbas Basin, Black Sea Steppe, and Crimean ASSR
 
-Table \ref{tab:reg12-15} lists 25 settlements across Region 12 (Dnieper Industrial Bend), Region 13 (Donbas Coal-Metallurgical Basin), Region 14 (Ukrainian Black Sea Steppe: Odesa, Mykolaiv, Kherson, Pervomaisk, Balta), and Region 15 (Crimean ASSR -> Crimean Oblast: Sevastopol, Simferopol, Kerch, Bakhchisarai) [@polyakov1992perepis1939; @senyavsky2019urbanisation; @bugai1995deportatsiya].
+Table \ref{tab:reg12-15} lists 25 settlements across Region 12 (Dnieper Industrial Bend), Region 13 (Donbas Coal-Metallurgical Basin), Region 14 (Ukrainian Black Sea Steppe: Odesa, Mykolaiv, Kherson, Pervomaisk, Balta), and Region 15 (Crimean ASSR to Crimean Oblast: Sevastopol, Simferopol, Kerch, Bakhchisarai) [@polyakov1992perepis1939; @senyavsky2019urbanisation; @bugai1995deportatsiya].
 
 ```{r table-reg12-15, echo=FALSE, results='asis'}
 render_table_template(
@@ -454,7 +457,7 @@ render_table_template(
 
 # Regions 23 - 34: Volga-Ural ASSRs, Liquidated Volga/Caucasus ASSRs, and Ural Arsenal
 
-Table \ref{tab:reg23-34} lists 54 settlements across Region 23 (Chuvash, Mari, Mordovian & Udmurt ASSRs + Gorky/Kirov), Region 24 (Tatar ASSR & Ulyanovsk-Penza), Region 25 (Kuibyshev Wartime Capital, Orenburg, Orsk, Chapayevsk), Region 26 (Liquidated Volga German ASSR: Engels, Marks/Marxstadt, Krasnoarmeysk/Balzer), Region 27 (Stalingrad, Saratov, Astrakhan), Region 28 (Liquidated Kalmyk ASSR: Elista, Lagan), Region 29 (Rostov, Krasnodar/Kuban & Adygei AO: incl. blacklisted Stanitsa Poltavskaya), Region 30 (Stavropol, Karachay AO & Cherkess AO: Stavropol, Pyatigorsk, Cherkessk, Karachaevsk/Mikoyan-Shakhar), Region 31 (Kabardino-Balkar & North Ossetian ASSRs: Ordzhonikidze/Dzaudzhikau, Nalchik, Tyrnyauz), Region 32 (Liquidated Chechen-Ingush ASSR -> Grozny Oblast: Grozny, Gudermes, Nazran), Region 33 (Dagestan ASSR: Makhachkala, Derbent, Khasavyurt), and Region 34 (Great Ural Evacuation Arsenal & Bashkir ASSR) [@german2000nemtsy; @bugai1995deportatsiya; @tsutsiev2014atlas; @kotkin1995magnetic].
+Table \ref{tab:reg23-34} lists 54 settlements across Region 23 (Chuvash, Mari, Mordovian & Udmurt ASSRs + Gorky/Kirov), Region 24 (Tatar ASSR & Ulyanovsk-Penza), Region 25 (Kuibyshev Wartime Capital, Orenburg, Orsk, Chapayevsk), Region 26 (Liquidated Volga German ASSR: Engels, Marks/Marxstadt, Krasnoarmeysk/Balzer), Region 27 (Stalingrad, Saratov, Astrakhan), Region 28 (Liquidated Kalmyk ASSR: Elista, Lagan), Region 29 (Rostov, Krasnodar/Kuban & Adygei AO: incl. blacklisted Stanitsa Poltavskaya), Region 30 (Stavropol, Karachay AO & Cherkess AO: Stavropol, Pyatigorsk, Cherkessk, Karachaevsk/Mikoyan-Shakhar), Region 31 (Kabardino-Balkar & North Ossetian ASSRs: Ordzhonikidze/Dzaudzhikau, Nalchik, Tyrnyauz), Region 32 (Liquidated Chechen-Ingush ASSR to Grozny Oblast: Grozny, Gudermes, Nazran), Region 33 (Dagestan ASSR: Makhachkala, Derbent, Khasavyurt), and Region 34 (Great Ural Evacuation Arsenal & Bashkir ASSR) [@german2000nemtsy; @bugai1995deportatsiya; @tsutsiev2014atlas; @kotkin1995magnetic].
 
 ```{r table-reg23-34, echo=FALSE, results='asis'}
 render_table_template(
@@ -500,7 +503,7 @@ short_reg_names <- c(
   "12. Dnieper Industrial Bend",
   "13. Donbas Coal-Metallurgical Basin",
   "14. Ukrainian Black Sea Steppe",
-  "15. Crimean ASSR -> Crimean Oblast",
+  "15. Crimean ASSR to Crimean Oblast",
   "16. Karelo-Finnish SSR & Murmansk",
   "17. Leningrad Siege, Novgorod & Pskov",
   "18. Komi ASSR (Vorkutlag) & Nenets",
@@ -517,7 +520,7 @@ short_reg_names <- c(
   "29. Rostov, Krasnodar (Kuban) & Adygei AO",
   "30. Stavropol, Karachay AO & Cherkess AO",
   "31. Kabardino-Balkar & N. Ossetian ASSRs",
-  "32. Chechen-Ingush ASSR -> Grozny Oblast",
+  "32. Chechen-Ingush ASSR to Grozny Oblast",
   "33. Dagestan ASSR (Akkin & Mountain Moves)",
   "34. Great Ural Arsenal & Bashkir ASSR",
   "35. West Siberian Trans-Siberian Spine",
