@@ -1,12 +1,12 @@
 ---
-title: "SETTLEMENT GAZETTEER OF CIRCASSIA AND CENTRAL CISCAUCASIA."
-subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1900AD)."
+title: "Towns and Villages of Circassia and Central Ciscaucasia"
+subtitle: "Bosporan Cities, Alanic Fortresses, Circassian Villages and Kuban Stanitsas"
 date: "7 November 2026"
 authors_line: "Aust Kätzchen"
 emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/circassia_map_subregions_sites.png"
-hero_caption: "Sub-regional zones, river basins, and settlements of Circassia and Central Ciscaucasia included in the settlement gazetteer (10000BC - 1900AD)."
+hero_caption: "The five regions of Circassia and Central Ciscaucasia (122,9k km²): Krasnodar Krai (75,5k km²), Adygea (7,8k km²), Karachay-Cherkessia (14,3k km²), Kabardino-Balkaria with the Kislovodsk basin (17,3k km²) and North Ossetia (8k km²), showing principal prehistoric, Bosporan, Alanic and modern settlements."
 hero_label: "fig:hero"
 bibliography: circassia_literature_review.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
@@ -16,6 +16,8 @@ output:
     template: ../../_shared/template/template.tex
     latex_engine: xelatex
     keep_tex: false
+  md_document:
+    variant: gfm
 ---
 
 ```{r setup, include=FALSE}
@@ -123,161 +125,6 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
   return(paste(parts, collapse = ""))
 }
 
-render_table_template <- function (arg0_df, arg1_options = NULL) {
-  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
-  rownames(df) <- NULL
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-
-  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
-  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
-  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
-  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
-  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
-
-  n_cols <- ncol(df)
-  n_rows <- nrow(df)
-  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
-
-  if (length(col_names) != n_cols) {
-    col_names <- colnames(df)
-  }
-  col_names <- gsub("`", "", col_names, fixed = TRUE)
-  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
-  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
-  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
-  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
-  for (c_i in seq_len(n_cols)) {
-    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
-    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
-  }
-
-  if (!is_latex) {
-    disp_df <- df
-    colnames(disp_df) <- col_names
-    for (c_idx in seq_len(n_cols)) {
-      disp_df[[c_idx]] <- vapply(
-        disp_df[[c_idx]],
-        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
-        character(1)
-      )
-    }
-    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
-    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
-  }
-
-  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
-  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
-
-  min_frac <- numeric(n_cols)
-  col_weights <- numeric(n_cols)
-  for (c_idx in seq_len(n_cols)) {
-    hdr_str <- col_names[c_idx]
-    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
-    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
-
-    cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
-    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
-    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
-    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
-    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
-
-    # Word-fit floor in fraction of 468pt textwidth
-    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
-    min_frac[c_idx] <- req_pts / 468.0
-
-    cell_lens <- nchar(cell_vec)
-    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
-    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
-    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
-    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
-  }
-
-  if (sum(min_frac) > usable_frac * 0.94) {
-    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
-  }
-  rem_frac <- max(0.0, usable_frac - sum(min_frac))
-  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
-
-  col_specs <- vapply(
-    col_fracs,
-    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
-    character(1)
-  )
-  align_str <- paste(col_specs, collapse = "")
-
-  header_cells <- vapply(
-    seq_len(n_cols),
-    function (c_idx) {
-      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
-      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
-    },
-    character(1)
-  )
-  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
-
-  cap_tex <- sanitize_latex_text(caption_str, FALSE)
-  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
-  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
-  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
-
-  block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
-    "\\setlength{\\tabcolsep}{3pt}",
-    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    "\\setlength{\\LTcapwidth}{\\textwidth}",
-    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
-    header_line,
-    "\\endfirsthead",
-    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
-    header_line,
-    "\\endhead"
-  )
-
-  for (r_idx in seq_len(n_rows)) {
-    row_cells <- vapply(
-      seq_len(n_cols),
-      function (c_idx) {
-        raw_v <- df[r_idx, c_idx]
-        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
-        val_str <- trimws(gsub("\\*\\*", "", val_str))
-        if (euro_decimals) {
-          val_str <- convert_euro_decimals_in_text(val_str)
-        }
-        clean_v <- sanitize_latex_text(val_str, TRUE)
-        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
-      },
-      character(1)
-    )
-    # Prevent page breaks inside the first 3 rows or the last 4 rows so tables never orphan 1-3 rows
-    row_end <- paste0("\\\\[", row_pt, "]")
-    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
-      row_end <- "\\\\*[5pt]"
-    }
-    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
-  }
-
-  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
-    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
-  }
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
-  )
-
-  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
-}
 orig_render_figure_template <- render_figure_template
 render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
   options <- if (!is.null(arg1_options)) arg1_options else list()
@@ -344,11 +191,17 @@ get_peak_str <- function(s) {
 }
 ```
 
+# Abstract
+
+Across the 122,9k km² of historical Circassia and Central Ciscaucasia, urban and rural settlements have developed in four distinct waves from the Eneolithic to 1900AD. Fortified Eneolithic and Early Bronze Age villages at Meshoko, Svobodnoe and Galyugay, followed by Western Caucasian dolmen settlements and Koban terrace villages around Mount Elbrus and the Kislovodsk basin, preceded the classical urban network of the Asiatic Bosporus and the Kuban plain, where Phanagoria (14k at 300BC), Gorgippia (8k at 1AD), Hermonassa and the Maeotian trading town of Elizavetinskoye (5k at 300BC) anchored a dense grain-exporting countryside [@korenevskiy2004; @kuznetsov2017phanagoria; @alekseeva1997anapa].
+
+In the Middle Ages, the largest inland centres shifted to the Christian Alanic cathedral towns and fortresses of the upper Kuban and Terek valleys - led by Nizhniy Arkhyz (8,5k in 1000AD), Khumara and the two Dzhulats (Verkhniy and Nizhniy Dzhulat) - alongside the Genoese-Zichian ports of Matrega (Taman), Copa (Slavyansk) and Mapa (Anapa) [@kuznetsov1993; @khotko2015zichia]. Following Timur's 1395 campaign, settlement dispersed into Circassian, Kabardian and Abaza lowland and foothill villages (*kabaki*) and Ossetian and Karachay-Balkar mountain stone *auls* (such as Dargavs and Kart-Dzhurt). In the late 18th and 19th centuries, the founding of Russian fortresses, the 1860-1864 *muhajir* expulsion and railway colonisation created a new urban hierarchy led by Yekaterinodar (65,6k in 1897AD), Vladikavkaz (43,7k), Yeysk (35,4k), Maykop (34,3k), Pyatigorsk (18,4k) and Novorossiysk (16,9k) [@troynitskiy1905kuban; @kabuzan1996].
+
 # Methodology
 
-This supplementary report presents the settlement population gazetteer accompanying the regional literature review of Circassia and Central Ciscaucasia (10000BC - 1900AD). The dataset indexes `r length(gaz)` settlements across Krasnodar Krai, the Republic of Adygea, Karachay-Cherkessia, Kabardino-Balkaria, North Ossetia-Alania, and the Caucasian Mineral Waters district with alternate and Cyrillic names, decimal coordinates, and chronological population estimates for inhabited benchmark years.
+This gazetteer gives population estimates for `r length(gaz)` towns and villages across Krasnodar Krai, Adygea, Karachay-Cherkessia, Kabardino-Balkaria, North Ossetia and the Kislovodsk basin from 10000BC to 1900AD.
 
-Prehistoric, Bronze Age, Classical Bosporan, Maeotian, and Alanic estimates are derived from excavated settlement areas and cemetery studies [@formozov1965stone; @korenevskiy2004; @markovin1978dolmens; @reinhold2017; @belinskiy2018; @kuznetsov2017phanagoria; @alekseeva1997anapa; @kuznetsov1992; @kuznetsov1993; @korobov2017]. Early modern and 19th-century figures draw on Genoese and Ottoman port records, Russian diplomatic registers, and accounts of the 1859-1864 expulsion [@kusheva1963; @gardanov1967social; @volkova1974; @khotko2001; @khotko2015zichia; @berger1860expulsion; @kumykov1994], while 1897 and 1900 figures come from the First All-Russian Imperial Census [@kabuzan1996; @troynitskiy1905kuban; @bgeu2007demography; @golovlev2017census].
+Prehistoric, Greek and Alanic figures are based on the size of excavated settlements and cemeteries [@formozov1965stone; @korenevskiy2004; @markovin1978dolmens; @reinhold2017; @belinskiy2018; @kuznetsov2017phanagoria; @alekseeva1997anapa; @kuznetsov1992; @kuznetsov1993; @korobov2017]. Early modern and 19th-century estimates come from Genoese and Ottoman port records, Russian embassy reports and records of the 1859-1864 expulsions [@kusheva1963; @gardanov1967social; @volkova1974; @khotko2001; @khotko2015zichia; @berger1860expulsion; @kumykov1994], while the 1897 and 1900 figures are taken from the first Russian imperial census [@kabuzan1996; @troynitskiy1905kuban; @bgeu2007demography; @golovlev2017census].
 
 # Results
 
@@ -371,9 +224,9 @@ df_master <- data.frame(
 render_table_template(
   df_master,
   list(
-    caption = "Directory of all indexed settlements in Circassia and Central Ciscaucasia (10000BC - 1900AD).",
+    caption = "Complete list of catalogued towns, fortresses and villages in Circassia and Central Ciscaucasia, showing alternative names, coordinates, documented dates, peak population and 1897/1900AD census figures.",
     label = "tab:circassia-master-gazetteer",
-    col_names = c("Settlement", "Historical / Native Names", "Coords", "Documented Span", "Peak Population", "1897AD", "1900AD"),
+    col_names = c("Settlement", "Other Names", "Coords", "Dates", "Peak Population", "1897AD", "1900AD"),
     alignment = c("l", "l", "l", "l", "r", "r", "r"),
     scale_to_fit = FALSE,
     placement = "!htbp"
@@ -383,7 +236,7 @@ render_table_template(
 
 ## Regional Settlement Gazetteer
 
-### Prehistoric, Bronze Age, Bosporan, and Maeotian Settlements (10000BC - 400AD)
+### Prehistoric, Bronze Age, Bosporan and Maeotian Settlements
 
 ```{r tab-prehistoric, echo=FALSE, results='asis'}
 pre_s <- Filter(function(s) any(as.integer(names(s$population)) <= 400), gaz)
@@ -405,7 +258,7 @@ df_pre <- data.frame(
 render_table_template(
   df_pre,
   list(
-    caption = "Prehistoric, Bronze Age, Bosporan, and Maeotian settlement populations in Circassia and Central Ciscaucasia (8000BC - 400AD).",
+    caption = "Estimated populations of Eneolithic and Maykop villages (Meshoko, Svobodnoe and Galyugay), Western Caucasian dolmen and Koban centres, and the Greek Bosporan and Maeotian towns (Phanagoria, Gorgippia, Hermonassa and Elizavetinskoye).",
     label = "tab:circassia-prehistoric-classical",
     col_names = c("Settlement", "Coords", "8000-3000BC", "2500-1000BC", "500BC", "300BC", "1AD", "200-400AD"),
     alignment = c("l", "l", "r", "r", "r", "r", "r", "r"),
@@ -415,7 +268,7 @@ render_table_template(
 )
 ```
 
-### Medieval and Early Modern Settlements (600 - 1700AD)
+### Medieval and Early Modern Settlements
 
 ```{r tab-medieval, echo=FALSE, results='asis'}
 med_s <- Filter(function(s) {
@@ -440,7 +293,7 @@ df_med <- data.frame(
 render_table_template(
   df_med,
   list(
-    caption = "Medieval Alanic, Golden Horde, Genoese-Zichian, and early modern settlement populations (600 - 1700AD).",
+    caption = "Populations of Christian Alanic cathedral towns and fortresses (Nizhniy Arkhyz, Khumara, Rim-Gora and the two Dzhulats), Genoese-Zichian trading ports (Matrega, Copa and Mapa) and early modern Circassian, Kabardian and Ossetian centres.",
     label = "tab:circassia-medieval-settlements",
     col_names = c("Settlement", "Coords", "600/800AD", "1000AD", "1200AD", "1350/1400AD", "1600AD", "1700AD"),
     alignment = c("l", "l", "r", "r", "r", "r", "r", "r"),
@@ -450,7 +303,7 @@ render_table_template(
 )
 ```
 
-### Eighteenth and Nineteenth-Century Settlements (1700 - 1900AD)
+### Eighteenth- and Nineteenth-Century Settlements
 
 ```{r tab-modern, echo=FALSE, results='asis'}
 mod_s <- Filter(function(s) any(as.integer(names(s$population)) >= 1700), gaz)
@@ -469,9 +322,9 @@ df_mod <- data.frame(
 render_table_template(
   df_mod,
   list(
-    caption = "Eighteenth and nineteenth-century settlement populations in Circassia and Central Ciscaucasia (1700 - 1900AD).",
+    caption = "Populations of Circassian, Kabardian, Abaza, Karachay-Balkar and Ossetian settlements alongside Russian fortress towns, Black Sea ports and Kuban Cossack stanitsas (Yekaterinodar, Vladikavkaz, Maykop, Yeysk, Pyatigorsk and Novorossiysk) from 1700 to 1900AD.",
     label = "tab:circassia-modern-settlements",
-    col_names = c("Settlement", "Historical / Native Names", "1700AD", "1800AD", "1850/1860s", "1897AD", "1900AD"),
+    col_names = c("Settlement", "Other Names", "1700AD", "1800AD", "1850/1860s", "1897AD", "1900AD"),
     alignment = c("l", "l", "r", "r", "r", "r", "r"),
     scale_to_fit = FALSE,
     placement = "!htbp"

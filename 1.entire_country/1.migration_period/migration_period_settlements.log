@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:31
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,114 +1027,69 @@ File: figures/fig1_migration_period_cultures_map.png Graphic file (type bmp)
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 141.
+(hyperref)                be the same. Added a new anchor on input line 155.
 
 
-Overfull \hbox (5.28778pt too wide) in paragraph at lines 189--189
-\TU/SourceSerif4(0)/m/n/10 Kuznetsovskoye|  
- []
-
-[2] [3]
-Overfull \hbox (3.4917pt too wide) in paragraph at lines 243--243
-\TU/SourceSerif4(0)/m/n/10 Mutenkovskoye|  
+Overfull \hbox (1.02107pt too wide) in paragraph at lines 185--185
+\TU/SourceSerif4(0)/m/n/10 Kashirskoye- 
  []
 
 
-Overfull \hbox (1.76169pt too wide) in paragraph at lines 260--260
-\TU/SourceSerif4(0)/m/n/10 Koshbeevskoye|  
+Overfull \hbox (2.96672pt too wide) in paragraph at lines 195--195
+\TU/SourceSerif4(0)/m/n/10 Животинное|  
+ []
+
+[2] [3] [4]
+Overfull \hbox (1.1169pt too wide) in paragraph at lines 245--245
+\TU/SourceSerif4(0)/m/n/10 Ростиславль|  
  []
 
 
-Overfull \hbox (6.92169pt too wide) in paragraph at lines 275--275
-\TU/SourceSerif4(0)/m/n/10 Mikhailovskoye- 
- []
-
-[4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (3.93486pt too wide) in paragraph at lines 392--392
-\TU/SourceSerif4(0)/m/n/10 Kushnarenkovo|  
+Overfull \hbox (1.02107pt too wide) in paragraph at lines 246--246
+\TU/SourceSerif4(0)/m/n/10 Kashirskoye- 
  []
 
 
-Overfull \hbox (3.93486pt too wide) in paragraph at lines 393--393
-\TU/SourceSerif4(0)/m/n/10 Kushnarenkovo 
- []
-
-[11] [12]
-Overfull \hbox (1.34795pt too wide) in paragraph at lines 423--423
-\TU/SourceSerif4(0)/m/n/10 Рождественское 
+Overfull \hbox (0.57108pt too wide) in paragraph at lines 268--268
+\TU/SourceSerif4(0)/m/n/10 Gorodishche|  
  []
 
 
-Overfull \hbox (3.14716pt too wide) in paragraph at lines 425--425
-\TU/SourceSerif4(0)/m/n/10 Kudymkarskoye|  
+Overfull \hbox (0.57108pt too wide) in paragraph at lines 285--285
+\TU/SourceSerif4(0)/m/n/10 Gorodishche|  
+ []
+
+[5] [6] [7] [8]
+Overfull \hbox (0.57108pt too wide) in paragraph at lines 334--334
+\TU/SourceSerif4(0)/m/n/10 Gorodishche|  
+ []
+
+[9] [10] [11]
+Overfull \hbox (2.36852pt too wide) in paragraph at lines 393--393
+\TU/SourceSerif4(0)/m/n/10 Pravoberezh- 
  []
 
 
-Overfull \hbox (3.14716pt too wide) in paragraph at lines 426--426
-\TU/SourceSerif4(0)/m/n/10 Kudymkarskoye 
+Overfull \hbox (1.38852pt too wide) in paragraph at lines 395--395
+\TU/SourceSerif4(0)/m/n/10 Karnaukhov- 
  []
 
 
-Overfull \hbox (1.00793pt too wide) in paragraph at lines 441--441
-\TU/SourceSerif4(0)/m/n/10 Погромновский 
+Overfull \hbox (0.5137pt too wide) in paragraph at lines 398--398
+\TU/SourceSerif4(0)/m/n/10 Самосделка; 
  []
 
-[13]
-Overfull \hbox (5.70732pt too wide) in paragraph at lines 471--471
-\TU/SourceSerif4(0)/m/n/10 Семикаракорское 
+[12] [13] [14]
+Overfull \hbox (2.36046pt too wide) in paragraph at lines 476--476
+\TU/SourceSerif4(0)/m/n/10 Перегребное|  
  []
 
-
-Overfull \hbox (13.19214pt too wide) in paragraph at lines 473--473
-\TU/SourceSerif4(0)/m/n/10 Karnaukhovskoye|  
- []
-
-[14] [15]
+[15] [16]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 499.
+(hyperref)                be the same. Added a new anchor on input line 501.
 
-
-Overfull \hbox (0.73679pt too wide) in paragraph at lines 513--513
-[]|\TU/Karla(0)/b/n/10 250AD|  
- []
-
-
-Overfull \hbox (0.90678pt too wide) in paragraph at lines 513--513
-[]|\TU/Karla(0)/b/n/10 350AD|  
- []
-
-
-Overfull \hbox (0.63678pt too wide) in paragraph at lines 513--513
-[]|\TU/Karla(0)/b/n/10 450AD|  
- []
-
-
-Overfull \hbox (1.26178pt too wide) in paragraph at lines 513--513
-[]|\TU/Karla(0)/b/n/10 600AD|  
- []
-
-
-Overfull \hbox (0.73679pt too wide) in paragraph at lines 516--516
-[]|\TU/Karla(0)/b/n/10 250AD|  
- []
-
-
-Overfull \hbox (0.90678pt too wide) in paragraph at lines 516--516
-[]|\TU/Karla(0)/b/n/10 350AD|  
- []
-
-
-Overfull \hbox (0.63678pt too wide) in paragraph at lines 516--516
-[]|\TU/Karla(0)/b/n/10 450AD|  
- []
-
-
-Overfull \hbox (1.26178pt too wide) in paragraph at lines 516--516
-[]|\TU/Karla(0)/b/n/10 600AD|  
- []
-
-[16] [17] [18] [19] (./migration_period_settlements.aux)
+[17] [18] [19] [20] (./migration_period_settlements.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1144,15 +1099,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `migration_period_settlements.out' has not changed.
-(rerunfilecheck)             Checksum: A870BC60EA9B6E4435529CDA9BEE67B1;2208.
+(rerunfilecheck)             Checksum: 49EF9A49ED112A21DCA2A747E05D7895;2294.
  ) 
 Here is how much of TeX's memory you used:
- 28424 strings out of 469594
- 585109 string characters out of 5460474
- 1144665 words of memory out of 5000000
+ 28423 strings out of 469594
+ 585018 string characters out of 5460474
+ 1131991 words of memory out of 5000000
  57058 multiletter control sequences out of 15000+600000
- 634849 words of font info for 121 fonts, out of 8000000 for 9000
+ 634841 words of font info for 120 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,1000b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1232b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on migration_period_settlements.pdf (19 pages).
+Output written on migration_period_settlements.pdf (20 pages).

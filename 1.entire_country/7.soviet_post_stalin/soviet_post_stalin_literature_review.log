@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:31
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,48 +1027,23 @@ File: figures/soviet_post_stalin_regional_map.png Graphic file (type bmp)
 ] [2]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig2_population_trajectory.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig2_population_trajectory.png>
-[3]
-Overfull \hbox (14.18082pt too wide) in paragraph at lines 311--311
-\TU/SourceSerif4(0)/m/n/10 Dnipropetrovsk, 
- []
-
-
-Overfull \hbox (1.06702pt too wide) in paragraph at lines 330--330
-\TU/SourceSerif4(0)/m/n/10 +698,4%|  
- []
-
-
-Overfull \hbox (1.06702pt too wide) in paragraph at lines 331--331
-\TU/SourceSerif4(0)/m/n/10 +933,9%|  
- []
-
-
-Overfull \hbox (0.52081pt too wide) in paragraph at lines 333--333
-\TU/SourceSerif4(0)/m/n/10 Metallurgical 
- []
-
-
-Overfull \hbox (1.06702pt too wide) in paragraph at lines 338--338
-\TU/SourceSerif4(0)/m/n/10 +124,6%|  
- []
-
-[4] [5] [6] [7]
+[3] [4] [5] [6] [7]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 351.
+(hyperref)                be the same. Added a new anchor on input line 339.
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+[8] [9] [10] [11] [12] [13] [14] [15] [16]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1081.
+(hyperref)                be the same. Added a new anchor on input line 1003.
 
-[18] [19] [20] [21] [22] [23] [24] [25]
+[17] [18] [19] [20] [21] [22] [23] [24]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig4_urban_hierarchy.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig4_urban_hierarchy.png>
-[26] [27]
+[25] [26]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig3_subregional_distribution.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/7.soviet_post_stalin/figures/soviet_post_stalin_fig3_subregional_distribution.png>
-[28] [29] [30] [31] [32] [33] [34] [35] (./soviet_post_stalin_literature_review.aux)
+[27] [28] [29] [30] [31] [32] [33] (./soviet_post_stalin_literature_review.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1078,15 +1053,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `soviet_post_stalin_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: 39E483B39C16A19FE71AFD4250704C5A;6402.
+(rerunfilecheck)             Checksum: 6F7CE8961F6D86FA16031DB7B3A78927;6325.
  ) 
 Here is how much of TeX's memory you used:
- 28472 strings out of 469594
- 590924 string characters out of 5460474
- 1106976 words of memory out of 5000000
- 57101 multiletter control sequences out of 15000+600000
+ 28473 strings out of 469594
+ 590903 string characters out of 5460474
+ 1102388 words of memory out of 5000000
+ 57102 multiletter control sequences out of 15000+600000
  634857 words of font info for 122 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,1024b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1240b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on soviet_post_stalin_literature_review.pdf (35 pages).
+Output written on soviet_post_stalin_literature_review.pdf (33 pages).

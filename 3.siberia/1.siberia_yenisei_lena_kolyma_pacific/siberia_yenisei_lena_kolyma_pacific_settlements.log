@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:33
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -872,26 +872,26 @@ File: l3backend-xetex.def 2026-09-09 L3 backend support: XeTeX
 ) (./siberia_yenisei_lena_kolyma_pacific_settlements.aux)
 \openout1 = `siberia_yenisei_lena_kolyma_pacific_settlements.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -899,56 +899,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 97.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 97.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 97.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 97.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 97.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 97.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 97.
-LaTeX Font Info:    Redeclaring math accent \check on input line 97.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 97.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 97.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 97.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 97.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 99.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 99.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 99.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 99.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 99.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 99.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 99.
+LaTeX Font Info:    Redeclaring math accent \check on input line 99.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 99.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 99.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 99.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 99.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 97.
+(Font)              `operators' in the math version `normal' on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 97.
+(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 97.
+(Font)              `operators' in the math version `bold' on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 97.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 97.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 97.
+(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 97.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 97.
+(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 97.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 97.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 97.
+(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 97.
+(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 97.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 99.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -983,7 +983,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 97.
+Package hyperref Info: Link coloring ON on input line 99.
 (./siberia_yenisei_lena_kolyma_pacific_settlements.out) (./siberia_yenisei_lena_kolyma_pacific_settlements.out)
 \@outlinefile=\write4
 \openout4 = `siberia_yenisei_lena_kolyma_pacific_settlements.out'.
@@ -999,26 +999,26 @@ Package newfloat Info: `float' package detected.
 Package babel Info: Main language set to 'english'.
 File: ../../_shared/template/crd_logo.png Graphic file (type bmp)
 <../../_shared/template/crd_logo.png>
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 108.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 110.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 108.
+(Font)              size <5> substituted on input line 110.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 108.
+(Font)              size <5> substituted on input line 110.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 108.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 108.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 108.
+(Font)              size <5> substituted on input line 110.
 
 File: figures/fig1_eastern_siberia_basins_map.png Graphic file (type bmp)
 <figures/fig1_eastern_siberia_basins_map.png>
@@ -1027,30 +1027,35 @@ File: figures/fig1_eastern_siberia_basins_map.png Graphic file (type bmp)
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 143.
+(hyperref)                be the same. Added a new anchor on input line 177.
 
 [2] [3] [4] [5] [6] [7]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 297.
+(hyperref)                be the same. Added a new anchor on input line 325.
 
-[8] [9] [10] [11]
+[8] [9] [10]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 392.
+(hyperref)                be the same. Added a new anchor on input line 414.
 
 
-Overfull \hbox (0.62091pt too wide) in paragraph at lines 442--442
+Overfull \hbox (1.9828pt too wide) in paragraph at lines 462--462
 \TU/SourceSerif4(0)/m/n/10 Шайгинское 
  []
 
 
-Overfull \hbox (0.89091pt too wide) in paragraph at lines 453--453
+Overfull \hbox (2.2528pt too wide) in paragraph at lines 473--473
 \TU/SourceSerif4(0)/m/n/10 Нерчинский 
  []
 
-[12] [13] [14] [15] [16] [17]
-Overfull \hbox (6.92465pt too wide) in paragraph at lines 541--541
+[11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (1.28079pt too wide) in paragraph at lines 557--557
+\TU/SourceSerif4(0)/m/n/10 Enmynytnyn|  
+ []
+
+
+Overfull \hbox (8.007pt too wide) in paragraph at lines 557--557
 \TU/SourceSerif4(0)/m/n/10 Энмынытнын|  
  []
 
@@ -1064,15 +1069,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `siberia_yenisei_lena_kolyma_pacific_settlements.out' has not changed.
-(rerunfilecheck)             Checksum: C56E71DB68949DB4677A6D4EDC3C872D;2585.
+(rerunfilecheck)             Checksum: 633117BD3FD81C9B2972CC413A439734;2651.
  ) 
 Here is how much of TeX's memory you used:
- 28437 strings out of 469594
- 585600 string characters out of 5460474
- 1155620 words of memory out of 5000000
+ 28436 strings out of 469594
+ 585509 string characters out of 5460474
+ 1156942 words of memory out of 5000000
  57070 multiletter control sequences out of 15000+600000
- 634857 words of font info for 122 fonts, out of 8000000 for 9000
+ 634849 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,1039b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1251b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on siberia_yenisei_lena_kolyma_pacific_settlements.pdf (22 pages).

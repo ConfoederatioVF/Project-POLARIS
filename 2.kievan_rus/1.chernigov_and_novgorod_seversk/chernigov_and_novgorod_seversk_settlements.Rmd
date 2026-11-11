@@ -1,12 +1,12 @@
 ---
-title: "CHERNIGOV AND NOVGOROD-SEVERSK: SUPPLEMENTARY SETTLEMENT GAZETTEER"
-subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1300AD)."
+title: "Towns and Hillforts of Chernigov and Novgorod-Seversk"
+subtitle: "A Gazetteer of Desna, Seym and Lower Sozh Settlements"
 date: "8 November 2026"
 authors_line: "Aust Kätzchen"
 emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/chernigov_and_novgorod_seversk_fig4_urban_archaeology.png"
-hero_caption: "Fortified urban enclosures, suburban posad areas, and demographic contraction across the principalities of Chernigov and Novgorod-Seversk."
+hero_caption: "Built-up areas (in hectares) and estimated populations of the principal fortified towns across the 72,24k km² Southern Chernigov-Seversk basin at their pre-Mongol peak in 1200AD — led by Chernigov (330 ha, 35k), Novgorod-Seversk (75 ha, 12k) and Putivl (55 ha, 7,5k) — alongside the urban collapse of 1239AD and the survival of wooded Hlukhiv and Bryansk."
 hero_label: "fig:chernigov-seversk-settlements-hero"
 bibliography: chernigov_and_novgorod_seversk_literature_review.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
@@ -124,185 +124,33 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
   }
   return(paste(parts, collapse = ""))
 }
-
-render_table_template <- function (arg0_df, arg1_options = NULL) {
-  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
-  rownames(df) <- NULL
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-
-  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
-  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
-  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
-  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
-  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
-
-  n_cols <- ncol(df)
-  n_rows <- nrow(df)
-  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
-
-  if (length(col_names) != n_cols) {
-    col_names <- colnames(df)
-  }
-  col_names <- gsub("`", "", col_names, fixed = TRUE)
-  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
-  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
-  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
-  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
-  for (c_i in seq_len(n_cols)) {
-    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
-    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
-  }
-
-  if (!is_latex) {
-    disp_df <- df
-    colnames(disp_df) <- col_names
-    for (c_idx in seq_len(n_cols)) {
-      disp_df[[c_idx]] <- vapply(
-        disp_df[[c_idx]],
-        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
-        character(1)
-      )
-    }
-    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
-    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
-  }
-
-  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
-  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
-
-  min_frac <- numeric(n_cols)
-  col_weights <- numeric(n_cols)
-  for (c_idx in seq_len(n_cols)) {
-    hdr_str <- col_names[c_idx]
-    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
-    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
-
-    cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
-    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
-    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
-    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
-    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
-
-    # Word-fit floor in fraction of 468pt textwidth
-    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
-    min_frac[c_idx] <- req_pts / 468.0
-
-    cell_lens <- nchar(cell_vec)
-    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
-    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
-    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
-    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
-  }
-
-  if (sum(min_frac) > usable_frac * 0.94) {
-    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
-  }
-  rem_frac <- max(0.0, usable_frac - sum(min_frac))
-  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
-
-  col_specs <- vapply(
-    col_fracs,
-    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
-    character(1)
-  )
-  align_str <- paste(col_specs, collapse = "")
-
-  header_cells <- vapply(
-    seq_len(n_cols),
-    function (c_idx) {
-      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
-      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
-    },
-    character(1)
-  )
-  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
-
-  cap_tex <- sanitize_latex_text(caption_str, FALSE)
-  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
-  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
-  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
-
-  block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
-    "\\setlength{\\tabcolsep}{3pt}",
-    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    "\\setlength{\\LTcapwidth}{\\textwidth}",
-    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
-    header_line,
-    "\\endfirsthead",
-    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
-    header_line,
-    "\\endhead"
-  )
-
-  for (r_idx in seq_len(n_rows)) {
-    row_cells <- vapply(
-      seq_len(n_cols),
-      function (c_idx) {
-        raw_v <- df[r_idx, c_idx]
-        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
-        val_str <- trimws(gsub("\\*\\*", "", val_str))
-        if (euro_decimals) {
-          val_str <- convert_euro_decimals_in_text(val_str)
-        }
-        clean_v <- sanitize_latex_text(val_str, TRUE)
-        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
-      },
-      character(1)
-    )
-    # Prevent page breaks inside the first 3 rows or the last 4 rows so tables never orphan 1-3 rows
-    row_end <- paste0("\\\\[", row_pt, "]")
-    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
-      row_end <- "\\\\*[5pt]"
-    }
-    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
-  }
-
-  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
-    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
-  }
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
-  )
-
-  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
-}
 ```
+
+# Abstract
+
+This gazetteer compiles population estimates for 142 excavated settlements across the 72,24k km² Southern Core of the Chernigov and Novgorod-Seversk lands (modern Chernihiv and Sumy provinces and the lower Sozh corridor around Gomel) from the Upper Palaeolithic (10000BC) to 1300AD [@kovalenko2008chernihiv; @morgunov2003posemye; @kuza1989malye]. Early entries trace the mammoth-hunter winter camps of the middle Desna gorge (Mezin and Pushkari I, 75 - 120 inhabitants in 10000BC), the Early Iron Age promontory forts of the Yukhnovo and Milograd cultures (380 - 780 inhabitants in 500BC) and the tenth-century Varangian-Rus retinue bases at Shestovytsia (3,2k in 1000AD), Lyubech (3,5k) and Boldyni Hory (2,5k).
+
+Under the Olgovichi dynasty in 1200AD, the urban network reached 120 fortified towns (*gorodishcha*), headed by the 330 ha capital at Chernigov (35k), the Seversk seats of Novgorod-Seversk (12k) and Putivl (7,5k), and the river towns of Gomel (6,5k), Snowsk (5k), Kursk (8k in the northern forest-steppe), Hlukhiv (4,5k) and Starodub (4,5k). Following Möngke and Batu's October 1239AD campaign across the Desna and Seym valleys, 68% of the southern frontier forts were abandoned; Chernigov fell to 4k in 1250AD (recovering to 6k by 1300AD), while princely authority shifted into the wooded refuges of Hlukhiv (4,5k in 1300AD) and Bryansk.
 
 # Methodology
 
-## Structure of the 142-Settlement Dataset
+## Overview of the Settlement Gazetteer
 
-This companion document details the settlement-level gazetteer accompanying the regional demographic synthesis of Chernigov and Novgorod-Seversk. Book-ended at the Mongol Conquests (1239AD) and the immediate post-conquest devolved principalities (1240AD - 1300AD), the gazetteer catalogues 142 archaeological type-sites, Severian and Radimichi promontory hillforts, tenth-century Varangian-Rus retinue complexes, and Olgovichi chronicle towns (*gorodishcha*) across the 72.235 km² Southern Core of the Chernigov-Seversk realm (Chernihivska Oblast, Sumska Oblast, and the Eastern Gomel and Lower Sozh corridor).
+Across the 72,24k km² Southern Core of the Chernigov-Seversk lands (Chernihivska Oblast, Sumska Oblast and the Eastern Gomel and Lower Sozh corridor), archaeological surveys and Rus chronicles document 142 major settlements between 10000BC and 1300AD. These range from the Upper Palaeolithic mammoth-bone camps of the middle Desna gorge and the Early Iron Age promontory forts of the Yukhnovo and Milograd cultures to tenth-century Varangian-Rus retinue bases and the fortified *gorodishcha* of the Olgovichi principalities prior to and after the Mongol sack of October 1239. Each entry in the tables below gives the settlement's historical name, geographic coordinates (50,14°N - 53,13°N, 29,83°E - 35,26°E) and estimated population across the benchmark dates.
 
-Each settlement entry records its English and historical designation along with Ukrainian, Belarusian, and Old East Slavic chronicle orthographies, geographic coordinates in decimal degrees (between 50,14°N - 53,13°N and 29,83°E - 35,26°E), functional settlement classification (regional capital, principality capital, chronicle fortress, or archaeological site), and benchmark population series across nineteen chronological horizons from 10000BC to 1300AD (10000BC, 6000BC, 4000BC, 1500BC, 500BC, 0AD, 300AD, 500AD, 700AD, 800AD, 900AD, 1000AD, 1050AD, 1100AD, 1150AD, 1200AD, 1239AD, 1250AD, and 1300AD). Unoccupied horizons are omitted rather than encoded as zero.
+## Population Estimation from Archaeological Evidence
 
-## Calibration Multipliers Across Pre-Mongol Horizons (10000BC - 1300AD)
+For the Upper Palaeolithic to Early Iron Age (10000BC - 500AD, 22 sites), mammoth-hunter winter camps on the middle Desna (Mezin, Pushkari I, Chulatovo I-II, Novgorod-Seversky and Buzhany) are reckoned at 75 - 120 persons per camp [@shovkoplyas1965mezinskaya; @boriskovsky1953paleolit; @velichko1997mammoth]. Yukhnovo and Milograd Early Iron Age hillforts (0,5 - 3 ha) are estimated at 380 - 780 inhabitants [@tretyakov1966finno], while Late Zarubintsy, Kiev culture (Roishche and Harivka-Desna) and Kolochin (Kolochin I) riverside villages are estimated at 580 - 850 inhabitants [@byrnya1991ranneslavyanskie; @symonovich1983chernyakhov].
 
-For the Upper Palaeolithic to Early Iron Age (10000BC - 500AD, comprising 22 type-sites), mammoth-hunter winter base camps on the middle Desna (Mezin, Pushkari I, Chulatovo I-II, Novgorod-Seversky, and Buzhany) are scaled at 75 - 120 persons per multi-dwelling bone-hut complex [@shovkoplyas1965mezinskaya; @boriskovsky1953paleolit; @velichko1997mammoth]. Yukhnovo and Milograd Early Iron Age promontory hillforts (0,5 - 3 ha) are calibrated at 380 - 780 inhabitants [@tretyakov1966finno], while Late Zarubintsy, Kiev culture (Roishche and Harivka-Desna), and Kolochin (Kolochin I) riverside complexes are scaled at 580 - 850 inhabitants [@byrnya1991ranneslavyanskie; @symonovich1983chernyakhov].
+For the Volyntsevo, Romny-Severian and Viking-Age centres (700AD - 1000AD), major Severian and Radimichi hillforts (Volyntsevo, Bytytsia, Gornal, Novotroitske and Romny) and Varangian-Rus garrison towns (Shestovytsia at 3,2k, Boldyni Hory at 2,5k, Mokhov at 1,95k and Lyubech at 3,5k) are estimated from excavated house counts (*poluzemlyanki*) and barrow cemeteries [@sukhobokov1975slaviane; @motsia2011shestovytsia; @androschuk2013vikings].
 
-For the Volyntsevo, Romny-Severian, and Viking-Age centres (700AD - 1000AD), major Severian and Radimichi *opoliya* citadels (Volyntsevo, Bytytsia, Gornal, Novotroitske, and Romny) and Varangian-Rus retinue complexes (Shestovytsia at 3.200, Boldyni Hory at 2.500, Mokhov at 1.950, and Lyubech at 3.500) are reconstructed from excavated sunken-dwelling (*poluzemlyanka*) densities and barrow necropolis mortality tables [@sukhobokov1975slaviane; @motsia2011shestovytsia; @androschuk2013vikings].
-
-For the Olgovichi principalities at their twelfth- and early thirteenth-century apogee (1050AD - 1239AD), fortified *detinets* and *okolny gorod* ramparts (120 - 150 inh/ha) and unfortified *posad* and *podol* craft suburbs (75 - 100 inh/ha) follow the archaeological syntheses of V. P. Kovalenko [@kovalenko2008chernihiv], A. V. Kuza [@kuza1989malye; @kuza1996gorodishcha], P. P. Tolochko [@tolochko1989goroda], A. K. Zaitsev [@zaitsev1975chernigov], Yu. Yu. Morgunov [@morgunov2003posemye], and H. V. Shtykhov [@shtykhov1992goroda]. For the October 1239AD Mongol destruction and post-conquest devolved principalities (1250AD - 1300AD), population estimates are calibrated from excavated destruction horizons across the Posemye and Desna corridors (Putivl, Vyr, Vorgol, Vsevolozh, and Chernigov) and the post-conquest survival of Hlukhiv (4.500 in 1300AD), Novgorod-Seversk (4.500), Putivl (3.800), Gomel (3.400), and Chernigov (6.000) [@dimnik2003olgovichi; @kuczynski1936ziemie].
+For the Olgovichi principalities at their twelfth- and early thirteenth-century peak (1050AD - 1239AD), walled *detinets* and *okolny gorod* ramparts (120 - 150 inh/ha) and outer *posad* and *podol* craft suburbs (75 - 100 inh/ha) follow the archaeological surveys of V. P. Kovalenko [@kovalenko2008chernihiv], A. V. Kuza [@kuza1989malye; @kuza1996gorodishcha], P. P. Tolochko [@tolochko1989goroda], A. K. Zaitsev [@zaitsev1975chernigov], Yu. Yu. Morgunov [@morgunov2003posemye] and H. V. Shtykhov [@shtykhov1992goroda]. For the October 1239AD Mongol sack and the post-conquest principalities (1250AD - 1300AD), estimates reflect excavated destruction layers across the Posemye and Desna valleys (Putivl, Vyr, Vorgol, Vsevolozh and Chernigov) and the survival of Hlukhiv (4,5k in 1300AD), Novgorod-Seversk (4,5k), Putivl (3,8k), Gomel (3,4k) and Chernigov (6k) [@dimnik2003olgovichi; @kuczynski1936ziemie].
 
 # Results
 
-## Prehistoric, Proto-Slavic and Viking-Age Sites (n=22)
+## Prehistoric, Proto-Slavic and Viking-Age Sites
 
-Table \ref{tab:auto-tab-1} presents the 22 prehistoric, Early Iron Age, Kiev and Kolochin, Romny-Severian, and Viking-Age type-sites included in the gazetteer (10000BC - 1300AD).
+Table \ref{tab:auto-tab-1} presents the 22 prehistoric, Early Iron Age, Kiev, Kolochin, Romny-Severian and Viking-Age settlements in the region (10000BC - 1300AD).
 
 ```{r table-auto-1, echo=FALSE, results='asis'}
 df_tab_1 <- data.frame(
@@ -346,11 +194,11 @@ df_tab_1 <- data.frame(
     "Gornal Romny-Severian Citadel",
     "Lyapushkin Excavated Romny Hillfort",
     "Psyol Romny-Rus Complex",
-    "Korovel Viking-Age Retinue (1000AD: 3.200)",
+    "Korovel Viking-Age Retinue (1000AD: 3,2k)",
     "Boldyni Hory & Chorna Mohyla Suburb",
     "Kolochin I 5th-7th c. Type-Site",
     "Milograd Iron Age Type-Hillfort",
-    "Dnieper-Sozh Retinue (1000AD: 1.950)",
+    "Dnieper-Sozh Retinue (1000AD: 1,95k)",
     "Sozh Neolithic/Radimichi (4000BC: 320)",
     "Excavated Opolye Rural Craft Village"
   ),
@@ -413,16 +261,16 @@ df_tab_1 <- data.frame(
     "530",
     "820",
     "790",
-    "1.150",
+    "1,15k",
     "820",
-    "1.850",
+    "1,85k",
     "950",
     "740",
-    "2.400",
-    "1.800",
+    "2,4k",
+    "1,8k",
     "750",
     "710",
-    "1.450",
+    "1,45k",
     "750",
     "540"
   ),
@@ -435,29 +283,29 @@ df_tab_1 <- data.frame(
     "720 (410)",
     "690 (400)",
     "680 (380)",
-    "1.100 (560)",
-    "1.180 (640)",
+    "1,1k (560)",
+    "1,18k (640)",
     "980 (520)",
     "890 (460)",
-    "1.250 (580)",
+    "1,25k (580)",
     "640 (340)",
-    "1.120 (540)",
-    "1.850 (780)",
-    "3.400 (1.100)",
+    "1,12k (540)",
+    "1,85k (780)",
+    "3,4k (1,1k)",
     "950 (540)",
     "920 (520)",
-    "1.250 (680)",
+    "1,25k (680)",
     "980 (580)",
-    "1.100 (520)"
+    "1,1k (520)"
   ),
   stringsAsFactors = FALSE
 )
 render_table_template(
   df_tab_1,
   list(
-    caption = "Prehistoric, Early Iron Age, proto-Slavic, and Viking-Age archaeological type-sites in the Desna, Seym, and Lower Sozh basins (10000BC - 1300AD).",
+    caption = "Estimated inhabitants of the 22 principal excavated prehistoric, Yukhnovo, Milograd, Kiev, Kolochin, Romny-Severian and Viking-Age settlements across the Desna, Seym and Lower Sozh basins, 10000BC - 1300AD. Parenthetical dates in the early columns indicate the benchmark year represented; parenthetical figures in the final column give the 1300AD population.",
     label = "tab:auto-tab-1",
-    col_names = c("Archaeological Site (Coords)", "Cultural Horizon", "10000BC / Early", "500BC / 300AD", "900AD", "1200AD (1300AD)"),
+    col_names = c("Site (Coords)", "Cultural Period", "10000BC / Early", "500BC / 300AD", "900AD", "1200AD (1300AD)"),
     font_size = "footnotesize",
     scale_to_fit = FALSE,
     span_columns = TRUE
@@ -465,7 +313,7 @@ render_table_template(
 )
 ```
 
-## Principality of Chernigov Core (52 Settlements)
+## Principality of Chernigov Core
 
 Table \ref{tab:auto-tab-2} documents the 52 chronicle towns and excavated *gorodishcha* across the Chernigov Core (Chernihivska Oblast) from 800AD to 1300AD.
 
@@ -526,15 +374,15 @@ df_tab_2 <- data.frame(
     "Brech-Snov (51,77°N, 32,25°E)"
   ),
   col_2 = c(
-    "6.800",
-    "2.200",
-    "1.950",
-    "1.150",
-    "1.250",
-    "1.150",
-    "1.050",
-    "1.350",
-    "1.080",
+    "6,8k",
+    "2,2k",
+    "1,95k",
+    "1,15k",
+    "1,25k",
+    "1,15k",
+    "1,05k",
+    "1,35k",
+    "1,08k",
     "820",
     "880",
     "920",
@@ -580,30 +428,30 @@ df_tab_2 <- data.frame(
     "300"
   ),
   col_3 = c(
-    "18.000",
-    "3.500",
-    "2.800",
-    "1.800",
-    "1.850",
-    "1.800",
-    "1.600",
-    "1.900",
-    "1.600",
-    "1.200",
-    "1.350",
-    "1.300",
-    "1.200",
-    "1.250",
-    "1.250",
-    "1.200",
-    "1.150",
-    "1.350",
+    "18k",
+    "3,5k",
+    "2,8k",
+    "1,8k",
+    "1,85k",
+    "1,8k",
+    "1,6k",
+    "1,9k",
+    "1,6k",
+    "1,2k",
+    "1,35k",
+    "1,3k",
+    "1,2k",
+    "1,25k",
+    "1,25k",
+    "1,2k",
+    "1,15k",
+    "1,35k",
     "950",
-    "1.150",
+    "1,15k",
     "950",
     "950",
     "850",
-    "1.050",
+    "1,05k",
     "820",
     "750",
     "750",
@@ -634,34 +482,34 @@ df_tab_2 <- data.frame(
     "420"
   ),
   col_4 = c(
-    "26.840",
-    "4.020",
-    "3.424",
-    "2.684",
-    "2.552",
-    "2.424",
-    "2.224",
-    "2.368",
-    "2.224",
-    "1.928",
-    "1.896",
-    "1.768",
-    "1.720",
-    "1.692",
-    "1.692",
-    "1.616",
-    "1.540",
-    "1.610",
-    "1.418",
-    "1.488",
-    "1.392",
-    "1.314",
-    "1.266",
-    "1.362",
-    "1.148",
-    "1.062",
-    "1.062",
-    "1.021",
+    "26,84k",
+    "4,02k",
+    "3,42k",
+    "2,68k",
+    "2,55k",
+    "2,42k",
+    "2,22k",
+    "2,37k",
+    "2,22k",
+    "1,93k",
+    "1,9k",
+    "1,77k",
+    "1,72k",
+    "1,69k",
+    "1,69k",
+    "1,62k",
+    "1,54k",
+    "1,61k",
+    "1,42k",
+    "1,49k",
+    "1,39k",
+    "1,31k",
+    "1,27k",
+    "1,36k",
+    "1,15k",
+    "1,06k",
+    "1,06k",
+    "1,02k",
     "996",
     "950",
     "924",
@@ -688,41 +536,41 @@ df_tab_2 <- data.frame(
     "576"
   ),
   col_5 = c(
-    "35.000",
-    "4.500",
-    "4.000",
-    "3.500",
-    "3.200",
-    "3.000",
-    "2.800",
-    "2.800",
-    "2.800",
-    "2.600",
-    "2.400",
-    "2.200",
-    "2.200",
-    "2.100",
-    "2.100",
-    "2.000",
-    "1.900",
-    "1.850",
-    "1.850",
-    "1.800",
-    "1.800",
-    "1.650",
-    "1.650",
-    "1.650",
-    "1.450",
-    "1.350",
-    "1.350",
-    "1.280",
-    "1.250",
-    "1.200",
-    "1.150",
-    "1.150",
-    "1.100",
-    "1.100",
-    "1.050",
+    "35k",
+    "4,5k",
+    "4k",
+    "3,5k",
+    "3,2k",
+    "3k",
+    "2,8k",
+    "2,8k",
+    "2,8k",
+    "2,6k",
+    "2,4k",
+    "2,2k",
+    "2,2k",
+    "2,1k",
+    "2,1k",
+    "2k",
+    "1,9k",
+    "1,85k",
+    "1,85k",
+    "1,8k",
+    "1,8k",
+    "1,65k",
+    "1,65k",
+    "1,65k",
+    "1,45k",
+    "1,35k",
+    "1,35k",
+    "1,28k",
+    "1,25k",
+    "1,2k",
+    "1,15k",
+    "1,15k",
+    "1,1k",
+    "1,1k",
+    "1,05k",
     "980",
     "980",
     "960",
@@ -742,28 +590,28 @@ df_tab_2 <- data.frame(
     "720"
   ),
   col_6 = c(
-    "5.000 (6.000)",
-    "2.100 (2.500)",
-    "1.200 (1.650)",
-    "1.400 (1.850)",
-    "1.100 (1.550)",
+    "5k (6k)",
+    "2,1k (2,5k)",
+    "1,2k (1,65k)",
+    "1,4k (1,85k)",
+    "1,1k (1,55k)",
     "600 (950)",
-    "950 (1.450)",
-    "1.150 (1.500)",
-    "900 (1.250)",
-    "850 (1.200)",
-    "750 (1.100)",
-    "900 (1.250)",
-    "800 (1.050)",
+    "950 (1,45k)",
+    "1,15k (1,5k)",
+    "900 (1,25k)",
+    "850 (1,2k)",
+    "750 (1,1k)",
+    "900 (1,25k)",
+    "800 (1,05k)",
     "750 (950)",
     "720 (980)",
     "700 (920)",
-    "820 (1.150)",
+    "820 (1,15k)",
     "620 (780)",
-    "720 (1.050)",
+    "720 (1,05k)",
     "580 (760)",
     "620 (820)",
-    "780 (1.150)",
+    "780 (1,15k)",
     "620 (820)",
     "720 (950)",
     "680 (980)",
@@ -800,7 +648,7 @@ df_tab_2 <- data.frame(
 render_table_template(
   df_tab_2,
   list(
-    caption = "Settlement population estimates for 52 chronicle towns and fortified settlements in the Principality of Chernigov core (800 - 1300AD).",
+    caption = "Estimated inhabitants of the 52 chronicle towns and excavated fortified settlements (gorodishcha) in the Principality of Chernigov core along the Lower and Middle Desna, Snov and Oster rivers, 800AD - 1300AD. Parenthetical figures in the final column give the post-Mongol recovery estimate for 1300AD.",
     label = "tab:auto-tab-2",
     col_names = c("Settlement (Coords)", "800AD", "1000AD", "1100AD", "1200AD", "1250AD (1300AD)"),
     font_size = "footnotesize",
@@ -810,9 +658,9 @@ render_table_template(
 )
 ```
 
-## Novgorod-Seversk, Putivl, Vorgol and Hlukhiv (44 Settlements)
+## Novgorod-Seversk, Putivl, Vorgol and Hlukhiv
 
-Table \ref{tab:auto-tab-3} details the 44 princely capitals, chronicle fortresses, and excavated *gorodishcha* across the Middle Desna, Seym (Posemye), Esman, Sula, Psyol, and Vorskla valleys (800AD - 1300AD).
+Table \ref{tab:auto-tab-3} details the 44 princely capitals, chronicle fortresses and excavated *gorodishcha* across the Middle Desna, Seym (Posemye), Esman, Sula, Psyol and Vorskla valleys (800AD - 1300AD).
 
 ```{r table-auto-3, echo=FALSE, results='asis'}
 df_tab_3 <- data.frame(
@@ -863,14 +711,14 @@ df_tab_3 <- data.frame(
     "Banichi (51,51°N, 33,91°E)"
   ),
   col_2 = c(
-    "4.200",
-    "2.700",
-    "1.750",
-    "1.850",
-    "2.400",
-    "1.150",
-    "1.350",
-    "1.300",
+    "4,2k",
+    "2,7k",
+    "1,75k",
+    "1,85k",
+    "2,4k",
+    "1,15k",
+    "1,35k",
+    "1,3k",
     "940",
     "950",
     "920",
@@ -893,7 +741,7 @@ df_tab_3 <- data.frame(
     "440",
     "420",
     "410",
-    "1.650",
+    "1,65k",
     "420",
     "380",
     "390",
@@ -909,21 +757,21 @@ df_tab_3 <- data.frame(
     "270"
   ),
   col_3 = c(
-    "7.500",
-    "4.500",
-    "3.000",
-    "2.900",
-    "3.200",
-    "1.850",
-    "1.950",
-    "1.950",
-    "1.400",
-    "1.350",
-    "1.350",
-    "1.250",
-    "1.250",
-    "1.150",
-    "1.100",
+    "7,5k",
+    "4,5k",
+    "3k",
+    "2,9k",
+    "3,2k",
+    "1,85k",
+    "1,95k",
+    "1,95k",
+    "1,4k",
+    "1,35k",
+    "1,35k",
+    "1,25k",
+    "1,25k",
+    "1,15k",
+    "1,1k",
     "750",
     "650",
     "720",
@@ -955,22 +803,22 @@ df_tab_3 <- data.frame(
     "390"
   ),
   col_4 = c(
-    "9.840",
-    "6.060",
-    "4.040",
-    "3.732",
-    "3.720",
-    "2.448",
-    "2.288",
-    "2.236",
-    "1.920",
-    "1.844",
-    "1.792",
-    "1.692",
-    "1.692",
-    "1.540",
-    "1.490",
-    "1.062",
+    "9,84k",
+    "6,06k",
+    "4,04k",
+    "3,73k",
+    "3,72k",
+    "2,45k",
+    "2,29k",
+    "2,24k",
+    "1,92k",
+    "1,84k",
+    "1,79k",
+    "1,69k",
+    "1,69k",
+    "1,54k",
+    "1,49k",
+    "1,06k",
     "962",
     "970",
     "988",
@@ -1001,30 +849,30 @@ df_tab_3 <- data.frame(
     "510"
   ),
   col_5 = c(
-    "12.000",
-    "7.500",
-    "5.000",
-    "4.500",
-    "4.200",
-    "3.000",
-    "2.600",
-    "2.500",
-    "2.400",
-    "2.300",
-    "2.200",
-    "2.100",
-    "2.100",
-    "1.900",
-    "1.850",
-    "1.350",
-    "1.250",
-    "1.200",
-    "1.180",
-    "1.150",
-    "1.150",
-    "1.150",
-    "1.120",
-    "1.100",
+    "12k",
+    "7,5k",
+    "5k",
+    "4,5k",
+    "4,2k",
+    "3k",
+    "2,6k",
+    "2,5k",
+    "2,4k",
+    "2,3k",
+    "2,2k",
+    "2,1k",
+    "2,1k",
+    "1,9k",
+    "1,85k",
+    "1,35k",
+    "1,25k",
+    "1,2k",
+    "1,18k",
+    "1,15k",
+    "1,15k",
+    "1,15k",
+    "1,12k",
+    "1,1k",
     "980",
     "950",
     "940",
@@ -1047,16 +895,16 @@ df_tab_3 <- data.frame(
     "620"
   ),
   col_6 = c(
-    "3.800 (4.500)",
-    "3.200 (3.800)",
-    "4.000 (4.500)",
-    "800 (1.050)",
-    "1.500 (1.950)",
+    "3,8k (4,5k)",
+    "3,2k (3,8k)",
+    "4k (4,5k)",
+    "800 (1,05k)",
+    "1,5k (1,95k)",
     "700 (820)",
     "750 (920)",
     "680 (850)",
-    "920 (1.150)",
-    "950 (1.350)",
+    "920 (1,15k)",
+    "950 (1,35k)",
     "520 (680)",
     "750 (980)",
     "480 (620)",
@@ -1097,7 +945,7 @@ df_tab_3 <- data.frame(
 render_table_template(
   df_tab_3,
   list(
-    caption = "Settlement population estimates for 44 princely capitals and fortified towns across Novgorod-Seversk, Putivl, Vorgol, and Hlukhiv (800 - 1300AD).",
+    caption = "Estimated inhabitants of the 44 princely capitals, steppe-watch fortresses and excavated gorodishcha across Novgorod-Seversk, Putivl, Vorgol and Hlukhiv in the Middle Desna, Posemye and Upper Sula-Psyol valleys, 800AD - 1300AD. Parenthetical figures in the final column give the 1300AD population.",
     label = "tab:auto-tab-3",
     col_names = c("Settlement (Coords)", "800AD", "1000AD", "1100AD", "1200AD", "1250AD (1300AD)"),
     font_size = "footnotesize",
@@ -1107,7 +955,7 @@ render_table_template(
 )
 ```
 
-## Lower Sozh and Dnieper Corridor (24 Settlements)
+## Lower Sozh and Dnieper Corridor
 
 Table \ref{tab:auto-tab-4} documents the 24 chronicle fortresses and Radimichi-Rus *gorodishcha* in the eastern Gomel and Lower Sozh corridor (800AD - 1300AD).
 
@@ -1140,11 +988,11 @@ df_tab_4 <- data.frame(
     "Lipov (Buda)-Koshelevo (52,72°N, 30,57°E)"
   ),
   col_2 = c(
-    "2.400",
-    "1.250",
-    "1.250",
-    "1.100",
-    "1.080",
+    "2,4k",
+    "1,25k",
+    "1,25k",
+    "1,1k",
+    "1,08k",
     "860",
     "540",
     "540",
@@ -1166,12 +1014,12 @@ df_tab_4 <- data.frame(
     "320"
   ),
   col_3 = c(
-    "3.800",
-    "1.950",
-    "1.800",
-    "1.650",
-    "1.600",
-    "1.150",
+    "3,8k",
+    "1,95k",
+    "1,8k",
+    "1,65k",
+    "1,6k",
+    "1,15k",
     "720",
     "680",
     "620",
@@ -1192,12 +1040,12 @@ df_tab_4 <- data.frame(
     "430"
   ),
   col_4 = c(
-    "4.424",
-    "2.496",
-    "2.164",
-    "1.988",
-    "1.912",
-    "1.306",
+    "4,42k",
+    "2,5k",
+    "2,16k",
+    "1,99k",
+    "1,91k",
+    "1,31k",
     "996",
     "924",
     "844",
@@ -1218,15 +1066,15 @@ df_tab_4 <- data.frame(
     "570"
   ),
   col_5 = c(
-    "5.000",
-    "3.000",
-    "2.500",
-    "2.300",
-    "2.200",
-    "1.450",
-    "1.250",
-    "1.150",
-    "1.050",
+    "5k",
+    "3k",
+    "2,5k",
+    "2,3k",
+    "2,2k",
+    "1,45k",
+    "1,25k",
+    "1,15k",
+    "1,05k",
     "920",
     "910",
     "860",
@@ -1244,11 +1092,11 @@ df_tab_4 <- data.frame(
     "700"
   ),
   col_6 = c(
-    "2.800 (3.400)",
-    "1.400 (1.750)",
-    "1.500 (1.900)",
-    "1.300 (1.650)",
-    "1.150 (1.450)",
+    "2,8k (3,4k)",
+    "1,4k (1,75k)",
+    "1,5k (1,9k)",
+    "1,3k (1,65k)",
+    "1,15k (1,45k)",
     "780 (920)",
     "750 (980)",
     "680 (890)",
@@ -1274,7 +1122,7 @@ df_tab_4 <- data.frame(
 render_table_template(
   df_tab_4,
   list(
-    caption = "Settlement population estimates for 24 chronicle fortresses and Radimichi-Rus hillforts along the Lower Sozh and Dnieper corridor (800 - 1300AD).",
+    caption = "Estimated inhabitants of the 24 Radimichi-Rus river towns and fortified settlements along the Lower Sozh, Iput, Besed and Dnieper-Braginka corridor in eastern Gomel, 800AD - 1300AD. Parenthetical figures in the final column give the 1300AD population.",
     label = "tab:auto-tab-4",
     col_names = c("Settlement (Coords)", "800AD", "1000AD", "1100AD", "1200AD", "1250AD (1300AD)"),
     font_size = "footnotesize",

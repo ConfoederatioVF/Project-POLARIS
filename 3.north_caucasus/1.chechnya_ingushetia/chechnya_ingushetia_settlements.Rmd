@@ -1,12 +1,12 @@
 ---
-title: "SETTLEMENT GAZETTEER OF CHECHNYA AND INGUSHETIA."
-subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1900AD)."
+title: "Towns, Hillforts and Tower Complexes of Chechnya and Ingushetia"
+subtitle: "Vainakh, Alanic and Cossack Settlements from the Sunzha Plain to the Argun Gorges"
 date: "7 November 2026"
 authors_line: "Aust Kätzchen"
 emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/chechnya_ingushetia_map_basins.png"
-hero_caption: "Elevation zones, river basins, and settlements of Chechnya and Ingushetia included in the settlement gazetteer (10000BC - 1900AD)."
+hero_caption: "The three settlement belts of Chechnya and Ingushetia: the Sunzha-Assa-Argun piedmont plain (8,6k km²) with its Eastern Koban hillforts and Alanic walled towns, the limestone tower gorges of Dzheirakh, Targim and the upper Argun (6,7k km²), and the Trans-Terek steppe (5,5k km²)."
 hero_label: "fig:hero"
 bibliography: chechnya_ingushetia_literature_review.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
@@ -16,6 +16,8 @@ output:
     template: ../../_shared/template/template.tex
     latex_engine: xelatex
     keep_tex: false
+  md_document:
+    variant: gfm
 ---
 
 ```{r setup, include=FALSE}
@@ -123,161 +125,6 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
   return(paste(parts, collapse = ""))
 }
 
-render_table_template <- function (arg0_df, arg1_options = NULL) {
-  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
-  rownames(df) <- NULL
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-
-  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
-  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
-  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
-  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
-  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
-
-  n_cols <- ncol(df)
-  n_rows <- nrow(df)
-  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
-
-  if (length(col_names) != n_cols) {
-    col_names <- colnames(df)
-  }
-  col_names <- gsub("`", "", col_names, fixed = TRUE)
-  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
-  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
-  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
-  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
-  for (c_i in seq_len(n_cols)) {
-    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
-    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
-  }
-
-  if (!is_latex) {
-    disp_df <- df
-    colnames(disp_df) <- col_names
-    for (c_idx in seq_len(n_cols)) {
-      disp_df[[c_idx]] <- vapply(
-        disp_df[[c_idx]],
-        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
-        character(1)
-      )
-    }
-    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
-    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
-  }
-
-  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
-  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
-
-  min_frac <- numeric(n_cols)
-  col_weights <- numeric(n_cols)
-  for (c_idx in seq_len(n_cols)) {
-    hdr_str <- col_names[c_idx]
-    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
-    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
-
-    cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
-    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
-    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
-    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
-    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
-
-    # Word-fit floor in fraction of 468pt textwidth
-    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
-    min_frac[c_idx] <- req_pts / 468.0
-
-    cell_lens <- nchar(cell_vec)
-    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
-    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
-    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
-    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
-  }
-
-  if (sum(min_frac) > usable_frac * 0.94) {
-    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
-  }
-  rem_frac <- max(0.0, usable_frac - sum(min_frac))
-  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
-
-  col_specs <- vapply(
-    col_fracs,
-    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
-    character(1)
-  )
-  align_str <- paste(col_specs, collapse = "")
-
-  header_cells <- vapply(
-    seq_len(n_cols),
-    function (c_idx) {
-      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
-      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
-    },
-    character(1)
-  )
-  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
-
-  cap_tex <- sanitize_latex_text(caption_str, FALSE)
-  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
-  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
-  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
-
-  block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
-    "\\setlength{\\tabcolsep}{3pt}",
-    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    "\\setlength{\\LTcapwidth}{\\textwidth}",
-    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
-    header_line,
-    "\\endfirsthead",
-    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
-    header_line,
-    "\\endhead"
-  )
-
-  for (r_idx in seq_len(n_rows)) {
-    row_cells <- vapply(
-      seq_len(n_cols),
-      function (c_idx) {
-        raw_v <- df[r_idx, c_idx]
-        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
-        val_str <- trimws(gsub("\\*\\*", "", val_str))
-        if (euro_decimals) {
-          val_str <- convert_euro_decimals_in_text(val_str)
-        }
-        clean_v <- sanitize_latex_text(val_str, TRUE)
-        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
-      },
-      character(1)
-    )
-    # Prevent page breaks inside the first 3 rows or the last 4 rows so tables never orphan 1-3 rows
-    row_end <- paste0("\\\\[", row_pt, "]")
-    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
-      row_end <- "\\\\*[5pt]"
-    }
-    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
-  }
-
-  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
-    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
-  }
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
-  )
-
-  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
-}
 orig_render_figure_template <- render_figure_template
 render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
   options <- if (!is.null(arg1_options)) arg1_options else list()
@@ -344,11 +191,17 @@ get_peak_str <- function(s) {
 }
 ```
 
+# Abstract
+
+Across the 20,8k km² of Chechnya and Ingushetia, settlement has shifted repeatedly between the fertile Sunzha-Assa-Argun piedmont plain and the defensive limestone canyons of the Greater Caucasus. Early Bronze Age villages at Lugovoye and Bamut and Eastern Koban craft hillforts at Serzhen-Yurt and Zandak (housing 400-800 residents apiece by 1000-500BC) gave way in the first millennium AD to the walled Alanic towns of the Sunzha and Assa plains, led by Alkhan-Kala (12k in 1200AD) and the Magas settlement cluster around Nazran and Ekazhevo (18k in 1200AD) [@munchaev1961lugovoye; @kozenkova1992serzhen; @vinogradov1970; @chakhkiev2006magas].
+
+The Mongol siege of Magas in 1239-1240 and Timur's campaign of 1395 destroyed the lowland towns and drove the surviving population into the fortified stone tower villages (*aul-kreposti*) of the Armkhi, Assa and Argun gorges, including Egikal, Erzi, Targim, Vovnushki, Tsoy-Pede and Khoy [@markovin1965monuments; @dolgieva2013ingushetia]. Between the 16th and 18th centuries, Vainakh settlers returned to the foothills and plains to found large agricultural *auls* of 1k-4k inhabitants at Shali, Urus-Martan, Aldy, Germenchuk, Chechen-Aul and Nazran alongside the Greben and Terek Cossack *stanitsas* on the left bank of the Terek [@kusheva1963peoples; @akhmadov2002chechnya; @kabuzan1996]. By 1897-1900AD, following the Caucasian War and the 1893 discovery of the Grozny oilfield, Grozny had grown into an industrial city of 15,6k-18,5k inhabitants, flanked by major lowland villages and Sunzha-Terek Cossack settlements [@troynitskiy1905terek; @ibragimova2006].
+
 # Methodology
 
-This supplementary report presents the settlement population gazetteer accompanying the regional literature review of Chechnya and Ingushetia (10000BC - 1900AD). The dataset indexes `r length(gaz)` settlements across the Chechen Republic and the Republic of Ingushetia with alternate and Cyrillic names, decimal coordinates, and chronological population estimates for inhabited benchmark years.
+This gazetteer traces the population histories of `r length(gaz)` settlements across Chechnya and Ingushetia from 10000BC to 1900AD.
 
-Prehistoric, Eastern Koban, and Alanic estimates are derived from excavated settlement areas and cemetery studies [@munchaev1961lugovoye; @kozenkova1992serzhen; @vinogradov1970; @chakhkiev2006magas; @mamaev2009]. Highland stone tower and early modern figures draw on architectural surveys of the Assa, Armkhi, and Argun gorges and Russian *Posolskiy Prikaz* records [@markovin1965monuments; @chakhkiev2007weapons; @kusheva1963peoples; @akhmadov2002chechnya; @akhmadov2019chechnya], while 19th-century and 1897 figures come from military registers and the First All-Russian Imperial Census for Terek Oblast [@berger1859chechnya; @ibragimova2006; @troynitskiy1905terek; @kabuzan1996].
+Prehistoric, Eastern Koban and Alanic figures are derived from excavated settlement areas and cemetery surveys [@munchaev1961lugovoye; @kozenkova1992serzhen; @vinogradov1970; @chakhkiev2006magas; @mamaev2009]. Highland stone tower and early modern estimates draw on architectural surveys of the Assa, Armkhi and Argun gorges alongside Russian diplomatic registers [@markovin1965monuments; @chakhkiev2007weapons; @kusheva1963peoples; @akhmadov2002chechnya; @akhmadov2019chechnya], while 19th-century and 1897 totals follow military returns and the First All-Russian Imperial Census for Terek Oblast [@berger1859chechnya; @ibragimova2006; @troynitskiy1905terek; @kabuzan1996].
 
 # Results
 
@@ -371,9 +224,9 @@ df_master <- data.frame(
 render_table_template(
   df_master,
   list(
-    caption = "Directory of all indexed settlements in Chechnya and Ingushetia (10000BC - 1900AD).",
+    caption = "Complete list of catalogued settlements in Chechnya and Ingushetia, showing alternative names, coordinates, documented date range, peak population and 1897/1900AD census figures.",
     label = "tab:chechnya-master-gazetteer",
-    col_names = c("Settlement", "Historical / Native Names", "Coords", "Documented Span", "Peak Population", "1897AD", "1900AD"),
+    col_names = c("Settlement", "Other Names", "Coords", "Dates", "Peak Population", "1897AD", "1900AD"),
     alignment = c("l", "l", "l", "l", "r", "r", "r"),
     scale_to_fit = FALSE,
     placement = "!htbp"
@@ -383,7 +236,7 @@ render_table_template(
 
 ## Regional Settlement Gazetteer
 
-### Prehistoric, Eastern Koban, and Alanic Settlements (10000BC - 1200AD)
+### Prehistoric, Eastern Koban and Alanic Settlements
 
 ```{r tab-prehistoric, echo=FALSE, results='asis'}
 pre_s <- Filter(function(s) any(as.integer(names(s$population)) <= 1200), gaz)
@@ -405,7 +258,7 @@ df_pre <- data.frame(
 render_table_template(
   df_pre,
   list(
-    caption = "Prehistoric, Eastern Koban, and Alanic settlement populations in Chechnya and Ingushetia (8000BC - 1200AD).",
+    caption = "Estimated populations of prehistoric villages, Eastern Koban hillforts (such as Serzhen-Yurt and Zandak) and Alanic walled towns (including Alkhan-Kala and the Magas cluster) up to the Mongol invasion.",
     label = "tab:chechnya-prehistoric-alanic",
     col_names = c("Settlement", "Coords", "8000-2500BC", "1500-500BC", "1-600AD", "800AD", "1000AD", "1200AD"),
     alignment = c("l", "l", "r", "r", "r", "r", "r", "r"),
@@ -415,7 +268,7 @@ render_table_template(
 )
 ```
 
-### Late Medieval Highland Tower Complexes and Early Modern Settlements (1300 - 1700AD)
+### Late Medieval Highland Tower Complexes and Early Modern Settlements
 
 ```{r tab-medieval, echo=FALSE, results='asis'}
 med_s <- Filter(function(s) {
@@ -438,9 +291,9 @@ df_med <- data.frame(
 render_table_template(
   df_med,
   list(
-    caption = "Highland stone tower complexes and early modern settlements in Chechnya and Ingushetia (1300 - 1700AD).",
+    caption = "Estimated populations of the fortified stone tower villages of the Armkhi, Assa and Argun gorges (Egikal, Erzi, Targim, Tsoy-Pede and Khoy) and the earliest 16th- and 17th-century foothill and lowland settlements.",
     label = "tab:chechnya-medieval-towers",
-    col_names = c("Settlement", "Historical / Native Names", "Coords", "1300/1400AD", "1500/1600AD", "1700AD"),
+    col_names = c("Settlement", "Other Names", "Coords", "1300/1400AD", "1500/1600AD", "1700AD"),
     alignment = c("l", "l", "l", "r", "r", "r"),
     scale_to_fit = FALSE,
     placement = "!htbp"
@@ -448,7 +301,7 @@ render_table_template(
 )
 ```
 
-### Eighteenth and Nineteenth-Century Settlements (1700 - 1900AD)
+### Eighteenth- and Nineteenth-Century Settlements
 
 ```{r tab-modern, echo=FALSE, results='asis'}
 mod_s <- Filter(function(s) any(as.integer(names(s$population)) >= 1700), gaz)
@@ -468,9 +321,9 @@ df_mod <- data.frame(
 render_table_template(
   df_mod,
   list(
-    caption = "Eighteenth and nineteenth-century settlement populations in Chechnya and Ingushetia (1700 - 1900AD).",
+    caption = "Populations of major Chechen and Ingush lowland villages (Shali, Urus-Martan, Aldy, Chechen-Aul and Nazran), Terek and Sunzha Cossack stanitsas and the city of Grozny from 1700 to 1900AD.",
     label = "tab:chechnya-modern-settlements",
-    col_names = c("Settlement", "Historical / Native Names", "1700AD", "1750AD", "1800AD", "1850AD", "1897AD", "1900AD"),
+    col_names = c("Settlement", "Other Names", "1700AD", "1750AD", "1800AD", "1850AD", "1897AD", "1900AD"),
     alignment = c("l", "l", "r", "r", "r", "r", "r", "r"),
     scale_to_fit = FALSE,
     placement = "!htbp"

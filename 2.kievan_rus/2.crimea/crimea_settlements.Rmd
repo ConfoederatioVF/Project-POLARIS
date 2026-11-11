@@ -1,12 +1,12 @@
 ---
-title: "THE CRIMEAN PENINSULA: SUPPLEMENTARY SETTLEMENT GAZETTEER"
-subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1400AD)."
+title: "Towns and Villages of Ancient and Medieval Crimea"
+subtitle: "A Gazetteer of Cave-Towns, Coastal Ports and Steppe Settlements"
 date: "10 November 2026"
 authors_line: "Aust Kätzchen"
 emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/crimea_regional_map.png"
-hero_caption: "Cartographic basemap of Crimea showing the four physiographic sub-regions, hydrological network, and principal settlements (10000BC - 1400AD)."
+hero_caption: "Locations of the principal towns, plateau fortresses and archaeological sites catalogued across the four geographical divisions of Crimea (~26,95k km²), from Mesolithic foothill grottoes and Classical Greek ports to the medieval seats of Theodoro, Solkhat and Genoese Caffa."
 hero_label: "fig:crimea-settlements-hero"
 bibliography: crimea_literature_review.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
@@ -124,169 +124,6 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
   }
   return(paste(parts, collapse = ""))
 }
-
-render_table_template <- function (arg0_df, arg1_options = NULL) {
-  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
-  rownames(df) <- NULL
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-
-  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
-  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
-  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
-  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
-  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
-
-  n_cols <- ncol(df)
-  n_rows <- nrow(df)
-  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
-
-  if (length(col_names) != n_cols) {
-    col_names <- colnames(df)
-  }
-  col_names <- gsub("`", "", col_names, fixed = TRUE)
-  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
-  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
-  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
-  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
-  for (c_i in seq_len(n_cols)) {
-    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
-    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
-  }
-
-  if (!is_latex) {
-    disp_df <- df
-    colnames(disp_df) <- col_names
-    for (c_idx in seq_len(n_cols)) {
-      disp_df[[c_idx]] <- vapply(
-        disp_df[[c_idx]],
-        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
-        character(1)
-      )
-    }
-    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
-    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
-  }
-
-  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
-  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
-
-  min_frac <- numeric(n_cols)
-  col_weights <- numeric(n_cols)
-  for (c_idx in seq_len(n_cols)) {
-    hdr_str <- col_names[c_idx]
-    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
-    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
-
-    cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
-    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
-    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
-    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
-    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
-
-    # Word-fit floor in fraction of 468pt textwidth
-    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
-    min_frac[c_idx] <- req_pts / 468.0
-
-    cell_lens <- nchar(cell_vec)
-    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
-    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
-    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
-    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
-  }
-
-  if (sum(min_frac) > usable_frac * 0.94) {
-    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
-  }
-  rem_frac <- max(0.0, usable_frac - sum(min_frac))
-  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
-
-  col_specs <- vapply(
-    col_fracs,
-    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
-    character(1)
-  )
-  align_str <- paste(col_specs, collapse = "")
-
-  header_cells <- vapply(
-    seq_len(n_cols),
-    function (c_idx) {
-      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
-      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
-    },
-    character(1)
-  )
-  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
-
-  cap_tex <- sanitize_latex_text(caption_str, FALSE)
-  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
-  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
-  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
-
-  block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
-    "\\setlength{\\tabcolsep}{3pt}",
-    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    "\\setlength{\\LTcapwidth}{\\textwidth}",
-    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
-    header_line,
-    "\\endfirsthead",
-    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
-    header_line,
-    "\\endhead"
-  )
-
-  for (r_idx in seq_len(n_rows)) {
-    row_cells <- vapply(
-      seq_len(n_cols),
-      function (c_idx) {
-        raw_v <- df[r_idx, c_idx]
-        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
-        val_str <- trimws(gsub("\\*\\*", "", val_str))
-        if (euro_decimals) {
-          val_str <- convert_euro_decimals_in_text(val_str)
-        }
-        clean_v <- sanitize_latex_text(val_str, TRUE)
-        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
-      },
-      character(1)
-    )
-    # Prevent page breaks inside the first 3 rows or the last 4 rows so tables never orphan 1-3 rows
-    row_end <- paste0("\\\\[", row_pt, "]")
-    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
-      row_end <- "\\\\*[5pt]"
-    }
-    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
-  }
-
-  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
-    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
-  }
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
-  )
-
-  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
-}
-orig_render_figure_template <- render_figure_template
-render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-  options$placement <- "!htbp"
-  options$max_height <- "0.34\\textheight"
-  return(orig_render_figure_template(arg0_file_path, options))
-}
 ```
 
 ```{r load-stadester-json, include=FALSE}
@@ -356,8 +193,14 @@ fmt_num_eu <- function (arg0_val) {
 fmt_coord_pair <- function (arg0_coords) {
   lat <- as.numeric(arg0_coords[[1]])
   lon <- as.numeric(arg0_coords[[2]])
-  lat_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lat))), if (lat >= 0) "°N" else "°S")
-  lon_s <- paste0(gsub("\\.", ",", sprintf("%.2f", abs(lon))), if (lon >= 0) "°E" else "°W")
+  fmt_deg <- function (val) {
+    s <- gsub("\\.", ",", sprintf("%.2f", abs(val)))
+    s <- sub("(,[0-9]*?[1-9])0+$", "\\1", s, perl = TRUE)
+    s <- sub(",0+$", "", s, perl = TRUE)
+    return(s)
+  }
+  lat_s <- paste0(fmt_deg(lat), if (lat >= 0) "°N" else "°S")
+  lon_s <- paste0(fmt_deg(lon), if (lon >= 0) "°E" else "°W")
   return(paste0(lat_s, ", ", lon_s))
 }
 
@@ -378,15 +221,21 @@ fmt_pop_series <- function (arg0_s, arg1_ymin = -99999, arg2_ymax = 99999) {
 }
 ```
 
+# Abstract
+
+This gazetteer compiles location coordinates, alternative Greek, Scythian, Byzantine and Tatar names and benchmark population estimates for 171 settlements and archaeological sites across the Crimean Peninsula (~26,95k km²) from 10000BC to 1400AD. In prehistory and the Bronze Age, settlement moved from the Mesolithic limestone rock-shelters of the Inner Ridge (Shan-Koba, Murzak-Koba and Fatma-Koba) to Kemi-Oba valley settlements and the fortified Tauri promontory of Uch-Bash (0,9k - 1,2k in 1000BC). After 600BC, Milesian and Dorian colonists built Panticapaeum (28k in 200AD), Chersonesus Taurica (20k), Theodosia and Kerkinitis alongside the Late Scythian capital at Scythian Neapolis (8k) and the Roman fort at Charax, before Gothic and Hunnic raids emptied the open countryside in the third and fourth centuries AD. Medieval town life revived under Byzantine and Khazar rule at Cherson (12k in 900AD), Sugdaia (9k) and the cliff-top plateau towns of Mangup-Doros (7k) and Eski-Kermen (5,2k), reaching a fourteenth-century commercial peak at Genoese Caffa (32k - 40k in 1300 - 1345AD) and Golden Horde Solkhat (28k) before the Black Death and the raids of Timur and Edigu reduced urban numbers by 1400AD.
+
 # Methodology
 
-This settlement gazetteer accompanies the regional demographic literature review of Crimea (~26.945 km²) and documents all `r length(settlements_list)` individual settlements and archaeological sites across the time domain from 10000BC to 1400AD. Every entry records its settlement name, historical and alternative designations, geographical coordinates, occupied date span, and positive-integer population benchmarks.
+The `r length(settlements_list)` towns, villages and archaeological sites of Crimea (~26,95k km²) recorded between 10000BC and 1400AD are listed below with their historical or alternative names, coordinates, dates of occupation and estimated populations.
 
-Population series are calibrated from rock-shelter and open-camp planimetry for the Palaeolithic, Mesolithic, Neolithic, and Bronze Age (10000BC - 1000BC) [@cherkasov2018; @shchepinsky1966; @kris1981]; walled urban area and rural *chora* cadastres for Classical Chersonesus Taurica, the European Bosporan Kingdom, and the Late Scythian Kingdom (500BC - 400AD) [@maslennikov1998; @carter2000; @popova2011]; and fortress enclosures, cave-town plateaus, and commercial quarter reconstructions for Byzantine Cherson, Crimean Gothia, the Khazar Tudunate, Kievan Rus Korsun and Korchev, the Principality of Theodoro, Golden Horde Solkhat, and Genoese Gazaria (500AD - 1400AD) [@aibabin1999; @baranov1990; @bocharov2017; @myts2024; @ozturk2019; @inalcik1996; @vodarsky2003].
+For the Palaeolithic, Mesolithic, Neolithic and Bronze Age (10000BC - 1000BC), figures are based on the floor area of rock-shelters and open camps [@cherkasov2018; @shchepinsky1966; @kris1981]. For Classical Chersonesus, the Bosporan Kingdom and Late Scythia (500BC - 400AD), estimates come from walled town areas and surveys of the surrounding farmland [@maslennikov1998; @carter2000; @popova2011]. For the Middle Ages (500AD - 1400AD) - covering Byzantine Cherson, Crimean Gothia, Khazar settlements, Kievan Rus Korsun and Korchev, the Principality of Theodoro, Golden Horde Solkhat and the Genoese ports - estimates are drawn from fortress walls, mountain plateau settlements and town quarters [@aibabin1999; @baranov1990; @bocharov2017; @myts2024; @ozturk2019; @inalcik1996; @vodarsky2003].
 
 # Results
 
-## Prehistoric, Classical and Scythian Sites (10000BC - 400AD)
+## Prehistoric, Classical and Scythian Sites
+
+Table \ref{tab:crimea-gaz-ancient} lists the Mesolithic rock-shelters, Bronze Age and Tauri settlements, Greek coastal colonies and Late Scythian hillforts first occupied up to 400AD, along with their later medieval continuation where attested.
 
 ```{r table-prehistoric-classical, echo=FALSE, results='asis'}
 sub_ancient <- Filter(function (s) first_year_num(s) <= 400, settlements_list)
@@ -401,14 +250,16 @@ df_ancient <- data.frame(
 render_table_template(
   df_ancient,
   list(
-    caption = "Prehistoric, Classical Greek, Bosporan, and Late Scythian settlements and archaeological sites in Crimea first attested between 10000BC and 400AD.",
+    caption = "Settlements and archaeological sites in Crimea founded between 10000BC and 400AD, giving coordinates, alternative Greek, Scythian and Tatar names, dates of occupation and up to six benchmark population estimates.",
     label = "tab:crimea-gaz-ancient",
-    col_names = c("Settlement / Site", "Historical / Alternative Names", "Coordinates", "Attested Span", "Selected Benchmark Populations")
+    col_names = c("Settlement / Site", "Historical / Alternative Names", "Coords", "Attested Span", "Selected Benchmark Populations")
   )
 )
 ```
 
-## Medieval Byzantine, Gothic, Saltovo-Mayaki, Genoese and Golden Horde Settlements (500AD - 1400AD)
+## Medieval Settlements
+
+Table \ref{tab:crimea-gaz-med-mod} covers the Byzantine coastal forts, the cliff-top towns of Crimean Gothia and Theodoro, the Saltovo-Mayaki villages of the Khazar period and the ports and inland cities of the Golden Horde and Genoese Gazaria founded from 500AD onwards.
 
 ```{r table-medieval-modern, echo=FALSE, results='asis'}
 sub_med_mod <- Filter(function (s) first_year_num(s) >= 500, settlements_list)
@@ -423,9 +274,9 @@ df_med_mod <- data.frame(
 render_table_template(
   df_med_mod,
   list(
-    caption = "Medieval Byzantine, Gothic, Saltovo-Mayaki, Kievan Rus, Theodorite, Genoese, and Golden Horde settlements in Crimea (500 - 1400AD).",
+    caption = "Byzantine, Gothic-Theodoran, Khazar, Golden Horde and Genoese settlements founded in Crimea between 500AD and 1400AD, pairing coordinates and historical names with their medieval population series.",
     label = "tab:crimea-gaz-med-mod",
-    col_names = c("Settlement / Site", "Historical / Alternative Names", "Coordinates", "Attested Span", "Selected Benchmark Populations")
+    col_names = c("Settlement / Site", "Historical / Alternative Names", "Coords", "Attested Span", "Selected Benchmark Populations")
   )
 )
 ```

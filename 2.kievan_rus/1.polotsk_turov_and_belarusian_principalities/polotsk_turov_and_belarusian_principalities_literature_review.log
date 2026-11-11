@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:32
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1024,39 +1024,10 @@ File: figures/polotsk_turov_and_belarusian_principalities_regional_map.png Graph
 <figures/polotsk_turov_and_belarusian_principalities_regional_map.png>
 [1
 
-]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 187.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (11.10406pt too wide) in paragraph at lines 192--192
-[]|\TU/SourceSerif4(0)/b/n/10 Benchmark 
- []
-
-
-Overfull \hbox (23.61372pt too wide) in paragraph at lines 192--192
-[]|\TU/SourceSerif4(0)/b/n/10 Recommended 
- []
-
-
-Overfull \hbox (2.35233pt too wide) in paragraph at lines 192--192
-[]|\TU/SourceSerif4(0)/b/n/10 Scholarly 
- []
-
-
-Overfull \hbox (0.80406pt too wide) in paragraph at lines 192--192
-[]|\TU/SourceSerif4(0)/b/n/10 Scholarly 
- []
-
-[2]
-Overfull \vbox (342.07292pt too high) has occurred while \output is active []
-
-[3]
+] [2] [3]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 218.
+(hyperref)                be the same. Added a new anchor on input line 221.
 
 [4]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/1.polotsk_turov_and_belarusian_principalities/figures/polotsk_turov_and_belarusian_principalities_fig2_population_trajectory.png Graphic file (type bmp)
@@ -1064,27 +1035,16 @@ File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regio
 [5]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 355.
+(hyperref)                be the same. Added a new anchor on input line 348.
 
-[6] [7]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 610.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (15.85088pt too wide) in paragraph at lines 615--616
-[]|\TU/SourceSerif4(0)/b/n/10 Gorodishcha 
- []
-
-[8]
+[6] [7] [8]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/1.polotsk_turov_and_belarusian_principalities/figures/polotsk_turov_and_belarusian_principalities_fig3_principality_breakdown.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/1.polotsk_turov_and_belarusian_principalities/figures/polotsk_turov_and_belarusian_principalities_fig3_principality_breakdown.png>
-[9]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 639.
+(hyperref)                be the same. Added a new anchor on input line 607.
 
+[9]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/1.polotsk_turov_and_belarusian_principalities/figures/polotsk_turov_and_belarusian_principalities_fig4_urban_archaeology.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/1.polotsk_turov_and_belarusian_principalities/figures/polotsk_turov_and_belarusian_principalities_fig4_urban_archaeology.png>
 [10] [11] [12] (./polotsk_turov_and_belarusian_principalities_literature_review.aux)
@@ -1097,15 +1057,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `polotsk_turov_and_belarusian_principalities_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: 21C192C63E6E7CB68EDCA4AD72DCE42F;4188.
+(rerunfilecheck)             Checksum: 5E9A326C084A510A41A99A3ACADB72F7;3015.
  ) 
 Here is how much of TeX's memory you used:
- 28454 strings out of 469594
- 592421 string characters out of 5460474
- 1052454 words of memory out of 5000000
- 57083 multiletter control sequences out of 15000+600000
+ 28457 strings out of 469594
+ 592261 string characters out of 5460474
+ 1066470 words of memory out of 5000000
+ 57086 multiletter control sequences out of 15000+600000
  634857 words of font info for 122 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,12n,121p,578b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,121p,1041b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on polotsk_turov_and_belarusian_principalities_literature_review.pdf (12 pages).

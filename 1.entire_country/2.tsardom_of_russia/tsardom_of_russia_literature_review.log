@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:31
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -872,26 +872,26 @@ File: l3backend-xetex.def 2026-09-09 L3 backend support: XeTeX
 ) (./tsardom_of_russia_literature_review.aux)
 \openout1 = `tsardom_of_russia_literature_review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -899,56 +899,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 98.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 98.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 98.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 98.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 98.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 98.
-LaTeX Font Info:    Redeclaring math accent \check on input line 98.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 98.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 98.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 98.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 100.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 100.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 100.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 100.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 100.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 100.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 100.
+LaTeX Font Info:    Redeclaring math accent \check on input line 100.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 100.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 100.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 100.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 100.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 100.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 98.
+(Font)              `operators' in the math version `normal' on input line 100.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 100.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 98.
+(Font)              `operators' in the math version `bold' on input line 100.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 100.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 98.
+(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 98.
+(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 100.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 98.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 98.
+(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 98.
+(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 100.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 100.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -983,7 +983,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 98.
+Package hyperref Info: Link coloring ON on input line 100.
 (./tsardom_of_russia_literature_review.out) (./tsardom_of_russia_literature_review.out)
 \@outlinefile=\write4
 \openout4 = `tsardom_of_russia_literature_review.out'.
@@ -999,206 +999,156 @@ Package newfloat Info: `float' package detected.
 Package babel Info: Main language set to 'english'.
 File: ../../_shared/template/crd_logo.png Graphic file (type bmp)
 <../../_shared/template/crd_logo.png>
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 109.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 111.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 111.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 111.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 111.
 
 File: figures/tsardom_of_russia_regional_map.png Graphic file (type bmp)
 <figures/tsardom_of_russia_regional_map.png>
 [1
 
-] [2]
-Overfull \hbox (5.07951pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1400AD|  
- []
-
-
-Overfull \hbox (4.94951pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1500AD|  
- []
-
-
-Overfull \hbox (4.44452pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1550AD|  
- []
-
-
-Overfull \hbox (5.08951pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1580AD|  
- []
-
-
-Overfull \hbox (5.19951pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1600AD|  
- []
-
-
-Overfull \hbox (1.93451pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1615AD|  
- []
-
-
-Overfull \hbox (4.96451pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1648AD|  
- []
-
-
-Overfull \hbox (3.59451pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1667AD|  
- []
-
-
-Overfull \hbox (3.98952pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1678AD|  
- []
-
-
-Overfull \hbox (4.1045pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1700AD|  
- []
-
-
-Overfull \hbox (3.82951pt too wide) in paragraph at lines 251--251
-[]|\TU/Karla(0)/b/n/10 1720AD|  
- []
-
-
-Overfull \hbox (5.07951pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1400AD|  
- []
-
-
-Overfull \hbox (4.94951pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1500AD|  
- []
-
-
-Overfull \hbox (4.44452pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1550AD|  
- []
-
-
-Overfull \hbox (5.08951pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1580AD|  
- []
-
-
-Overfull \hbox (5.19951pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1600AD|  
- []
-
-
-Overfull \hbox (1.93451pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1615AD|  
- []
-
-
-Overfull \hbox (4.96451pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1648AD|  
- []
-
-
-Overfull \hbox (3.59451pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1667AD|  
- []
-
-
-Overfull \hbox (3.98952pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1678AD|  
- []
-
-
-Overfull \hbox (4.1045pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1700AD|  
- []
-
-
-Overfull \hbox (3.82951pt too wide) in paragraph at lines 254--254
-[]|\TU/Karla(0)/b/n/10 1720AD|  
- []
-
-
-Overfull \hbox (4.50304pt too wide) in paragraph at lines 271--271
+]
+Overfull \hbox (2.05879pt too wide) in paragraph at lines 238--238
 \TU/SourceSerif4(0)/m/n/10 Zaporozhian 
  []
 
 
-Overfull \hbox (4.49303pt too wide) in paragraph at lines 273--273
+Overfull \hbox (2.04878pt too wide) in paragraph at lines 240--240
 \TU/SourceSerif4(0)/m/n/10 Zamoskovny 
  []
 
 
-Overfull \hbox (1.13303pt too wide) in paragraph at lines 284--284
-\TU/SourceSerif4(0)/m/n/10 (Cherkassk) 
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 264--264
+\TU/SourceSerif4(0)/m/n/10 11,64M|  
  []
 
 
-Overfull \hbox (1.17303pt too wide) in paragraph at lines 291--291
-\TU/SourceSerif4(0)/m/n/10 (Nerchinsk)|  
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 264--264
+\TU/SourceSerif4(0)/m/n/10 12,77M|  
  []
 
 
-Overfull \hbox (2.20303pt too wide) in paragraph at lines 293--293
-\TU/SourceSerif4(0)/m/n/10 Kamchatka)|  
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 264--264
+\TU/SourceSerif4(0)/m/n/10 13,61M|  
  []
 
-[3] [4] [5] [6] [7] [8]
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 266--266
+\TU/SourceSerif4(0)/m/n/10 12,19M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 266--266
+\TU/SourceSerif4(0)/m/n/10 13,41M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 266--266
+\TU/SourceSerif4(0)/m/n/10 14,37M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 11,36M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 14,29M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 16,48M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 16,28M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 17,78M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 18,59M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 19,96M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 22,06M|  
+ []
+
+
+Overfull \hbox (1.86469pt too wide) in paragraph at lines 267--267
+\TU/SourceSerif4(0)/m/n/10 22,83M|  
+ []
+
+[2] [3] [4] [5] [6]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig2_population_trajectory.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig2_population_trajectory.png>
-[9] [10]
+[7] [8] [9]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 404.
+(hyperref)                be the same. Added a new anchor on input line 370.
 
-[11] [12] [13]
+[10] [11]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 624.
+(hyperref)                be the same. Added a new anchor on input line 587.
+
+[12] [13]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 732.
 
 [14] [15]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 768.
+(hyperref)                be the same. Added a new anchor on input line 853.
 
 [16]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 885.
-
-[17]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig3_subregional_distribution.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig3_subregional_distribution.png>
-[18]
+[17]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1023.
+(hyperref)                be the same. Added a new anchor on input line 992.
 
-[19] [20]
+[18] [19]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1152.
+(hyperref)                be the same. Added a new anchor on input line 1124.
 
-[21] [22] [23] [24]
+[20] [21] [22]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig4_urban_hierarchy.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/figures/tsardom_of_russia_fig4_urban_hierarchy.png>
-[25] [26] [27] [28] [29] [30] [31] [32] (./tsardom_of_russia_literature_review.aux)
+[23] [24] [25] [26] [27] [28] [29] [30] (./tsardom_of_russia_literature_review.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1208,15 +1158,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `tsardom_of_russia_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: D00D90C72AD0352EEFF1EB0AF9847CEE;5317.
+(rerunfilecheck)             Checksum: E63EAAA48EA4AE1DE3CC23121E075DDE;5348.
  ) 
 Here is how much of TeX's memory you used:
- 28477 strings out of 469594
- 590631 string characters out of 5460474
- 1134674 words of memory out of 5000000
- 57106 multiletter control sequences out of 15000+600000
- 634857 words of font info for 122 fonts, out of 8000000 for 9000
+ 28475 strings out of 469594
+ 590534 string characters out of 5460474
+ 1124298 words of memory out of 5000000
+ 57105 multiletter control sequences out of 15000+600000
+ 634849 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,1163b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1463b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tsardom_of_russia_literature_review.pdf (32 pages).
+Output written on tsardom_of_russia_literature_review.pdf (30 pages).

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:32
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,27 +1027,26 @@ File: figures/crimea_regional_map.png Graphic file (type bmp)
 ] [2]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 209.
+(hyperref)                be the same. Added a new anchor on input line 201.
 
 [3]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig2_population_trajectory.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig2_population_trajectory.png>
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 283.
+
 [4]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 305.
+(hyperref)                be the same. Added a new anchor on input line 381.
 
-[5]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 415.
-
-[6] [7]
+[5] [6]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig3_subregional_distribution.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig3_subregional_distribution.png>
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig4_urban_hierarchy.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/2.kievan_rus/2.crimea/figures/crimea_fig4_urban_hierarchy.png>
-[8] [9] [10] [11] [12] [13] [14] (./crimea_literature_review.aux)
+[7] [8] [9] [10] [11] [12] [13] (./crimea_literature_review.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1057,15 +1056,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `crimea_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: B29EC790F0045B916844FA0DEA0F74E0;4215.
+(rerunfilecheck)             Checksum: 3414F4FF34F5FB49686D409CF5AC1194;3121.
  ) 
 Here is how much of TeX's memory you used:
- 28457 strings out of 469594
- 589389 string characters out of 5460474
- 1062211 words of memory out of 5000000
- 57086 multiletter control sequences out of 15000+600000
- 634857 words of font info for 122 fonts, out of 8000000 for 9000
+ 28455 strings out of 469594
+ 589123 string characters out of 5460474
+ 1062640 words of memory out of 5000000
+ 57085 multiletter control sequences out of 15000+600000
+ 634849 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,11n,121p,767b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,11n,121p,892b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on crimea_literature_review.pdf (14 pages).
+Output written on crimea_literature_review.pdf (13 pages).

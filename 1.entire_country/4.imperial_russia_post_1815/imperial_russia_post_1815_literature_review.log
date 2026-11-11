@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 11:31
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.11.8)  11 NOV 2026 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -872,26 +872,26 @@ File: l3backend-xetex.def 2026-09-09 L3 backend support: XeTeX
 ) (./imperial_russia_post_1815_literature_review.aux)
 \openout1 = `imperial_russia_post_1815_literature_review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -899,56 +899,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 98.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 98.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 98.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 98.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 98.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 98.
-LaTeX Font Info:    Redeclaring math accent \check on input line 98.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 98.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 98.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 98.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 99.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 99.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 99.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 99.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 99.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 99.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 99.
+LaTeX Font Info:    Redeclaring math accent \check on input line 99.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 99.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 99.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 99.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 99.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 99.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 98.
+(Font)              `operators' in the math version `normal' on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  OT1/cmr/m/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 98.
+(Font)              `operators' in the math version `bold' on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 98.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 98.
+(Font)                  OT1/cmr/m/it --> TU/SourceSerif4(0)/m/it on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/SourceSerif4(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 98.
+(Font)                  OT1/cmss/m/n --> TU/Jost(0)/m/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 98.
+(Font)                  TU/SourceSerif4(0)/m/n --> TU/SourceSerif4(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 98.
+(Font)                  OT1/cmr/bx/it --> TU/SourceSerif4(0)/b/it on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 98.
+(Font)                  OT1/cmss/bx/n --> TU/Jost(0)/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 99.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -983,7 +983,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 98.
+Package hyperref Info: Link coloring ON on input line 99.
 (./imperial_russia_post_1815_literature_review.out) (./imperial_russia_post_1815_literature_review.out)
 \@outlinefile=\write4
 \openout4 = `imperial_russia_post_1815_literature_review.out'.
@@ -999,94 +999,56 @@ Package newfloat Info: `float' package detected.
 Package babel Info: Main language set to 'english'.
 File: ../../_shared/template/crd_logo.png Graphic file (type bmp)
 <../../_shared/template/crd_logo.png>
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 109.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 110.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 110.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 110.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 109.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
 (c:/Users/htmlp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 109.
+(Font)              size <5> substituted on input line 110.
 
 File: figures/imperial_russia_post_1815_regional_map.png Graphic file (type bmp)
 <figures/imperial_russia_post_1815_regional_map.png>
 [1
 
-] [2] [3] [4] [5]
+] [2] [3] [4]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig2_population_trajectory.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig2_population_trajectory.png>
-[6] [7]
+[5] [6] [7]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 389.
+(hyperref)                be the same. Added a new anchor on input line 372.
 
-[8] [9] [10]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 552.
-
-[11]
+[8] [9]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 691.
+(hyperref)                be the same. Added a new anchor on input line 529.
+
+[10] [11]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 664.
 
 [12] [13]
-Overfull \hbox (1.24034pt too wide) in paragraph at lines 795--795
-[]|\TU/Karla(0)/b/n/10 1850AD|  
- []
-
-
-Overfull \hbox (1.38034pt too wide) in paragraph at lines 795--795
-[]|\TU/Karla(0)/b/n/10 1885AD|  
- []
-
-
-Overfull \hbox (1.24034pt too wide) in paragraph at lines 798--798
-[]|\TU/Karla(0)/b/n/10 1850AD|  
- []
-
-
-Overfull \hbox (1.38034pt too wide) in paragraph at lines 798--798
-[]|\TU/Karla(0)/b/n/10 1885AD|  
- []
-
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig3_subregional_distribution.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig3_subregional_distribution.png>
-[14] [15]
-Overfull \hbox (1.33353pt too wide) in paragraph at lines 925--925
-[]|\TU/Karla(0)/b/n/10 1850AD|  
- []
-
-
-Overfull \hbox (1.47353pt too wide) in paragraph at lines 925--925
-[]|\TU/Karla(0)/b/n/10 1858AD|  
- []
-
-
-Overfull \hbox (1.33353pt too wide) in paragraph at lines 928--928
-[]|\TU/Karla(0)/b/n/10 1850AD|  
- []
-
-
-Overfull \hbox (1.47353pt too wide) in paragraph at lines 928--928
-[]|\TU/Karla(0)/b/n/10 1858AD|  
- []
-
+[14] [15] [16]
 File: F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig4_urban_hierarchy.png Graphic file (type bmp)
 <F:/Active Projects/Project 1509 - SVEA/histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/figures/imperial_russia_post_1815_fig4_urban_hierarchy.png>
-[16] [17] [18] [19] [20] [21] [22] [23] [24] (./imperial_russia_post_1815_literature_review.aux)
+[17] [18] [19] [20] [21] [22] [23] [24] [25] (./imperial_russia_post_1815_literature_review.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -1096,15 +1058,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `imperial_russia_post_1815_literature_review.out' has not changed.
-(rerunfilecheck)             Checksum: 662BEA61BAE0CF7C1DA369A73873F368;3356.
+(rerunfilecheck)             Checksum: AB63947B4F7F502848F3E2C192402927;3439.
  ) 
 Here is how much of TeX's memory you used:
- 28466 strings out of 469594
- 590963 string characters out of 5460474
- 1112456 words of memory out of 5000000
- 57095 multiletter control sequences out of 15000+600000
+ 28467 strings out of 469594
+ 590971 string characters out of 5460474
+ 1108195 words of memory out of 5000000
+ 57096 multiletter control sequences out of 15000+600000
  634857 words of font info for 122 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 117i,10n,121p,955b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,10n,121p,1135b,673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on imperial_russia_post_1815_literature_review.pdf (24 pages).
+Output written on imperial_russia_post_1815_literature_review.pdf (25 pages).

@@ -1,12 +1,12 @@
 ---
-title: "SETTLEMENT GAZETTEER OF EASTERN AND PACIFIC SIBERIA."
-subtitle: "Supplementary Tabular Compilation of Settlement Population Histories (10000BC - 1900AD)."
+title: "Settlements and Towns of the Yenisei, Baikal, Lena, Kolyma and Pacific Basins"
+subtitle: "From Prehistoric Pit-House Villages and Steppe and Jurchen Fortresses to the Russian Ostrogs and Cities"
 date: "8 November 2026"
 authors_line: "Aust Kätzchen"
 emails:
   - austkaeztchen@confoederatio.org
 hero_figure: "figures/fig1_eastern_siberia_basins_map.png"
-hero_caption: "River basins, administrative boundaries, and principal archaeological and historical settlements of Eastern and Pacific Siberia (10000BC - 1900AD)."
+hero_caption: "The nine drainage regions of Eastern and Pacific Siberia (10,11M km²), showing the locations of the 231 prehistoric camps, walled steppe and Jurchen towns, Russian ostrogs and Imperial cities compiled in this gazetteer."
 hero_label: "fig:hero"
 bibliography: siberia_yenisei_lena_kolyma_pacific_literature_review.bib
 csl: ../../_shared/template/crd-mla-numeric.csl
@@ -128,161 +128,6 @@ sanitize_prose_unicode_for_latex <- function (arg0_line) {
   return(paste(parts, collapse = ""))
 }
 
-render_table_template <- function (arg0_df, arg1_options = NULL) {
-  df <- as.data.frame(arg0_df, stringsAsFactors = FALSE)
-  rownames(df) <- NULL
-  options <- if (!is.null(arg1_options)) arg1_options else list()
-
-  caption_str <- if (!is.null(options$caption)) as.character(options$caption) else ""
-  col_names <- if (!is.null(options$col_names)) as.character(options$col_names) else colnames(df)
-  euro_decimals <- if (!is.null(options$euro_decimals)) isTRUE(options$euro_decimals) else TRUE
-  is_latex <- if (requireNamespace("knitr", quietly = TRUE)) knitr::is_latex_output() else FALSE
-  label_str <- if (!is.null(options$label)) as.character(options$label) else ""
-
-  n_cols <- ncol(df)
-  n_rows <- nrow(df)
-  if (n_rows == 0 || n_cols == 0) return(invisible(NULL))
-
-  if (length(col_names) != n_cols) {
-    col_names <- colnames(df)
-  }
-  col_names <- gsub("`", "", col_names, fixed = TRUE)
-  col_names <- gsub("\n", " ", col_names, fixed = TRUE)
-  col_names <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", col_names, perl = TRUE)
-  col_names <- gsub("\u2014", " - ", col_names, fixed = TRUE)
-  col_names <- gsub("\u2013", "-", col_names, fixed = TRUE)
-  for (c_i in seq_len(n_cols)) {
-    df[[c_i]] <- gsub("`", "", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\\*\\*", "", as.character(df[[c_i]]))
-    df[[c_i]] <- gsub("\u2014", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("\u2013", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("---", " - ", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("--", "-", as.character(df[[c_i]]), fixed = TRUE)
-    df[[c_i]] <- gsub("([0-9])\\s+(BC|AD)\\b", "\\1\\2", as.character(df[[c_i]]), perl = TRUE)
-  }
-
-  if (!is_latex) {
-    disp_df <- df
-    colnames(disp_df) <- col_names
-    for (c_idx in seq_len(n_cols)) {
-      disp_df[[c_idx]] <- vapply(
-        disp_df[[c_idx]],
-        function (v) format_table_cell(v, c_idx, list(bold_first_col = FALSE, euro_decimals = euro_decimals, is_latex = FALSE)),
-        character(1)
-      )
-    }
-    kb <- knitr::kable(disp_df, format = "markdown", row.names = FALSE, caption = if (nzchar(caption_str)) caption_str else NULL)
-    return(knitr::asis_output(paste(as.character(kb), collapse = "\n")))
-  }
-
-  # Calculate safe usable fraction of \textwidth accounting for (n_cols - 1) inter-column gaps
-  usable_frac <- max(0.78, 0.962 - 0.0132 * (n_cols - 1L))
-
-  min_frac <- numeric(n_cols)
-  col_weights <- numeric(n_cols)
-  for (c_idx in seq_len(n_cols)) {
-    hdr_str <- col_names[c_idx]
-    hdr_words <- unlist(strsplit(hdr_str, "[\\s/\\-]+", perl = TRUE))
-    hdr_max_w <- min(11L, max(nchar(hdr_words), 3L))
-
-    cell_vec <- as.character(df[[c_idx]])
-    # Treat thousands-separated numbers (1,28M) and dates (10000BC) as single unbreakable tokens
-    cell_vec_joined <- gsub("([0-9]) ([0-9]{3}\\b)", "\\1_\\2", cell_vec, perl = TRUE)
-    cell_vec_joined <- gsub("([0-9])\\s*(BC|AD)\\b", "\\1\\2", cell_vec_joined, perl = TRUE)
-    cell_words <- unlist(strsplit(paste(cell_vec_joined, collapse = " "), "[\\s/]+", perl = TRUE))
-    cell_max_w <- min(11L, max(nchar(cell_words), 3L))
-
-    # Word-fit floor in fraction of 468pt textwidth
-    req_pts <- max(hdr_max_w * 5.1 + 4.0, cell_max_w * 4.7 + 4.0, 30.0)
-    min_frac[c_idx] <- req_pts / 468.0
-
-    cell_lens <- nchar(cell_vec)
-    cell_q85 <- as.numeric(quantile(cell_lens, probs = 0.85, na.rm = TRUE))
-    cell_max <- max(cell_lens, nchar(hdr_str), na.rm = TRUE)
-    eff_len <- max(nchar(hdr_str) * 0.42, min(cell_max, max(cell_q85, 6.0)))
-    col_weights[c_idx] <- max(3.5, eff_len ^ 0.65)
-  }
-
-  if (sum(min_frac) > usable_frac * 0.94) {
-    min_frac <- min_frac * ((usable_frac * 0.94) / sum(min_frac))
-  }
-  rem_frac <- max(0.0, usable_frac - sum(min_frac))
-  col_fracs <- min_frac + rem_frac * (col_weights / sum(col_weights))
-
-  col_specs <- vapply(
-    col_fracs,
-    function (fr) sprintf(">{\\raggedright\\arraybackslash\\hyphenpenalty=50\\exhyphenpenalty=50}p{%.4f\\textwidth}", fr),
-    character(1)
-  )
-  align_str <- paste(col_specs, collapse = "")
-
-  header_cells <- vapply(
-    seq_len(n_cols),
-    function (c_idx) {
-      clean_h <- sanitize_latex_text(col_names[c_idx], TRUE)
-      paste0("{\\karlabold\\lefthyphenmin=5\\righthyphenmin=5 ", clean_h, "}")
-    },
-    character(1)
-  )
-  header_line <- paste0(paste(header_cells, collapse = " & "), " \\\\*[4pt]")
-
-  cap_tex <- sanitize_latex_text(caption_str, FALSE)
-  lbl_tex <- if (nzchar(label_str)) paste0("\\label{", label_str, "}") else ""
-  row_pt <- if (n_rows >= 14L) "1pt" else "2pt"
-  arr_str <- if (n_rows >= 14L) "1.0" else "1.08"
-
-  block_lines <- c(
-    paste0(strrep("\x60", 3), "{=latex}"),
-    "\\par\\vspace{4pt}",
-    "\\begingroup\\fontsize{10pt}{14pt}\\selectfont\\normalfont\\rmfamily\\mdseries",
-    "\\setlength{\\tabcolsep}{3pt}",
-    paste0("\\renewcommand{\\arraystretch}{", arr_str, "}"),
-    "\\setlength{\\LTpre}{4pt}",
-    "\\setlength{\\LTpost}{4pt}",
-    "\\setlength{\\LTcapwidth}{\\textwidth}",
-    paste0("\\begin{longtable}[l]{@{}", align_str, "@{}}"),
-    header_line,
-    "\\endfirsthead",
-    paste0("\\multicolumn{", n_cols, "}{@{}l@{}}{\\normalfont\\karlalight\\fontsize{9pt}{12pt}\\selectfont (Continued from previous page)} \\\\*[3pt]"),
-    header_line,
-    "\\endhead"
-  )
-
-  for (r_idx in seq_len(n_rows)) {
-    row_cells <- vapply(
-      seq_len(n_cols),
-      function (c_idx) {
-        raw_v <- df[r_idx, c_idx]
-        val_str <- if (is.null(raw_v) || is.na(raw_v)) "-" else as.character(raw_v)
-        val_str <- trimws(gsub("\\*\\*", "", val_str))
-        if (euro_decimals) {
-          val_str <- convert_euro_decimals_in_text(val_str)
-        }
-        clean_v <- sanitize_latex_text(val_str, TRUE)
-        paste0("{\\normalfont\\rmfamily\\mdseries\\lefthyphenmin=4\\righthyphenmin=4\\hspace{0pt} ", clean_v, "}")
-      },
-      character(1)
-    )
-    # Prevent page breaks inside the first 3 rows or the last 4 rows so tables never orphan 1-3 rows
-    row_end <- paste0("\\\\[", row_pt, "]")
-    if (r_idx == n_rows && (nzchar(cap_tex) || nzchar(lbl_tex))) {
-      row_end <- "\\\\*[5pt]"
-    }
-    block_lines <- c(block_lines, paste0(paste(row_cells, collapse = " & "), " ", row_end))
-  }
-
-  if (nzchar(cap_tex) || nzchar(lbl_tex)) {
-    block_lines <- c(block_lines, paste0("\\caption{", cap_tex, "}", lbl_tex, "\\\\"))
-  }
-  block_lines <- c(
-    block_lines,
-    "\\end{longtable}\\endgroup",
-    "\\vspace{4pt}\\par",
-    strrep("\x60", 3)
-  )
-
-  return(knitr::asis_output(paste(block_lines, collapse = "\n")))
-}
 orig_render_figure_template <- render_figure_template
 render_figure_template <- function (arg0_file_path, arg1_options = NULL) {
   options <- if (!is.null(arg1_options)) arg1_options else list()
@@ -646,11 +491,15 @@ build_subregion_df <- function(subreg_code) {
 }
 ```
 
+# Abstract
+
+Across the 10,11M km² of Eastern and Pacific Siberia, early settlement clustered at productive salmon, seal and river-crossing sites such as Pleistocene Ushki I-V in Kamchatka (45 residents in 10000BC) [@Goebel2003], High Arctic Zhokhov (38 residents in 6000BC) [@SikoraPitulko2019], Early Neolithic Kitoi camps at Shamanka II and Lokomotiv on Lake Baikal [@Weber2016a] and the large Neolithic pit-house village on Suchu Island in the Lower Amur (185 residents in 3000BC) [@Filatova2018]. During the Bronze Age, Early Iron Age and Middle Ages, permanent winter villages and walled towns (*gorodishcha*) emerged across the southern steppe and monsoon valleys: Karasuk Torgazhak (150 residents in 1000BC) [@Legrand2006], Xiongnu Ivolga Fortress in Transbaikalia (2,8k residents in 100BC) [@Vasyutin2022], the Uyghur fortresses of Por-Bajin and Shagonar in Tuva (800AD) [@Tulush2016], the Bohai port of Kraskinskoye (2,2k in 800AD) [@Gelman2018] and the Jurchen Jin and Eastern Xia mountain cities of Krasnoyarovskoye (15k in 1220AD) and Shayginskoye (3,8k) in Primorye [@Artemyeva2013; @Artemyeva2025], alongside Bering Strait whaling villages at Ekven and Uelen (250-300 residents) [@Dneprovskiy2017] and Sakha *alaas* settlements at Sayylyk and Ayyy-Taybyt [@Kiryanov2019]. From the 17th century, Russian river forts (*ostrogi*) founded at Yeniseysk (1619), Krasnoyarsk (1628), Yakutsk (1632), Irkutsk (1661), Nerchinsk (1658) and Petropavlovsk (1740), followed after 1858 by the Far Eastern ports and railway cities, grew into an urban network led in 1897-1900AD by Irkutsk (51,5k in 1897), Blagoveshchensk (32,8k), Vladivostok (28,9k), Krasnoyarsk (26,7k), Khabarovsk (15k), Chita (11,5k) and Yeniseysk (11,5k) [@Kabuzan1985; @Troinitskiy1905; @Patkanov1912].
+
 # Methodology
 
-This supplementary report presents the tabular settlement gazetteer accompanying the regional demographic review of Eastern and Pacific Siberia (10000BC - 1900AD; Figure \ref{fig:hero}). The regional dataset follows the flat Stadester structure, indexing `r length(gaz_data)` individual settlements by name and country with six standardised fields (name, alternate names, coordinates, country, key, and population) sorted in chronological order (Tables \ref{tab:ii1} to \ref{tab:iv3}). Active occupation spans correspond directly to the first and last recorded benchmark years in each settlement's population history.
+This gazetteer presents the coordinates, native and historical names, dates of occupation and population estimates for 231 settlements across Eastern and Pacific Siberia from 10000BC to 1900AD (Figure \ref{fig:hero}; Tables \ref{tab:ii1} to \ref{tab:iv3}). Occupation spans correspond to the earliest and latest benchmark dates recorded for each settlement.
 
-Prehistoric camp and pit-house village figures are derived from excavated dwelling counts, floor areas, and cemetery sizes [@Chernykh2022; @Weber2016a; @Kuzmin2006; @AlekseyevDyakonov2009; @Fitzhugh2016; @Dneprovskiy2017]. Estimates for Iron Age and medieval fortified settlements (*gorodishcha*) in Transbaikalia, Tuva, Khakassia, the Amur Basin, and Primorye are drawn from intramural areas and excavated house-pit totals [@Vasyutin2022; @Tulush2011; @Tulush2016; @Artemyeva2013; @Artemyeva2025; @Gelman2018; @Ivliev2021]. Early Russian fortresses (*ostrogi*), 18th-century mining and border towns, and 19th-century urban centres are compiled from *yasak* and garrison rolls [@Dolgikh1960; @Chertykov2009; @Ushnitskiy2017a; @Turaev2013], imperial revision lists and historical urban studies [@Kabuzan1985; @Mansheev2010; @Kurchatova2015; @Kyshpanakov2022a; @Kolomiets2022; @Rygalova2024], and the 1897 First All-Russian Imperial Census [@Troinitskiy1905; @Patkanov1912].
+Prehistoric camp and pit-house village figures are derived from excavated house counts, floor areas and cemetery sizes [@Chernykh2022; @Weber2016a; @Kuzmin2006; @AlekseyevDyakonov2009; @Fitzhugh2016; @Dneprovskiy2017]. Estimates for Iron Age and medieval fortified settlements (*gorodishcha*) in Transbaikalia, Tuva, Khakassia, the Amur Basin and Primorye are drawn from walled areas and excavated house-pit totals [@Vasyutin2022; @Tulush2011; @Tulush2016; @Artemyeva2013; @Artemyeva2025; @Gelman2018; @Ivliev2021]. Early Russian forts (*ostrogi*), 18th-century mining and border towns and 19th-century towns are compiled from *yasak* and garrison rolls [@Dolgikh1960; @Chertykov2009; @Ushnitskiy2017a; @Turaev2013], poll-tax revision lists and urban histories [@Kabuzan1985; @Mansheev2010; @Kurchatova2015; @Kyshpanakov2022a; @Kolomiets2022; @Rygalova2024] and the First All-Russian Census of 1897 [@Troinitskiy1905; @Patkanov1912].
 
 # Results
 
@@ -662,19 +511,19 @@ Prehistoric camp and pit-house village figures are derived from excavated dwelli
 render_table_template(
   build_subregion_df("II-1"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of the Baikal and Selenga Basin (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 41 settlements in the Baikal and Selenga Basin, from Cis-Baikal Neolithic cemetery camps and Xiongnu Ivolga Fortress to Irkutsk, Verkhneudinsk, Chita and Kyakhta.",
     label = "tab:ii1"
   )
 )
 ```
 
-### Sayan, Minusinsk, and Tuva
+### Sayan, Minusinsk and Tuva
 
 ```{r tab-ii2, echo=FALSE}
 render_table_template(
   build_subregion_df("II-2"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of Sayan, Minusinsk, and Tuva (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 35 settlements in Sayan, Minusinsk and Tuva, covering Afanasievo to Tagar-Tashtyk centres, Uyghur stamped-clay fortresses (Por-Bajin, Shagonar) and Russian towns led by Krasnoyarsk and Minusinsk.",
     label = "tab:ii2"
   )
 )
@@ -686,7 +535,7 @@ render_table_template(
 render_table_template(
   build_subregion_df("II-3"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of the Middle and Lower Yenisei Basin (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 16 settlements along the Middle and Lower Yenisei, Lower Angara and Taimyr tundra, including Taimyr bronze foundries and the Russian river towns of Yeniseysk, Bratsk, Ilimsk and Turukhansk.",
     label = "tab:ii3"
   )
 )
@@ -694,13 +543,13 @@ render_table_template(
 
 ## Lena and Kolyma Region
 
-### Vitim, Olekma, and Aldan
+### Vitim, Olekma and Aldan
 
 ```{r tab-iii1, echo=FALSE}
 render_table_template(
   build_subregion_df("III-1"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of the Vitim, Olekma, and Aldan Basins (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 10 settlements in the Vitim, Olekma and Aldan basins, from multi-layered prehistoric river camps (Dyuktai Cave, Belkachi I, Sumnagin I) to the Bodaibo goldfields.",
     label = "tab:iii1"
   )
 )
@@ -712,19 +561,19 @@ render_table_template(
 render_table_template(
   build_subregion_df("III-2"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of Central Yakutia and the Lower Lena (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 14 settlements in Central Yakutia and the Vilyuy-Lower Lena basin, covering Kulun-Atakh Sakha alaas homesteads and the Russian and Sakha administrative centres of Yakutsk, Vilyuysk and Olekminsk.",
     label = "tab:iii2"
   )
 )
 ```
 
-### Yana, Indigirka, and Kolyma
+### Yana, Indigirka and Kolyma
 
 ```{r tab-iii3, echo=FALSE}
 render_table_template(
   build_subregion_df("III-3"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of the Yana, Indigirka, and Kolyma Basins (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 10 settlements in the Yana, Indigirka, Kolyma and High Arctic basins, from Mesolithic Zhokhov (76°N) and Burkhala to the northern ostrog towns of Verkhoyansk, Zashiversk and Srednekolymsk.",
     label = "tab:iii3"
   )
 )
@@ -738,31 +587,31 @@ render_table_template(
 render_table_template(
   build_subregion_df("IV-1"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of the Amur Basin and Primorye (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 63 settlements in the Amur, Ussuri and Primorye basin, spanning early pottery camps, Bohai Kraskinskoye, Jurchen mountain fortresses (Krasnoyarovskoye, Shayginskoye), Daur Albazin, Nerchinsk and post-1858 cities led by Blagoveshchensk, Vladivostok and Khabarovsk.",
     label = "tab:iv1"
   )
 )
 ```
 
-### Kamchatka, Sakhalin, and Kuril Islands
+### Kamchatka, Sakhalin and Kuril Islands
 
 ```{r tab-iv2, echo=FALSE}
 render_table_template(
   build_subregion_df("IV-2"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of Kamchatka, Sakhalin, and the Kurils (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 26 settlements across Kamchatka, the Okhotsk coast, Sakhalin and the Kuril Islands, from Pleistocene Ushki I-V and Okhotsk Culture coastal villages to Okhotsk, Petropavlovsk and the Sakhalin penal settlements.",
     label = "tab:iv2"
   )
 )
 ```
 
-### Chukotka, Anadyr, and Bering Strait
+### Chukotka, Anadyr and Bering Strait
 
 ```{r tab-iv3, echo=FALSE}
 render_table_template(
   build_subregion_df("IV-3"),
   list(
-    caption = "Coordinates, occupation spans, and benchmark population histories for settlements of Chukotka, Anadyr, and Bering Strait (10000BC - 1900AD).",
+    caption = "Pre-1600 peak populations and 1700-1900AD benchmark counts for 16 settlements in Chukotka, the Anadyr basin and the Bering Strait, contrasting Old Bering Sea and Punuk whaling villages (Ekven, Uelen, Sireniki) with the Russian outposts of Anadyrsk, Markovo and Gizhiginsk.",
     label = "tab:iv3"
   )
 )

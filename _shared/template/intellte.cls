@@ -399,7 +399,7 @@
     \noindent
     \begin{minipage}{\textwidth}
       \centering
-      \noindent\makebox[\textwidth][c]{\includegraphics[width=\paperwidth]{\@herofigure}}\par
+      \noindent\makebox[\textwidth][c]{\includegraphics[width=\paperwidth,height=0.52\textheight,keepaspectratio]{\@herofigure}}\par
       \captionsetup{type=figure, aboveskip=15pt, belowskip=6pt, skip=15pt}%
       \@ifundefined{@herocaption}{}{%
         \expandafter\caption\expandafter{\@herocaption}%
