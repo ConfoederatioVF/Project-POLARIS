@@ -1,8 +1,8 @@
 {
   "id": "russian_civil_war",
   "title": "Demographic and Settlement History of the Russian Civil War Across Pre-War Tsarist Governorates & Oblasts: Secession, Fronts, Famine of 1921-1922 & NEP Recovery (1917AD - 1926AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/5.russian_civil_war/russian_civil_war_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/5.russian_civil_war/russian_civil_war_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/5.russian_civil_war/russian_civil_war_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/5.russian_civil_war/russian_civil_war_settlements.json",
   "mask_file": "russian_civil_war_areal_mask.png",
   "domain": [
     1917,

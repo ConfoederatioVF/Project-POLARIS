@@ -1,8 +1,8 @@
 {
   "id": "tsardom_of_russia",
   "title": "Demographic and Settlement History of the Tsardom of Russia, Livonia, Lithuanian-Polish Rus, and Siberian Colonisation (1400AD - 1721AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/2.tsardom_of_russia/tsardom_of_russia_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/2.tsardom_of_russia/tsardom_of_russia_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/tsardom_of_russia_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/2.tsardom_of_russia/tsardom_of_russia_settlements.json",
   "mask_file": "tsardom_of_russia_areal_mask.png",
   "domain": [
     1400,

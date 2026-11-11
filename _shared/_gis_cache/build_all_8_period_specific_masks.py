@@ -1114,8 +1114,8 @@ for ep_id, ep_title, dom, env_poly, reg_list, classify_fn, yrs, pops_k, err_frac
   doc = {
     "id": ep_id,
     "title": ep_title,
-    "source_review": f"histmap/1.data_raw/population_regional/russia/1.entire_country/{ep_folder}/{ep_id}_literature_review.md",
-    "settlements_gazetteer": f"histmap/1.data_raw/population_regional/russia/1.entire_country/{ep_folder}/{ep_id}_settlements.json",
+    "source_review": f"histmap/1.data_raw/population_regional/POLARIS/1.entire_country/{ep_folder}/{ep_id}_literature_review.md",
+    "settlements_gazetteer": f"histmap/1.data_raw/population_regional/POLARIS/1.entire_country/{ep_folder}/{ep_id}_settlements.json",
     "mask_file": f"{ep_id}_areal_mask.png",
     "domain": dom,
     "grid_dimensions": [W, H],

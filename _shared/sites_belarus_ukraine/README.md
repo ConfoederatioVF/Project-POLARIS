@@ -87,6 +87,6 @@ All records are sourced exclusively from official state heritage information sys
 ## 4. Running the Pipeline
 
 ```bash
-node histmap/1.data_raw/population_regional/russia/kievan_rus/sites_belarus_ukraine/extract_belarus_ukraine_geojson.js
-node histmap/1.data_raw/population_regional/russia/kievan_rus/sites_belarus_ukraine/krige_sites_belarus_ukraine.js
+node histmap/1.data_raw/population_regional/POLARIS/kievan_rus/sites_belarus_ukraine/extract_belarus_ukraine_geojson.js
+node histmap/1.data_raw/population_regional/POLARIS/kievan_rus/sites_belarus_ukraine/krige_sites_belarus_ukraine.js
 ```

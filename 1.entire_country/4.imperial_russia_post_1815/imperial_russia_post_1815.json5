@@ -1,8 +1,8 @@
 {
   "id": "imperial_russia_post_1815",
   "title": "Demographic and Settlement History of Late Imperial Russia: Congress Poland, Baltic & Finnish Governorates, the Pale of Settlement, 1897 Census & Siberian Colonisation (1815AD - 1917AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/4.imperial_russia_post_1815/imperial_russia_post_1815_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/4.imperial_russia_post_1815/imperial_russia_post_1815_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/imperial_russia_post_1815_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/4.imperial_russia_post_1815/imperial_russia_post_1815_settlements.json",
   "mask_file": "imperial_russia_post_1815_areal_mask.png",
   "domain": [
     1815,

@@ -55,7 +55,7 @@
     frontier_conditioning_max_dist_km: 250,
     grid_height: 2160,
     grid_width: 4320,
-    russian_ia_ras_folder: "histmap/1.data_raw/population_regional/russia/_shared/sites_IA_RAS",
+    russian_ia_ras_folder: "histmap/1.data_raw/population_regional/POLARIS/_shared/sites_IA_RAS",
     steppe_settled_period_keys: [
       "iron_age",
       "migration_period",

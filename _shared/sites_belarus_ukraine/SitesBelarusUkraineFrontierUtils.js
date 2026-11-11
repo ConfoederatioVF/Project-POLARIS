@@ -544,7 +544,7 @@ let SitesIARASResidualKriging = require("../sites_IA_RAS/SitesIARASResidualKrigi
       let raion_map = new Map();
       let rus_dir = path.join(
         mask_data.project_root,
-        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/russia/_shared/sites_IA_RAS",
+        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/POLARIS/_shared/sites_IA_RAS",
         "geojson"
       );
       let sample_ux = [];

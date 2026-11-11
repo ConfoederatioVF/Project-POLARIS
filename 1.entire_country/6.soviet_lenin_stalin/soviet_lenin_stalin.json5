@@ -1,8 +1,8 @@
 {
   "id": "soviet_lenin_stalin",
   "title": "Demographic and Settlement History of the Early and Stalinist USSR: Collectivisation, Holodomor, Baltic & Moldavian Annexations, Gulag, Deportations & WWII (1926AD - 1953AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/6.soviet_lenin_stalin/soviet_lenin_stalin_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/6.soviet_lenin_stalin/soviet_lenin_stalin_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/6.soviet_lenin_stalin/soviet_lenin_stalin_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/6.soviet_lenin_stalin/soviet_lenin_stalin_settlements.json",
   "mask_file": "soviet_lenin_stalin_areal_mask.png",
   "domain": [
     1926,

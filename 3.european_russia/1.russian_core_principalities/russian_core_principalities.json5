@@ -1,8 +1,8 @@
 {
   id: 'russian_core_principalities',
   title: 'Demographic and Settlement History of the Russian Core Principalities (10000BC - 1900AD)',
-  source_review: 'histmap/1.data_raw/population_regional/russia/3.european_russia/1.russian_core_principalities/russian_core_principalities_areal_masks_and_bins.md',
-  settlements_gazetteer: 'histmap/1.data_raw/population_regional/russia/3.european_russia/1.russian_core_principalities/russian_core_principalities_settlements.json',
+  source_review: 'histmap/1.data_raw/population_regional/POLARIS/3.european_russia/1.russian_core_principalities/russian_core_principalities_areal_masks_and_bins.md',
+  settlements_gazetteer: 'histmap/1.data_raw/population_regional/POLARIS/3.european_russia/1.russian_core_principalities/russian_core_principalities_settlements.json',
   mask_file: 'russian_core_principalities_areal_mask.png',
   domain: [
     -10000,

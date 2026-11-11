@@ -1,8 +1,8 @@
 {
   "id": "imperial_russia_pre_1815",
   "title": "Demographic and Settlement History of Early Imperial Russia: Tax Censuses, Baltic Provinces, Polish-Lithuanian Partitions, Novorossiya, Finland & Bessarabia (1721AD - 1815AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/3.imperial_russia_pre_1815/imperial_russia_pre_1815_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/3.imperial_russia_pre_1815/imperial_russia_pre_1815_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/3.imperial_russia_pre_1815/imperial_russia_pre_1815_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/3.imperial_russia_pre_1815/imperial_russia_pre_1815_settlements.json",
   "mask_file": "imperial_russia_pre_1815_areal_mask.png",
   "domain": [
     1721,

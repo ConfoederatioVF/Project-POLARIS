@@ -1,8 +1,8 @@
 {
   "id": "russian_invasion_of_ukraine",
   "title": "Demographic and Settlement Impacts of the Full-Scale Russian Invasion of Ukraine Across All 123 Oblast, Occupation-History, and Federal-Subject Divisions of Ukraine (33 across 27 Oblasts), Belarus (7), and the Russian Federation (83) (2021AD - 2026AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/9.russian_invasion_of_ukraine/russian_invasion_of_ukraine_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/9.russian_invasion_of_ukraine/russian_invasion_of_ukraine_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/russian_invasion_of_ukraine_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/9.russian_invasion_of_ukraine/russian_invasion_of_ukraine_settlements.json",
   "mask_file": "russian_invasion_of_ukraine_areal_mask.png",
   "domain": [
     2021,

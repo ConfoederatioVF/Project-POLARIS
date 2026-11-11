@@ -440,7 +440,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
       let raion_uz = raion_data.raion_uz;
       let rus_kriged_dir = path.join(
         mask_data.project_root,
-        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/russia/_shared/sites_IA_RAS",
+        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/POLARIS/_shared/sites_IA_RAS",
         "1.kriged_rasters"
       );
       let substrata_cache = new Map();
@@ -634,7 +634,7 @@ let SitesBelarusUkraineObservationUtils = require("./SitesBelarusUkraineObservat
       let population_series = {};
       let rus_pop_dir = path.join(
         mask_data.project_root,
-        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/russia/_shared/sites_IA_RAS",
+        config.kriging_config.russian_ia_ras_folder || "histmap/1.data_raw/population_regional/POLARIS/_shared/sites_IA_RAS",
         "2.population_rasters"
       );
       let substrata_cache = kriged_results.substrata_cache || new Map();

@@ -1253,4 +1253,4 @@ after A. Kh. Khalikov, Tatarstan Academy of Sciences, 2022, pp. 1-936,
 
 [^1]: All archived full-text academic PDFs cited in this review are
     stored locally in
-    histmap/1.data_raw/population_regional/russia/pontic_steppe_and_lower_volga/papers/.
+    histmap/1.data_raw/population_regional/POLARIS/pontic_steppe_and_lower_volga/papers/.

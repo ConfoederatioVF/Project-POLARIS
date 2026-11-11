@@ -1,8 +1,8 @@
 {
   "id": "migration_period",
   "title": "Migration Period Demography and Settlement Across Belarus, Ukraine, and Russia (1000BC - 1000AD)",
-  "source_review": "histmap/1.data_raw/population_regional/russia/1.entire_country/1.migration_period/migration_period_literature_review.md",
-  "settlements_gazetteer": "histmap/1.data_raw/population_regional/russia/1.entire_country/1.migration_period/migration_period_settlements.json",
+  "source_review": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/1.migration_period/migration_period_literature_review.md",
+  "settlements_gazetteer": "histmap/1.data_raw/population_regional/POLARIS/1.entire_country/1.migration_period/migration_period_settlements.json",
   "mask_file": "migration_period_areal_mask.png",
   "domain": [
     100,
