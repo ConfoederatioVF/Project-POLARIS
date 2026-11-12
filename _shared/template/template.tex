@@ -96,7 +96,7 @@ $endif$
 \providecommand{\crdxref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
 \makeatletter
 \newcommand{\crdneedspace}[1]{%
-  \par\penalty-100\begingroup
+  \begingroup
   \ifdim\pagetotal>\z@
     \dimen@=\pagegoal
     \advance\dimen@-\pagetotal

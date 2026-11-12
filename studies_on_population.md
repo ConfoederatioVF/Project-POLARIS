@@ -1,6 +1,6 @@
 Studies on Population
 ================
-Aust Kätzchen \| <austkaeztchen@confoederatio.org>
+Aust Kätzchen
 11 November 2026
 
 - [Abstract](#abstract)
@@ -94,8 +94,8 @@ catastrophic twentieth-century shocks (1914-1922AD, 1932-1933AD,
 1941-1945AD, and post-1991AD) interrupted this trajectory. Population
 peaked at 224,55M in 1991AD (212,26M across Russia, Ukraine and
 Belarus), before post-Soviet fertility decline and the full-scale
-Russian invasion of Ukraine reduced the three-state total to 188,56M by
-2026AD.
+Russian invasion of Ukraine reduced the post-Soviet total (Russia,
+Ukraine and Belarus) to 188,56M by 2026AD.
 
 <img src="figures/polaris_areal_coverage_hero.png" alt="" width="100%" style="display: block; margin: auto;" />
 
@@ -216,7 +216,7 @@ Eastern/Pacific Siberia 10,1M km²).
 
 From 1400AD onward, POLARIS transitions to eight chronological regime
 masks that track the contemporary administrative geography of the
-Russian state, sovereign Ukraine and Belarus, and their historical
+Russian state, independent Ukraine and Belarus, and their historical
 western and eastern borderlands. These encompass the Tsardom of Russia
 (1400-1721AD, 38 regions, 18,12M km²), Early Imperial Russia
 (1721-1815AD, 40 regions, 18,5M km²), Late Imperial Russia (1815-1917AD,
@@ -384,20 +384,20 @@ To evaluate the internal consistency of the archaeological kriging
 mosaic and its spatial disaggregation skill, Table 2 summarises the
 cross-validation diagnostics across both regional domains.
 
-| Geostatistical/Validation Metric | Institute of Archaeology (Russia & Crimea) | State Monument Registries (Belarus & Ukraine) | Combined Total |
+| Metric | Russia & Crimea | Belarus & Ukraine | Combined Domain |
 |:---|:---|:---|:---|
-| Active domestic ADM2 raion centroids ($n$) | 1.765 (Russia & Crimea) | 595 (118 BLR + 477 UKR) | 2.360 domestic ADM2 raions |
-| Cross-frontier conditioning nodes within 250 km ($n$) | 294 (Belarus & Ukraine) | 322 (Russia & Crimea) | 616 reciprocal conditioning nodes |
-| Total conditioning nodes in Paciorek-Schervish system ($n$) | 2.059 | 917 | 2.976 coupled solve nodes |
-| Total catalogued site-epoch observations ($n$) | 67.205 (64.812 raion-resolved) | 43.437 (4.196 BLR + 39.241 UKR) | 110.642 site-epoch records |
-| Valid 5-arcminute grid cells and domain area (km²) | 412.892 cells/16,56M km² | 14.271 cells/775,2k km² | 427.163 cells/17,34M km² |
-| Median geodesic Voronoi catchment area $A_k$ and radius $r_k$ | 2.467 km²/28,02 km | 1.232 km²/19,8 km | 2.110 km² weighted median |
-| Short-range Matérn $(\nu = 3/2)$ scale $\tau_1$ (dimensionless) | 1,06 (weight $w_1 = 0,72$) | 1,09 (weight $w_1 = 0,72$) | 1,06 to 1,09 (harm. $(\nu = 3/2)$) |
-| Macro-ecotone Matérn $(\nu = 3/2)$ scale $\tau_2$ (dimensionless) | 3,01 (weight $w_2 = 0,28$) | 3,01 (weight $w_2 = 0,28$) | 3,01 (shared macro-ecotone) |
-| Relative nugget ratio $c_0 / \sigma^2$ (Mediaeval period) | 0,04 ($c_0 = 0,041$, $\sigma^2 = 1,039$) | 0,11 ($c_0 = 0,224$, $\sigma^2 = 2,045$) | 0,04 to 0,11 (low nugget noise) |
-| Log-linear residual kriging variance explained ($R^2$) | 0,83 (across 1.765 raions) | 0,88 (across 595 raions) | 0,85 weighted domain $R^2$ |
-| Cross-frontier seam step across 200 km belt (post-$C^1$ blend) | \< 0,4% mean absolute jump | \< 0,4% mean absolute jump | $C^1$-continuous across RU-BY-UA |
-| Polygon mass-conservation error after dasymetric pass | 0% (exact machine precision) | 0% (exact machine precision) | 100% regional total preservation |
+| Domestic ADM2 raion centroids ($n$) | 1.765 (Russia & Crimea) | 595 (118 BLR + 477 UKR) | 2.360 domestic ADM2 raions |
+| Cross-frontier conditioning nodes ($n$, 250 km) | 294 (Belarus & Ukraine) | 322 (Russia & Crimea) | 616 reciprocal conditioning nodes |
+| Total conditioning nodes in dual solve ($n$) | 2.059 | 917 | 2.976 coupled solve nodes |
+| Catalogued site-epoch observations ($n$) | 67.205 (64.812 raion-resolved) | 43.437 (4.196 BLR + 39.241 UKR) | 110.642 site-epoch records |
+| Valid 5’ grid cells / domain area (km²) | 412.892 cells/16,56M km² | 14.271 cells/775,2k km² | 427.163 cells/17,34M km² |
+| Median Voronoi catchment $A_k$ and radius $r_k$ | 2.467 km²/28,02 km | 1.232 km²/19,8 km | 2.110 km² weighted median |
+| Short-range Matérn scale $\tau_1$ ($w_1 = 0{,}72$) | 1,06 ($w_1 = 0{,}72$) | 1,09 ($w_1 = 0{,}72$) | 1,06 to 1,09 (harm. $(\nu = 3/2)$) |
+| Macro-ecotone Matérn scale $\tau_2$ ($w_2 = 0{,}28$) | 3,01 ($w_2 = 0{,}28$) | 3,01 ($w_2 = 0{,}28$) | 3,01 (shared macro-ecotone) |
+| Relative nugget ratio $c_0 / \sigma^2$ (Mediaeval) | 0,04 ($c_0 = 0{,}041$, $\sigma^2 = 1{,}039$) | 0,11 ($c_0 = 0{,}224$, $\sigma^2 = 2{,}045$) | 0,04 to 0,11 (low nugget noise) |
+| Log-linear residual kriging skill ($R^2$) | 0,83 (across 1.765 raions) | 0,88 (across 595 raions) | 0,85 weighted domain $R^2$ |
+| Cross-frontier seam jump across 200 km belt ($C^1$) | \< 0,4% mean absolute jump | \< 0,4% mean absolute jump | $C^1$-continuous across RU-BY-UA |
+| Polygon mass-conservation error (dasymetric) | 0% (exact machine precision) | 0% (exact machine precision) | 100% regional total preservation |
 
 Geostatistical parameters and cross-validation diagnostics for the
 Russian/Crimean and Belarusian/Ukrainian archaeological kriging mosaics.
@@ -678,8 +678,8 @@ recovering to 4,85M by 1400AD [\[34\]](#ref-borisov2018).
 ## Muscovite Consolidation, the Polish-Lithuanian Borderlands and the Conquest of Siberia (1400AD-1721AD)
 
 From 1400AD onward, POLARIS follows the 38 regions of the Tsardom of
-Russia and its immediate borderlands across 18,12M km² (Tables 4 and 5,
-and Figure 5, Panel A). Between 1400AD and 1550AD, domain population
+Russia and its immediate borderlands across 18,12M km² (Tables 4, 5 and
+6, and Figure 5, Panel A). Between 1400AD and 1550AD, domain population
 rose from 11,36M (0,627/km²) to 14,29M in 1500AD and 16,21M in 1550AD.
 In the Grand Duchy of Lithuania and the Polish Crown, the agrarian
 reform of 1557AD established uniform three-field holdings across Belarus
@@ -717,19 +717,35 @@ came to outnumber the indigenous tribute-paying population (~220k),
 bringing the Siberian total to 530k
 [\[17\]](#ref-Dolgikh1960)[\[67\]](#ref-Kabuzan1979Siberia).
 
-| National Epoch & Scope | Start Year | Start Pop. | End Year | End Pop. | Urban Share |
-|:---|:--:|---:|:--:|---:|:--:|
-| Tsardom of Russia (38 reg., 18,12M km²) | 1400AD | 11,36M | 1720AD | 22,83M | 3,8% to 4,8% |
-| Early Russian Empire (40 reg., 18,5M km²) | 1721AD | 23,89M | 1815AD | 51,17M | 4,8% to 6,4% |
-| Late Russian Empire (48 reg., 18,61M km²) | 1815AD | 57,87M | 1914AD | 167,95M | 6,5% to 15,8% |
-| First World War & Civil War (48 reg., 18,61M km²) | 1914AD | 167,95M | 1926AD | 167,78M | 15,8% to 17,9% |
-| Soviet Union (Lenin & Stalin) (45 reg., 18,18M km²) | 1926AD | 145,07M | 1953AD | 165,35M | 17,9% to 43,4% |
-| Soviet Union (Post-Stalin) (41 reg., 18,18M km²) | 1953AD | 165,35M | 1991AD | 224,55M | 43,4% to 66,8% |
-| Post-Soviet Space (35 reg., 17,97M km²) | 1991AD | 212,26M | 2021AD | 198,08M | 67,1% to 73,9% |
-| War in Ukraine & Three States (123 div., 17,96M km²) | 2021AD | 198,08M | 2026AD | 188,56M | 73,9% to 74,8% |
+| National Epoch & Scope | Chronological Span | Population Trajectory | Net Demographic Shift |
+|:---|:--:|:---|---:|
+| Tsardom of Russia (38 reg., 18,12M km²) | 1400AD-1721AD | 11,36M (1400AD) to 22,83M (1720AD) | +11,47M (+101%) |
+| Early Russian Empire (40 reg., 18,5M km²) | 1721AD-1815AD | 23,89M (1721AD) to 51,17M (1815AD) | +27,28M (+114,2%) |
+| Late Russian Empire (48 reg., 18,61M km²) | 1815AD-1914AD | 57,87M (1815AD) to 167,95M (1914AD) | +110,08M (+190,2%) |
+| First World War & Civil War (48 reg., 18,61M km²) | 1914AD-1926AD | 167,95M (1914AD) to 167,78M (1926AD) | -0,17M (148,66M trough) |
+| Soviet Union (Lenin & Stalin) (45 reg., 18,18M km²) | 1926AD-1953AD | 145,07M (1926AD) to 165,35M (1953AD) | +20,28M (142,62M war trough) |
+| Soviet Union (Post-Stalin) (41 reg., 18,18M km²) | 1953AD-1991AD | 165,35M (1953AD) to 224,55M (1991AD) | +59,2M (+35,8%) |
+| Post-Soviet Space (35 reg., 17,97M km²) | 1991AD-2021AD | 212,26M (1991AD) to 198,08M (2021AD) | -14,18M (-6,7%) |
+| War in Ukraine & Three States (123 div., 17,96M km²) | 2021AD-2026AD | 198,08M (2021AD) to 188,56M (2026AD) | -9,52M (-4,8%) |
 
-National epoch population trajectories and urban shares across Eastern
-Europe and Northern Asia from 1400AD to 2026AD.
+National epoch population trajectories across Eastern Europe and
+Northern Asia from 1400AD to 2026AD.
+
+| National Epoch & Scope | Representative Horizon | Urban Population | Urban Share (%) |
+|:---|:---|---:|---:|
+| Tsardom of Russia | 1678AD (Household Census) | 898k | 4,5% |
+| Early Russian Empire | 1811AD (Fifth Revision) | 2,36M | 4,8% |
+| Late Russian Empire | 1897AD (Imperial Census) | 16,57M | 13,4% |
+| Late Russian Empire (Pre-War) | 1914AD (Imperial Yearbooks) | 26,54M | 15,8% |
+| Soviet Interwar Baseline | 1926AD (All-Union Census) | 25,97M | 17,9% |
+| Soviet Pre-War Peak | 1939AD (All-Union Census) | 55,18M | 33,2% |
+| Soviet Industrial High | 1970AD (All-Union Census) | 112,02M | 56,6% |
+| Soviet Dissolution Baseline | 1989AD (All-Union Census) | 147,99M | 66,4% |
+| Post-Soviet Demarcation | 2021AD (Post-Soviet Censuses) | 146,38M | 73,9% |
+| Post-Soviet Space (2026AD) | 2026AD (Wartime Synthesis) | 141,04M | 74,8% |
+
+Long-run urbanisation and settlement concentration across Eastern Europe
+and Northern Asia from 1400AD to 2026AD.
 
 | National Epoch Module | Event / Shock Horizon | Benchmark Pop. / Trough | Territorial Splices & Demographic Shocks |
 |:---|:--:|---:|:---|
@@ -798,7 +814,7 @@ reached 123,89M (13,4% urban), climbing to 167,95M (15,8% urban; Figure
 
 Between 1914AD and 1947AD, Eastern Europe and Northern Asia endured
 three devastating demographic shocks separated by rapid, state-directed
-industrialisation (Tables 4 and 5, and Figure 3, Panels B and D).
+industrialisation (Tables 4, 5 and 6, and Figure 3, Panels B and D).
 
 During the First World War and Civil War (1914-1926AD), military
 mobilisation, wartime mortality, epidemic typhus, emigration and the
@@ -853,9 +869,9 @@ population peaked at 224,55M in 1991AD.
 
 The dissolution of the Soviet Union in December 1991AD established a new
 spatial baseline. The exit of the Baltic states and Moldova accounts for
-a 12,29M administrative splice, reducing the core three-state population
-(Russia, Ukraine and Belarus) from 224,55M to 212,26M in 1991AD (Table
-6).
+a 12,29M administrative splice, reducing the post-Soviet population
+across Russia, Ukraine and Belarus from 224,55M to 212,26M in 1991AD
+(Table 7).
 
 Between 1991AD and 2021AD, the region experienced a prolonged peacetime
 demographic contraction, declining by 14,18M (-6,7%) to 198,08M in
