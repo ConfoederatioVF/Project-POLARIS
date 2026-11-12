@@ -1,4 +1,4 @@
-\IfFileExists{../../_shared/template/intellte.cls}{\documentclass[10pt,onecolumn]{../../_shared/template/intellte}}{\documentclass[10pt,onecolumn]{intellte}}
+\IfFileExists{../../_shared/template/intellte.cls}{\documentclass[10pt,onecolumn]{../../_shared/template/intellte}}{\IfFileExists{_shared/template/intellte.cls}{\documentclass[10pt,onecolumn]{_shared/template/intellte}}{\documentclass[10pt,onecolumn]{intellte}}}
 
 \usepackage{longtable,booktabs,array,multirow,graphicx,calc,etoolbox,xurl}
 \makeatletter
