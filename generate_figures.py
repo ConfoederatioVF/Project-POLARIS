@@ -264,7 +264,7 @@ hero_panels = [
     {
         "epoch_id": "specialist_14",
         "title": "A. 10000BC-1400AD: Pre-Modern Baseline & Regional Divisions",
-        "subtitle": "17,92M km² across 2.360 raions with 14 specialist regional divisions, spanning 87.820 in 10000BC to 11,84M in 1200AD",
+        "subtitle": "17,92M km² across 2.360 raions with 14 specialist regional divisions, Pop. 87.820 in 10000BC to 11,84M in 1200AD",
         "annotations": [
             ("Kiev & Pereyaslavl", 30.5, 50.4, 2.5, -2.8),
             ("Galicia-Volhynia", 24.7, 49.5, -1.0, -1.5),
@@ -279,7 +279,7 @@ hero_panels = [
     {
         "epoch_id": "tsardom_of_russia",
         "title": "B. 1400-1721AD: Tsardom of Russia & Western Borderlands",
-        "subtitle": "18,12M km² across 38 regions covering Muscovy, Lithuania, Ukraine and Siberia, spanning 11,36M to 22,83M",
+        "subtitle": "18,12M km² across 38 regions covering Muscovy, Lithuania, Ukraine and Siberia, Pop. 11,36M to 22,83M",
         "annotations": [
             ("Estland, Livland & GDL", 24.5, 56.8, 1.0, 3.5),
             ("GDL Belarus (Minsk)", 28.0, 53.9, 1.2, 2.0),
@@ -293,7 +293,7 @@ hero_panels = [
     {
         "epoch_id": "imperial_russia_pre_1815",
         "title": "C. 1721-1815AD: Early Russian Empire",
-        "subtitle": "18,50M km² across 40 regions following Baltic, Polish, Crimean and Finnish acquisitions, spanning 23,89M to 51,17M",
+        "subtitle": "18,50M km² across 40 regions following Baltic, Polish, Crimean and Finnish acquisitions, Pop. 23,89M to 51,17M",
         "annotations": [
             ("Finland (+1809)", 25.5, 62.5, -0.8, 2.5),
             ("Belarus & Lithuania", 27.5, 53.8, -0.5, 2.5),
@@ -306,7 +306,7 @@ hero_panels = [
     {
         "epoch_id": "imperial_russia_post_1815",
         "title": "D. 1815-1926AD: Late Russian Empire & Civil War",
-        "subtitle": "18,61M km² across 48 regions including Congress Poland and Far Eastern territories, spanning 57,87M to 167,95M",
+        "subtitle": "18,61M km² across 48 regions including Congress Poland and Far Eastern territories, Pop. 57,87M to 167,95M",
         "annotations": [
             ("Congress Poland (+1815)", 20.5, 52.0, 5.2, 2.5),
             ("Pale of Settlement", 28.5, 50.5, 3.0, -3.5),
@@ -319,7 +319,7 @@ hero_panels = [
     {
         "epoch_id": "soviet_post_stalin",
         "title": "E. 1926-1991AD: Soviet Union",
-        "subtitle": "18,18M km² across 45 and 41 interwar and post-war all-union regions, spanning 145,07M to 224,55M",
+        "subtitle": "18,18M km² across 45 and 41 interwar and post-war all-union regions, Pop. 145,07M to 224,55M",
         "annotations": [
             ("Baltic SSRs & Kaliningrad", 23.5, 56.8, 2.2, 3.5),
             ("Byelorussian SSR", 27.6, 53.9, -0.8, 2.2),
@@ -332,7 +332,7 @@ hero_panels = [
     {
         "epoch_id": "post_soviet_invasion",
         "title": "F. 1991-2026AD: Post-Soviet Space & the Russo-Ukrainian War",
-        "subtitle": "17,96M km² across the post-Soviet space with frontline and occupied zones, spanning 212,26M to 188,56M",
+        "subtitle": "17,96M km² across the post-Soviet space with frontline and occupied zones, Pop. 212,26M to 188,56M",
         "annotations": [
             ("Liberated North & Kharkiv", 31.5, 51.3, 3.6, -2.5),
             ("Occupied Donbas/South", 36.8, 47.2, 3.8, -3.2),
@@ -933,7 +933,7 @@ for lbl, x, y, dx, dy in [
     ("1933 Famine (149,9M)\n& 1941 Peak (172,6M)", 1941, 172.58, -44, 20),
     ("1945 WWII Trough\n(142,6M, -30,0M)", 1945, 142.62, 18, -28),
     ("1991 Peak (224,6M)\n& -12,3M Baltic/Mold.", 1991, 224.55, -52, 10),
-    ("2026 Invasion\n(188,6M)", 2026, 188.56, -34, -26),
+    ("2022 Invasion\n(192,1M)", 2022, 192.05, 24, 16),
 ]:
     axB.annotate(lbl, xy=(x, y), xytext=(dx, dy), textcoords="offset points",
                  fontsize=6.0, fontweight="bold", color="#111827", ha="center", zorder=10.0,
